@@ -49,7 +49,9 @@ ICONS = {
     "component": '<rect x="4" y="2" width="10" height="12"/><rect x="2" y="4" width="4" height="2.5"/><rect x="2" y="8.5" width="4" height="2.5"/>',
 }
 SOORTEN = {"ontstaat", "verandert", "stroomt", "bestaat"}
-BESTAAT, BESTAAT_L = "#ffffff", BUS_L  # eerder ontstaan: witte vulling, gele rand
+# wat in een beeld met een kolom "eerder ontstaan" hier ontstaat, krijgt de nadruk met een dikkere,
+# donkerdere rand; de vulling blijft ArchiMate-geel, zodat beide herkenbaar business objects blijven
+NADRUK_L, NADRUK_DIKTE = BUS_T, "2.5"
 # waar elk object in het laatst getekende beeld staat: (type, instantie) -> (x, y, breedte); de
 # herkomstlijnen lopen daartussen. De laatste tekenronde van een indeling wint, en dat is de getoonde.
 POSITIES = {}
@@ -64,9 +66,11 @@ def icon(kind, x, y, kleur="#444"):
     return f'<g transform="translate({x:.0f},{y:.0f})" fill="none" stroke="{kleur}" stroke-width="1.3">{ICONS[kind]}</g>'
 
 
-def box(x, y, w, h, fill, line, rx=0, dashed=False, patroon="5 3"):
-    """dashed met patroon "5 3" markeert een aanname; relatielabels gebruiken "2 2"."""
+def box(x, y, w, h, fill, line, rx=0, dashed=False, patroon="5 3", dik=False):
+    """dashed met patroon "5 3" markeert een aanname; relatielabels gebruiken "2 2". dik: de nadruk op
+    wat in dit beeld ontstaat, naast een kolom met wat eerder ontstond."""
     d = f' stroke-dasharray="{patroon}"' if dashed else ""
+    d += f' stroke-width="{NADRUK_DIKTE}"' if dik else ""
     return f'<rect x="{x:.0f}" y="{y:.0f}" width="{w:.0f}" height="{h:.0f}" rx="{rx}" fill="{fill}" stroke="{line}"{d}/>'
 
 
@@ -94,7 +98,7 @@ def afbreken(tekst, maxw, size=14, bold=True):
     return regels or [""]
 
 
-def element(x, y, kind, label, inst, fill=BUS, line=BUS_L, labelkleur=BUS_T, rx=0, dashed=False, toestand=None, verwijzing=None, verwijzingen=()):
+def element(x, y, kind, label, inst, fill=BUS, line=BUS_L, labelkleur=BUS_T, rx=0, dashed=False, toestand=None, verwijzing=None, verwijzingen=(), dik=False):
     """Eén element: typelabel klein, instantie vet over zo veel regels als nodig, en eronder de toestand
     en de verwijzingen naar objecten buiten het blok. Geeft (svg, w, h).
 
@@ -106,7 +110,7 @@ def element(x, y, kind, label, inst, fill=BUS, line=BUS_L, labelkleur=BUS_T, rx=
     regels = afbreken(inst, INSTANTIE_MAX_BREEDTE)
     w = max(120, max([tw(label, 12)] + [tw(r, 14, True) for r in regels] + [tw(e, 12) for e in extra]) + 42)
     h = 48 + 18 * (len(regels) - 1) + 17 * len(extra)
-    s = box(x, y, w, h, fill, line, rx, dashed) + icon(kind, x + w - 22, y + 5)
+    s = box(x, y, w, h, fill, line, rx, dashed, dik=dik) + icon(kind, x + w - 22, y + 5)
     s += text(x + 10, y + 18, label, 12, fill=labelkleur)
     for i, r in enumerate(regels):
         s += text(x + 10, y + 36 + 18 * i, r, 14, True)
@@ -368,8 +372,8 @@ def _objecten_rij(x, y, items, uitzonderingen, verbind=False):
         fill, line, lk = (GRIJS, GRIJS_L, GRIJS_T) if buiten else (BUS, BUS_L, BUS_T)
         if it.get("plaat") == "onderwijsontwerp":
             fill, line, lk = CONCEPT, CONCEPT_L, CONCEPT_T
-        if it.get("bestaat"):
-            fill, line = BESTAAT, BESTAAT_L
+        if it.get("focus"):
+            line = NADRUK_L
         if it.get("kinderen"):
             # een container toont, net als een los element, de toestand en verwijzingen onder de instantie
             extra = _extra(it.get("toestand"), it.get("verwijzing"), it.get("verwijzingen", ()))
@@ -380,7 +384,7 @@ def _objecten_rij(x, y, items, uitzonderingen, verbind=False):
             w = max([kw + 24, tw(it["type"], 12) + 42] + [tw(r, 14, True) + 42 for r in inst_regels]
                     + [tw(e, 12) + 42 for e in extra])
             h = kop + kh + 10
-            out += box(cx, y, w, h, fill, line, 0, dashed) + icon("object", cx + w - 22, y + 5)
+            out += box(cx, y, w, h, fill, line, 0, dashed, dik=it.get("focus", False)) + icon("object", cx + w - 22, y + 5)
             out += text(cx + 10, y + 18, it["type"], 12, fill=lk) + ksvg
             for i, r in enumerate(inst_regels):
                 out += text(cx + 10, y + 36 + 18 * i, r, 14, True)
@@ -388,7 +392,7 @@ def _objecten_rij(x, y, items, uitzonderingen, verbind=False):
             for i, e in enumerate(extra):
                 out += text(cx + 10, voet + 17 + 17 * i, e, 12, fill=MUTED)
         else:
-            s, w, h = element(cx, y, "object", it["type"], it["instantie"], fill, line, lk, 0, dashed, it.get("toestand"), it.get("verwijzing"), it.get("verwijzingen", ()))
+            s, w, h = element(cx, y, "object", it["type"], it["instantie"], fill, line, lk, 0, dashed, it.get("toestand"), it.get("verwijzing"), it.get("verwijzingen", ()), dik=it.get("focus", False))
             out += s
         POSITIES[(it["type"], it["instantie"])] = (cx, y, w)
         vorige_rand = (cx + w, y + 24)
@@ -484,27 +488,14 @@ def wrap(W, H, body, dashed=False, titel=None):
             f'<rect x="0.5" y="0.5" width="{W-1:.0f}" height="{H-1:.0f}" rx="10" fill="#ffffff" stroke="{LIJN}"{rand}/>{kop}{body}</svg>')
 
 
-KOLOMKOP = 22      # ruimte boven de twee kolommen voor "Eerder ontstaan" en "Ontstaat hier"
 HERKOMST_BAAN = 10  # afstand tussen de verticale stukken van twee herkomstlijnen
-
-
-def _kolom_bestaand(ox, oy, blok, uitzonderingen):
-    """De kolom links met wat eerder ontstond. Geeft (svg, x van de kolom rechts, (breedte, hoogte));
-    zonder bestaande objecten een lege svg en de kolom rechts op ox."""
-    bestaand = blok.get("bestaand") or []
-    if not bestaand:
-        return "", ox, (0, 0)
-    svg, bw, bh = objecten(ox, oy + KOLOMKOP, bestaand, uitzonderingen)
-    svg = text(ox, oy + 10, "Eerder ontstaan", 12, fill=MUTED) + svg
-    lijnen = blok.get("herkomstlijnen") or []
-    labelw = max((tw(l["label"], 10) for l in lijnen), default=0)
-    goot = 16 + HERKOMST_BAAN * len(lijnen) + labelw + 24
-    return svg, ox + bw + goot, (bw, bh + KOLOMKOP)
 
 
 def _herkomstlijnen(blok, rand):
     """Per relatie een haakse lijn van het bestaande object links naar het object dat hier ontstaat: eruit
-    op de hoogte van de kop, een eigen verticale baan in de goot, en erin met het label van de plaat."""
+    op de hoogte van de kop, een eigen verticale baan in de goot, en erin met het label van de plaat.
+    Staan de lagen gelijk, dan is de lijn recht. De lijnen komen na de vakken, anders verdwijnt de
+    pijlpunt naar een genest object onder zijn ouder."""
     uit = ""
     for i, l in enumerate(blok.get("herkomstlijnen") or []):
         if l["bron"] not in POSITIES or l["doel"] not in POSITIES:
@@ -515,19 +506,211 @@ def _herkomstlijnen(blok, rand):
         baan = rand + 16 + i * HERKOMST_BAAN
         uit += (f'<path class="herkomstlijn" d="M{x1:.0f} {y1:.0f}H{baan:.0f}V{y2:.0f}H{x2:.0f}" '
                 f'stroke="#444" stroke-width="1.3" fill="none"/>')
-        if l["naar_rechts"]:
-            uit += f'<path d="M{x2:.0f} {y2:.0f}l-8 -4v8z" fill="#444"/>'
-        else:
-            uit += f'<path d="M{x1:.0f} {y1:.0f}l8 -4v8z" fill="#444"/>'
+        # dezelfde notatie als relatielijn: ruit aan het geheel, open punt aan het algemene, en een pijlpunt
+        # bij een associatie met een richting (label); beide einden lopen horizontaal het vak in
+        (gx, gy, gr), (dx_, dy_, dr) = ((x1, y1, 1), (x2, y2, -1)) if l["naar_rechts"] else ((x2, y2, -1), (x1, y1, 1))
+        if l["soort"] in ("Aggregation", "Composition"):
+            vulling = "#444" if l["soort"] == "Composition" else "#ffffff"
+            uit += f'<path d="M{gx:.0f} {gy:.0f}l{7*gr} -5l{7*gr} 5l{-7*gr} 5z" fill="{vulling}" stroke="#444" stroke-width="1.3"/>'
+        elif l["soort"] == "Specialization":
+            uit += f'<path d="M{dx_:.0f} {dy_:.0f}l{10*dr} -6v12z" fill="#ffffff" stroke="#444" stroke-width="1.3"/>'
+        elif l["label"]:
+            uit += f'<path d="M{dx_:.0f} {dy_:.0f}l{8*dr} -4v8z" fill="#444"/>'
         if l["label"]:
             # naast de eigen baan, in de goot: bij het doel valt het label achter de rand van zijn ouder
             uit += text(baan + 6, y2 - 5, l["label"], 10, fill=MUTED)
     return uit
 
 
+def _kleur(it, uitzonderingen):
+    """Vulling, rand en labelkleur van een object, zoals _objecten_rij die kiest."""
+    fill, line, lk = (GRIJS, GRIJS_L, GRIJS_T) if it["type"] in uitzonderingen else (BUS, BUS_L, BUS_T)
+    if it.get("plaat") == "onderwijsontwerp":
+        fill, line, lk = CONCEPT, CONCEPT_L, CONCEPT_T
+    if it.get("focus"):
+        line = NADRUK_L
+    return fill, line, lk
+
+
+def _maat(it):
+    """(breedte, kophoogte, hoogte als blad) van een object, met dezelfde rekenregels als element() en de
+    container in _objecten_rij; kinderen staan in deze vorm altijd onder elkaar."""
+    extra = _extra(it.get("toestand"), it.get("verwijzing"), it.get("verwijzingen", ()))
+    regels = afbreken(it["instantie"], INSTANTIE_MAX_BREEDTE)
+    eigen = max(120, max([tw(it["type"], 12)] + [tw(r, 14, True) for r in regels] + [tw(e, 12) for e in extra]) + 42)
+    kinderen = [k for k in it.get("kinderen", []) if "type" in k]
+    w = max([eigen] + [_maat(k)[0] + 28 for k in kinderen])
+    return w, 42 + 18 * (len(regels) - 1) + 17 * len(extra), 48 + 18 * (len(regels) - 1) + 17 * len(extra)
+
+
+def _plat(items, diepte=0):
+    """Pre-order: (object, diepte, relatie ervoor). Een relatie-item tussen twee objecten bovenaan hoort
+    bij het object erna; een relatie over afstand past niet in deze vorm (None)."""
+    uit, wacht = [], None
+    for it in items:
+        if "type" not in it:
+            if it.get("over_afstand"):
+                return None
+            wacht = it
+            continue
+        uit.append((it, diepte, wacht))
+        wacht = None
+        sub = _plat(it.get("kinderen", []), diepte + 1)
+        if sub is None:
+            return None
+        uit += sub
+    return uit
+
+
+class _Kant:
+    """De verticale cursor van een kolom: waar het volgende object kan beginnen, met de open containers."""
+    def __init__(self, y):
+        self.cursor, self.open, self.laatste_bodem = y, [], y
+
+    def sluit_tot(self, diepte):
+        while self.open and self.open[-1][1] >= diepte:
+            it, d = self.open.pop()
+            it["_bodem"] = self.laatste_bodem + 10
+            self.laatste_bodem = it["_bodem"]
+            self.cursor = it["_bodem"] + (28 if d == 0 else 8)
+
+    def plaats(self, it, diepte, y):
+        it["_y"] = y
+        _, kop, blad = _maat(it)
+        if [k for k in it.get("kinderen", []) if "type" in k]:
+            self.open.append((it, diepte))
+            self.cursor = y + kop
+        else:
+            it["_bodem"] = y + blad
+            self.laatste_bodem = it["_bodem"]
+            self.cursor = it["_bodem"] + (28 if diepte == 0 else 8)
+
+
+def _uitgelijnd(lx, rx, y, links, rechts, lijnen, uitzonderingen):
+    """Beide kolommen onder elkaar, met elk paar uit een herkomstlijn op dezelfde hoogte: de laag van de
+    specificatie naast de laag van het aanbod. Geeft (svg links, svg rechts, hoogte), of None als de paren
+    niet in dezelfde volgorde staan of een relatie over afstand loopt; dan valt het beeld terug op twee
+    gewone kolommen."""
+    pl, pr = _plat(links), _plat(rechts)
+    if pl is None or pr is None:
+        return None
+    paar = {l["bron"]: l["doel"] for l in lijnen}
+    sleutel = lambda it: (it["type"], it["instantie"])
+    volgorde = [sleutel(it) for it, _, _ in pr]
+    gepaard = [volgorde.index(paar[sleutel(it)]) for it, _, _ in pl if paar.get(sleutel(it)) in volgorde]
+    if gepaard != sorted(gepaard):
+        return None
+    doelen = set(paar.values())
+    kl, kr = _Kant(y), _Kant(y)
+    i = j = 0
+    while i < len(pl) or j < len(pr):
+        l = pl[i] if i < len(pl) else None
+        r = pr[j] if j < len(pr) else None
+        if l and paar.get(sleutel(l[0])) is not None and r and paar[sleutel(l[0])] == sleutel(r[0]):
+            kl.sluit_tot(l[1]); kr.sluit_tot(r[1])
+            extra = 16 if r[2] is not None and r[1] == 0 else 0
+            yy = max(kl.cursor, kr.cursor + extra)
+            kl.plaats(l[0], l[1], yy); kr.plaats(r[0], r[1], yy)
+            i += 1; j += 1
+        elif l and paar.get(sleutel(l[0])) is None:
+            kl.sluit_tot(l[1]); kl.plaats(l[0], l[1], kl.cursor); i += 1
+        elif r and sleutel(r[0]) not in doelen or (r and l is None):
+            kr.sluit_tot(r[1])
+            kr.plaats(r[0], r[1], kr.cursor + (16 if r[2] is not None and r[1] == 0 else 0)); j += 1
+        else:
+            return None
+    kl.sluit_tot(0); kr.sluit_tot(0)
+
+    def teken_kolom(plat, x0):
+        out, lijnen_svg, vorige = "", "", None
+        for it, diepte, rel in plat:
+            x = x0 + 14 * diepte
+            w, kop, _ = _maat(it)
+            fill, line, lk = _kleur(it, uitzonderingen)
+            if [k for k in it.get("kinderen", []) if "type" in k]:
+                extra = _extra(it.get("toestand"), it.get("verwijzing"), it.get("verwijzingen", ()))
+                regels = afbreken(it["instantie"], INSTANTIE_MAX_BREEDTE)
+                out += box(x, it["_y"], w, it["_bodem"] - it["_y"], fill, line, 0, it.get("aanname", False), dik=it.get("focus", False))
+                out += icon("object", x + w - 22, it["_y"] + 5) + text(x + 10, it["_y"] + 18, it["type"], 12, fill=lk)
+                for k, regel in enumerate(regels):
+                    out += text(x + 10, it["_y"] + 36 + 18 * k, regel, 14, True)
+                voet = it["_y"] + 36 + 18 * (len(regels) - 1)
+                for k, e in enumerate(extra):
+                    out += text(x + 10, voet + 17 + 17 * k, e, 12, fill=MUTED)
+            else:
+                svg, w, _ = element(x, it["_y"], "object", it["type"], it["instantie"], fill, line, lk, 0, it.get("aanname", False),
+                                    it.get("toestand"), it.get("verwijzing"), it.get("verwijzingen", ()), dik=it.get("focus", False))
+                out += svg
+            POSITIES[(it["type"], it["instantie"])] = (x, it["_y"], w)
+            if diepte == 0:
+                if rel is not None and vorige is not None:
+                    lijnen_svg += relatielijn_v(x0 + 60, vorige, it["_y"], rel.get("soort", "Association"), rel["relatie"], rel.get("naar_rechts", True))
+                vorige = it["_bodem"]
+        return out + lijnen_svg
+
+    hoogte = max([it["_bodem"] for it, _, _ in pl + pr] + [y]) - y
+    return teken_kolom(pl, lx), teken_kolom(pr, rx), hoogte
+
+
+def _regel_herkomst(blok, uitzonderingen):
+    """Een beeld met een kolom eerder ontstaan: links de processtap waarin het object ontstond met zijn
+    objecten, rechts de processtap van dit beeld met wat hier ontstaat, en per relatie een lijn ertussen.
+    De lagen die bij elkaar horen staan op dezelfde hoogte."""
+    y0 = 10 + KOP
+    kop = blok.get("herkomst_kop")
+    POSITIES.clear()
+    # links: de processtap van herkomst, of een kaal label als de kolom uit meer beelden komt
+    if kop:
+        lwie, lww, lwh = element(12, y0, "rol", "rol", kop["wie"] or "", BUS, BUS_L, BUS_T, 8)
+        lstap, lsw, lsh = element(12 + lww + 10, y0, "proces", "processtap", kop["stap"], BUS, BUS_L, BUS_T, 8,
+                                  verwijzing=f"eerder ontstaan, in {kop['beeld_id']}")
+        links_kop, links_rand, links_h = lwie + lstap, 12 + lww + 10 + lsw, max(lwh, lsh)
+    else:
+        links_kop, links_rand, links_h = text(12, y0 + 16, "Eerder ontstaan", 12, fill=MUTED), 12 + tw("Eerder ontstaan", 12), 22
+    lijnen = blok.get("herkomstlijnen") or []
+    labelw = max((tw(l["label"], 10) for l in lijnen), default=0)
+    goot = 16 + HERKOMST_BAAN * len(lijnen) + labelw + 24
+    lx = 40
+    bw = max([_maat(it)[0] for it in blok["bestaand"]] + [0])
+    rx = max(lx + bw + goot, links_rand + 58)
+    rwie, rww, rwh = element(rx - 28, y0, "rol", "rol", blok["wie"] or "", BUS, BUS_L, BUS_T, 8)
+    verdieping = f"verdieping: {blok['verdieping']}" if blok.get("verdieping") else None
+    rstap, rsw, rsh = element(rx - 28 + rww + 10, y0, "proces", "processtap", blok["stap"], BUS, BUS_L, BUS_T, 8,
+                              verwijzing=verdieping or "ontstaat hier")
+    kop_h = max(links_h, rwh, rsh)
+    oy = y0 + kop_h + 24
+    gelijk = _uitgelijnd(lx, rx, oy, blok["bestaand"], blok["objecten"], lijnen, uitzonderingen)
+    if gelijk:
+        lsvg, rsvg, oh = gelijk
+        rw = max([_maat(it)[0] for it in blok["objecten"] if "type" in it] + [0])
+    else:
+        POSITIES.clear()
+        lsvg, bw, bh = objecten(lx, oy, blok["bestaand"], uitzonderingen)
+        rx = max(rx, lx + bw + goot)
+        rsvg, rw, rh = objecten(rx, oy, blok["objecten"], uitzonderingen)
+        oh = max(bh, rh)
+    haken = ""
+    # de ophanging loopt tot het eerste object van de kolom; door het uitlijnen begint die soms lager
+    eerste = lambda items: next((POSITIES.get((it["type"], it["instantie"])) for it in items if "type" in it), None)
+    for hx, top, items in ((lx + 24, y0 + links_h, blok["bestaand"]), (rx + 24, y0 + kop_h, blok["objecten"])):
+        if items is blok["bestaand"] and not kop:
+            continue
+        doel = (eerste(items) or (0, oy, 0))[1]
+        haken += (f'<path d="M{hx} {top} V{doel - 4}" stroke="{BUS_L}" stroke-width="1.5" stroke-dasharray="3 3"/>'
+                  f'<path d="M{hx - 5} {doel - 10} l5 6 5 -6" fill="none" stroke="{BUS_L}" stroke-width="1.5"/>')
+    herkomst = _herkomstlijnen(blok, lx + bw)
+    zin_y = oy + oh + 22
+    zin, zw, zh = alinea(12, zin_y, blok.get("zin", ""), 14, min(ZIN_MAX_BREEDTE, max(360, rx + rw - 12)))
+    W = max(rx - 28 + rww + 10 + rsw + 12, rx + rw + 12, 12 + zw + 12)
+    H = zin_y + zh + 12
+    return wrap(W, H, links_kop + rwie + rstap + haken + lsvg + rsvg + herkomst + zin, titel=beeldtitel(blok))
+
+
 def regel_ontstaat(blok, uitzonderingen):
     """Bovenaan de rol en de processtap; eronder, aan een stippellijn, de objecten die ontstaan of
     veranderen, met hun relaties; te brede ketens gaan in een kolom."""
+    if blok.get("bestaand"):
+        return _regel_herkomst(blok, uitzonderingen)
     y0 = 10 + (KOP if blok.get("beeld") else 0)
     wie, ww, wh = element(12, y0, "rol", "rol", blok["wie"] or "", BUS, BUS_L, BUS_T, 8)
     x = 12 + ww + 10
@@ -535,22 +718,11 @@ def regel_ontstaat(blok, uitzonderingen):
     stap, sw, sh = element(x, y0, "proces", "processtap", blok["stap"], BUS, BUS_L, BUS_T, 8, verwijzing=verdieping)
     kop_h = max(wh, sh)
     ox, oy = 40, y0 + kop_h + 24
-    POSITIES.clear()
-    links, kolom_x, bh = _kolom_bestaand(ox, oy, blok, uitzonderingen)
-    if links:
-        oy += KOLOMKOP
-    objs, ow, oh = objecten(kolom_x, oy, blok["objecten"], uitzonderingen)
-    # de herkomstlijnen komen na de vakken, anders verdwijnt de pijlpunt naar een genest object onder zijn ouder
-    herkomst = _herkomstlijnen(blok, ox + bh[0]) if links else ""
-    if links:
-        oh = max(oh, bh[1])
-        ow += kolom_x - ox
-    # de ophanging: van de processtap naar de objecten die hier ontstaan
-    hx = kolom_x + 24
+    objs, ow, oh = objecten(ox, oy, blok["objecten"], uitzonderingen)
+    # de ophanging: van de processtap naar de objecten
+    hx = ox + 24
     haak = (f'<path d="M{hx} {y0 + kop_h} V{oy - 4}" stroke="{BUS_L}" stroke-width="1.5" stroke-dasharray="3 3"/>'
             f'<path d="M{hx - 5} {oy - 10} l5 6 5 -6" fill="none" stroke="{BUS_L}" stroke-width="1.5"/>')
-    if links:
-        haak += text(hx + 10, oy - 8, "Ontstaat hier", 12, fill=MUTED)
     zin_y = oy + oh + 22
     concept = blok.get("plaat") == "onderwijsontwerp"
     chip, zin_x = "", 12
@@ -563,7 +735,7 @@ def regel_ontstaat(blok, uitzonderingen):
     zin, zw, zh = alinea(zin_x, zin_y, blok.get("zin", ""), 14, min(ZIN_MAX_BREEDTE, max(360, ox + ow - zin_x)))
     W = max(x + sw + 12, ox + ow + 12, zin_x + zw + 12)
     H = zin_y + zh + 12
-    return wrap(W, H, wie + stap + links + haak + objs + herkomst + chip + zin, dashed=concept, titel=beeldtitel(blok))
+    return wrap(W, H, wie + stap + haak + objs + chip + zin, dashed=concept, titel=beeldtitel(blok))
 
 
 def regel_stroomt(blok, uitzonderingen):
@@ -742,6 +914,8 @@ def groepeer(regels):
             # (nesting) komt terug zoals zij ontstond
             item = {"type": r["objecttype"], "instantie": r["instantie"], "bestaat": True, "herkomst": r["herkomst"],
                     "aanname": r.get("aanname", False), "plaat": r.get("plaat", "informatiemodel"), "verwijzingen": []}
+            if r.get("toestand"):
+                item["toestand"] = r["toestand"]
             if _specialiseert(r):
                 item["specialiseert"] = _specialiseert(r)
             rel = r.get("relatie")
@@ -749,8 +923,6 @@ def groepeer(regels):
                 item["verwijzingen"].append(_verwijzing(rel, r["objecttype"]))
             item["verwijzingen"] += [_verwijzing(x, r["objecttype"]) for x in r.get("relaties", [])]
             ouder = _zoek_bestaand(laatste["bestaand"], rel["van"]) if rel and rel.get("nesting") else None
-            if ouder is None or ouder.get("herkomst") != r["herkomst"]:
-                item["verwijzingen"].insert(0, f"uit {r['herkomst']}")
             if ouder is not None:
                 ouder.setdefault("kinderen", []).append(item)
             else:
@@ -816,7 +988,36 @@ def groepeer(regels):
         laatste["objecten"].append(item)
         if r.get("zin") and not laatste["zin"]:
             laatste["zin"] = r["zin"]
+    for blok in blokken:
+        if blok.get("bestaand"):
+            _herkomst_afronden(blok, regels["regels"])
     return blokken
+
+
+def _alle(items):
+    for it in items:
+        if "type" in it:
+            yield it
+            yield from _alle(it.get("kinderen", []))
+
+
+def _herkomst_afronden(blok, regels):
+    """Boven de kolom links staat de processtap waarin het bestaande object ontstond, als dat voor de hele
+    kolom een beeld is; een object uit een ander beeld draagt dan zelf "uit Fx-yy". Wat hier ontstaat
+    krijgt de nadruk."""
+    herkomsten = list(dict.fromkeys(it["herkomst"] for it in blok["bestaand"]))
+    bron = [r for r in regels if r.get("beeld_id") == herkomsten[0]] if len(herkomsten) == 1 else []
+    blok["herkomst_kop"] = ({"beeld_id": herkomsten[0], "stap": bron[0]["stap"],
+                             "wie": ", ".join(dict.fromkeys(r["wie"] for r in bron if r.get("wie")))} if bron else None)
+    kop = (blok["herkomst_kop"] or {}).get("beeld_id")
+    def chips(items, ouder=None):
+        for it in items:
+            if it["herkomst"] != kop and it["herkomst"] != ouder:
+                it["verwijzingen"].insert(0, f"uit {it['herkomst']}")
+            chips(it.get("kinderen", []), it["herkomst"])
+    chips(blok["bestaand"])
+    for it in _alle(blok["objecten"]):
+        it["focus"] = True
 
 
 def beeldtitel(blok):

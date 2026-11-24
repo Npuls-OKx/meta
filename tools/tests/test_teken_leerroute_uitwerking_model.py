@@ -132,10 +132,12 @@ class TekenTests(unittest.TestCase):
         self.assertEqual([k["instantie"] for k in verbintenis.get("kinderen", [])], ["Jochem op D1-K1"])
         self.assertNotIn("Jochem op D1-K1", [o.get("instantie") for o in blok["objecten"]])
 
-    def herkomstblok(self):
+    def herkomstregels(self, met_herkomstbeeld=True):
         """F6-01 in het klein: de specificatie uit F1-08 staat links, het aanbod ontstaat rechts."""
         b = {"beeld_id": "F6-01", "beeld": "Aanbod per laag", "fase": 6, "stap": "Aanbod maken", "bron": "b"}
-        r = {"scope_uitzonderingen": [], "regels": [
+        f1 = {"beeld_id": "F1-08", "beeld": "Keuzedeel ontworpen", "fase": 1, "stap": "Keuzedeel vormgeven", "bron": "b",
+              "soort": "ontstaat", "wie": "onderwijsontwerper"}
+        regels = [
             {**b, "soort": "bestaat", "objecttype": "Keuzedeel specificatie", "instantie": "K0037", "herkomst": "F1-08",
              "relatie": {"soort": "Specialization", "van": "Keuzedeel specificatie", "naar": "Opleidingsprogramma specificatie"}},
             {**b, "soort": "bestaat", "objecttype": "Onderwijseenheid specificatie", "instantie": "D1-K1", "herkomst": "F1-08",
@@ -145,8 +147,13 @@ class TekenTests(unittest.TestCase):
              "relaties": [{"soort": "Association", "van": "Keuzedeel specificatie", "naar": "Keuzedeel aanbod", "label": "wordt aangeboden als", "instantie": "K0037"}]},
             {**b, "soort": "ontstaat", "wie": "planner", "objecttype": "Onderwijseenheid aanbod", "instantie": "D1-K1, periode 7",
              "relatie": {"soort": "Aggregation", "van": "Opleidingsprogramma aanbod", "naar": "Onderwijseenheid aanbod", "nesting": True},
-             "relaties": [{"soort": "Association", "van": "Onderwijseenheid specificatie", "naar": "Onderwijseenheid aanbod", "label": "wordt aangeboden als", "instantie": "D1-K1"}]}]}
-        return self.blokken(r)[0]
+             "relaties": [{"soort": "Association", "van": "Onderwijseenheid specificatie", "naar": "Onderwijseenheid aanbod", "label": "wordt aangeboden als", "instantie": "D1-K1"}]}]
+        if met_herkomstbeeld:
+            regels.insert(0, {**f1, "objecttype": "Keuzedeel specificatie", "instantie": "K0037"})
+        return {"scope_uitzonderingen": [], "regels": regels}
+
+    def herkomstblok(self, met_herkomstbeeld=True):
+        return [x for x in self.blokken(self.herkomstregels(met_herkomstbeeld)) if x.get("beeld_id") == "F6-01"][0]
 
     def test_given_bestaat_rules_when_grouped_then_own_column_with_herkomst_and_nesting(self):
         blok = self.herkomstblok()
@@ -155,6 +162,8 @@ class TekenTests(unittest.TestCase):
         self.assertEqual([k["instantie"] for k in blok["bestaand"][0]["kinderen"]], ["D1-K1"])
         self.assertNotIn("Keuzedeel specificatie", [o.get("type") for o in blok["objecten"]])
         self.assertEqual(blok["wie"], "planner")
+        # de processtap waarin het bestaande object ontstond, staat boven de kolom links
+        self.assertEqual(blok["herkomst_kop"], {"beeld_id": "F1-08", "stap": "Keuzedeel vormgeven", "wie": "onderwijsontwerper"})
 
     def test_given_relation_to_a_bestaat_object_when_grouped_then_a_line_and_no_reference(self):
         blok = self.herkomstblok()
@@ -165,25 +174,46 @@ class TekenTests(unittest.TestCase):
         self.assertFalse(any("wordt aangeboden als" in v for v in aanbod.get("verwijzingen", [])))
         self.assertFalse(any("wordt aangeboden als" in v for v in aanbod["kinderen"][0].get("verwijzingen", [])))
 
-    def test_given_bestaat_objects_when_drawn_then_white_box_herkomst_chip_and_a_line_per_relation(self):
+    def test_given_bestaat_objects_when_drawn_then_both_steps_on_top_and_a_line_per_relation(self):
         svg = tv.regel_ontstaat(self.herkomstblok(), set())
         t = teksten(svg)
-        self.assertIn("uit F1-08", t)
-        self.assertIn("Eerder ontstaan", t)
-        self.assertIn("Ontstaat hier", t)
+        self.assertIn("Keuzedeel vormgeven", t)
+        self.assertIn("onderwijsontwerper", t)
+        self.assertIn("eerder ontstaan, in F1-08", t)
+        self.assertIn("Aanbod maken", t)
+        self.assertIn("ontstaat hier", t)
         self.assertEqual(t.count("wordt aangeboden als"), 2)
-        boxen = {r.get("fill") for r in rects(svg)}
-        self.assertIn("#ffffff", boxen)
         lijnen = [p for p in ET.fromstring(svg).iter(f"{SVG}path") if p.get("class") == "herkomstlijn"]
         self.assertEqual(len(lijnen), 2)
         # de lijnen liggen boven de vakken, zodat de pijlpunt naar een genest object zichtbaar blijft
         self.assertGreater(svg.rindex('class="herkomstlijn"'), svg.rindex("D1-K1, periode 7"))
 
-    def test_given_bestaat_object_when_drawn_then_left_of_the_new_objects(self):
+    def test_given_bestaat_objects_when_drawn_then_same_fill_and_the_new_objects_highlighted(self):
         svg = tv.regel_ontstaat(self.herkomstblok(), set())
+        objectvakken = [r for r in rects(svg) if r.get("fill") == tv.BUS and r.get("rx") == "0"]
+        dik = [r for r in objectvakken if r.get("stroke-width") == tv.NADRUK_DIKTE]
+        self.assertEqual(len(objectvakken), 4)
+        self.assertEqual(len(dik), 2)  # de twee objecten die hier ontstaan; de bestaande houden de gewone rand
+
+    def test_given_paired_layers_when_drawn_then_each_pair_on_the_same_height(self):
+        # het aanbod rechts draagt een toestand en is daardoor hoger dan de specificatie links;
+        # de laag eronder moet toch op dezelfde hoogte beginnen
+        r = self.herkomstregels()
+        r["regels"][3]["toestand"] = "gepland"
+        blok = [x for x in self.blokken(r) if x.get("beeld_id") == "F6-01"][0]
+        svg = tv.regel_ontstaat(blok, set())
         root = ET.fromstring(svg)
+        y_van = {t.text: float(t.get("y")) for t in root.iter(f"{SVG}text")}
         x_van = {t.text: float(t.get("x")) for t in root.iter(f"{SVG}text")}
+        self.assertEqual(y_van["K0037"], y_van["K0037, periode 7"])
+        self.assertEqual(y_van["D1-K1"], y_van["D1-K1, periode 7"])
         self.assertLess(x_van["K0037"], x_van["K0037, periode 7"])
+
+    def test_given_herkomst_beeld_unknown_when_drawn_then_chip_per_object(self):
+        svg = tv.regel_ontstaat(self.herkomstblok(met_herkomstbeeld=False), set())
+        t = teksten(svg)
+        self.assertIn("uit F1-08", t)
+        self.assertIn("Eerder ontstaan", t)
 
     def test_given_state_on_a_created_object_when_drawn_then_state_is_shown(self):
         r = regels()
