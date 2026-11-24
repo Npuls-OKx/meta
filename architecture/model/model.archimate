@@ -26462,7 +26462,7 @@ En moet er suboptimaal op leeractiviteit niveau beschreven gaan worden, wat extr
             </child>
             <child xsi:type="archimate:Note" id="id-2179810434ea4aa698c618b35fe69659" font="1|Segoe UI|12.0|0|WINDOWS|1|-20|0|0|0|400|0|0|0|0|3|2|1|34|Segoe UI" textAlignment="1">
               <bounds x="12" y="660" width="325" height="181"/>
-              <content>Okx hoofdplaat 1.7 &lt;concept>&#xD;
+              <content>Okx hoofdplaat &lt;concept>&#xD;
 - Onderwijs Catalogus groepering&#xD;
 - PlanningMeerjarenplanning links focus op capaciteit, nominale route uitwerking in OC&#xD;
 - KRS+SVS groepering&#xD;
@@ -26815,7 +26815,7 @@ En moet er suboptimaal op leeractiviteit niveau beschreven gaan worden, wat extr
               </sourceConnection>
             </child>
           </child>
-          <documentation>v1.7.0</documentation>
+          <documentation>v1.7.2</documentation>
         </element>
         <element xsi:type="archimate:ArchimateDiagramModel" name="Koppelvlak Onderwijscatalogus" id="id-c3496067165442b6a8f5247cdd4896c4">
           <child xsi:type="archimate:Group" id="id-8f7a9503e54045f3ba3f458ea20711dc" name="Onderwijscatalogus" lineWidth="2" textAlignment="1" fillColor="#ffffff">
