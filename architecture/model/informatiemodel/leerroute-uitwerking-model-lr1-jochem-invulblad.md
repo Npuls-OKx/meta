@@ -105,11 +105,19 @@ Hoort bij [de opleiding van Jochem in het informatiemodel](leerroute-uitwerking-
 | 5 | F5-05 | Onderwijseenheid aanbod | | | | |
 | 5 | F5-05 | Summatieve resultaat structuur | | | | |
 | 6 | F6-01 | Keuzedeel aanbod | | | | |
-| 6 | F6-03 | Aanmelding | | | | |
-| 6 | F6-03 | Keuzedeel aanbod verbintenis | | | | |
-| 6 | F6-05 | Keuzedeel aanbod | | | | |
-| 6 | F6-07 | Inschrijving | | | | |
-| 6 | F6-07 | Keuzedeel aanbod verbintenis | | | | |
+| 6 | F6-01 | Onderwijseenheid aanbod | | | | |
+| 6 | F6-01 | Leergelegenheid | | | | |
+| 6 | F6-01 | Leergelegenheid | | | | |
+| 6 | F6-04 | Aanmelding | | | | |
+| 6 | F6-04 | Keuzedeel aanbod verbintenis | | | | |
+| 6 | F6-04 | Onderwijseenheid aanbod verbintenis | | | | |
+| 6 | F6-06 | Keuzedeel aanbod | | | | |
+| 6 | F6-06 | Onderwijseenheid aanbod | | | | |
+| 6 | F6-08 | Inschrijving | | | | |
+| 6 | F6-08 | Keuzedeel aanbod verbintenis | | | | |
+| 6 | F6-08 | Onderwijseenheid aanbod verbintenis | | | | |
+| 6 | F6-13 | Leergelegenheid | | | | |
+| 6 | F6-13 | Leergelegenheid verbintenis | | | | |
 | 7 | F7-01 | Plaatsingsgroep | | | | |
 | 7 | F7-02 | Onderwijseenheid aanbod verbintenis | | | | |
 | 7 | F7-04 | Onderwijseenheid aanbod | | | | |

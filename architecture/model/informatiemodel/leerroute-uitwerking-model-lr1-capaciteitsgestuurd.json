@@ -26,22 +26,22 @@
       "nummer": 6,
       "bron": "instellingspraktijk: capaciteitsgestuurd plannen (#402)",
       "stappen": [
-        "Capaciteit vaststellen na de animo",
-        "Geplande leergelegenheden ontsluiten naar het studentkeuzesysteem",
-        "Plek kiezen op een geplande leergelegenheid",
+        "Capaciteitsplanning toetsen aan de animo",
+        "Plek kiezen binnen de vastgestelde groep",
         "Toewijzen binnen de capaciteit"
       ],
       "voorafgegaan_door": [
         "F6-01",
         "F6-02",
         "F6-03",
-        "F6-04"
+        "F6-04",
+        "F6-05"
       ],
       "vervangt": [
-        "F6-05",
-        "F6-07"
+        "F6-06",
+        "F6-08"
       ],
-      "toelichting": "In deze vorm kiest de student op een geplande leergelegenheid. Hoe die uit de specificatie rijpt, bepaalt het onderwijsontwerp van de instelling. Het keuzedeelaanbod voor de animo komt via de catalogus; de aanmelding daarop (F6-03) geeft een voorkeur, en de keuze volgt op de leergelegenheid. Na de animo stelt de planner de capaciteit vast. Een afwijking tussen prognose en animo tot 50 procent ligt in dit voorbeeld binnen de marge; daarboven verbetert de instelling de prognose zelf. De capaciteit gaat rechtstreeks van planning naar het studentkeuzesysteem. F6-06 neemt de uitkomst daarvan mee (KD-A blijft, KD-B is geannuleerd), en F6-08 geldt ook hier."
+      "toelichting": "In deze vorm is de capaciteit vooraf gepland op de meerjarencapaciteitsplanning (F2-C01). De keuze in F6-04 geldt hier als animo, en de animocheck is een controle op die capaciteitsplanning, niet de planning zelf. De keuze valt op de onderwijseenheid, net als in de basis; de leergelegenheid volgt bij het roosteren. Een afwijking tussen prognose en animo tot 50 procent ligt in dit voorbeeld binnen de marge; daarboven verbetert de instelling de prognose zelf. F6-07 neemt de uitkomst mee (KD-A blijft, KD-B is geannuleerd), en F6-10 geldt ook hier. Bijgesteld na de sessie van 17 november 2026."
     },
     {
       "nummer": 7,
@@ -171,104 +171,89 @@
     },
     {
       "beeld_id": "F6-C01",
-      "beeld": "Capaciteit vastgesteld na de animo",
+      "beeld": "De animocheck op de capaciteitsplanning",
       "fase": 6,
-      "stap": "Capaciteit vaststellen na de animo",
+      "stap": "Capaciteitsplanning toetsen aan de animo",
       "soort": "verandert",
       "wie": "planner",
-      "objecttype": "Leergelegenheid",
-      "instantie": "K0037 Farmaceutische Patientenzorg, periode 7, planninggroep KD-A: 19 aanmeldingen bij de animo tegen een prognose van 30, een groep van 24 blijft",
-      "bron": "instellingspraktijk: capaciteitsgestuurd plannen (#402)",
+      "objecttype": "Onderwijseenheid aanbod",
+      "instantie": "D1-K1, periode 7, groep KD-A: 19 aanmeldingen bij de animo tegen een prognose van 30, een groep van 24 blijft",
+      "bron": "instellingspraktijk: capaciteitsgestuurd plannen (#402); sessie Keuzedeelmodel en informatiemodel, 17 november 2026 (Niels van Duin, Niek Derksen): de animocheck is een controle op de capaciteitsplanning",
       "toestand": "gepland",
-      "zin": "Na de animo stelt de planner de capaciteit vast: een groep is genoeg. De docentinzet en het lokaal van KD-B gaan terug naar de inzetplanning. Een afwijking van ongeveer 37 procent ligt binnen de marge die de instelling in dit voorbeeld hanteert; vanaf 50 procent verbetert zij de prognose zelf."
+      "zin": "De planner legt de animo naast de capaciteitsplanning uit F2-C01: een groep is genoeg. De docentinzet en het lokaal van KD-B gaan terug naar de inzetplanning. Een afwijking van ongeveer 37 procent ligt binnen de marge die de instelling in dit voorbeeld hanteert; vanaf 50 procent verbetert zij de prognose zelf."
     },
     {
       "beeld_id": "F6-C01",
-      "beeld": "Capaciteit vastgesteld na de animo",
+      "beeld": "De animocheck op de capaciteitsplanning",
       "fase": 6,
-      "stap": "Capaciteit vaststellen na de animo",
+      "stap": "Capaciteitsplanning toetsen aan de animo",
       "soort": "verandert",
       "wie": "planner",
-      "objecttype": "Leergelegenheid",
-      "instantie": "K0037 Farmaceutische Patientenzorg, periode 7, planninggroep KD-B: geannuleerd",
-      "bron": "instellingspraktijk: capaciteitsgestuurd plannen (#402)",
+      "objecttype": "Onderwijseenheid aanbod",
+      "instantie": "D1-K1, periode 7, groep KD-B: geannuleerd",
+      "bron": "instellingspraktijk: capaciteitsgestuurd plannen (#402); sessie Keuzedeelmodel en informatiemodel, 17 november 2026 (Niels van Duin, Niek Derksen): de animocheck is een controle op de capaciteitsplanning",
       "toestand": "geannuleerd"
     },
     {
       "beeld_id": "F6-C02",
-      "beeld": "Geplande leergelegenheid naar het studentkeuzesysteem",
+      "beeld": "Jochem kiest een plek in de vastgestelde groep",
       "fase": 6,
-      "stap": "Geplande leergelegenheden ontsluiten naar het studentkeuzesysteem",
-      "soort": "stroomt",
-      "van": "Planningssysteem",
-      "naar": "Student Keuze Systeem (SKS)",
-      "pijl": "id-6268df4c8b1e4a1ca02d4bd6732b8b34",
-      "koppeling": null,
-      "objecttype": "Leergelegenheid",
-      "instantie": "K0037 Farmaceutische Patientenzorg, periode 7, planninggroep KD-A, 24 plaatsen",
-      "bron": "instellingspraktijk: capaciteitsgestuurd plannen (#402)",
-      "zin": "De capaciteit gaat rechtstreeks van planning naar het studentkeuzesysteem; het keuzedeelaanbod voor de animo kwam via de catalogus."
-    },
-    {
-      "beeld_id": "F6-C03",
-      "beeld": "Jochem kiest een plek op de geplande leergelegenheid",
-      "fase": 6,
-      "stap": "Plek kiezen op een geplande leergelegenheid",
+      "stap": "Plek kiezen binnen de vastgestelde groep",
       "soort": "ontstaat",
       "wie": "student",
       "objecttype": "Aanmelding",
-      "instantie": "Plek op K0037 Farmaceutische Patientenzorg, periode 7, planninggroep KD-A",
-      "bron": "instellingspraktijk: capaciteitsgestuurd plannen (#402)",
+      "instantie": "Plek op D1-K1, periode 7, groep KD-A",
+      "bron": "instellingspraktijk: capaciteitsgestuurd plannen (#402); sessie Keuzedeelmodel en informatiemodel, 17 november 2026 (Niels van Duin, Niek Derksen): de animocheck is een controle op de capaciteitsplanning",
       "nieuwe_instantie": true,
       "relatie": {
         "soort": "Association",
-        "van": "Leergelegenheid",
+        "van": "Onderwijseenheid aanbod",
         "naar": "Aanmelding",
         "label": "Op basis van",
-        "instantie": "K0037 Farmaceutische Patientenzorg, periode 7, KD-A"
+        "instantie": "D1-K1, periode 7, KD-A"
       },
-      "zin": "Jochem kiest nu een plek op een geplande leergelegenheid. Zijn aanmelding bij de animo gaf een voorkeur op het keuzedeelaanbod; de keuze volgt hier."
+      "zin": "Jochem kiest nu een plek in de groep die na de animo is blijven staan. Zijn keuze in F6-04 gaf de animo; de plek volgt hier, op de onderwijseenheid."
     },
     {
-      "beeld_id": "F6-C03",
-      "beeld": "Jochem kiest een plek op de geplande leergelegenheid",
+      "beeld_id": "F6-C02",
+      "beeld": "Jochem kiest een plek in de vastgestelde groep",
       "fase": 6,
-      "stap": "Plek kiezen op een geplande leergelegenheid",
+      "stap": "Plek kiezen binnen de vastgestelde groep",
       "soort": "ontstaat",
       "wie": "student",
-      "objecttype": "Leergelegenheid verbintenis",
-      "instantie": "Jochem op K0037 Farmaceutische Patientenzorg, periode 7, planninggroep KD-A",
-      "bron": "instellingspraktijk: capaciteitsgestuurd plannen (#402)",
+      "objecttype": "Onderwijseenheid aanbod verbintenis",
+      "instantie": "Jochem op D1-K1, periode 7, groep KD-A",
+      "bron": "instellingspraktijk: capaciteitsgestuurd plannen (#402); sessie Keuzedeelmodel en informatiemodel, 17 november 2026 (Niels van Duin, Niek Derksen): de animocheck is een controle op de capaciteitsplanning",
       "nieuwe_instantie": true,
       "relatie": {
         "soort": "Association",
         "van": "Aanmelding",
-        "naar": "Leergelegenheid verbintenis",
+        "naar": "Onderwijseenheid aanbod verbintenis",
         "label": "middels"
       }
     },
     {
-      "beeld_id": "F6-C04",
+      "beeld_id": "F6-C03",
       "beeld": "Toegewezen binnen de capaciteit: inschrijving op het keuzedeel",
       "fase": 6,
       "stap": "Toewijzen binnen de capaciteit",
       "soort": "ontstaat",
       "wie": "planner",
       "objecttype": "Inschrijving",
-      "instantie": "K0037 Farmaceutische Patientenzorg, periode 7, planninggroep KD-A: plek 20 van 24",
-      "bron": "instellingspraktijk: capaciteitsgestuurd plannen (#402)",
+      "instantie": "D1-K1, periode 7, groep KD-A: plek 20 van 24",
+      "bron": "instellingspraktijk: capaciteitsgestuurd plannen (#402); sessie Keuzedeelmodel en informatiemodel, 17 november 2026 (Niels van Duin, Niek Derksen): de animocheck is een controle op de capaciteitsplanning",
       "nieuwe_instantie": true,
       "relatie": {
         "soort": "Association",
         "van": "Inschrijving",
-        "naar": "Leergelegenheid verbintenis",
+        "naar": "Onderwijseenheid aanbod verbintenis",
         "label": "middels",
-        "instantie": "Jochem op K0037 Farmaceutische Patientenzorg, periode 7, KD-A"
+        "instantie": "Jochem op D1-K1, periode 7, KD-A"
       },
-      "zin": "De planner wijst Jochem toe binnen de capaciteit. Deze inschrijving op het keuzedeel vervangt die uit F6-07: ook de verbintenis op het keuzedeelaanbod staat daarmee op ingeschreven."
+      "zin": "De planner wijst Jochem toe binnen de capaciteit. Deze inschrijving op het keuzedeel vervangt die uit F6-08: ook de verbintenis op het keuzedeelaanbod staat daarmee op ingeschreven."
     },
     {
-      "beeld_id": "F6-C04",
+      "beeld_id": "F6-C03",
       "beeld": "Toegewezen binnen de capaciteit: inschrijving op het keuzedeel",
       "fase": 6,
       "stap": "Toewijzen binnen de capaciteit",
@@ -276,7 +261,7 @@
       "wie": "planner",
       "objecttype": "Keuzedeel aanbod verbintenis",
       "instantie": "Jochem op K0037 Farmaceutische Patientenzorg, periode 7",
-      "bron": "instellingspraktijk: capaciteitsgestuurd plannen (#402)",
+      "bron": "instellingspraktijk: capaciteitsgestuurd plannen (#402); sessie Keuzedeelmodel en informatiemodel, 17 november 2026 (Niels van Duin, Niek Derksen): de animocheck is een controle op de capaciteitsplanning",
       "toestand": "ingeschreven"
     },
     {
