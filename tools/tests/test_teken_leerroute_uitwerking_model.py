@@ -174,26 +174,40 @@ class TekenTests(unittest.TestCase):
         self.assertFalse(any("wordt aangeboden als" in v for v in aanbod.get("verwijzingen", [])))
         self.assertFalse(any("wordt aangeboden als" in v for v in aanbod["kinderen"][0].get("verwijzingen", [])))
 
-    def test_given_bestaat_objects_when_drawn_then_both_steps_on_top_and_a_line_per_relation(self):
+    def test_given_bestaat_objects_when_drawn_then_two_panels_with_role_over_step_and_a_trigger(self):
         svg = tv.regel_ontstaat(self.herkomstblok(), set())
         t = teksten(svg)
+        self.assertIn("Eerder ontstaan · F1-08", t)
+        self.assertIn("Ontstaat hier · F6-01", t)
         self.assertIn("Keuzedeel vormgeven", t)
         self.assertIn("onderwijsontwerper", t)
-        self.assertIn("eerder ontstaan, in F1-08", t)
         self.assertIn("Aanbod maken", t)
-        self.assertIn("ontstaat hier", t)
-        self.assertEqual(t.count("wordt aangeboden als"), 2)
+        paden = {p.get("class") for p in ET.fromstring(svg).iter(f"{SVG}path")}
+        # de rol voert de processtap uit (toewijzing) en de eerdere processtap triggert de huidige
+        self.assertEqual(sum(1 for p in ET.fromstring(svg).iter(f"{SVG}path") if p.get("class") == "toewijzing"), 2)
+        self.assertIn("trigger", paden)
+        vlakken = {r.get("class"): r for r in rects(svg) if r.get("class")}
+        self.assertEqual(vlakken["vlak-eerder"]["fill"], tv.VLAK_EERDER)
+        self.assertEqual(vlakken["vlak-hier"]["stroke"], tv.VLAK_HIER_L)
+
+    def test_given_bestaat_objects_when_drawn_then_a_line_per_relation_on_top_of_the_boxes(self):
+        svg = tv.regel_ontstaat(self.herkomstblok(), set())
+        self.assertEqual(teksten(svg).count("wordt aangeboden als"), 2)
         lijnen = [p for p in ET.fromstring(svg).iter(f"{SVG}path") if p.get("class") == "herkomstlijn"]
         self.assertEqual(len(lijnen), 2)
         # de lijnen liggen boven de vakken, zodat de pijlpunt naar een genest object zichtbaar blijft
         self.assertGreater(svg.rindex('class="herkomstlijn"'), svg.rindex("D1-K1, periode 7"))
 
-    def test_given_bestaat_objects_when_drawn_then_same_fill_and_the_new_objects_highlighted(self):
+    def test_given_bestaat_objects_when_drawn_then_objects_keep_the_archimate_business_look(self):
         svg = tv.regel_ontstaat(self.herkomstblok(), set())
         objectvakken = [r for r in rects(svg) if r.get("fill") == tv.BUS and r.get("rx") == "0"]
-        dik = [r for r in objectvakken if r.get("stroke-width") == tv.NADRUK_DIKTE]
         self.assertEqual(len(objectvakken), 4)
-        self.assertEqual(len(dik), 2)  # de twee objecten die hier ontstaan; de bestaande houden de gewone rand
+        self.assertEqual({r.get("stroke") for r in objectvakken}, {tv.BUS_L})
+
+    def test_given_herkomst_beeld_when_drawn_then_a_visual_legend_in_the_image(self):
+        t = teksten(tv.regel_ontstaat(self.herkomstblok(), set()))
+        for sleutel in tv.LEGENDA_HERKOMST:
+            self.assertIn(sleutel, t)
 
     def test_given_paired_layers_when_drawn_then_each_pair_on_the_same_height(self):
         # het aanbod rechts draagt een toestand en is daardoor hoger dan de specificatie links;
@@ -214,6 +228,7 @@ class TekenTests(unittest.TestCase):
         t = teksten(svg)
         self.assertIn("uit F1-08", t)
         self.assertIn("Eerder ontstaan", t)
+        self.assertIn("Ontstaat hier · F6-01", t)
 
     def test_given_state_on_a_created_object_when_drawn_then_state_is_shown(self):
         r = regels()
