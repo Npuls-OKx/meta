@@ -238,7 +238,7 @@ De gemarkeerde lijnen zijn de stromen die deze fase raakt, met het beeld waarin 
 
 ### Variant capaciteitsgestuurd
 
-Het basisvoorbeeld plant een groep op de prognose en heroverweegt die na de keuzes; deze variant legt vooraf twee groepen vast op de inzetbare capaciteit, zoals docenten met de juiste expertise en lokaaltypen. De K0037-regels van F2-C01 vervangen in deze vorm die van F2-08. Fase 1, 3, 5 en 8 blijven in deze vorm gelijk.
+Het basisvoorbeeld plant een groep op de prognose en heroverweegt die na de keuzes; deze variant legt vooraf twee groepen vast op de inzetbare capaciteit, zoals docenten met de juiste expertise en lokaaltypen. Voor K0037 vervangt F2-C01 het beeld F2-08. Fase 1, 3, 5 en 8 blijven gelijk.
 
 ![Hoofdplaat met de stromen van fase 2 in de variant capaciteitsgestuurd gemarkeerd](img/hoofdplaat/f2-capaciteitsgestuurd.svg)
 
@@ -1339,7 +1339,8 @@ Elke regel onder het ID en de titel van haar beeld (fase, stap, bestand) met de 
 | verandert | Planningsgroep | K0037 periode 7, locatie A: 18 keuzes, de groep past | aanwijzing van de opdrachtgever, 24 november 2026: na de keuzes heroverweegt de planner de groep uit de jaarplanning |
 | verandert | Keuzedeel aanbod | K0037 Farmaceutische Patientenzorg, periode 7, locatie A: 1 groep, 18 plaatsen | [leerroute-1-regulier.md](https://github.com/Npuls-OKx/Public/blob/dev/Referentiemateriaal/kaderscenario's/leerroute-1-regulier.md), [Fase 6](https://github.com/Npuls-OKx/Public/blob/dev/Referentiemateriaal/kaderscenario's/leerroute-1-regulier.md#fase-6--organiseren-van-keuzemomenten): de planner verwerkt definitieve keuzes periodiek naar groepen en capaciteit; scenario-1.1-regulier-happyflow.md, blok D (maatvoering uit de review van 29 september 2026) |
 | verandert | Onderwijseenheid aanbod | D1-K1, periode 7, locatie A: 1 groep, 18 plaatsen | [leerroute-1-regulier.md](https://github.com/Npuls-OKx/Public/blob/dev/Referentiemateriaal/kaderscenario's/leerroute-1-regulier.md), [Fase 6](https://github.com/Npuls-OKx/Public/blob/dev/Referentiemateriaal/kaderscenario's/leerroute-1-regulier.md#fase-6--organiseren-van-keuzemomenten): de planner verwerkt definitieve keuzes periodiek naar groepen en capaciteit; scenario-1.1-regulier-happyflow.md, blok D (maatvoering uit de review van 29 september 2026) |
-| verandert | Leergelegenheid | Het medicatieoverzicht opstellen, periode 7: 1 groep van 18, Campus Zuid (locatie A), gebouw C | aanwijzing van de opdrachtgever, 24 november 2026; leerroute-1-regulier.md, r726 (gedetailleerd planbaar: leergelegenheden met expertise- en faciliteitkoppelingen) |
+| verandert | Leergelegenheid | Het medicatieoverzicht opstellen, periode 7: 1 groep van 18 | aanwijzing van de opdrachtgever, 24 november 2026; leerroute-1-regulier.md, r726 (gedetailleerd planbaar: leergelegenheden met expertise- en faciliteitkoppelingen) |
+| verandert | Leergelegenheid | Zorg aan specifieke doelgroepen, periode 7: 1 groep van 18 | aanwijzing van de opdrachtgever, 24 november 2026; leerroute-1-regulier.md, r726 (gedetailleerd planbaar: leergelegenheden met expertise- en faciliteitkoppelingen) |
 
 **F6-07 - Planningssysteem stuurt het bijgewerkte keuzedeelaanbod naar de onderwijscatalogus** (fase 6, Planbaar aanbod actualiseren; [f6-07-planningssysteem-stuurt-het-bijgewerkte-keuzedeelaanbod-naar-de-onderwijscatalogus.svg](img/regels/f6-07-planningssysteem-stuurt-het-bijgewerkte-keuzedeelaanbod-naar-de-onderwijscatalogus.svg))
 
@@ -1380,8 +1381,8 @@ Elke regel onder het ID en de titel van haar beeld (fase, stap, bestand) met de 
 
 | Soort | Objecttype | Instantie | Bron |
 |---|---|---|---|
-| stroomt | Leergelegenheid | Het medicatieoverzicht opstellen, periode 7: 1 groep van 18, Campus Zuid (locatie A), gebouw C | sessie Keuzedeelmodel en informatiemodel, 17 november 2026 (Niels van Duin, Niek Derksen): richting rooster stuurt planning het aanbod op de lager gelegen eenheden door, en daar komt de verbintenis op |
-| stroomt | Leergelegenheid | Zorg aan specifieke doelgroepen, periode 7: 1 groep van 18, Campus Zuid (locatie A), gebouw C | sessie Keuzedeelmodel en informatiemodel, 17 november 2026 (Niels van Duin, Niek Derksen): richting rooster stuurt planning het aanbod op de lager gelegen eenheden door, en daar komt de verbintenis op |
+| stroomt | Leergelegenheid | Het medicatieoverzicht opstellen, periode 7: 1 groep van 18 | sessie Keuzedeelmodel en informatiemodel, 17 november 2026 (Niels van Duin, Niek Derksen): richting rooster stuurt planning het aanbod op de lager gelegen eenheden door, en daar komt de verbintenis op |
+| stroomt | Leergelegenheid | Zorg aan specifieke doelgroepen, periode 7: 1 groep van 18 | sessie Keuzedeelmodel en informatiemodel, 17 november 2026 (Niels van Duin, Niek Derksen): richting rooster stuurt planning het aanbod op de lager gelegen eenheden door, en daar komt de verbintenis op |
 | stroomt | Planningsgroep | K0037 periode 7, locatie A: 18 keuzes, de groep past | sessie Keuzedeelmodel en informatiemodel, 17 november 2026 (Niels van Duin, Niek Derksen): richting rooster stuurt planning het aanbod op de lager gelegen eenheden door, en daar komt de verbintenis op |
 
 **F6-13 - Roosteraar roostert K0037 voor Jochem** (fase 6, Gekozen keuzedeel roosteren en deelnemers delen; [f6-13-roosteraar-roostert-k0037-voor-jochem.svg](img/regels/f6-13-roosteraar-roostert-k0037-voor-jochem.svg))

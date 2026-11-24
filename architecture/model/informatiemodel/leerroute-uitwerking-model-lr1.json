@@ -6377,7 +6377,7 @@
       "wie": "planner",
       "objecttype": "Leergelegenheid",
       "toestand": "fijnmazig gepland",
-      "instantie": "Het medicatieoverzicht opstellen, periode 7: 1 groep van 18, Campus Zuid (locatie A), gebouw C",
+      "instantie": "Het medicatieoverzicht opstellen, periode 7: 1 groep van 18",
       "bron": "aanwijzing van de opdrachtgever, 24 november 2026; leerroute-1-regulier.md, r726 (gedetailleerd planbaar: leergelegenheden met expertise- en faciliteitkoppelingen)",
       "relatie": {
         "soort": "Aggregation",
@@ -6392,6 +6392,47 @@
           "naar": "Leergelegenheid",
           "label": "wordt aangeboden als",
           "instantie": "Het medicatieoverzicht opstellen"
+        },
+        {
+          "soort": "Association",
+          "van": "Leergelegenheid",
+          "naar": "Onderwijslocatie",
+          "label": "wordt gegeven op",
+          "instantie": "Campus Zuid (locatie A), gebouw C"
+        }
+      ]
+    },
+    {
+      "beeld_id": "F6-06",
+      "beeld": "Planner verwerkt de keuzes tot groepen en capaciteit",
+      "fase": 6,
+      "stap": "Definitieve keuzes verwerken naar groepen en capaciteit",
+      "soort": "verandert",
+      "wie": "planner",
+      "objecttype": "Leergelegenheid",
+      "toestand": "fijnmazig gepland",
+      "instantie": "Zorg aan specifieke doelgroepen, periode 7: 1 groep van 18",
+      "bron": "aanwijzing van de opdrachtgever, 24 november 2026; leerroute-1-regulier.md, r726 (gedetailleerd planbaar: leergelegenheden met expertise- en faciliteitkoppelingen)",
+      "relatie": {
+        "soort": "Aggregation",
+        "van": "Onderwijseenheid aanbod",
+        "naar": "Leergelegenheid",
+        "nesting": true
+      },
+      "relaties": [
+        {
+          "soort": "Association",
+          "van": "Leeronderdeel specificatie",
+          "naar": "Leergelegenheid",
+          "label": "wordt aangeboden als",
+          "instantie": "Zorg aan specifieke doelgroepen"
+        },
+        {
+          "soort": "Association",
+          "van": "Leergelegenheid",
+          "naar": "Onderwijslocatie",
+          "label": "wordt gegeven op",
+          "instantie": "Campus Zuid (locatie A), gebouw C"
         }
       ]
     },
@@ -6662,7 +6703,7 @@
       "pijl": "id-08467fe302794db6b935ff685e83efe0",
       "koppeling": null,
       "objecttype": "Leergelegenheid",
-      "instantie": "Het medicatieoverzicht opstellen, periode 7: 1 groep van 18, Campus Zuid (locatie A), gebouw C",
+      "instantie": "Het medicatieoverzicht opstellen, periode 7: 1 groep van 18",
       "bron": "sessie Keuzedeelmodel en informatiemodel, 17 november 2026 (Niels van Duin, Niek Derksen): richting rooster stuurt planning het aanbod op de lager gelegen eenheden door, en daar komt de verbintenis op",
       "relaties": [
         {
@@ -6677,6 +6718,13 @@
           "van": "Onderwijseenheid aanbod",
           "naar": "Leergelegenheid",
           "instantie": "D1-K1, periode 7, locatie A: 1 groep, 18 plaatsen"
+        },
+        {
+          "soort": "Association",
+          "van": "Leergelegenheid",
+          "naar": "Onderwijslocatie",
+          "label": "wordt gegeven op",
+          "instantie": "Campus Zuid (locatie A), gebouw C"
         }
       ],
       "zin": "Planning geeft de leergelegenheden onder K0037 met de planningsgroep aan het roostersysteem. Bij planning lag de keuze op het keuzedeel en de onderwijseenheid; richting rooster gaat het om de laag daaronder. Het vaste roostermoment voor generieke keuzedelen zoals K0262 regelen planning en rooster zelf; de uitwisseling draagt het kenmerk generiek keuzedeel. K0037 is beroepsspecifiek en wordt binnen het rooster van de eigen opleiding geroosterd."
@@ -6692,7 +6740,7 @@
       "pijl": "id-08467fe302794db6b935ff685e83efe0",
       "koppeling": null,
       "objecttype": "Leergelegenheid",
-      "instantie": "Zorg aan specifieke doelgroepen, periode 7: 1 groep van 18, Campus Zuid (locatie A), gebouw C",
+      "instantie": "Zorg aan specifieke doelgroepen, periode 7: 1 groep van 18",
       "bron": "sessie Keuzedeelmodel en informatiemodel, 17 november 2026 (Niels van Duin, Niek Derksen): richting rooster stuurt planning het aanbod op de lager gelegen eenheden door, en daar komt de verbintenis op",
       "nieuwe_instantie": true,
       "relaties": [
@@ -6708,6 +6756,13 @@
           "van": "Onderwijseenheid aanbod",
           "naar": "Leergelegenheid",
           "instantie": "D1-K1, periode 7, locatie A: 1 groep, 18 plaatsen"
+        },
+        {
+          "soort": "Association",
+          "van": "Leergelegenheid",
+          "naar": "Onderwijslocatie",
+          "label": "wordt gegeven op",
+          "instantie": "Campus Zuid (locatie A), gebouw C"
         }
       ]
     },

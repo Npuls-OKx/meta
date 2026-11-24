@@ -117,6 +117,7 @@ Hoort bij [de opleiding van Jochem in het informatiemodel](leerroute-uitwerking-
 | 6 | F6-06 | Keuzedeel aanbod | | | | |
 | 6 | F6-06 | Onderwijseenheid aanbod | | | | |
 | 6 | F6-06 | Leergelegenheid | | | | |
+| 6 | F6-06 | Leergelegenheid | | | | |
 | 6 | F6-08 | Inschrijving | | | | |
 | 6 | F6-08 | Keuzedeel aanbod verbintenis | | | | |
 | 6 | F6-08 | Onderwijseenheid aanbod verbintenis | | | | |
