@@ -56,7 +56,7 @@
   "regels": [
     {
       "beeld_id": "F2-C01",
-      "beeld": "Keuzedeel K0037 vooraf gepland op capaciteit",
+      "beeld": "Planner plant K0037 vooraf op capaciteit",
       "fase": 2,
       "stap": "Keuzedeelaanbod plannen op inzetbare capaciteit en prognose",
       "soort": "ontstaat",
@@ -76,7 +76,7 @@
     },
     {
       "beeld_id": "F2-C01",
-      "beeld": "Keuzedeel K0037 vooraf gepland op capaciteit",
+      "beeld": "Planner plant K0037 vooraf op capaciteit",
       "fase": 2,
       "stap": "Keuzedeelaanbod plannen op inzetbare capaciteit en prognose",
       "soort": "ontstaat",
@@ -95,7 +95,7 @@
     },
     {
       "beeld_id": "F2-C01",
-      "beeld": "Keuzedeel K0037 vooraf gepland op capaciteit",
+      "beeld": "Planner plant K0037 vooraf op capaciteit",
       "fase": 2,
       "stap": "Keuzedeelaanbod plannen op inzetbare capaciteit en prognose",
       "soort": "ontstaat",
@@ -114,7 +114,7 @@
     },
     {
       "beeld_id": "F2-C02",
-      "beeld": "Geplande keuzedeelgroepen naar de catalogus",
+      "beeld": "Planning levert de geplande keuzedeelgroepen terug aan de catalogus",
       "fase": 2,
       "stap": "Gepland keuzedeelaanbod terugleveren aan de onderwijscatalogus",
       "soort": "stroomt",
@@ -128,7 +128,7 @@
     },
     {
       "beeld_id": "F2-C02",
-      "beeld": "Geplande keuzedeelgroepen naar de catalogus",
+      "beeld": "Planning levert de geplande keuzedeelgroepen terug aan de catalogus",
       "fase": 2,
       "stap": "Gepland keuzedeelaanbod terugleveren aan de onderwijscatalogus",
       "soort": "stroomt",
@@ -142,7 +142,7 @@
     },
     {
       "beeld_id": "F2-C02",
-      "beeld": "Geplande keuzedeelgroepen naar de catalogus",
+      "beeld": "Planning levert de geplande keuzedeelgroepen terug aan de catalogus",
       "fase": 2,
       "stap": "Gepland keuzedeelaanbod terugleveren aan de onderwijscatalogus",
       "soort": "stroomt",
@@ -156,7 +156,7 @@
     },
     {
       "beeld_id": "F4-C01",
-      "beeld": "Na de toewijzing: de keuzedeelgroep met vaste capaciteit naar het roostersysteem",
+      "beeld": "Planning stuurt de keuzedeelgroep met vaste capaciteit naar het rooster",
       "fase": 4,
       "stap": "Keuzedeelgroep met vaste capaciteit aan het roostersysteem geven",
       "soort": "stroomt",
@@ -171,7 +171,7 @@
     },
     {
       "beeld_id": "F6-C01",
-      "beeld": "Animocheck op de capaciteitsplanning",
+      "beeld": "Planner toetst de capaciteitsplanning aan de animo",
       "fase": 6,
       "stap": "Capaciteitsplanning toetsen aan de animo",
       "soort": "verandert",
@@ -184,7 +184,7 @@
     },
     {
       "beeld_id": "F6-C01",
-      "beeld": "Animocheck op de capaciteitsplanning",
+      "beeld": "Planner toetst de capaciteitsplanning aan de animo",
       "fase": 6,
       "stap": "Capaciteitsplanning toetsen aan de animo",
       "soort": "verandert",
@@ -196,7 +196,7 @@
     },
     {
       "beeld_id": "F6-C02",
-      "beeld": "Plek in de vastgestelde groep",
+      "beeld": "Jochem kiest een plek in de vastgestelde groep",
       "fase": 6,
       "stap": "Plek kiezen binnen de vastgestelde groep",
       "soort": "ontstaat",
@@ -216,7 +216,7 @@
     },
     {
       "beeld_id": "F6-C02",
-      "beeld": "Plek in de vastgestelde groep",
+      "beeld": "Jochem kiest een plek in de vastgestelde groep",
       "fase": 6,
       "stap": "Plek kiezen binnen de vastgestelde groep",
       "soort": "ontstaat",
@@ -234,7 +234,7 @@
     },
     {
       "beeld_id": "F6-C03",
-      "beeld": "Toewijzing binnen de capaciteit",
+      "beeld": "Planner wijst Jochem toe binnen de capaciteit",
       "fase": 6,
       "stap": "Toewijzen binnen de capaciteit",
       "soort": "ontstaat",
@@ -254,7 +254,7 @@
     },
     {
       "beeld_id": "F6-C03",
-      "beeld": "Toewijzing binnen de capaciteit",
+      "beeld": "Planner wijst Jochem toe binnen de capaciteit",
       "fase": 6,
       "stap": "Toewijzen binnen de capaciteit",
       "soort": "verandert",
@@ -266,7 +266,7 @@
     },
     {
       "beeld_id": "F7-C01",
-      "beeld": "Een plek komt vrij binnen de capaciteit",
+      "beeld": "Planner verwerkt een vrijgekomen plek binnen de capaciteit",
       "fase": 7,
       "stap": "Vrijgekomen plek binnen de capaciteit verwerken",
       "soort": "verandert",
@@ -279,7 +279,7 @@
     },
     {
       "beeld_id": "F7-C02",
-      "beeld": "De vrije plek terug naar het studentkeuzesysteem",
+      "beeld": "Planning ontsluit de vrije plek naar het studentkeuzesysteem",
       "fase": 7,
       "stap": "Vrije plek ontsluiten naar het studentkeuzesysteem",
       "soort": "stroomt",
