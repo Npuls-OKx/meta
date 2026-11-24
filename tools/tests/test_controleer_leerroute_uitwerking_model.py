@@ -92,6 +92,60 @@ def register_regels(**velden):
     return r
 
 
+def met_bestaat(herkomst="F2-01", instantie="Apothekersassistent 2026", plek=3, extra=None):
+    """Een bestaat-regel in het beeld van de aanmelding (F3-01): het opleidingsaanbod uit fase 2 staat
+    zichtbaar naast de aanmelding die erop ontstaat. plek is de index in de regels."""
+    r = regels()
+    b = {"beeld_id": "F3-01", "beeld": "Aanmelding", "fase": 3, "stap": "Aanmelden", "soort": "bestaat",
+         "objecttype": "Opleidingaanbod", "instantie": instantie, "bron": "ks r1"}
+    if herkomst is not None:
+        b["herkomst"] = herkomst
+    r["regels"].insert(plek, {**b, **(extra or {})})
+    return r
+
+
+class HerkomstTests(unittest.TestCase):
+    """Een bestaat-regel zet een eerder ontstaan object zichtbaar in een beeld (#567, increment 2)."""
+
+    def test_given_bestaat_with_right_herkomst_when_checked_then_no_findings_and_no_extra_ontstaan(self):
+        b, w, _ = bevindingen(met_bestaat())
+        self.assertEqual(b, [])
+        self.assertFalse(any("ontstaat-regels" in x for x in b))
+
+    def test_given_bestaat_without_herkomst_when_checked_then_finding(self):
+        b, _, _ = bevindingen(met_bestaat(herkomst=None))
+        self.assertTrue(any("herkomst ontbreekt" in x for x in b), b)
+
+    def test_given_herkomst_to_unknown_beeld_when_checked_then_finding(self):
+        b, _, _ = bevindingen(met_bestaat(herkomst="F2-09"))
+        self.assertTrue(any("F2-09" in x and "herkomst" in x for x in b), b)
+
+    def test_given_herkomst_to_a_later_beeld_when_checked_then_finding(self):
+        b, _, _ = bevindingen(met_bestaat(herkomst="F4-01"))
+        self.assertTrue(any("F4-01" in x and "herkomst" in x for x in b), b)
+
+    def test_given_other_instance_than_at_herkomst_when_checked_then_finding(self):
+        b, _, _ = bevindingen(met_bestaat(instantie="Apothekersassistent 2027"))
+        self.assertTrue(any("herkomst" in x and "Apothekersassistent 2027" in x for x in b), b)
+
+    def test_given_herkomst_skipping_a_later_change_when_checked_then_finding_names_the_last_rule(self):
+        # na het roosteren (F4-01, verandert) is F4-01 de laatste stand, niet F2-01
+        r = regels()
+        r["regels"].append({"beeld_id": "F4-02", "beeld": "Na het roosteren", "fase": 4, "stap": "Roosteren", "soort": "bestaat",
+                            "objecttype": "Opleidingaanbod", "instantie": "Apothekersassistent 2026", "herkomst": "F2-01", "bron": "ks"})
+        b, _, _ = bevindingen(r)
+        self.assertTrue(any("F4-01" in x and "herkomst" in x for x in b), b)
+        r["regels"][-1]["herkomst"] = "F4-01"
+        b, _, _ = bevindingen(r)
+        self.assertEqual(b, [])
+
+    def test_given_herkomst_on_another_soort_when_checked_then_finding(self):
+        r = regels()
+        r["regels"][3]["herkomst"] = "F2-01"
+        b, _, _ = bevindingen(r)
+        self.assertTrue(any("herkomst hoort bij een bestaat-regel" in x for x in b), b)
+
+
 class ControleTests(unittest.TestCase):
     def test_given_valid_table_when_checked_then_no_findings(self):
         b, w, o = bevindingen()

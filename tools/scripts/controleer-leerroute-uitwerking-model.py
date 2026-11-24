@@ -40,6 +40,9 @@ Controles (R1 en R2 uit het featureplan):
     die fase een beeld, of een reden waarom niet (beeld_in_fase, afwijking of buiten_scope). Staat de
     dekking van een fase op volledig, dan is een gat een bevinding; anders een signalering, zodat een
     fase die nog loopt zijn werklijst ziet zonder de poort rood te zetten.
+13. herkomst: een bestaat-regel zet een eerder ontstaan object zichtbaar in een beeld. Zij draagt herkomst,
+    het beeld van de laatste ontstaat- of verandert-regel van dezelfde instantie ervoor, met de instantie
+    letterlijk zoals daar. Een bestaat-regel telt niet als ontstaan en niet in de dekking.
 
 Een planningsvorm naast de basis (leerroute-uitwerking-model-lr1-<vorm>.json, #401) krijgt controle 1 tot en met 5,
 8, 9, 11 en 13 op de tabel die ontstaat als zij met de kop van de basis wordt samengevoegd, en controle 10
@@ -81,7 +84,7 @@ VARIANTSCHEMA = pathlib.Path("architecture/model/informatiemodel/leerroute-uitwe
 PLATEN = {"informatiemodel", "onderwijsontwerp"}
 GEEN_PIJL = "geen pijl op de hoofdplaat"
 NESTING = {"Aggregation", "Composition"}
-SOORTEN = {"ontstaat", "verandert", "stroomt"}
+SOORTEN = {"ontstaat", "verandert", "stroomt", "bestaat"}
 # het kwalificatiekader raakt de rest van de plaat via de leeruitkomst; het examenplan en de OER
 # zijn de twee uitzonderingen die de plaat zelf kent (documenten van de instelling, geen specificatie)
 KADERFAMILIE = "Kwalificatiekader MBO"
@@ -300,7 +303,11 @@ def schema(regels):
         vorige = beeld
         soort = r.get("soort")
         if soort not in SOORTEN:
-            uit.append(f"{plek}: soort {soort!r} is niet ontstaat, verandert of stroomt")
+            uit.append(f"{plek}: soort {soort!r} is niet ontstaat, verandert, stroomt of bestaat")
+        if soort == "bestaat" and not r.get("herkomst"):
+            uit.append(f"{plek}: veld herkomst ontbreekt bij bestaat; het beeld waar dit object eerder ontstond of veranderde")
+        elif soort != "bestaat" and "herkomst" in r:
+            uit.append(f"{plek}: veld herkomst hoort bij een bestaat-regel, niet bij {soort}")
         if soort in ("ontstaat", "verandert") and not r.get("wie"):
             uit.append(f"{plek}: veld wie ontbreekt")
         if soort == "verandert" and not r.get("toestand"):
@@ -331,6 +338,38 @@ def schema(regels):
     return uit
 
 
+def herkomst(regels, voorafgaand=()):
+    """Een bestaat-regel zet een eerder ontstaan object zichtbaar in een beeld. Haar herkomst is het beeld
+    van de laatste ontstaat- of verandert-regel van dezelfde instantie ervoor, want dat is de stand die het
+    beeld toont. In voorafgaand staan de regels die in de leesvolgorde eerder komen (de basis, voor een
+    variant). Geeft bevindingen."""
+    uit = []
+    reeks = list(voorafgaand) + list(regels.get("regels", []))
+    eigen_start = len(voorafgaand)
+    for i in range(eigen_start, len(reeks)):
+        r = reeks[i]
+        if r.get("soort") != "bestaat" or not r.get("herkomst"):
+            continue
+        plek = plek_van(r, i - eigen_start)
+        bid, naam, inst = r["herkomst"], norm(r.get("objecttype", "")), r.get("instantie")
+        eerder = reeks[:i]
+        if bid not in {x.get("beeld_id") for x in reeks}:
+            uit.append(f"{plek}: herkomst {bid} is geen beeld in de regeltabel")
+            continue
+        if bid not in {x.get("beeld_id") for x in eerder if x.get("beeld_id") != r.get("beeld_id")}:
+            uit.append(f"{plek}: herkomst {bid} staat niet eerder in de leesvolgorde dan {r.get('beeld_id')}")
+            continue
+        laatste = next((x for x in reversed(eerder) if x.get("soort") in ("ontstaat", "verandert")
+                        and norm(x.get("objecttype", "")) == naam and x.get("instantie") == inst), None)
+        if laatste is None:
+            uit.append(f"{plek}: herkomst {bid}: geen eerdere ontstaat- of verandert-regel voor {naam!r} "
+                       f"met instantie {inst!r}; neem de instantie letterlijk over uit de regel van herkomst")
+        elif laatste.get("beeld_id") != bid:
+            uit.append(f"{plek}: herkomst {bid} is niet de laatste stand van {naam!r} {inst!r}; "
+                       f"dat is {laatste.get('beeld_id')}")
+    return uit
+
+
 def _route_via_leeruitkomst(r, plek, typen):
     """De herkomst uit het kwalificatiekader loopt via de leeruitkomst. Een regel die een objecttype uit
     die familie rechtstreeks aan iets anders knoopt, wijkt daarvan af; de plaat staat dat alleen toe voor
@@ -350,17 +389,18 @@ def _route_via_leeruitkomst(r, plek, typen):
 
 
 def controleer(regels, model, stromen=None, fasen_filter=None, model_commit=None, conceptplaat=None,
-               componenten=None, schema_pad=SCHEMA, eerder=()):
+               componenten=None, schema_pad=SCHEMA, eerder=(), voorafgaand=()):
     """Alle controles; geeft (bevindingen, waarschuwingen, ontbrekend per fase).
 
     Een samengevoegde variant (veld vorm) krijgt de controles op namen, relaties, rollen, stappen,
     pijlen, beelden en koppelingen, maar niet de dekking (6 en 12): die zeggen iets over een volledige
     reis, en een variant is een delta. Het JSON Schema van de variant toetst controleer_variant op het
     bestand zelf; schema_pad is dan None. In eerder staan de objecttypen die al in de basis ontstonden,
-    zodat een variant daar een nieuwe_instantie van kan maken."""
+    zodat een variant daar een nieuwe_instantie van kan maken. In voorafgaand staan de regels die in
+    de leesvolgorde voor deze tabel komen, waar de herkomst van een bestaat-regel naar mag wijzen."""
     variant = bool(regels.get("vorm"))
     schemafouten, waarschuwingen = schemavalidatie(regels, schema_pad) if schema_pad else ([], [])
-    bevindingen = schemafouten + schema(regels) + register(regels)
+    bevindingen = schemafouten + schema(regels) + register(regels) + herkomst(regels, voorafgaand)
     if bevindingen and any(b.startswith("kop:") for b in bevindingen):
         return bevindingen, waarschuwingen, {}
 
@@ -524,7 +564,8 @@ def controleer_variant(v, basis, geladen, model, stromen=None, conceptplaat=None
                     bevindingen.append(f"fase {f['nummer']}: {wat} {bid!r}, maar dat beeld staat niet in de basis, "
                                        f"in een eerdere variant of eerder in deze variant")
     b, w, _ = controleer(v["tabel"], model, stromen, conceptplaat=conceptplaat, componenten=componenten,
-                         schema_pad=None, eerder=varianten.ontstaan_in(basis))
+                         schema_pad=None, eerder=varianten.ontstaan_in(basis),
+                         voorafgaand=basis.get("regels", []))
     return [f"{naam}: {x}" for x in bevindingen + b], [f"{naam}: {x}" for x in waarschuwingen + w]
 
 

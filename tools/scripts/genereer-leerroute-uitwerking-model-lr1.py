@@ -98,7 +98,17 @@ def blokken_per_fase(regels):
         uit[blok["fase"]].append({"naam": teken.bestandsnaam(blok, n), "stap": blok["stap"], "soort": blok["soort"], "verdieping": blok.get("verdieping"),
                                   "beeld": blok.get("beeld"), "beeld_id": blok.get("beeld_id"),
                                   "van": blok.get("van"), "naar": blok.get("naar"),
-                                  "koppeling": blok.get("koppeling"), "pijl": blok.get("pijl")})
+                                  "koppeling": blok.get("koppeling"), "pijl": blok.get("pijl"),
+                                  "herkomst": _herkomst(blok.get("bestaand") or [])})
+    return uit
+
+
+def _herkomst(items):
+    """De bestaande objecten van een beeld, met hun beeld van herkomst, in de volgorde van de kolom."""
+    uit = []
+    for it in items:
+        uit.append((it["herkomst"], norm(it["type"]), it["instantie"]))
+        uit += _herkomst(it.get("kinderen", []))
     return uit
 
 
@@ -153,9 +163,10 @@ Een keuzedeel is daarmee in opbouw bijna hetzelfde als een programma: het erft d
 het eigen heeft komt in het logisch gegevensmodel erbij. Het algemene begrip staat dus al op de plaat, en het
 keuzedeel is de invulling die het mbo eraan geeft.
 
-Twee soorten regels, in de vormtaal van de plaat:
+Drie soorten regels, in de vormtaal van de plaat:
 
 - **Ontstaat**: een rol (geel, rolicoon) voert een processtap uit (geel, procesicoon) en daaruit ontstaan objecttypen (geel, objecticoon) met Jochems waarde. "Bestaat uit" is nesting; een relatielabel van de plaat staat tussen twee objecten of als verwijzing op een object dat aan een eerdere stap hangt. Een gestippelde rand is een aanname; grijs is een objecttype dat de plaat buiten de uitwisseling zet en dit voorbeeld toch meeneemt.
+- **Bestaat** (wit met gele rand, links onder "Eerder ontstaan"): een object dat in een eerder beeld ontstond, met dat beeld erbij ("uit F1-08"). Een lijn met het label van de plaat loopt naar het object dat er hier uit ontstaat; onder het beeld staat de herkomst als link.
 - **Stroomt** (blauwe rand): van welk systeem naar welk systeem gaat welk object, met de koppeling-ID of "zonder koppelingspecificatie", en de processtap waarna het gebeurt.
 
 Waar de herkomst loopt: het kwalificatiedossier, de kwalificatie, de kerntaken en de werkprocessen staan in het eerste beeld van fase 1, en het derde beeld vertaalt ze naar leeruitkomsten. Daarna verwijzen specificaties, toets- en examenonderdelen, aanbod, verbintenissen en resultaten naar de leeruitkomst; de plaat kent buiten die route alleen een directe verwijzing vanuit het examenplan en de OER. Een dossiercode in een instantienaam (B1-K1, B1-K1-W1) is daarom een leeshulp die zegt over welk deel van het dossier het gaat, en geen relatie. Op de conceptplaat loopt daarnaast een eigen pad binnen de instelling: de kerntaak wordt daar onderwijskundig vertaald tot een leerdoel.
@@ -204,6 +215,14 @@ def beeldblok(b, kop="###"):
     if b.get("beeld"):
         uit += f"{kop} {teken.beeldtitel(b)}\n\n"
     uit += f"![{alt}]({REGELMAP}/{b['naam']})\n\n"
+    if b.get("herkomst"):
+        # een link in een SVG werkt op GitHub niet; daarom staat de herkomst als tekst onder het beeld
+        per_beeld = collections.OrderedDict()
+        for bid, naam, inst in b["herkomst"]:
+            per_beeld.setdefault(bid, []).append(f"`{naam}` {inst}")
+        delen = [f"uit [{bid}](#{b.get('ankers', {}).get(bid, '')}): " + "; ".join(objs) if b.get("ankers", {}).get(bid)
+                 else f"uit {bid}: " + "; ".join(objs) for bid, objs in per_beeld.items()]
+        uit += "**Herkomst:** " + ". ".join(delen) + ".\n\n"
     if b["soort"] == "stroomt" and b.get("van"):
         pijl = b.get("koppeling") or ("geen pijl op de hoofdplaat" if b.get("pijl") == GEEN_PIJL else "zonder koppelingspecificatie")
         uit += (f"**Interactie:** {b['van']} naar {b['naar']}, {pijl}. Op de "
@@ -352,7 +371,7 @@ def regelregister(regels, per_fase):
             uit += (("\n" if vorige else "") + f"**{kop}** (fase {r['fase']}, {r['stap']}" + (f"; [{b}]({REGELMAP}/{b})" if b else "") + ")\n\n"
                     "| Soort | Objecttype | Instantie | Bron |\n|---|---|---|---|\n")
             vorige = beeld
-        soort = r["soort"] + (" (conceptplaat)" if r.get("plaat") == "onderwijsontwerp" else "")
+        soort = r["soort"] + (" (conceptplaat)" if r.get("plaat") == "onderwijsontwerp" else "") + (f", uit {r['herkomst']}" if r.get("herkomst") else "")
         uit += f"| {soort} | {norm(r['objecttype'])} | {r['instantie']} | {bronlinks(r['bron'], faselinks)} |\n"
     return uit + "\n"
 
@@ -421,6 +440,10 @@ def bouw(regels, model, begrippen, componenten=None, varianten=()):
     per_variant = [(v, blokken_per_fase(v["tabel"])) for v in varianten]
     ankers = {b["beeld_id"]: anker(teken.beeldtitel(b)) for blokken in [per_fase] + [p for _, p in per_variant]
               for lijst in blokken.values() for b in lijst if b.get("beeld")}
+    for blokken in [per_fase] + [p for _, p in per_variant]:
+        for lijst in blokken.values():
+            for b in lijst:
+                b["ankers"] = ankers
     uit = leeswijzer(regels, model)
     uit += hoofdplaatsectie(regels, per_fase)
     uit += systemensectie(componenten, regels)

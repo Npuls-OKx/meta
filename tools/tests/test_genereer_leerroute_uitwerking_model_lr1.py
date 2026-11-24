@@ -117,6 +117,19 @@ class GenereerTests(unittest.TestCase):
         self.assertIn("?plain=1#L1026)", reg)
         self.assertIn("(F2-01, `Opleidingaanbod`)", doc)
 
+    def test_given_bestaat_rule_when_generated_then_herkomst_link_under_the_image_and_soort_in_register(self):
+        r = regels()
+        r["regels"].insert(2, {"beeld_id": "F3-01", "beeld": "De aanmelding", "fase": 3, "stap": "Aanmelden", "soort": "bestaat",
+                               "objecttype": "Opleidingaanbod", "instantie": "AA 2026", "herkomst": "F2-01", "bron": "b"})
+        doc = self.bouw(r)
+        self.assertIn("**Herkomst:** uit [F2-01](#f2-01---het-aanbod-gemaakt): `Opleidingaanbod` AA 2026.", doc)
+        reg = doc[doc.index("## Regelregister"):]
+        self.assertIn("| bestaat, uit F2-01 | Opleidingaanbod | AA 2026 |", reg)
+        # een bestaand object is geen nieuw object: niet in de chips en niet in het invulblad
+        fase3 = doc[doc.index("## Fase 3"):doc.index("## Fase 4")]
+        self.assertNotIn("`Opleidingaanbod`, ", fase3.split("\n\n")[1] if "\n\n" in fase3 else fase3)
+        self.assertEqual(gv.invulblad(r).count("| Opleidingaanbod |"), 1)
+
     def test_given_source_with_fase_when_linked_then_fase_anchor_and_unknown_source_stays_text(self):
         links = {1: "https://x/#fase-1"}
         self.assertEqual(gv.bronlinks("leerroute-1-regulier.md, Fase 1: iets", links), "[leerroute-1-regulier.md](https://github.com/Npuls-OKx/Public/blob/dev/Referentiemateriaal/kaderscenario's/leerroute-1-regulier.md), [Fase 1](https://x/#fase-1): iets")
