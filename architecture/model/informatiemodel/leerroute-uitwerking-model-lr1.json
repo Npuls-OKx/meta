@@ -348,7 +348,7 @@
             "inschrijving keuzedeel bij passend aanbod"
           ],
           "bron": "leerroute-1-regulier.md, Procesfasen, interacties op de plaat en informatie, Fase 6: Wat licht op in de plaat",
-          "afwijking": "hoofdplaat v1.7 kent geen lijn van planning naar de kernregistratie. De inschrijving op het keuzedeel loopt in het voorbeeld van het studentkeuzesysteem naar de kernregistratie (F6-08), de stroom die de plaat wel kent"
+          "afwijking": "hoofdplaat v1.7 kent geen lijn van planning naar de kernregistratie. De inschrijving op het keuzedeel loopt in het voorbeeld van het studentkeuzesysteem naar de kernregistratie (F6-10), de stroom die de plaat wel kent"
         },
         {
           "van": "Planningssysteem",
@@ -5635,7 +5635,7 @@
     },
     {
       "beeld_id": "F6-01",
-      "beeld": "Het keuzedeelaanbod per laag, gemaakt uit de specificatie van K0037",
+      "beeld": "Keuzedeelaanbod per laag",
       "fase": 6,
       "stap": "Keuzedeelaanbod ontsluiten naar het studentkeuzesysteem",
       "soort": "bestaat",
@@ -5651,7 +5651,7 @@
     },
     {
       "beeld_id": "F6-01",
-      "beeld": "Het keuzedeelaanbod per laag, gemaakt uit de specificatie van K0037",
+      "beeld": "Keuzedeelaanbod per laag",
       "fase": 6,
       "stap": "Keuzedeelaanbod ontsluiten naar het studentkeuzesysteem",
       "soort": "bestaat",
@@ -5668,7 +5668,7 @@
     },
     {
       "beeld_id": "F6-01",
-      "beeld": "Het keuzedeelaanbod per laag, gemaakt uit de specificatie van K0037",
+      "beeld": "Keuzedeelaanbod per laag",
       "fase": 6,
       "stap": "Keuzedeelaanbod ontsluiten naar het studentkeuzesysteem",
       "soort": "bestaat",
@@ -5685,7 +5685,7 @@
     },
     {
       "beeld_id": "F6-01",
-      "beeld": "Het keuzedeelaanbod per laag, gemaakt uit de specificatie van K0037",
+      "beeld": "Keuzedeelaanbod per laag",
       "fase": 6,
       "stap": "Keuzedeelaanbod ontsluiten naar het studentkeuzesysteem",
       "soort": "bestaat",
@@ -5702,7 +5702,7 @@
     },
     {
       "beeld_id": "F6-01",
-      "beeld": "Het keuzedeelaanbod per laag, gemaakt uit de specificatie van K0037",
+      "beeld": "Keuzedeelaanbod per laag",
       "fase": 6,
       "stap": "Keuzedeelaanbod ontsluiten naar het studentkeuzesysteem",
       "soort": "ontstaat",
@@ -5730,7 +5730,7 @@
     },
     {
       "beeld_id": "F6-01",
-      "beeld": "Het keuzedeelaanbod per laag, gemaakt uit de specificatie van K0037",
+      "beeld": "Keuzedeelaanbod per laag",
       "fase": 6,
       "stap": "Keuzedeelaanbod ontsluiten naar het studentkeuzesysteem",
       "soort": "ontstaat",
@@ -5758,7 +5758,7 @@
     },
     {
       "beeld_id": "F6-01",
-      "beeld": "Het keuzedeelaanbod per laag, gemaakt uit de specificatie van K0037",
+      "beeld": "Keuzedeelaanbod per laag",
       "fase": 6,
       "stap": "Keuzedeelaanbod ontsluiten naar het studentkeuzesysteem",
       "soort": "ontstaat",
@@ -5786,7 +5786,7 @@
     },
     {
       "beeld_id": "F6-01",
-      "beeld": "Het keuzedeelaanbod per laag, gemaakt uit de specificatie van K0037",
+      "beeld": "Keuzedeelaanbod per laag",
       "fase": 6,
       "stap": "Keuzedeelaanbod ontsluiten naar het studentkeuzesysteem",
       "soort": "ontstaat",
@@ -5814,7 +5814,7 @@
     },
     {
       "beeld_id": "F6-02",
-      "beeld": "De keuzedeelspecificatie en de keuzeregels naar het studentkeuzesysteem",
+      "beeld": "Specificatie en keuzeregels naar het studentkeuzesysteem",
       "fase": 6,
       "stap": "Keuzedeelaanbod ontsluiten naar het studentkeuzesysteem",
       "soort": "stroomt",
@@ -5835,7 +5835,7 @@
     },
     {
       "beeld_id": "F6-02",
-      "beeld": "De keuzedeelspecificatie en de keuzeregels naar het studentkeuzesysteem",
+      "beeld": "Specificatie en keuzeregels naar het studentkeuzesysteem",
       "fase": 6,
       "stap": "Keuzedeelaanbod ontsluiten naar het studentkeuzesysteem",
       "soort": "stroomt",
@@ -5856,7 +5856,7 @@
     },
     {
       "beeld_id": "F6-02",
-      "beeld": "De keuzedeelspecificatie en de keuzeregels naar het studentkeuzesysteem",
+      "beeld": "Specificatie en keuzeregels naar het studentkeuzesysteem",
       "fase": 6,
       "stap": "Keuzedeelaanbod ontsluiten naar het studentkeuzesysteem",
       "soort": "stroomt",
@@ -5877,7 +5877,7 @@
     },
     {
       "beeld_id": "F6-02",
-      "beeld": "De keuzedeelspecificatie en de keuzeregels naar het studentkeuzesysteem",
+      "beeld": "Specificatie en keuzeregels naar het studentkeuzesysteem",
       "fase": 6,
       "stap": "Keuzedeelaanbod ontsluiten naar het studentkeuzesysteem",
       "soort": "stroomt",
@@ -5898,7 +5898,7 @@
     },
     {
       "beeld_id": "F6-02",
-      "beeld": "De keuzedeelspecificatie en de keuzeregels naar het studentkeuzesysteem",
+      "beeld": "Specificatie en keuzeregels naar het studentkeuzesysteem",
       "fase": 6,
       "stap": "Keuzedeelaanbod ontsluiten naar het studentkeuzesysteem",
       "soort": "stroomt",
@@ -5925,7 +5925,7 @@
     },
     {
       "beeld_id": "F6-03",
-      "beeld": "Het geplande keuzedeelaanbod met capaciteit naar het studentkeuzesysteem",
+      "beeld": "Gepland aanbod naar het studentkeuzesysteem",
       "fase": 6,
       "stap": "Keuzedeelaanbod ontsluiten naar het studentkeuzesysteem",
       "soort": "stroomt",
@@ -5955,7 +5955,7 @@
     },
     {
       "beeld_id": "F6-03",
-      "beeld": "Het geplande keuzedeelaanbod met capaciteit naar het studentkeuzesysteem",
+      "beeld": "Gepland aanbod naar het studentkeuzesysteem",
       "fase": 6,
       "stap": "Keuzedeelaanbod ontsluiten naar het studentkeuzesysteem",
       "soort": "stroomt",
@@ -5985,7 +5985,7 @@
     },
     {
       "beeld_id": "F6-04",
-      "beeld": "Jochem kiest K0037 op het keuzemoment",
+      "beeld": "Jochems keuze voor K0037",
       "fase": 6,
       "stap": "Keuzedeel kiezen in het studentkeuzesysteem",
       "soort": "bestaat",
@@ -6001,7 +6001,7 @@
     },
     {
       "beeld_id": "F6-04",
-      "beeld": "Jochem kiest K0037 op het keuzemoment",
+      "beeld": "Jochems keuze voor K0037",
       "fase": 6,
       "stap": "Keuzedeel kiezen in het studentkeuzesysteem",
       "soort": "bestaat",
@@ -6018,7 +6018,7 @@
     },
     {
       "beeld_id": "F6-04",
-      "beeld": "Jochem kiest K0037 op het keuzemoment",
+      "beeld": "Jochems keuze voor K0037",
       "fase": 6,
       "stap": "Keuzedeel kiezen in het studentkeuzesysteem",
       "soort": "ontstaat",
@@ -6038,7 +6038,7 @@
     },
     {
       "beeld_id": "F6-04",
-      "beeld": "Jochem kiest K0037 op het keuzemoment",
+      "beeld": "Jochems keuze voor K0037",
       "fase": 6,
       "stap": "Keuzedeel kiezen in het studentkeuzesysteem",
       "soort": "ontstaat",
@@ -6069,7 +6069,7 @@
     },
     {
       "beeld_id": "F6-04",
-      "beeld": "Jochem kiest K0037 op het keuzemoment",
+      "beeld": "Jochems keuze voor K0037",
       "fase": 6,
       "stap": "Keuzedeel kiezen in het studentkeuzesysteem",
       "soort": "ontstaat",
@@ -6096,7 +6096,7 @@
     },
     {
       "beeld_id": "F6-05",
-      "beeld": "Jochems keuze naar planning",
+      "beeld": "Keuze naar planning",
       "fase": 6,
       "stap": "Keuzedeel kiezen in het studentkeuzesysteem",
       "soort": "stroomt",
@@ -6119,7 +6119,7 @@
     },
     {
       "beeld_id": "F6-05",
-      "beeld": "Jochems keuze naar planning",
+      "beeld": "Keuze naar planning",
       "fase": 6,
       "stap": "Keuzedeel kiezen in het studentkeuzesysteem",
       "soort": "stroomt",
@@ -6148,7 +6148,7 @@
     },
     {
       "beeld_id": "F6-06",
-      "beeld": "Definitieve keuzes verwerkt naar groepen en capaciteit",
+      "beeld": "Groepen en capaciteit",
       "fase": 6,
       "stap": "Definitieve keuzes verwerken naar groepen en capaciteit",
       "soort": "verandert",
@@ -6161,7 +6161,7 @@
     },
     {
       "beeld_id": "F6-06",
-      "beeld": "Definitieve keuzes verwerkt naar groepen en capaciteit",
+      "beeld": "Groepen en capaciteit",
       "fase": 6,
       "stap": "Definitieve keuzes verwerken naar groepen en capaciteit",
       "soort": "verandert",
@@ -6173,7 +6173,7 @@
     },
     {
       "beeld_id": "F6-07",
-      "beeld": "Geactualiseerd keuzedeelaanbod terug naar de catalogus",
+      "beeld": "Bijgewerkt aanbod naar de catalogus",
       "fase": 6,
       "stap": "Planbaar aanbod actualiseren",
       "soort": "stroomt",
@@ -6198,7 +6198,7 @@
     },
     {
       "beeld_id": "F6-07",
-      "beeld": "Geactualiseerd keuzedeelaanbod terug naar de catalogus",
+      "beeld": "Bijgewerkt aanbod naar de catalogus",
       "fase": 6,
       "stap": "Planbaar aanbod actualiseren",
       "soort": "stroomt",
@@ -6228,7 +6228,7 @@
     },
     {
       "beeld_id": "F6-08",
-      "beeld": "De aanmelding wordt een inschrijving op het keuzedeel",
+      "beeld": "Inschrijving op het keuzedeel",
       "fase": 6,
       "stap": "Keuzedeel formeel inschrijven",
       "soort": "ontstaat",
@@ -6247,7 +6247,7 @@
     },
     {
       "beeld_id": "F6-08",
-      "beeld": "De aanmelding wordt een inschrijving op het keuzedeel",
+      "beeld": "Inschrijving op het keuzedeel",
       "fase": 6,
       "stap": "Keuzedeel formeel inschrijven",
       "soort": "verandert",
@@ -6267,7 +6267,7 @@
     },
     {
       "beeld_id": "F6-08",
-      "beeld": "De aanmelding wordt een inschrijving op het keuzedeel",
+      "beeld": "Inschrijving op het keuzedeel",
       "fase": 6,
       "stap": "Keuzedeel formeel inschrijven",
       "soort": "verandert",
@@ -6287,7 +6287,7 @@
     },
     {
       "beeld_id": "F6-09",
-      "beeld": "De bevestiging van de verbintenis terug naar het studentkeuzesysteem",
+      "beeld": "Bevestiging naar het studentkeuzesysteem",
       "fase": 6,
       "stap": "Keuzedeel formeel inschrijven",
       "soort": "stroomt",
@@ -6311,7 +6311,7 @@
     },
     {
       "beeld_id": "F6-09",
-      "beeld": "De bevestiging van de verbintenis terug naar het studentkeuzesysteem",
+      "beeld": "Bevestiging naar het studentkeuzesysteem",
       "fase": 6,
       "stap": "Keuzedeel formeel inschrijven",
       "soort": "stroomt",
@@ -6340,7 +6340,7 @@
     },
     {
       "beeld_id": "F6-10",
-      "beeld": "Keuzedeelverbintenis naar de kernregistratie",
+      "beeld": "Verbintenis naar de kernregistratie",
       "fase": 6,
       "stap": "Keuzedeel formeel inschrijven",
       "soort": "stroomt",
@@ -6368,7 +6368,7 @@
     },
     {
       "beeld_id": "F6-11",
-      "beeld": "De verwachting van resultaat en voortgang naar het studentvolgsysteem",
+      "beeld": "Verwachting naar het studentvolgsysteem",
       "fase": 6,
       "stap": "Keuzedeel formeel inschrijven",
       "soort": "stroomt",
@@ -6398,7 +6398,7 @@
     },
     {
       "beeld_id": "F6-11",
-      "beeld": "De verwachting van resultaat en voortgang naar het studentvolgsysteem",
+      "beeld": "Verwachting naar het studentvolgsysteem",
       "fase": 6,
       "stap": "Keuzedeel formeel inschrijven",
       "soort": "stroomt",
@@ -6433,7 +6433,7 @@
     },
     {
       "beeld_id": "F6-12",
-      "beeld": "De te roosteren leergelegenheden van K0037 naar het roostersysteem",
+      "beeld": "Leergelegenheden naar het rooster",
       "fase": 6,
       "stap": "Gekozen keuzedeel roosteren en deelnemers delen",
       "soort": "stroomt",
@@ -6463,7 +6463,7 @@
     },
     {
       "beeld_id": "F6-12",
-      "beeld": "De te roosteren leergelegenheden van K0037 naar het roostersysteem",
+      "beeld": "Leergelegenheden naar het rooster",
       "fase": 6,
       "stap": "Gekozen keuzedeel roosteren en deelnemers delen",
       "soort": "stroomt",
@@ -6493,7 +6493,7 @@
     },
     {
       "beeld_id": "F6-12",
-      "beeld": "De te roosteren leergelegenheden van K0037 naar het roostersysteem",
+      "beeld": "Leergelegenheden naar het rooster",
       "fase": 6,
       "stap": "Gekozen keuzedeel roosteren en deelnemers delen",
       "soort": "stroomt",
@@ -6516,7 +6516,7 @@
     },
     {
       "beeld_id": "F6-13",
-      "beeld": "K0037 geroosterd: Jochems verbintenis op de leergelegenheid",
+      "beeld": "Verbintenis op de leergelegenheid",
       "fase": 6,
       "stap": "Gekozen keuzedeel roosteren en deelnemers delen",
       "soort": "bestaat",
@@ -6528,7 +6528,7 @@
     },
     {
       "beeld_id": "F6-13",
-      "beeld": "K0037 geroosterd: Jochems verbintenis op de leergelegenheid",
+      "beeld": "Verbintenis op de leergelegenheid",
       "fase": 6,
       "stap": "Gekozen keuzedeel roosteren en deelnemers delen",
       "soort": "verandert",
@@ -6541,7 +6541,7 @@
     },
     {
       "beeld_id": "F6-13",
-      "beeld": "K0037 geroosterd: Jochems verbintenis op de leergelegenheid",
+      "beeld": "Verbintenis op de leergelegenheid",
       "fase": 6,
       "stap": "Gekozen keuzedeel roosteren en deelnemers delen",
       "soort": "ontstaat",
@@ -6573,7 +6573,7 @@
     },
     {
       "beeld_id": "F6-14",
-      "beeld": "De geroosterde leergelegenheid terug naar het studentkeuzesysteem",
+      "beeld": "Rooster terug naar het studentkeuzesysteem",
       "fase": 6,
       "stap": "Gekozen keuzedeel roosteren en deelnemers delen",
       "soort": "stroomt",
@@ -6596,7 +6596,7 @@
     },
     {
       "beeld_id": "F6-14",
-      "beeld": "De geroosterde leergelegenheid terug naar het studentkeuzesysteem",
+      "beeld": "Rooster terug naar het studentkeuzesysteem",
       "fase": 6,
       "stap": "Gekozen keuzedeel roosteren en deelnemers delen",
       "soort": "stroomt",
@@ -6623,7 +6623,7 @@
     },
     {
       "beeld_id": "F6-15",
-      "beeld": "De lesgroep van K0037 naar het LMS",
+      "beeld": "Lesgroep naar het LMS",
       "fase": 6,
       "stap": "Gekozen keuzedeel roosteren en deelnemers delen",
       "soort": "stroomt",
@@ -6638,7 +6638,7 @@
     },
     {
       "beeld_id": "F6-15",
-      "beeld": "De lesgroep van K0037 naar het LMS",
+      "beeld": "Lesgroep naar het LMS",
       "fase": 6,
       "stap": "Gekozen keuzedeel roosteren en deelnemers delen",
       "soort": "stroomt",
@@ -6667,7 +6667,7 @@
     },
     {
       "beeld_id": "F6-15",
-      "beeld": "De lesgroep van K0037 naar het LMS",
+      "beeld": "Lesgroep naar het LMS",
       "fase": 6,
       "stap": "Gekozen keuzedeel roosteren en deelnemers delen",
       "soort": "stroomt",

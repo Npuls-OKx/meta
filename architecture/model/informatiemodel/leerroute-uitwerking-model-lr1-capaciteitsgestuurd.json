@@ -171,7 +171,7 @@
     },
     {
       "beeld_id": "F6-C01",
-      "beeld": "De animocheck op de capaciteitsplanning",
+      "beeld": "Animocheck op de capaciteitsplanning",
       "fase": 6,
       "stap": "Capaciteitsplanning toetsen aan de animo",
       "soort": "verandert",
@@ -184,7 +184,7 @@
     },
     {
       "beeld_id": "F6-C01",
-      "beeld": "De animocheck op de capaciteitsplanning",
+      "beeld": "Animocheck op de capaciteitsplanning",
       "fase": 6,
       "stap": "Capaciteitsplanning toetsen aan de animo",
       "soort": "verandert",
@@ -196,7 +196,7 @@
     },
     {
       "beeld_id": "F6-C02",
-      "beeld": "Jochem kiest een plek in de vastgestelde groep",
+      "beeld": "Plek in de vastgestelde groep",
       "fase": 6,
       "stap": "Plek kiezen binnen de vastgestelde groep",
       "soort": "ontstaat",
@@ -216,7 +216,7 @@
     },
     {
       "beeld_id": "F6-C02",
-      "beeld": "Jochem kiest een plek in de vastgestelde groep",
+      "beeld": "Plek in de vastgestelde groep",
       "fase": 6,
       "stap": "Plek kiezen binnen de vastgestelde groep",
       "soort": "ontstaat",
@@ -234,7 +234,7 @@
     },
     {
       "beeld_id": "F6-C03",
-      "beeld": "Toegewezen binnen de capaciteit: inschrijving op het keuzedeel",
+      "beeld": "Toewijzing binnen de capaciteit",
       "fase": 6,
       "stap": "Toewijzen binnen de capaciteit",
       "soort": "ontstaat",
@@ -254,7 +254,7 @@
     },
     {
       "beeld_id": "F6-C03",
-      "beeld": "Toegewezen binnen de capaciteit: inschrijving op het keuzedeel",
+      "beeld": "Toewijzing binnen de capaciteit",
       "fase": 6,
       "stap": "Toewijzen binnen de capaciteit",
       "soort": "verandert",
