@@ -6262,7 +6262,8 @@
         "naar": "Inschrijving",
         "label": "Wordt na formalisatie"
       },
-      "zin": "Past het gekozen aanbod, dan wordt Jochems aanmelding een inschrijving, en staan zijn verbintenissen op het keuzedeel en op de onderwijseenheid op ingeschreven. Past het niet, dan oriënteert hij zich opnieuw op een andere periode of locatie; die variant laat dit voorbeeld liggen."
+      "zin": "Past het gekozen aanbod, dan wordt Jochems aanmelding een inschrijving, en staan zijn verbintenissen op het keuzedeel en op de onderwijseenheid op ingeschreven. Past het niet, dan oriënteert hij zich opnieuw op een andere periode of locatie; die variant laat dit voorbeeld liggen.",
+      "vraag": "De inschrijving is de afspraak tussen instelling en student, en de verbintenis draagt de status; het voorbeeld houdt ze allebei. Hier maakt de planner de inschrijving. Wie formaliseert haar: planning, of de kernregistratie na F6-10?"
     },
     {
       "beeld_id": "F6-08",
