@@ -79,7 +79,9 @@
         "Opleidingsprogramma aanbod",
         "Onderwijseenheid aanbod",
         "Leergelegenheid",
-        "Toetsgelegenheid"
+        "Toetsgelegenheid",
+        "Keuzedeel aanbod",
+        "Planningsgroep"
       ],
       "uitwisselingen": [
         {
@@ -177,8 +179,7 @@
         "Lesgelegenheid verbintenis",
         "Lesgroep",
         "Medewerker",
-        "Onderwijseenheid aanbod verbintenis",
-        "Planningsgroep"
+        "Onderwijseenheid aanbod verbintenis"
       ],
       "uitwisselingen": [
         {
@@ -319,7 +320,6 @@
         "Gekozen keuzedeel roosteren en deelnemers delen"
       ],
       "verwacht": [
-        "Keuzedeel aanbod",
         "Keuzedeel aanbod verbintenis"
       ],
       "uitwisselingen": [
@@ -1430,7 +1430,7 @@
       "objecttype": "Opleiding specificatie",
       "instantie": "Apothekersassistent, versie 2026.1",
       "bron": "leerroute-1-regulier.md, r1024 tot 1030",
-      "zin": "De opleidingsspecificatie met daaronder het programma, de eenheden en de leeronderdelen: het curriculum als template over de looptijd."
+      "zin": "De opleidingsspecificatie met daaronder het programma, de eenheden en de leeronderdelen: het curriculum als template over de looptijd. De regelset draagt twee blokken: welke beroepsspecifieke en welke generieke keuzedelen Jochem mag kiezen. Voor Jochem liggen die vooraf per opleiding vast; een flexibelere leerroute bouwt de regelset op uit behaalde leeruitkomsten. De indeling in blokken is een keuze van de instelling in dit voorbeeld."
     },
     {
       "beeld_id": "F1-07",
@@ -1507,7 +1507,7 @@
       "soort": "ontstaat",
       "wie": "onderwijsontwerper",
       "objecttype": "Keuzedeelruimte",
-      "instantie": "720 SBU, mbo-4: te vullen met 480 SBU verdiepend en 240 SBU generiek",
+      "instantie": "720 SBU, mbo-4: te vullen met 480 SBU beroepsspecifiek en 240 SBU generiek",
       "bron": "leerroute-1-regulier.md, r1059 en r1072",
       "relatie": {
         "soort": "Specialization",
@@ -1523,13 +1523,14 @@
       "soort": "ontstaat",
       "wie": "onderwijsontwerper",
       "objecttype": "Student keuze regelset",
-      "instantie": "Kiesbare keuzedelen: K0037 Farmaceutische Patientenzorg (480 SBU, verdiepend) of K0262 ARBO, kwaliteitszorg en hulpverlening (240 SBU, generiek)",
-      "bron": "K0037-farmaceutische-patientenzorg.md (keuzedeel mbo K0037, 480 SBU, aard verdiepend, gevalideerd 26-11-2015); leerroute-1-regulier.md, r52 (720 SBU keuzedelen verplicht voor niveau 4); de eis komt uit het examenplan (F1-02)",
+      "instantie": "480 SBU uit de beroepsspecifieke keuzedelen: K0037 Farmaceutische Patientenzorg; 240 SBU uit de generieke keuzedelen: K0262 ARBO, kwaliteitszorg en hulpverlening, of Duurzaam ondernemen",
+      "bron": "K0037-farmaceutische-patientenzorg.md (keuzedeel mbo K0037, 480 SBU, aard verdiepend, gevalideerd 26-11-2015); leerroute-1-regulier.md, r52 (720 SBU keuzedelen verplicht voor niveau 4); de eis komt uit het examenplan (F1-02); sessie OKx-werkverdeling en leerrouteontwerp, 10 november 2026 (Niels van Duin, Niek Derksen, Garik Hakopian): de regelset draagt een beroepsspecifiek en een generiek blok, met Duurzaam ondernemen als generiek voorbeeld; besluit van de opdrachtgever, 24 november 2026: een regelset met twee blokken",
       "relatie": {
         "soort": "Association",
         "van": "Student keuze regelset",
         "naar": "Keuzedeelruimte"
-      }
+      },
+      "vraag": "De plaat kent een `Student keuze regelset` zonder onderverdeling; hier draagt zij twee blokken, een beroepsspecifiek en een generiek. Heeft een regelset eigen keuzeblokken nodig, zoals de keuzebakjes in OEAPI (zie #409 en #331)?"
     },
     {
       "beeld_id": "F1-08",
@@ -1592,8 +1593,8 @@
       "wie": "onderwijsontwerper",
       "soort": "ontstaat",
       "objecttype": "Keuzedeel specificatie",
-      "instantie": "K0262 ARBO, kwaliteitszorg en hulpverlening geschikt voor niveau 3 (240 SBU)",
-      "bron": "K0262-arbo-kwaliteitszorg-en-hulpverlening-niveau-3.md (keuzedeel mbo K0262, gevalideerd 10-11-2015); leerroute-1-regulier.md, r1072 tot 1080",
+      "instantie": "K0262 ARBO, kwaliteitszorg en hulpverlening geschikt voor niveau 3 (240 SBU), generiek keuzedeel",
+      "bron": "K0262-arbo-kwaliteitszorg-en-hulpverlening-niveau-3.md (keuzedeel mbo K0262, gevalideerd 10-11-2015); leerroute-1-regulier.md, r1072 tot 1080; sessie OKx-werkverdeling en leerrouteontwerp, 10 november 2026 (Niels van Duin, Niek Derksen, Garik Hakopian): het kenmerk generiek keuzedeel volstaat in de uitwisseling (#531)",
       "relatie": {
         "soort": "Specialization",
         "van": "Keuzedeel specificatie",
@@ -2518,7 +2519,7 @@
       "pijl": "geen pijl op de hoofdplaat",
       "koppeling": null,
       "objecttype": "Student keuze regelset",
-      "instantie": "Kiesbare keuzedelen voor Apothekersassistent",
+      "instantie": "Twee blokken: 480 SBU beroepsspecifiek (K0037), 240 SBU generiek (K0262 of Duurzaam ondernemen)",
       "bron": "voorbeeldpayloads.md, regelsets[0] (e4037953)",
       "relatie": {
         "soort": "Association",
@@ -3017,16 +3018,25 @@
       "soort": "ontstaat",
       "wie": "planner",
       "objecttype": "Verzoek tot Aanbod / Intekening op specificatie",
-      "instantie": "Planopgave Apothekersassistent, cohort 2026",
+      "instantie": "Planopgave Apothekersassistent, cohort 2026, met het keuzedeel K0037",
       "aanname": true,
-      "bron": "geen bron, keuze van het voorbeeld: op de plaat een objecttype, in het kaderscenario een handeling van OC",
+      "bron": "geen bron, keuze van het voorbeeld: op de plaat een objecttype, in het kaderscenario een handeling van OC; sessie OKx-werkverdeling en leerrouteontwerp, 10 november 2026 (Niels van Duin, Niek Derksen, Garik Hakopian): het keuzedeelaanbod wordt bij planning aangevraagd en jaarlijks in de jaarplanning vastgesteld; besluit van de opdrachtgever, 24 november 2026: lijn b",
       "zin": "De catalogus verzoekt planning om aanbod op basis van de specificatiestructuur uit fase 1; op de plaat hangt die structuur als input aan het verzoek.",
       "relatie": {
         "soort": "Association",
         "van": "Opleiding specificatie",
         "naar": "Verzoek tot Aanbod / Intekening op specificatie",
         "label": "Input voor"
-      }
+      },
+      "relaties": [
+        {
+          "soort": "Association",
+          "van": "Keuzedeel specificatie",
+          "naar": "Verzoek tot Aanbod / Intekening op specificatie",
+          "label": "Input voor",
+          "instantie": "K0037 Farmaceutische Patientenzorg (480 SBU, verdiepend)"
+        }
+      ]
     },
     {
       "beeld_id": "F2-03",
@@ -3279,6 +3289,27 @@
         "naar": "Nominale Leerroute"
       },
       "bron": "conceptplaat-onderwijsontwerp.json: Onderwijs programma aggregeert Nominale Leerroute; sparsessie met Niels van Duin en Garik Hakopian, 28 oktober 2026: de nominale leerroute draagt een verwijzing naar de specificatie en een gewenste periode, zodat de specificatie herbruikbaar blijft en planning toch weet wanneer een onderdeel gepland moet worden"
+    },
+    {
+      "beeld_id": "F2-03",
+      "beeld": "Onderwijscatalogus stuurt het verzoek met de specificatie naar het planningssysteem",
+      "fase": 2,
+      "stap": "Planningssysteem verzoeken om onderwijsaanbod",
+      "soort": "stroomt",
+      "van": "Onderwijscatalogus",
+      "naar": "Planningssysteem",
+      "pijl": "id-1d27ecfa2c0d4fb7b4f7337e93eed033",
+      "koppeling": "OC-P&R",
+      "objecttype": "Keuzedeel specificatie",
+      "instantie": "K0037 Farmaceutische Patientenzorg (480 SBU, verdiepend)",
+      "nieuwe_instantie": true,
+      "bron": "sessie OKx-werkverdeling en leerrouteontwerp, 10 november 2026 (Niels van Duin, Niek Derksen, Garik Hakopian); K0037-farmaceutische-patientenzorg.md",
+      "relatie": {
+        "soort": "Association",
+        "van": "Keuzedeel specificatie",
+        "naar": "Verzoek tot Aanbod / Intekening op specificatie",
+        "label": "Input voor"
+      }
     },
     {
       "beeld_id": "F2-04",
@@ -3588,7 +3619,7 @@
       "instantie": "ROC Leren Zonder Drempels: ambitie en verwachte instroom voor cohort 2026",
       "aanname": true,
       "bron": "geen bron, keuze van het voorbeeld: het objecttype heeft geen instantie in het kaderscenario; leerroute-1-regulier.md, r657 (drie stadia van onderwijsaanbod, parallel aan meerjaren-, jaar- en periodeplanning)",
-      "zin": "Het aanbod rijpt in tredes die met de planningshorizon meelopen. In de meerjarenplanning staat de intentie: welke opleiding, met welke verwachte instroom. In de jaarplanning wordt het aanbod gepland met perioden en capaciteit, nog zonder lokalen en docenten. In de periodeplanning worden de gelegenheden fijnmazig gepland, met groepen en tijdvensters. Roosteren volgt daarna en valt buiten de uitwisseling.",
+      "zin": "Het aanbod rijpt in tredes die met de planningshorizon meelopen. In de meerjarenplanning staat de intentie: welke opleiding, met welke verwachte instroom. In de jaarplanning wordt het aanbod gepland met perioden en capaciteit, nog zonder lokalen en docenten. In de periodeplanning worden de gelegenheden fijnmazig gepland, met groepen en tijdvensters. Roosteren volgt daarna en valt buiten de uitwisseling. Het keuzedeelaanbod K0037 wordt in de jaarplanning vastgesteld, met een planningsgroep op de prognose; in fase 6 werkt de planner het per laag uit.",
       "toestand": "intentie"
     },
     {
@@ -3679,6 +3710,58 @@
         "naar": "Toetsgelegenheid"
       },
       "toestand": "grofmazig gepland"
+    },
+    {
+      "beeld_id": "F2-08",
+      "beeld": "Planner plant opleiding, programma, eenheid en gelegenheid",
+      "fase": 2,
+      "stap": "Aanbod plannen",
+      "soort": "ontstaat",
+      "wie": "planner",
+      "objecttype": "Keuzedeel aanbod",
+      "instantie": "K0037 Farmaceutische Patientenzorg, periode 7, locatie A",
+      "toestand": "gepland",
+      "bron": "sessie OKx-werkverdeling en leerrouteontwerp, 10 november 2026 (Niels van Duin, Niek Derksen, Garik Hakopian): het keuzedeelaanbod bepaal je ieder jaar opnieuw, in de jaarplanning; besluit van de opdrachtgever, 24 november 2026: lijn b",
+      "relatie": {
+        "soort": "Specialization",
+        "van": "Keuzedeel aanbod",
+        "naar": "Opleidingsprogramma aanbod"
+      },
+      "relaties": [
+        {
+          "soort": "Association",
+          "van": "Keuzedeel specificatie",
+          "naar": "Keuzedeel aanbod",
+          "label": "wordt aangeboden als",
+          "instantie": "K0037 Farmaceutische Patientenzorg (480 SBU, verdiepend)"
+        },
+        {
+          "soort": "Association",
+          "van": "Verzoek tot Aanbod / Intekening op specificatie",
+          "naar": "Keuzedeel aanbod",
+          "label": "Leidt tot",
+          "instantie": "Planopgave Apothekersassistent, cohort 2026, met het keuzedeel K0037"
+        }
+      ]
+    },
+    {
+      "beeld_id": "F2-08",
+      "beeld": "Planner plant opleiding, programma, eenheid en gelegenheid",
+      "fase": 2,
+      "stap": "Aanbod plannen",
+      "soort": "ontstaat",
+      "wie": "planner",
+      "objecttype": "Planningsgroep",
+      "instantie": "K0037 periode 7, locatie A: prognose 18 studenten",
+      "bron": "besluit van de opdrachtgever, 24 november 2026: de planningsgroep ontstaat al bij ontwerp en capaciteitsgestuurd plannen, en wordt na de keuzes heroverwogen",
+      "relatie": {
+        "soort": "Association",
+        "van": "Planningsgroep",
+        "naar": "Keuzedeel aanbod",
+        "label": "plant",
+        "voorstel": true
+      },
+      "vraag": "Hoe volgen de planningsgroepen in de jaarplanning uit de plaatsingsgroepen? Op de plaat is een `Planningsgroep` een deel van een `Plaatsingsgroep`, terwijl plaatsingsgroepen pas in fase 3 ontstaan. De relatie van planningsgroep naar keuzedeelaanbod is een voorstel."
     },
     {
       "beeld_id": "F2-09",
@@ -3881,7 +3964,7 @@
       "pijl": "id-020f091db6ea4763aad7527a98afaf99",
       "koppeling": "OC-P&R",
       "objecttype": "Keuzedeel aanbod",
-      "instantie": "K0037 Farmaceutische Patientenzorg, periode 7: een groep van 18, los van het opleidingsaanbod",
+      "instantie": "K0037 Farmaceutische Patientenzorg, periode 7, locatie A: gepland op een prognose van 18",
       "bron": "review Niels van Duin op PR 252: gelegenheden van keuzedelen tonen maakt scherp dat capaciteit los kan staan van de bovenliggende structuur; scenario-1.1-regulier-happyflow.md, blok D (maatvoering uit de review van 29 september 2026); sparsessie met Niels van Duin en Garik Hakopian, 28 oktober 2026: in deze fase staan het lokaaltype en de docentexpertise vast, het lokaal, de persoon en het tijdvenster nog niet; sparsessie met Niels van Duin en Garik Hakopian, 28 oktober 2026: het keuzedeelaanbod stond als los blokje op de plaat. De plaat kent Keuzedeel aanbod als soort van Opleidingsprogramma aanbod; een relatie die zegt onder welk programma-aanbod het wordt aangeboden ontbreekt nog, en die staat in issue 434",
       "relatie": {
         "soort": "Specialization",
@@ -5706,12 +5789,11 @@
       "beeld": "Planner maakt het keuzedeelaanbod per laag",
       "fase": 6,
       "stap": "Keuzedeel kiesbaar maken in het studentkeuzesysteem",
-      "soort": "ontstaat",
+      "soort": "verandert",
       "wie": "planner",
       "objecttype": "Keuzedeel aanbod",
       "instantie": "K0037 Farmaceutische Patientenzorg, periode 7, locatie A",
-      "bron": "sessie Keuzedeelmodel en informatiemodel, 17 november 2026 (Niels van Duin, Niek Derksen): het aanbod voegt plaats, tijd en capaciteit toe aan de specificatie; leerroute-1-regulier.md, Fase 6",
-      "aanname": true,
+      "bron": "sessie OKx-werkverdeling en leerrouteontwerp, 10 november 2026 (Niels van Duin, Niek Derksen, Garik Hakopian); besluit van de opdrachtgever, 24 november 2026: het keuzedeelaanbod ontstaat in de jaarplanning (F2-08), en wordt in fase 6 per laag uitgewerkt",
       "toestand": "gepland",
       "relatie": {
         "soort": "Specialization",
@@ -5727,7 +5809,7 @@
           "instantie": "K0037 Farmaceutische Patientenzorg (480 SBU, verdiepend)"
         }
       ],
-      "zin": "Het keuzemoment nadert. De planner maakt het aanbod van K0037 laag voor laag uit de specificatie van fase 1: het keuzedeel, de onderwijseenheid en per leeronderdeel een leergelegenheid. Het aanbod voegt plaats, tijd en capaciteit toe; wat kiesbaar is, staat op de specificatie. Het aanbod blijft bij planning, en het studentkeuzesysteem haalt het daar op (F6-03)."
+      "zin": "Het keuzemoment nadert. De planner werkt het keuzedeelaanbod uit de jaarplanning (F2-08) per laag uit voor periode 7, vanuit de specificatie van fase 1: de onderwijseenheid en per leeronderdeel een leergelegenheid. Het aanbod voegt plaats, tijd en capaciteit toe; wat kiesbaar is, staat op de specificatie. Het aanbod blijft bij planning, en het studentkeuzesysteem haalt het daar op (F6-03)."
     },
     {
       "beeld_id": "F6-01",
@@ -5754,6 +5836,13 @@
           "naar": "Onderwijseenheid aanbod",
           "label": "wordt aangeboden als",
           "instantie": "D1-K1 Voert farmaceutische patientenzorg uit"
+        },
+        {
+          "soort": "Association",
+          "van": "Onderwijseenheid aanbod",
+          "naar": "Onderwijslocatie",
+          "label": "wordt gegeven op",
+          "instantie": "Locatie A, Campus Zuid"
         }
       ]
     },
@@ -5782,6 +5871,13 @@
           "naar": "Leergelegenheid",
           "label": "wordt aangeboden als",
           "instantie": "Het medicatieoverzicht opstellen"
+        },
+        {
+          "soort": "Association",
+          "van": "Leergelegenheid",
+          "naar": "Onderwijslocatie",
+          "label": "wordt gegeven op",
+          "instantie": "Locatie A, Campus Zuid"
         }
       ]
     },
@@ -5810,6 +5906,13 @@
           "naar": "Leergelegenheid",
           "label": "wordt aangeboden als",
           "instantie": "Zorg aan specifieke doelgroepen"
+        },
+        {
+          "soort": "Association",
+          "van": "Leergelegenheid",
+          "naar": "Onderwijslocatie",
+          "label": "wordt gegeven op",
+          "instantie": "Locatie A, Campus Zuid"
         }
       ]
     },
@@ -5908,7 +6011,7 @@
       "pijl": "id-5f2568d7b99a49eaa863f539ae362f4d",
       "koppeling": null,
       "objecttype": "Student keuze regelset",
-      "instantie": "Kiesbare keuzedelen voor Apothekersassistent",
+      "instantie": "Twee blokken: 480 SBU beroepsspecifiek (K0037), 240 SBU generiek (K0262 of Duurzaam ondernemen)",
       "bron": "voorbeeldpayloads.md, regelsets[0] (e4037953); keuze-requirements.md; sessie Keuzedeelmodel en informatiemodel, 17 november 2026 (Niels van Duin, Niek Derksen)",
       "relatie": {
         "soort": "Association",
@@ -5981,6 +6084,13 @@
           "naar": "Onderwijseenheid aanbod",
           "label": "wordt aangeboden als",
           "instantie": "D1-K1 Voert farmaceutische patientenzorg uit"
+        },
+        {
+          "soort": "Association",
+          "van": "Onderwijseenheid aanbod",
+          "naar": "Onderwijslocatie",
+          "label": "wordt gegeven op",
+          "instantie": "Locatie A, Campus Zuid"
         }
       ]
     },
@@ -6242,6 +6352,13 @@
           "naar": "Onderwijseenheid aanbod",
           "label": "wordt aangeboden als",
           "instantie": "D1-K1 Voert farmaceutische patientenzorg uit"
+        },
+        {
+          "soort": "Association",
+          "van": "Onderwijseenheid aanbod",
+          "naar": "Onderwijslocatie",
+          "label": "wordt gegeven op",
+          "instantie": "Locatie A, Campus Zuid"
         }
       ]
     },
@@ -6467,7 +6584,7 @@
           "instantie": "D1-K1, periode 7, locatie A: 18 plaatsen"
         }
       ],
-      "zin": "Planning geeft de leergelegenheden onder K0037 met de planningsgroep aan het roostersysteem. Bij planning lag de keuze op het keuzedeel en de onderwijseenheid; richting rooster gaat het om de laag daaronder."
+      "zin": "Planning geeft de leergelegenheden onder K0037 met de planningsgroep aan het roostersysteem. Bij planning lag de keuze op het keuzedeel en de onderwijseenheid; richting rooster gaat het om de laag daaronder. Een vast roostermoment voor generieke keuzedelen zoals K0262 is logica van planning en rooster; in de uitwisseling volstaat het kenmerk generiek keuzedeel (#531). K0037 is beroepsspecifiek en wordt binnen het eigen cluster geroosterd."
     },
     {
       "beeld_id": "F6-12",
