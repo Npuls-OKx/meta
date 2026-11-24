@@ -49,7 +49,7 @@ keuzedeel is de invulling die het mbo eraan geeft.
 Drie soorten regels, in de vormtaal van de plaat:
 
 - **Ontstaat**: een rol (geel, rolicoon) voert een processtap uit (geel, procesicoon) en daaruit ontstaan objecttypen (geel, objecticoon) met Jochems waarde. "Bestaat uit" is nesting; een relatielabel van de plaat staat tussen twee objecten of als verwijzing op een object dat aan een eerdere stap hangt. Een gestippelde rand is een aanname; grijs is een objecttype dat de plaat buiten de uitwisseling zet en dit voorbeeld toch meeneemt.
-- **Bestaat** (wit met gele rand, links onder "Eerder ontstaan"): een object dat in een eerder beeld ontstond, met dat beeld erbij ("uit F1-08"). Een lijn met het label van de plaat loopt naar het object dat er hier uit ontstaat; onder het beeld staat de herkomst als link.
+- **Bestaat** (links, onder de processtap waarin het ontstond): een object dat in een eerder beeld is gemaakt, met dat beeld erbij ("eerder ontstaan, in F1-08"). Rechts staat de processtap van dit beeld met wat hier ontstaat, met een dikkere rand. Een lijn met het label van de plaat loopt van links naar rechts, en lagen die bij elkaar horen staan op dezelfde hoogte. Zo'n lijn is een verwijzing: het object wordt een keer gemaakt en daarna niet opnieuw of als kopie, maar het nieuwe object verwijst ernaar. Hoe die verwijzing technisch loopt, met een sleutel in het gegevensmodel, valt buiten dit voorbeeld. Onder het beeld staat de herkomst als link.
 - **Stroomt** (blauwe rand): van welk systeem naar welk systeem gaat welk object, met de koppeling-ID of "zonder koppelingspecificatie", en de processtap waarna het gebeurt.
 
 Waar de herkomst loopt: het kwalificatiedossier, de kwalificatie, de kerntaken en de werkprocessen staan in het eerste beeld van fase 1, en het derde beeld vertaalt ze naar leeruitkomsten. Daarna verwijzen specificaties, toets- en examenonderdelen, aanbod, verbintenissen en resultaten naar de leeruitkomst; de plaat kent buiten die route alleen een directe verwijzing vanuit het examenplan en de OER. Een dossiercode in een instantienaam (B1-K1, B1-K1-W1) is daarom een leeshulp die zegt over welk deel van het dossier het gaat, en geen relatie. Op de conceptplaat loopt daarnaast een eigen pad binnen de instelling: de kerntaak wordt daar onderwijskundig vertaald tot een leerdoel.
@@ -451,6 +451,8 @@ De gemarkeerde lijnen zijn de stromen die deze fase raakt, met het beeld waarin 
 
 ![ontstaat: Keuzedeel kiezen in het studentkeuzesysteem](img/regels/f6-04-jochem-kiest-k0037-op-het-keuzemoment.svg)
 
+**Herkomst:** uit [F6-01](#f6-01---het-keuzedeelaanbod-per-laag-gemaakt-uit-de-specificatie-van-k0037): `Keuzedeel aanbod` K0037 Farmaceutische Patientenzorg, periode 7, locatie A; `Onderwijseenheid aanbod` D1-K1, periode 7, locatie A: 18 plaatsen.
+
 ### F6-05 - Jochems keuze naar planning
 
 ![stroomt: Keuzedeel kiezen in het studentkeuzesysteem](img/regels/f6-05-jochems-keuze-naar-planning.svg)
@@ -498,6 +500,8 @@ De gemarkeerde lijnen zijn de stromen die deze fase raakt, met het beeld waarin 
 ### F6-13 - K0037 geroosterd: Jochems verbintenis op de leergelegenheid
 
 ![ontstaat: Gekozen keuzedeel roosteren en deelnemers delen](img/regels/f6-13-k0037-geroosterd-jochems-verbintenis-op-de-leergelegenheid.svg)
+
+**Herkomst:** uit [F6-08](#f6-08---de-aanmelding-wordt-een-inschrijving-op-het-keuzedeel): `Onderwijseenheid aanbod verbintenis` Jochem op D1-K1, periode 7.
 
 ### F6-14 - De geroosterde leergelegenheid terug naar het studentkeuzesysteem
 
@@ -1291,6 +1295,8 @@ Elke regel onder het ID en de titel van haar beeld (fase, stap, bestand) met de 
 
 | Soort | Objecttype | Instantie | Bron |
 |---|---|---|---|
+| bestaat, uit F6-01 | Keuzedeel aanbod | K0037 Farmaceutische Patientenzorg, periode 7, locatie A | sessie Keuzedeelmodel en informatiemodel, 17 november 2026 (Niels van Duin, Niek Derksen) |
+| bestaat, uit F6-01 | Onderwijseenheid aanbod | D1-K1, periode 7, locatie A: 18 plaatsen | sessie Keuzedeelmodel en informatiemodel, 17 november 2026 (Niels van Duin, Niek Derksen) |
 | ontstaat | Aanmelding | Keuze: K0037 Farmaceutische Patientenzorg, periode 7, locatie A | sessie Keuzedeelmodel en informatiemodel, 17 november 2026 (Niels van Duin, Niek Derksen): direct kiezen op het keuzemoment is de regel, de voorkeurslijst de uitzondering; leerroute-1-regulier.md, r850 (het studentkeuzesysteem is bron voor de aanmelding keuzedeel) |
 | ontstaat | Keuzedeel aanbod verbintenis | Jochem op K0037 Farmaceutische Patientenzorg, periode 7 | sessie Keuzedeelmodel en informatiemodel, 17 november 2026 (Niels van Duin, Niek Derksen) |
 | ontstaat | Onderwijseenheid aanbod verbintenis | Jochem op D1-K1, periode 7 | sessie Keuzedeelmodel en informatiemodel, 17 november 2026 (Niels van Duin, Niek Derksen) |
@@ -1356,6 +1362,7 @@ Elke regel onder het ID en de titel van haar beeld (fase, stap, bestand) met de 
 
 | Soort | Objecttype | Instantie | Bron |
 |---|---|---|---|
+| bestaat, uit F6-08 | Onderwijseenheid aanbod verbintenis | Jochem op D1-K1, periode 7 | sessie Keuzedeelmodel en informatiemodel, 17 november 2026 (Niels van Duin, Niek Derksen) |
 | verandert | Leergelegenheid | Het medicatieoverzicht opstellen, periode 7: donderdagmiddag, leerapotheek, docent 4711 | sessie Keuzedeelmodel en informatiemodel, 17 november 2026 (Niels van Duin, Niek Derksen); geen bron, keuze van het voorbeeld: dag, lokaal en docent |
 | ontstaat | Leergelegenheid verbintenis | Jochem op Het medicatieoverzicht opstellen, periode 7 | sessie Keuzedeelmodel en informatiemodel, 17 november 2026 (Niels van Duin, Niek Derksen) |
 

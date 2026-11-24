@@ -5988,6 +5988,39 @@
       "beeld": "Jochem kiest K0037 op het keuzemoment",
       "fase": 6,
       "stap": "Keuzedeel kiezen in het studentkeuzesysteem",
+      "soort": "bestaat",
+      "objecttype": "Keuzedeel aanbod",
+      "instantie": "K0037 Farmaceutische Patientenzorg, periode 7, locatie A",
+      "herkomst": "F6-01",
+      "bron": "sessie Keuzedeelmodel en informatiemodel, 17 november 2026 (Niels van Duin, Niek Derksen)",
+      "relatie": {
+        "soort": "Specialization",
+        "van": "Keuzedeel aanbod",
+        "naar": "Opleidingsprogramma aanbod"
+      }
+    },
+    {
+      "beeld_id": "F6-04",
+      "beeld": "Jochem kiest K0037 op het keuzemoment",
+      "fase": 6,
+      "stap": "Keuzedeel kiezen in het studentkeuzesysteem",
+      "soort": "bestaat",
+      "objecttype": "Onderwijseenheid aanbod",
+      "instantie": "D1-K1, periode 7, locatie A: 18 plaatsen",
+      "herkomst": "F6-01",
+      "bron": "sessie Keuzedeelmodel en informatiemodel, 17 november 2026 (Niels van Duin, Niek Derksen)",
+      "relatie": {
+        "soort": "Aggregation",
+        "van": "Opleidingsprogramma aanbod",
+        "naar": "Onderwijseenheid aanbod",
+        "nesting": true
+      }
+    },
+    {
+      "beeld_id": "F6-04",
+      "beeld": "Jochem kiest K0037 op het keuzemoment",
+      "fase": 6,
+      "stap": "Keuzedeel kiezen in het studentkeuzesysteem",
       "soort": "ontstaat",
       "wie": "student",
       "objecttype": "Aanmelding",
@@ -6480,6 +6513,18 @@
         }
       ],
       "vraag": "Planningsgroep is op de plaat een compositie van Plaatsingsgroep. Een keuzedeelgroep brengt studenten uit meer plaatsingsgroepen samen. Hoort de planningsgroep van een keuzedeel bij een plaatsingsgroep, of staat zij daarnaast?"
+    },
+    {
+      "beeld_id": "F6-13",
+      "beeld": "K0037 geroosterd: Jochems verbintenis op de leergelegenheid",
+      "fase": 6,
+      "stap": "Gekozen keuzedeel roosteren en deelnemers delen",
+      "soort": "bestaat",
+      "objecttype": "Onderwijseenheid aanbod verbintenis",
+      "instantie": "Jochem op D1-K1, periode 7",
+      "herkomst": "F6-08",
+      "bron": "sessie Keuzedeelmodel en informatiemodel, 17 november 2026 (Niels van Duin, Niek Derksen)",
+      "toestand": "ingeschreven"
     },
     {
       "beeld_id": "F6-13",
