@@ -373,7 +373,7 @@
             "deelnemerscontext"
           ],
           "bron": "leerroute-1-regulier.md, Procesfasen, interacties op de plaat en informatie, Fase 6: Wat licht op in de plaat; bron gecorrigeerd in de sparsessie PR 314, deel 2, 4 november 2026",
-          "afwijking": "hoofdplaat v1.7a kent geen lijn van het roostersysteem naar het leermanagementsysteem; vandaag loopt die route via de kernregistratie. De kernregistratie weet niet wat een lesgroep is, dus de bron is het roostersysteem. Of het studentinformatiesysteem de orchestrator voor provisioning blijft, is een open vraag."
+          "afwijking": "hoofdplaat v1.7a kent geen lijn van het roostersysteem naar het leermanagementsysteem. Het voorbeeld volgt de plaat: het roostersysteem meldt verbintenis en lesgroep aan het studentkeuzesysteem (F6-15), en dat geeft ze door aan het LMS (F6-16). Of een directe lijn beter is, staat als vraag bij F6-16."
         },
         {
           "van": "Kernregistratie systeem studenten (KRS)",
@@ -5150,7 +5150,8 @@
         "soort": "Specialization",
         "van": "Student",
         "naar": "Persoon"
-      }
+      },
+      "vraag": "De hoofdplaat kent geen lijn van het roostersysteem naar het LMS. In fase 6 loopt dezelfde informatie via het studentkeuzesysteem (F6-15 en F6-16), langs lijnen die de plaat wel kent. Hoort fase 4 die route ook te volgen?"
     },
     {
       "beeld_id": "F4-10",
@@ -6615,74 +6616,52 @@
           "instantie": "D1-K1, periode 7, locatie A: 18 plaatsen"
         }
       ],
-      "zin": "Het roostersysteem geeft het studentkeuzesysteem terug wat de leergelegenheden worden; zo ziet Jochem waar en wanneer hij verwacht wordt."
+      "zin": "Het roostersysteem geeft het studentkeuzesysteem terug wat de leergelegenheid wordt: dag, lokaal en docent."
     },
     {
-      "beeld_id": "F6-14",
-      "beeld": "Roostersysteem ontsluit de geroosterde leergelegenheid naar het studentkeuzesysteem",
+      "beeld_id": "F6-15",
+      "beeld": "Roostersysteem stuurt Jochems verbintenis en lesgroep naar het studentkeuzesysteem",
       "fase": 6,
       "stap": "Gekozen keuzedeel roosteren en deelnemers delen",
       "soort": "stroomt",
       "van": "Roostersysteem",
       "naar": "Student Keuze Systeem (SKS)",
-      "pijl": "id-7aaf2959ba45489296a1c1d89dae786c",
+      "pijl": "id-7a7e0a17557f487a86fd347ad8569f24",
       "koppeling": null,
-      "objecttype": "Leergelegenheid verbintenis",
-      "instantie": "Jochem op Het medicatieoverzicht opstellen, periode 7",
-      "bron": "sessie Keuzedeelmodel en informatiemodel, 17 november 2026 (Niels van Duin, Niek Derksen)",
-      "relatie": {
-        "soort": "Association",
-        "van": "Leergelegenheid",
-        "naar": "Leergelegenheid verbintenis",
-        "instantie": "Het medicatieoverzicht opstellen, periode 7"
-      },
-      "relaties": [
-        {
-          "soort": "Aggregation",
-          "van": "Onderwijseenheid aanbod verbintenis",
-          "naar": "Leergelegenheid verbintenis",
-          "instantie": "Jochem op D1-K1, periode 7"
-        }
-      ],
-      "vraag": "De pijl van het rooster naar het studentkeuzesysteem die hier wordt gebruikt, draagt de geroosterde leergelegenheden zonder verbintenis. De verbintenis gaat op de plaat over een eigen lijn (id-7a7e0a17), op programma en onderwijseenheid. Hoort de verbintenis op de leergelegenheid over een van beide lijnen?"
-    },
-    {
-      "beeld_id": "F6-15",
-      "beeld": "Roostersysteem stuurt de lesgroep naar het LMS",
-      "fase": 6,
-      "stap": "Gekozen keuzedeel roosteren en deelnemers delen",
-      "soort": "stroomt",
-      "van": "Roostersysteem",
-      "naar": "Leer management systeem (LMS)",
-      "pijl": "geen pijl op de hoofdplaat",
-      "koppeling": null,
-      "objecttype": "Lesgroep",
-      "instantie": "K0037-P7-A: 18 studenten uit drie plaatsingsgroepen",
-      "bron": "sessie Keuzedeelmodel en informatiemodel, 17 november 2026 (Niels van Duin, Niek Derksen): de lescombinatie moet naar de leeromgeving; sparsessie PR 314, deel 2, 4 november 2026: de bron van de lesgroep is het roostersysteem",
-      "zin": "Het roostersysteem geeft de lesgroep met Jochems verbintenis door aan het LMS, zodat hij toegang krijgt tot de leeromgeving van K0037.",
-      "vraag": "De hoofdplaat kent geen lijn van het roostersysteem naar het LMS. Wel van het studentkeuzesysteem naar het LMS (id-926ba88e, verbintenis en planningsgroep) en van de kernregistratie naar het LMS (id-865f297e). Welk systeem levert de lesgroep aan het LMS?"
-    },
-    {
-      "beeld_id": "F6-15",
-      "beeld": "Roostersysteem stuurt de lesgroep naar het LMS",
-      "fase": 6,
-      "stap": "Gekozen keuzedeel roosteren en deelnemers delen",
-      "soort": "stroomt",
-      "van": "Roostersysteem",
-      "naar": "Leer management systeem (LMS)",
-      "pijl": "geen pijl op de hoofdplaat",
-      "koppeling": null,
-      "objecttype": "Leergelegenheid verbintenis",
-      "instantie": "Jochem op Het medicatieoverzicht opstellen, periode 7",
-      "bron": "sessie Keuzedeelmodel en informatiemodel, 17 november 2026 (Niels van Duin, Niek Derksen): de lescombinatie moet naar de leeromgeving; sparsessie PR 314, deel 2, 4 november 2026: de bron van de lesgroep is het roostersysteem",
+      "objecttype": "Onderwijseenheid aanbod verbintenis",
+      "instantie": "Jochem op D1-K1, periode 7, ingeschreven",
+      "bron": "aanwijzing van de opdrachtgever, 24 november 2026: het roostersysteem meldt het studentkeuzesysteem met wie en in welke groep de student is ingeroosterd, en het studentkeuzesysteem geeft dat door aan het LMS",
       "relaties": [
         {
           "soort": "Association",
-          "van": "Leergelegenheid verbintenis",
-          "naar": "Lesgroep",
-          "label": "Groepeert tot",
-          "instantie": "K0037-P7-A: 18 studenten uit drie plaatsingsgroepen"
-        },
+          "van": "Onderwijseenheid aanbod",
+          "naar": "Onderwijseenheid aanbod verbintenis",
+          "instantie": "D1-K1, periode 7, locatie A: 18 plaatsen"
+        }
+      ],
+      "zin": "Het roostersysteem meldt het studentkeuzesysteem dat Jochem is ingeroosterd: zijn verbintenis op de onderwijseenheid, die op de leergelegenheid, en de lesgroep waarin hij zit."
+    },
+    {
+      "beeld_id": "F6-15",
+      "beeld": "Roostersysteem stuurt Jochems verbintenis en lesgroep naar het studentkeuzesysteem",
+      "fase": 6,
+      "stap": "Gekozen keuzedeel roosteren en deelnemers delen",
+      "soort": "stroomt",
+      "van": "Roostersysteem",
+      "naar": "Student Keuze Systeem (SKS)",
+      "pijl": "id-7a7e0a17557f487a86fd347ad8569f24",
+      "koppeling": null,
+      "objecttype": "Leergelegenheid verbintenis",
+      "instantie": "Jochem op Het medicatieoverzicht opstellen, periode 7",
+      "bron": "aanwijzing van de opdrachtgever, 24 november 2026: het roostersysteem meldt het studentkeuzesysteem met wie en in welke groep de student is ingeroosterd, en het studentkeuzesysteem geeft dat door aan het LMS",
+      "nieuwe_instantie": true,
+      "relatie": {
+        "soort": "Aggregation",
+        "van": "Onderwijseenheid aanbod verbintenis",
+        "naar": "Leergelegenheid verbintenis",
+        "nesting": true
+      },
+      "relaties": [
         {
           "soort": "Association",
           "van": "Leergelegenheid",
@@ -6693,21 +6672,108 @@
     },
     {
       "beeld_id": "F6-15",
-      "beeld": "Roostersysteem stuurt de lesgroep naar het LMS",
+      "beeld": "Roostersysteem stuurt Jochems verbintenis en lesgroep naar het studentkeuzesysteem",
       "fase": 6,
       "stap": "Gekozen keuzedeel roosteren en deelnemers delen",
       "soort": "stroomt",
       "van": "Roostersysteem",
+      "naar": "Student Keuze Systeem (SKS)",
+      "pijl": "id-7a7e0a17557f487a86fd347ad8569f24",
+      "koppeling": null,
+      "objecttype": "Lesgroep",
+      "instantie": "K0037-P7-A: 18 studenten uit drie plaatsingsgroepen",
+      "bron": "aanwijzing van de opdrachtgever, 24 november 2026: het roostersysteem meldt het studentkeuzesysteem met wie en in welke groep de student is ingeroosterd, en het studentkeuzesysteem geeft dat door aan het LMS",
+      "relatie": {
+        "soort": "Association",
+        "van": "Leergelegenheid verbintenis",
+        "naar": "Lesgroep",
+        "label": "Groepeert tot",
+        "instantie": "Jochem op Het medicatieoverzicht opstellen, periode 7"
+      }
+    },
+    {
+      "beeld_id": "F6-16",
+      "beeld": "Studentkeuzesysteem stuurt verbintenis en lesgroep naar het LMS",
+      "fase": 6,
+      "stap": "Gekozen keuzedeel roosteren en deelnemers delen",
+      "soort": "stroomt",
+      "van": "Student Keuze Systeem (SKS)",
       "naar": "Leer management systeem (LMS)",
-      "pijl": "geen pijl op de hoofdplaat",
+      "pijl": "id-926ba88e5d2d41788005699e8eedf6bb",
       "koppeling": null,
       "objecttype": "Student",
       "instantie": "Jochem, cohort 2026",
-      "bron": "sessie Keuzedeelmodel en informatiemodel, 17 november 2026 (Niels van Duin, Niek Derksen): de lescombinatie moet naar de leeromgeving; sparsessie PR 314, deel 2, 4 november 2026: de bron van de lesgroep is het roostersysteem",
+      "bron": "aanwijzing van de opdrachtgever, 24 november 2026: het roostersysteem meldt het studentkeuzesysteem met wie en in welke groep de student is ingeroosterd, en het studentkeuzesysteem geeft dat door aan het LMS",
       "relatie": {
         "soort": "Specialization",
         "van": "Student",
         "naar": "Persoon"
+      },
+      "zin": "Het studentkeuzesysteem geeft de verbintenis en de lesgroep door aan het LMS, dat daarmee de leeromgeving van K0037 voor Jochem inricht.",
+      "vraag": "Het LMS krijgt de lesgroep via het studentkeuzesysteem, langs lijnen die de hoofdplaat kent. Het roostersysteem is de bron van de lesgroep. Is een directe lijn van het roostersysteem naar het LMS beter?"
+    },
+    {
+      "beeld_id": "F6-16",
+      "beeld": "Studentkeuzesysteem stuurt verbintenis en lesgroep naar het LMS",
+      "fase": 6,
+      "stap": "Gekozen keuzedeel roosteren en deelnemers delen",
+      "soort": "stroomt",
+      "van": "Student Keuze Systeem (SKS)",
+      "naar": "Leer management systeem (LMS)",
+      "pijl": "id-926ba88e5d2d41788005699e8eedf6bb",
+      "koppeling": null,
+      "objecttype": "Onderwijseenheid aanbod verbintenis",
+      "instantie": "Jochem op D1-K1, periode 7, ingeschreven",
+      "bron": "aanwijzing van de opdrachtgever, 24 november 2026: het roostersysteem meldt het studentkeuzesysteem met wie en in welke groep de student is ingeroosterd, en het studentkeuzesysteem geeft dat door aan het LMS",
+      "relaties": [
+        {
+          "soort": "Association",
+          "van": "Onderwijseenheid aanbod",
+          "naar": "Onderwijseenheid aanbod verbintenis",
+          "instantie": "D1-K1, periode 7, locatie A: 18 plaatsen"
+        }
+      ]
+    },
+    {
+      "beeld_id": "F6-16",
+      "beeld": "Studentkeuzesysteem stuurt verbintenis en lesgroep naar het LMS",
+      "fase": 6,
+      "stap": "Gekozen keuzedeel roosteren en deelnemers delen",
+      "soort": "stroomt",
+      "van": "Student Keuze Systeem (SKS)",
+      "naar": "Leer management systeem (LMS)",
+      "pijl": "id-926ba88e5d2d41788005699e8eedf6bb",
+      "koppeling": null,
+      "objecttype": "Leergelegenheid verbintenis",
+      "instantie": "Jochem op Het medicatieoverzicht opstellen, periode 7",
+      "bron": "aanwijzing van de opdrachtgever, 24 november 2026: het roostersysteem meldt het studentkeuzesysteem met wie en in welke groep de student is ingeroosterd, en het studentkeuzesysteem geeft dat door aan het LMS",
+      "nieuwe_instantie": true,
+      "relatie": {
+        "soort": "Aggregation",
+        "van": "Onderwijseenheid aanbod verbintenis",
+        "naar": "Leergelegenheid verbintenis",
+        "nesting": true
+      }
+    },
+    {
+      "beeld_id": "F6-16",
+      "beeld": "Studentkeuzesysteem stuurt verbintenis en lesgroep naar het LMS",
+      "fase": 6,
+      "stap": "Gekozen keuzedeel roosteren en deelnemers delen",
+      "soort": "stroomt",
+      "van": "Student Keuze Systeem (SKS)",
+      "naar": "Leer management systeem (LMS)",
+      "pijl": "id-926ba88e5d2d41788005699e8eedf6bb",
+      "koppeling": null,
+      "objecttype": "Lesgroep",
+      "instantie": "K0037-P7-A: 18 studenten uit drie plaatsingsgroepen",
+      "bron": "aanwijzing van de opdrachtgever, 24 november 2026: het roostersysteem meldt het studentkeuzesysteem met wie en in welke groep de student is ingeroosterd, en het studentkeuzesysteem geeft dat door aan het LMS",
+      "relatie": {
+        "soort": "Association",
+        "van": "Leergelegenheid verbintenis",
+        "naar": "Lesgroep",
+        "label": "Groepeert tot",
+        "instantie": "Jochem op Het medicatieoverzicht opstellen, periode 7"
       }
     },
     {

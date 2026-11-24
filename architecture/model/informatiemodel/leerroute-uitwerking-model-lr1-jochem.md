@@ -83,14 +83,15 @@ Alle stromen die dit voorbeeld gebruikt, met de beelden waarin ze voorkomen:
 | Onderwijscatalogus | Student volg systeem (SVS) | OC-SVS | F4-04 |
 | Kernregistratie systeem studenten (KRS) | Planningssysteem | zonder koppelingspecificatie | F4-06, F7-03 |
 | Planningssysteem | Roostersysteem | zonder koppelingspecificatie | F4-07, F6-12, F7-06 |
-| Roostersysteem | Leer management systeem (LMS) | geen pijl op de hoofdplaat | F4-10, F6-15 |
+| Roostersysteem | Leer management systeem (LMS) | geen pijl op de hoofdplaat | F4-10 |
 | Kernregistratie systeem studenten (KRS) | Student volg systeem (SVS) | geen pijl op de hoofdplaat | F4-11, F6-11 |
 | Leer management systeem (LMS) | Student volg systeem (SVS) | zonder koppelingspecificatie | F5-04 |
 | Onderwijscatalogus | Student Keuze Systeem (SKS) | zonder koppelingspecificatie | F6-02 |
 | Planningssysteem | Student Keuze Systeem (SKS) | zonder koppelingspecificatie | F6-03, F6-09 |
 | Student Keuze Systeem (SKS) | Planningssysteem | zonder koppelingspecificatie | F6-05 |
 | Student Keuze Systeem (SKS) | Kernregistratie systeem studenten (KRS) | zonder koppelingspecificatie | F6-10 |
-| Roostersysteem | Student Keuze Systeem (SKS) | zonder koppelingspecificatie | F6-14 |
+| Roostersysteem | Student Keuze Systeem (SKS) | zonder koppelingspecificatie | F6-14, F6-15 |
+| Student Keuze Systeem (SKS) | Leer management systeem (LMS) | zonder koppelingspecificatie | F6-16 |
 | Toets- en examen afname systeem | Student volg systeem (SVS) | geen pijl op de hoofdplaat | F8-04 |
 | Student volg systeem (SVS) | Kernregistratie systeem studenten (KRS) | geen pijl op de hoofdplaat | F8-06 |
 
@@ -423,7 +424,7 @@ De gemarkeerde lijnen zijn de stromen die deze fase raakt, met het beeld waarin 
 
 De fase in detail: [kaderscenario leerroute 1, fase 6](https://github.com/Npuls-OKx/Public/blob/dev/Referentiemateriaal/kaderscenario's/leerroute-1-regulier.md#fase-6--organiseren-van-keuzemomenten).
 
-**Ontstaat:** `Keuzedeel aanbod`, `Onderwijseenheid aanbod`, `Leergelegenheid`, `Aanmelding`, `Keuzedeel aanbod verbintenis`, `Onderwijseenheid aanbod verbintenis`, `Inschrijving`, `Leergelegenheid verbintenis`. **Stroomt:** Onderwijscatalogus naar Student Keuze Systeem (SKS); Planningssysteem naar Student Keuze Systeem (SKS); Student Keuze Systeem (SKS) naar Planningssysteem; Planningssysteem naar Onderwijscatalogus; Student Keuze Systeem (SKS) naar Kernregistratie systeem studenten (KRS); Kernregistratie systeem studenten (KRS) naar Student volg systeem (SVS); Planningssysteem naar Roostersysteem; Roostersysteem naar Student Keuze Systeem (SKS); Roostersysteem naar Leer management systeem (LMS). **MORA-hoofdproces:** Plannen en roosteren.
+**Ontstaat:** `Keuzedeel aanbod`, `Onderwijseenheid aanbod`, `Leergelegenheid`, `Aanmelding`, `Keuzedeel aanbod verbintenis`, `Onderwijseenheid aanbod verbintenis`, `Inschrijving`, `Leergelegenheid verbintenis`. **Stroomt:** Onderwijscatalogus naar Student Keuze Systeem (SKS); Planningssysteem naar Student Keuze Systeem (SKS); Student Keuze Systeem (SKS) naar Planningssysteem; Planningssysteem naar Onderwijscatalogus; Student Keuze Systeem (SKS) naar Kernregistratie systeem studenten (KRS); Kernregistratie systeem studenten (KRS) naar Student volg systeem (SVS); Planningssysteem naar Roostersysteem; Roostersysteem naar Student Keuze Systeem (SKS); Student Keuze Systeem (SKS) naar Leer management systeem (LMS). **MORA-hoofdproces:** Plannen en roosteren.
 
 ![De hoofdplaat met de stromen van fase 6 gemarkeerd](img/hoofdplaat/f6.svg)
 
@@ -509,11 +510,17 @@ De gemarkeerde lijnen zijn de stromen die deze fase raakt, met het beeld waarin 
 
 **Interactie:** Roostersysteem naar Student Keuze Systeem (SKS), zonder koppelingspecificatie. Op de [hoofdplaat](#de-hoofdplaat-als-kaart) en in de faseplaat hierboven staat deze lijn gemarkeerd met F6-14.
 
-### F6-15 - Roostersysteem stuurt de lesgroep naar het LMS
+### F6-15 - Roostersysteem stuurt Jochems verbintenis en lesgroep naar het studentkeuzesysteem
 
-![stroomt: Gekozen keuzedeel roosteren en deelnemers delen](img/regels/f6-15-roostersysteem-stuurt-de-lesgroep-naar-het-lms.svg)
+![stroomt: Gekozen keuzedeel roosteren en deelnemers delen](img/regels/f6-15-roostersysteem-stuurt-jochems-verbintenis-en-lesgroep-naar-het-studentkeuzesysteem.svg)
 
-**Interactie:** Roostersysteem naar Leer management systeem (LMS), geen pijl op de hoofdplaat. In de faseplaat hierboven staat deze lijn gestippeld met F6-15.
+**Interactie:** Roostersysteem naar Student Keuze Systeem (SKS), zonder koppelingspecificatie. Op de [hoofdplaat](#de-hoofdplaat-als-kaart) en in de faseplaat hierboven staat deze lijn gemarkeerd met F6-15.
+
+### F6-16 - Studentkeuzesysteem stuurt verbintenis en lesgroep naar het LMS
+
+![stroomt: Gekozen keuzedeel roosteren en deelnemers delen](img/regels/f6-16-studentkeuzesysteem-stuurt-verbintenis-en-lesgroep-naar-het-lms.svg)
+
+**Interactie:** Student Keuze Systeem (SKS) naar Leer management systeem (LMS), zonder koppelingspecificatie. Op de [hoofdplaat](#de-hoofdplaat-als-kaart) en in de faseplaat hierboven staat deze lijn gemarkeerd met F6-16.
 
 ### Variant capaciteitsgestuurd
 
@@ -769,19 +776,19 @@ De vragen die de regels zelf oproepen, met de regel waar de vraag zichtbaar word
 9. Het intakesysteem voert de intake uit (F3-05) maar is niet de afzender van de inschrijving: de plaat laat die lijn van de voorziening naar de kernregistratie lopen. Wat gaat er dan terug van het intakesysteem naar de voorziening, en langs welke lijn? De plaat kent geen stroom van het intakesysteem naar de voorziening. (F3-07, `Inschrijving`)
 10. Een vrijstelling en een behaald resultaat lopen in de praktijk door elkaar. Een vrijstelling stelt de examencommissie vooraf vast en betekent dat er op dat onderdeel geen resultaat hoeft te komen; zij landt als vrijgesteld onderdeel in de resultaatstructuur. Wat eerder is behaald zijn resultaten, en die worden in die structuur ingepast. Hoe legt OKx dat verschil vast? (F3-08, `Leeruitkomst`)
 11. Het kaderscenario zet groepen in twee richtingen tussen planning en de kernregistratie, en hoofdplaat v1.7 kent alleen de lijn van de kernregistratie naar planning. Een planninggroep die de planner om logistieke redenen vormt, hoort die terug naar de kernregistratie als nieuwe plaatsingsgroep, en mist de plaat dan een stroom? (F4-06, `Plaatsingsgroep`)
-12. Op de hoofdplaat staat geen lijn van het roostersysteem naar het leermanagementsysteem; vandaag loopt die route via de kernregistratie. Is het studentinformatiesysteem de orchestrator voor provisioning, of levert elk bronsysteem rechtstreeks? (F4-10, `Opleidingsprogramma aanbod verbintenis`)
-13. Aanwezigheidsregistratie zelf valt buiten OKx. Wat de scope wel raakt is het afgeleide deelnameresultaat: bij een onderwijseenheid die niet wordt getoetst kan het aandeel bijgewoonde lesgelegenheden een studievoortgangsresultaat zijn dat in het keuzesysteem keuzes vrijgeeft of beperkt. Hoort dat afgeleide resultaat in de uitwisseling, en blijft de registratie erbuiten? (F5-01, `Aanwezigheid`)
-14. De pijl van de catalogus naar het studentkeuzesysteem heet op de hoofdplaat 'Opleidingsprogramma aanbod', terwijl in de sessie van 17 november besloten is dat over deze lijn de specificatie en de regelset gaan. Hoort het label naar de specificatie? (F6-02, `Keuzedeel specificatie`)
+12. De hoofdplaat kent geen lijn van het roostersysteem naar het LMS. In fase 6 loopt dezelfde informatie via het studentkeuzesysteem (F6-15 en F6-16), langs lijnen die de plaat wel kent. Hoort fase 4 die route ook te volgen? (F4-10, `Student`)
+13. Op de hoofdplaat staat geen lijn van het roostersysteem naar het leermanagementsysteem; vandaag loopt die route via de kernregistratie. Is het studentinformatiesysteem de orchestrator voor provisioning, of levert elk bronsysteem rechtstreeks? (F4-10, `Opleidingsprogramma aanbod verbintenis`)
+14. Aanwezigheidsregistratie zelf valt buiten OKx. Wat de scope wel raakt is het afgeleide deelnameresultaat: bij een onderwijseenheid die niet wordt getoetst kan het aandeel bijgewoonde lesgelegenheden een studievoortgangsresultaat zijn dat in het keuzesysteem keuzes vrijgeeft of beperkt. Hoort dat afgeleide resultaat in de uitwisseling, en blijft de registratie erbuiten? (F5-01, `Aanwezigheid`)
 
 ### Vragen, vervolg (3 van 4)
 
-15. De pijl van planning naar het studentkeuzesysteem noemt 'geplande leergelegenheden', terwijl de student bij planning kiest op programma en onderwijseenheid. Welke laag hoort in het label? (F6-03, `Keuzedeel aanbod`)
-16. Welk systeem start het keuzemoment van een student? Planning is het enige systeem met een notie van onderwijsperiode, het keuzesysteem beheert de regels, en de SLB'er heeft in de praktijk een evaluatierol. Starten op de plaatsingsgroep houdt het verkeer laag; starten per student levert groepen van één student op. (F6-07, `Keuzedeel aanbod`)
-17. Planning bevestigt de verbintenis direct na de keuze, over een lijn die de hoofdplaat niet kent. De plaat brengt de verbintenis met de planningsgroep na het roosteren terug, van het roostersysteem naar het studentkeuzesysteem (id-7a7e0a17). Welke route klopt, of horen ze allebei? (F6-09, `Keuzedeel aanbod verbintenis`)
-18. De hoofdplaat kent geen lijn van de kernregistratie naar het studentvolgsysteem, wel een van het studentkeuzesysteem naar het studentvolgsysteem (id-3aefce69). Welk systeem meldt de verwachting: de kernregistratie die de inschrijving vastlegt, of het studentkeuzesysteem waar de keuze ontstaat? (F6-11, `Keuzedeel aanbod verbintenis`)
-19. Op de plaat is `Planningsgroep` een deel (compositie) van één `Plaatsingsgroep`, en de begrippenlijst noemt haar een opdeling daarvan. Een keuzedeelgroep brengt studenten uit drie plaatsingsgroepen samen, en dat past bij `Lesgroep`. Welk objecttype gaat er naar het rooster? Voorstel van de opdrachtgever: de `Planningsgroep` hangt hoger, aan het hele keuzedeel of de onderwijseenheid, en per leergelegenheid ontstaat een `Lesgroep`. (F6-12, `Planningsgroep`)
-20. De pijl van het rooster naar het studentkeuzesysteem die hier wordt gebruikt, draagt de geroosterde leergelegenheden zonder verbintenis. De verbintenis gaat op de plaat over een eigen lijn (id-7a7e0a17), op programma en onderwijseenheid. Hoort de verbintenis op de leergelegenheid over een van beide lijnen? (F6-14, `Leergelegenheid verbintenis`)
-21. De hoofdplaat kent geen lijn van het roostersysteem naar het LMS. Wel van het studentkeuzesysteem naar het LMS (id-926ba88e, verbintenis en planningsgroep) en van de kernregistratie naar het LMS (id-865f297e). Welk systeem levert de lesgroep aan het LMS? (F6-15, `Lesgroep`)
+15. De pijl van de catalogus naar het studentkeuzesysteem heet op de hoofdplaat 'Opleidingsprogramma aanbod', terwijl in de sessie van 17 november besloten is dat over deze lijn de specificatie en de regelset gaan. Hoort het label naar de specificatie? (F6-02, `Keuzedeel specificatie`)
+16. De pijl van planning naar het studentkeuzesysteem noemt 'geplande leergelegenheden', terwijl de student bij planning kiest op programma en onderwijseenheid. Welke laag hoort in het label? (F6-03, `Keuzedeel aanbod`)
+17. Welk systeem start het keuzemoment van een student? Planning is het enige systeem met een notie van onderwijsperiode, het keuzesysteem beheert de regels, en de SLB'er heeft in de praktijk een evaluatierol. Starten op de plaatsingsgroep houdt het verkeer laag; starten per student levert groepen van één student op. (F6-07, `Keuzedeel aanbod`)
+18. Planning bevestigt de verbintenis direct na de keuze, over een lijn die de hoofdplaat niet kent. De plaat brengt de verbintenis met de planningsgroep na het roosteren terug, van het roostersysteem naar het studentkeuzesysteem (id-7a7e0a17). Welke route klopt, of horen ze allebei? (F6-09, `Keuzedeel aanbod verbintenis`)
+19. De hoofdplaat kent geen lijn van de kernregistratie naar het studentvolgsysteem, wel een van het studentkeuzesysteem naar het studentvolgsysteem (id-3aefce69). Welk systeem meldt de verwachting: de kernregistratie die de inschrijving vastlegt, of het studentkeuzesysteem waar de keuze ontstaat? (F6-11, `Keuzedeel aanbod verbintenis`)
+20. Op de plaat is `Planningsgroep` een deel (compositie) van één `Plaatsingsgroep`, en de begrippenlijst noemt haar een opdeling daarvan. Een keuzedeelgroep brengt studenten uit drie plaatsingsgroepen samen, en dat past bij `Lesgroep`. Welk objecttype gaat er naar het rooster? Voorstel van de opdrachtgever: de `Planningsgroep` hangt hoger, aan het hele keuzedeel of de onderwijseenheid, en per leergelegenheid ontstaat een `Lesgroep`. (F6-12, `Planningsgroep`)
+21. Het LMS krijgt de lesgroep via het studentkeuzesysteem, langs lijnen die de hoofdplaat kent. Het roostersysteem is de bron van de lesgroep. Is een directe lijn van het roostersysteem naar het LMS beter? (F6-16, `Student`)
 
 ### Vragen, vervolg (4 van 4)
 
@@ -1376,15 +1383,23 @@ Elke regel onder het ID en de titel van haar beeld (fase, stap, bestand) met de 
 | Soort | Objecttype | Instantie | Bron |
 |---|---|---|---|
 | stroomt | Leergelegenheid | Het medicatieoverzicht opstellen, periode 7: donderdagmiddag, leerapotheek, docent 4711 | sessie Keuzedeelmodel en informatiemodel, 17 november 2026 (Niels van Duin, Niek Derksen): het rooster geeft het studentkeuzesysteem terug welke leergelegenheden het worden |
-| stroomt | Leergelegenheid verbintenis | Jochem op Het medicatieoverzicht opstellen, periode 7 | sessie Keuzedeelmodel en informatiemodel, 17 november 2026 (Niels van Duin, Niek Derksen) |
 
-**F6-15 - Roostersysteem stuurt de lesgroep naar het LMS** (fase 6, Gekozen keuzedeel roosteren en deelnemers delen; [f6-15-roostersysteem-stuurt-de-lesgroep-naar-het-lms.svg](img/regels/f6-15-roostersysteem-stuurt-de-lesgroep-naar-het-lms.svg))
+**F6-15 - Roostersysteem stuurt Jochems verbintenis en lesgroep naar het studentkeuzesysteem** (fase 6, Gekozen keuzedeel roosteren en deelnemers delen; [f6-15-roostersysteem-stuurt-jochems-verbintenis-en-lesgroep-naar-het-studentkeuzesysteem.svg](img/regels/f6-15-roostersysteem-stuurt-jochems-verbintenis-en-lesgroep-naar-het-studentkeuzesysteem.svg))
 
 | Soort | Objecttype | Instantie | Bron |
 |---|---|---|---|
-| stroomt | Lesgroep | K0037-P7-A: 18 studenten uit drie plaatsingsgroepen | sessie Keuzedeelmodel en informatiemodel, 17 november 2026 (Niels van Duin, Niek Derksen): de lescombinatie moet naar de leeromgeving; sparsessie PR 314, deel 2, 4 november 2026: de bron van de lesgroep is het roostersysteem |
-| stroomt | Leergelegenheid verbintenis | Jochem op Het medicatieoverzicht opstellen, periode 7 | sessie Keuzedeelmodel en informatiemodel, 17 november 2026 (Niels van Duin, Niek Derksen): de lescombinatie moet naar de leeromgeving; sparsessie PR 314, deel 2, 4 november 2026: de bron van de lesgroep is het roostersysteem |
-| stroomt | Student | Jochem, cohort 2026 | sessie Keuzedeelmodel en informatiemodel, 17 november 2026 (Niels van Duin, Niek Derksen): de lescombinatie moet naar de leeromgeving; sparsessie PR 314, deel 2, 4 november 2026: de bron van de lesgroep is het roostersysteem |
+| stroomt | Onderwijseenheid aanbod verbintenis | Jochem op D1-K1, periode 7, ingeschreven | aanwijzing van de opdrachtgever, 24 november 2026: het roostersysteem meldt het studentkeuzesysteem met wie en in welke groep de student is ingeroosterd, en het studentkeuzesysteem geeft dat door aan het LMS |
+| stroomt | Leergelegenheid verbintenis | Jochem op Het medicatieoverzicht opstellen, periode 7 | aanwijzing van de opdrachtgever, 24 november 2026: het roostersysteem meldt het studentkeuzesysteem met wie en in welke groep de student is ingeroosterd, en het studentkeuzesysteem geeft dat door aan het LMS |
+| stroomt | Lesgroep | K0037-P7-A: 18 studenten uit drie plaatsingsgroepen | aanwijzing van de opdrachtgever, 24 november 2026: het roostersysteem meldt het studentkeuzesysteem met wie en in welke groep de student is ingeroosterd, en het studentkeuzesysteem geeft dat door aan het LMS |
+
+**F6-16 - Studentkeuzesysteem stuurt verbintenis en lesgroep naar het LMS** (fase 6, Gekozen keuzedeel roosteren en deelnemers delen; [f6-16-studentkeuzesysteem-stuurt-verbintenis-en-lesgroep-naar-het-lms.svg](img/regels/f6-16-studentkeuzesysteem-stuurt-verbintenis-en-lesgroep-naar-het-lms.svg))
+
+| Soort | Objecttype | Instantie | Bron |
+|---|---|---|---|
+| stroomt | Student | Jochem, cohort 2026 | aanwijzing van de opdrachtgever, 24 november 2026: het roostersysteem meldt het studentkeuzesysteem met wie en in welke groep de student is ingeroosterd, en het studentkeuzesysteem geeft dat door aan het LMS |
+| stroomt | Onderwijseenheid aanbod verbintenis | Jochem op D1-K1, periode 7, ingeschreven | aanwijzing van de opdrachtgever, 24 november 2026: het roostersysteem meldt het studentkeuzesysteem met wie en in welke groep de student is ingeroosterd, en het studentkeuzesysteem geeft dat door aan het LMS |
+| stroomt | Leergelegenheid verbintenis | Jochem op Het medicatieoverzicht opstellen, periode 7 | aanwijzing van de opdrachtgever, 24 november 2026: het roostersysteem meldt het studentkeuzesysteem met wie en in welke groep de student is ingeroosterd, en het studentkeuzesysteem geeft dat door aan het LMS |
+| stroomt | Lesgroep | K0037-P7-A: 18 studenten uit drie plaatsingsgroepen | aanwijzing van de opdrachtgever, 24 november 2026: het roostersysteem meldt het studentkeuzesysteem met wie en in welke groep de student is ingeroosterd, en het studentkeuzesysteem geeft dat door aan het LMS |
 
 **F7-01 - Planner verzamelt afwijkingen in een plaatsingsgroep** (fase 7, Afwijkingen verzamelen in een planninggroep; [f7-01-planner-verzamelt-afwijkingen-in-een-plaatsingsgroep.svg](img/regels/f7-01-planner-verzamelt-afwijkingen-in-een-plaatsingsgroep.svg))
 
