@@ -46,9 +46,10 @@ Een keuzedeel is daarmee in opbouw bijna hetzelfde als een programma: het erft d
 het eigen heeft komt in het logisch gegevensmodel erbij. Het algemene begrip staat dus al op de plaat, en het
 keuzedeel is de invulling die het mbo eraan geeft.
 
-Twee soorten regels, in de vormtaal van de plaat:
+Drie soorten regels, in de vormtaal van de plaat:
 
 - **Ontstaat**: een rol (geel, rolicoon) voert een processtap uit (geel, procesicoon) en daaruit ontstaan objecttypen (geel, objecticoon) met Jochems waarde. "Bestaat uit" is nesting; een relatielabel van de plaat staat tussen twee objecten of als verwijzing op een object dat aan een eerdere stap hangt. Een gestippelde rand is een aanname; grijs is een objecttype dat de plaat buiten de uitwisseling zet en dit voorbeeld toch meeneemt.
+- **Bestaat** (wit met gele rand, links onder "Eerder ontstaan"): een object dat in een eerder beeld ontstond, met dat beeld erbij ("uit F1-08"). Een lijn met het label van de plaat loopt naar het object dat er hier uit ontstaat; onder het beeld staat de herkomst als link.
 - **Stroomt** (blauwe rand): van welk systeem naar welk systeem gaat welk object, met de koppeling-ID of "zonder koppelingspecificatie", en de processtap waarna het gebeurt.
 
 Waar de herkomst loopt: het kwalificatiedossier, de kwalificatie, de kerntaken en de werkprocessen staan in het eerste beeld van fase 1, en het derde beeld vertaalt ze naar leeruitkomsten. Daarna verwijzen specificaties, toets- en examenonderdelen, aanbod, verbintenissen en resultaten naar de leeruitkomst; de plaat kent buiten die route alleen een directe verwijzing vanuit het examenplan en de OER. Een dossiercode in een instantienaam (B1-K1, B1-K1-W1) is daarom een leeshulp die zegt over welk deel van het dossier het gaat, en geen relatie. Op de conceptplaat loopt daarnaast een eigen pad binnen de instelling: de kerntaak wordt daar onderwijskundig vertaald tot een leerdoel.
@@ -431,6 +432,8 @@ De gemarkeerde lijnen zijn de stromen die deze fase raakt, met het beeld waarin 
 ### F6-01 - Het keuzedeelaanbod per laag, gemaakt uit de specificatie van K0037
 
 ![ontstaat: Keuzedeelaanbod ontsluiten naar het studentkeuzesysteem](img/regels/f6-01-het-keuzedeelaanbod-per-laag-gemaakt-uit-de-specificatie-van-k0037.svg)
+
+**Herkomst:** uit [F1-08](#f1-08---kiesbaar-onderwijsprogrammaonderdeel-keuzedelen-en-minor): `Keuzedeel specificatie` K0037 Farmaceutische Patientenzorg (480 SBU, verdiepend); `Onderwijseenheid specificatie` D1-K1 Voert farmaceutische patientenzorg uit; `Leeronderdeel specificatie` Het medicatieoverzicht opstellen; `Leeronderdeel specificatie` Zorg aan specifieke doelgroepen.
 
 ### F6-02 - De keuzedeelspecificatie en de keuzeregels naar het studentkeuzesysteem
 
@@ -1258,6 +1261,10 @@ Elke regel onder het ID en de titel van haar beeld (fase, stap, bestand) met de 
 
 | Soort | Objecttype | Instantie | Bron |
 |---|---|---|---|
+| bestaat, uit F1-08 | Keuzedeel specificatie | K0037 Farmaceutische Patientenzorg (480 SBU, verdiepend) | K0037-farmaceutische-patientenzorg.md (keuzedeel mbo K0037, 480 SBU, aard verdiepend, gevalideerd 26-11-2015) |
+| bestaat, uit F1-08 | Onderwijseenheid specificatie | D1-K1 Voert farmaceutische patientenzorg uit | K0037-farmaceutische-patientenzorg.md (keuzedeel mbo K0037, 480 SBU, aard verdiepend, gevalideerd 26-11-2015) |
+| bestaat, uit F1-08 | Leeronderdeel specificatie | Het medicatieoverzicht opstellen | K0037-farmaceutische-patientenzorg.md (keuzedeel mbo K0037, 480 SBU, aard verdiepend, gevalideerd 26-11-2015) |
+| bestaat, uit F1-08 | Leeronderdeel specificatie | Zorg aan specifieke doelgroepen | K0037-farmaceutische-patientenzorg.md (keuzedeel mbo K0037, 480 SBU, aard verdiepend, gevalideerd 26-11-2015) |
 | ontstaat | Keuzedeel aanbod | K0037 Farmaceutische Patientenzorg, periode 7, locatie A | sessie Keuzedeelmodel en informatiemodel, 17 november 2026 (Niels van Duin, Niek Derksen): het aanbod voegt plaats, tijd en capaciteit toe aan de specificatie; leerroute-1-regulier.md, Fase 6 |
 | ontstaat | Onderwijseenheid aanbod | D1-K1, periode 7, locatie A: 18 plaatsen | sessie Keuzedeelmodel en informatiemodel, 17 november 2026 (Niels van Duin, Niek Derksen); geen bron, keuze van het voorbeeld: maatvoering |
 | ontstaat | Leergelegenheid | Het medicatieoverzicht opstellen, periode 7 | sessie Keuzedeelmodel en informatiemodel, 17 november 2026 (Niels van Duin, Niek Derksen); geen bron, keuze van het voorbeeld |

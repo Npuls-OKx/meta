@@ -5638,6 +5638,73 @@
       "beeld": "Het keuzedeelaanbod per laag, gemaakt uit de specificatie van K0037",
       "fase": 6,
       "stap": "Keuzedeelaanbod ontsluiten naar het studentkeuzesysteem",
+      "soort": "bestaat",
+      "objecttype": "Keuzedeel specificatie",
+      "instantie": "K0037 Farmaceutische Patientenzorg (480 SBU, verdiepend)",
+      "herkomst": "F1-08",
+      "bron": "K0037-farmaceutische-patientenzorg.md (keuzedeel mbo K0037, 480 SBU, aard verdiepend, gevalideerd 26-11-2015)",
+      "relatie": {
+        "soort": "Specialization",
+        "van": "Keuzedeel specificatie",
+        "naar": "Opleidingsprogramma specificatie"
+      }
+    },
+    {
+      "beeld_id": "F6-01",
+      "beeld": "Het keuzedeelaanbod per laag, gemaakt uit de specificatie van K0037",
+      "fase": 6,
+      "stap": "Keuzedeelaanbod ontsluiten naar het studentkeuzesysteem",
+      "soort": "bestaat",
+      "objecttype": "Onderwijseenheid specificatie",
+      "instantie": "D1-K1 Voert farmaceutische patientenzorg uit",
+      "herkomst": "F1-08",
+      "bron": "K0037-farmaceutische-patientenzorg.md (keuzedeel mbo K0037, 480 SBU, aard verdiepend, gevalideerd 26-11-2015)",
+      "relatie": {
+        "soort": "Aggregation",
+        "van": "Opleidingsprogramma specificatie",
+        "naar": "Onderwijseenheid specificatie",
+        "nesting": true
+      }
+    },
+    {
+      "beeld_id": "F6-01",
+      "beeld": "Het keuzedeelaanbod per laag, gemaakt uit de specificatie van K0037",
+      "fase": 6,
+      "stap": "Keuzedeelaanbod ontsluiten naar het studentkeuzesysteem",
+      "soort": "bestaat",
+      "objecttype": "Leeronderdeel specificatie",
+      "instantie": "Het medicatieoverzicht opstellen",
+      "herkomst": "F1-08",
+      "bron": "K0037-farmaceutische-patientenzorg.md (keuzedeel mbo K0037, 480 SBU, aard verdiepend, gevalideerd 26-11-2015)",
+      "relatie": {
+        "soort": "Aggregation",
+        "van": "Onderwijseenheid specificatie",
+        "naar": "Leeronderdeel specificatie",
+        "nesting": true
+      }
+    },
+    {
+      "beeld_id": "F6-01",
+      "beeld": "Het keuzedeelaanbod per laag, gemaakt uit de specificatie van K0037",
+      "fase": 6,
+      "stap": "Keuzedeelaanbod ontsluiten naar het studentkeuzesysteem",
+      "soort": "bestaat",
+      "objecttype": "Leeronderdeel specificatie",
+      "instantie": "Zorg aan specifieke doelgroepen",
+      "herkomst": "F1-08",
+      "bron": "K0037-farmaceutische-patientenzorg.md (keuzedeel mbo K0037, 480 SBU, aard verdiepend, gevalideerd 26-11-2015)",
+      "relatie": {
+        "soort": "Aggregation",
+        "van": "Onderwijseenheid specificatie",
+        "naar": "Leeronderdeel specificatie",
+        "nesting": true
+      }
+    },
+    {
+      "beeld_id": "F6-01",
+      "beeld": "Het keuzedeelaanbod per laag, gemaakt uit de specificatie van K0037",
+      "fase": 6,
+      "stap": "Keuzedeelaanbod ontsluiten naar het studentkeuzesysteem",
       "soort": "ontstaat",
       "wie": "planner",
       "objecttype": "Keuzedeel aanbod",
