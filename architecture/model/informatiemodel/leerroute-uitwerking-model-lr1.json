@@ -311,7 +311,7 @@
       "mora_hoofdproces": "Plannen en roosteren",
       "bron": "leerroute-1-regulier.md, Fase 6: de planner verwerkt definitieve keuzes periodiek naar groepen en capaciteit, actualiseert het planbare aanbod in OC en het rooster volgt; Planning naar KRS: formele inschrijving keuzedeel; sessie Keuzedeelmodel en informatiemodel, 17 november 2026 (Niels van Duin, Niek Derksen): de catalogus ontsluit specificatie en keuzeregels, het studentkeuzesysteem haalt het aanbod bij planning, direct kiezen is de regel, en na de keuze volgen bevestiging, kernregistratie, studentvolgsysteem, rooster en LMS",
       "stappen": [
-        "Keuzedeelaanbod ontsluiten naar het studentkeuzesysteem",
+        "Keuzedeel kiesbaar maken in het studentkeuzesysteem",
         "Keuzedeel kiezen in het studentkeuzesysteem",
         "Definitieve keuzes verwerken naar groepen en capaciteit",
         "Planbaar aanbod actualiseren",
@@ -3030,7 +3030,7 @@
     },
     {
       "beeld_id": "F2-03",
-      "beeld": "Onderwijscatalogus stuurt het verzoek met de specificatie naar planning",
+      "beeld": "Onderwijscatalogus stuurt het verzoek met de specificatie naar het planningssysteem",
       "fase": 2,
       "stap": "Planningssysteem verzoeken om onderwijsaanbod",
       "soort": "stroomt",
@@ -3046,7 +3046,7 @@
     },
     {
       "beeld_id": "F2-03",
-      "beeld": "Onderwijscatalogus stuurt het verzoek met de specificatie naar planning",
+      "beeld": "Onderwijscatalogus stuurt het verzoek met de specificatie naar het planningssysteem",
       "fase": 2,
       "stap": "Planningssysteem verzoeken om onderwijsaanbod",
       "soort": "stroomt",
@@ -3066,7 +3066,7 @@
     },
     {
       "beeld_id": "F2-03",
-      "beeld": "Onderwijscatalogus stuurt het verzoek met de specificatie naar planning",
+      "beeld": "Onderwijscatalogus stuurt het verzoek met de specificatie naar het planningssysteem",
       "fase": 2,
       "stap": "Planningssysteem verzoeken om onderwijsaanbod",
       "soort": "stroomt",
@@ -3086,7 +3086,7 @@
     },
     {
       "beeld_id": "F2-03",
-      "beeld": "Onderwijscatalogus stuurt het verzoek met de specificatie naar planning",
+      "beeld": "Onderwijscatalogus stuurt het verzoek met de specificatie naar het planningssysteem",
       "fase": 2,
       "stap": "Planningssysteem verzoeken om onderwijsaanbod",
       "soort": "stroomt",
@@ -3115,7 +3115,7 @@
     },
     {
       "beeld_id": "F2-03",
-      "beeld": "Onderwijscatalogus stuurt het verzoek met de specificatie naar planning",
+      "beeld": "Onderwijscatalogus stuurt het verzoek met de specificatie naar het planningssysteem",
       "fase": 2,
       "stap": "Planningssysteem verzoeken om onderwijsaanbod",
       "soort": "stroomt",
@@ -3143,7 +3143,7 @@
     },
     {
       "beeld_id": "F2-03",
-      "beeld": "Onderwijscatalogus stuurt het verzoek met de specificatie naar planning",
+      "beeld": "Onderwijscatalogus stuurt het verzoek met de specificatie naar het planningssysteem",
       "fase": 2,
       "stap": "Planningssysteem verzoeken om onderwijsaanbod",
       "soort": "stroomt",
@@ -3171,7 +3171,7 @@
     },
     {
       "beeld_id": "F2-03",
-      "beeld": "Onderwijscatalogus stuurt het verzoek met de specificatie naar planning",
+      "beeld": "Onderwijscatalogus stuurt het verzoek met de specificatie naar het planningssysteem",
       "fase": 2,
       "stap": "Planningssysteem verzoeken om onderwijsaanbod",
       "soort": "stroomt",
@@ -3195,7 +3195,7 @@
     },
     {
       "beeld_id": "F2-03",
-      "beeld": "Onderwijscatalogus stuurt het verzoek met de specificatie naar planning",
+      "beeld": "Onderwijscatalogus stuurt het verzoek met de specificatie naar het planningssysteem",
       "fase": 2,
       "stap": "Planningssysteem verzoeken om onderwijsaanbod",
       "soort": "stroomt",
@@ -3216,7 +3216,7 @@
     },
     {
       "beeld_id": "F2-03",
-      "beeld": "Onderwijscatalogus stuurt het verzoek met de specificatie naar planning",
+      "beeld": "Onderwijscatalogus stuurt het verzoek met de specificatie naar het planningssysteem",
       "fase": 2,
       "stap": "Planningssysteem verzoeken om onderwijsaanbod",
       "soort": "stroomt",
@@ -3239,7 +3239,7 @@
     },
     {
       "beeld_id": "F2-03",
-      "beeld": "Onderwijscatalogus stuurt het verzoek met de specificatie naar planning",
+      "beeld": "Onderwijscatalogus stuurt het verzoek met de specificatie naar het planningssysteem",
       "fase": 2,
       "stap": "Planningssysteem verzoeken om onderwijsaanbod",
       "soort": "stroomt",
@@ -3262,7 +3262,7 @@
     },
     {
       "beeld_id": "F2-03",
-      "beeld": "Onderwijscatalogus stuurt het verzoek met de specificatie naar planning",
+      "beeld": "Onderwijscatalogus stuurt het verzoek met de specificatie naar het planningssysteem",
       "fase": 2,
       "stap": "Planningssysteem verzoeken om onderwijsaanbod",
       "soort": "stroomt",
@@ -3282,7 +3282,7 @@
     },
     {
       "beeld_id": "F2-04",
-      "beeld": "Planning meldt de haalbaarheid van de specificatie aan de catalogus",
+      "beeld": "Planningssysteem stuurt het getoetste verzoek terug naar de onderwijscatalogus",
       "fase": 2,
       "stap": "Specificatie op haalbaarheid toetsen",
       "soort": "stroomt",
@@ -3299,7 +3299,7 @@
     },
     {
       "beeld_id": "F2-04",
-      "beeld": "Planning meldt de haalbaarheid van de specificatie aan de catalogus",
+      "beeld": "Planningssysteem stuurt het getoetste verzoek terug naar de onderwijscatalogus",
       "fase": 2,
       "stap": "Specificatie op haalbaarheid toetsen",
       "soort": "stroomt",
@@ -3682,7 +3682,7 @@
     },
     {
       "beeld_id": "F2-09",
-      "beeld": "Planning levert het geplande aanbod terug aan de catalogus",
+      "beeld": "Planningssysteem stuurt het geplande aanbod naar de onderwijscatalogus",
       "fase": 2,
       "stap": "Gepland aanbod terugleveren aan de onderwijscatalogus",
       "soort": "stroomt",
@@ -3698,7 +3698,7 @@
     },
     {
       "beeld_id": "F2-09",
-      "beeld": "Planning levert het geplande aanbod terug aan de catalogus",
+      "beeld": "Planningssysteem stuurt het geplande aanbod naar de onderwijscatalogus",
       "fase": 2,
       "stap": "Gepland aanbod terugleveren aan de onderwijscatalogus",
       "soort": "stroomt",
@@ -3734,7 +3734,7 @@
     },
     {
       "beeld_id": "F2-09",
-      "beeld": "Planning levert het geplande aanbod terug aan de catalogus",
+      "beeld": "Planningssysteem stuurt het geplande aanbod naar de onderwijscatalogus",
       "fase": 2,
       "stap": "Gepland aanbod terugleveren aan de onderwijscatalogus",
       "soort": "stroomt",
@@ -3770,7 +3770,7 @@
     },
     {
       "beeld_id": "F2-09",
-      "beeld": "Planning levert het geplande aanbod terug aan de catalogus",
+      "beeld": "Planningssysteem stuurt het geplande aanbod naar de onderwijscatalogus",
       "fase": 2,
       "stap": "Gepland aanbod terugleveren aan de onderwijscatalogus",
       "soort": "stroomt",
@@ -3806,7 +3806,7 @@
     },
     {
       "beeld_id": "F2-09",
-      "beeld": "Planning levert het geplande aanbod terug aan de catalogus",
+      "beeld": "Planningssysteem stuurt het geplande aanbod naar de onderwijscatalogus",
       "fase": 2,
       "stap": "Gepland aanbod terugleveren aan de onderwijscatalogus",
       "soort": "stroomt",
@@ -3842,7 +3842,7 @@
     },
     {
       "beeld_id": "F2-09",
-      "beeld": "Planning levert het geplande aanbod terug aan de catalogus",
+      "beeld": "Planningssysteem stuurt het geplande aanbod naar de onderwijscatalogus",
       "fase": 2,
       "stap": "Gepland aanbod terugleveren aan de onderwijscatalogus",
       "soort": "stroomt",
@@ -3872,7 +3872,7 @@
     },
     {
       "beeld_id": "F2-09",
-      "beeld": "Planning levert het geplande aanbod terug aan de catalogus",
+      "beeld": "Planningssysteem stuurt het geplande aanbod naar de onderwijscatalogus",
       "fase": 2,
       "stap": "Gepland aanbod terugleveren aan de onderwijscatalogus",
       "soort": "stroomt",
@@ -4441,7 +4441,7 @@
     },
     {
       "beeld_id": "F4-02",
-      "beeld": "Onderwijscatalogus levert de detailspecificaties aan het LMS",
+      "beeld": "Onderwijscatalogus stuurt de detailspecificaties naar het LMS",
       "fase": 4,
       "stap": "Detailspecificaties leveren aan het LMS",
       "soort": "stroomt",
@@ -4464,7 +4464,7 @@
     },
     {
       "beeld_id": "F4-02",
-      "beeld": "Onderwijscatalogus levert de detailspecificaties aan het LMS",
+      "beeld": "Onderwijscatalogus stuurt de detailspecificaties naar het LMS",
       "fase": 4,
       "stap": "Detailspecificaties leveren aan het LMS",
       "soort": "stroomt",
@@ -4492,7 +4492,7 @@
     },
     {
       "beeld_id": "F4-02",
-      "beeld": "Onderwijscatalogus levert de detailspecificaties aan het LMS",
+      "beeld": "Onderwijscatalogus stuurt de detailspecificaties naar het LMS",
       "fase": 4,
       "stap": "Detailspecificaties leveren aan het LMS",
       "soort": "stroomt",
@@ -4521,7 +4521,7 @@
     },
     {
       "beeld_id": "F4-02",
-      "beeld": "Onderwijscatalogus levert de detailspecificaties aan het LMS",
+      "beeld": "Onderwijscatalogus stuurt de detailspecificaties naar het LMS",
       "fase": 4,
       "stap": "Detailspecificaties leveren aan het LMS",
       "soort": "stroomt",
@@ -4545,7 +4545,7 @@
     },
     {
       "beeld_id": "F4-02",
-      "beeld": "Onderwijscatalogus levert de detailspecificaties aan het LMS",
+      "beeld": "Onderwijscatalogus stuurt de detailspecificaties naar het LMS",
       "fase": 4,
       "stap": "Detailspecificaties leveren aan het LMS",
       "soort": "stroomt",
@@ -4561,7 +4561,7 @@
     },
     {
       "beeld_id": "F4-03",
-      "beeld": "Onderwijscatalogus levert les en toets van binnen aan het LMS",
+      "beeld": "Onderwijscatalogus stuurt de opbouw van les en toets naar het LMS",
       "fase": 4,
       "stap": "Detailspecificaties leveren aan het LMS",
       "verdieping": "wat er in een les zit",
@@ -4579,7 +4579,7 @@
     },
     {
       "beeld_id": "F4-03",
-      "beeld": "Onderwijscatalogus levert les en toets van binnen aan het LMS",
+      "beeld": "Onderwijscatalogus stuurt de opbouw van les en toets naar het LMS",
       "fase": 4,
       "stap": "Detailspecificaties leveren aan het LMS",
       "verdieping": "wat er in een les zit",
@@ -4602,7 +4602,7 @@
     },
     {
       "beeld_id": "F4-03",
-      "beeld": "Onderwijscatalogus levert les en toets van binnen aan het LMS",
+      "beeld": "Onderwijscatalogus stuurt de opbouw van les en toets naar het LMS",
       "fase": 4,
       "stap": "Detailspecificaties leveren aan het LMS",
       "verdieping": "wat er in een les zit",
@@ -4625,7 +4625,7 @@
     },
     {
       "beeld_id": "F4-03",
-      "beeld": "Onderwijscatalogus levert les en toets van binnen aan het LMS",
+      "beeld": "Onderwijscatalogus stuurt de opbouw van les en toets naar het LMS",
       "fase": 4,
       "stap": "Detailspecificaties leveren aan het LMS",
       "verdieping": "wat er in een les zit",
@@ -4648,7 +4648,7 @@
     },
     {
       "beeld_id": "F4-03",
-      "beeld": "Onderwijscatalogus levert les en toets van binnen aan het LMS",
+      "beeld": "Onderwijscatalogus stuurt de opbouw van les en toets naar het LMS",
       "fase": 4,
       "stap": "Detailspecificaties leveren aan het LMS",
       "verdieping": "wat er in een les zit",
@@ -4671,7 +4671,7 @@
     },
     {
       "beeld_id": "F4-03",
-      "beeld": "Onderwijscatalogus levert les en toets van binnen aan het LMS",
+      "beeld": "Onderwijscatalogus stuurt de opbouw van les en toets naar het LMS",
       "fase": 4,
       "stap": "Detailspecificaties leveren aan het LMS",
       "verdieping": "wat er in een les zit",
@@ -4697,7 +4697,7 @@
     },
     {
       "beeld_id": "F4-03",
-      "beeld": "Onderwijscatalogus levert les en toets van binnen aan het LMS",
+      "beeld": "Onderwijscatalogus stuurt de opbouw van les en toets naar het LMS",
       "fase": 4,
       "stap": "Detailspecificaties leveren aan het LMS",
       "verdieping": "wat er in een les zit",
@@ -4723,7 +4723,7 @@
     },
     {
       "beeld_id": "F4-03",
-      "beeld": "Onderwijscatalogus levert les en toets van binnen aan het LMS",
+      "beeld": "Onderwijscatalogus stuurt de opbouw van les en toets naar het LMS",
       "fase": 4,
       "stap": "Detailspecificaties leveren aan het LMS",
       "verdieping": "wat er in een les zit",
@@ -4746,7 +4746,7 @@
     },
     {
       "beeld_id": "F4-04",
-      "beeld": "Onderwijscatalogus levert de summatieve resultaatstructuur aan het studentvolgsysteem",
+      "beeld": "Onderwijscatalogus stuurt de summatieve resultaatstructuur naar het studentvolgsysteem",
       "fase": 4,
       "stap": "Detailspecificaties leveren aan het LMS",
       "soort": "stroomt",
@@ -4769,7 +4769,7 @@
     },
     {
       "beeld_id": "F4-04",
-      "beeld": "Onderwijscatalogus levert de summatieve resultaatstructuur aan het studentvolgsysteem",
+      "beeld": "Onderwijscatalogus stuurt de summatieve resultaatstructuur naar het studentvolgsysteem",
       "fase": 4,
       "stap": "Detailspecificaties leveren aan het LMS",
       "soort": "stroomt",
@@ -4802,7 +4802,7 @@
     },
     {
       "beeld_id": "F4-04",
-      "beeld": "Onderwijscatalogus levert de summatieve resultaatstructuur aan het studentvolgsysteem",
+      "beeld": "Onderwijscatalogus stuurt de summatieve resultaatstructuur naar het studentvolgsysteem",
       "fase": 4,
       "stap": "Detailspecificaties leveren aan het LMS",
       "soort": "stroomt",
@@ -4821,7 +4821,7 @@
     },
     {
       "beeld_id": "F4-04",
-      "beeld": "Onderwijscatalogus levert de summatieve resultaatstructuur aan het studentvolgsysteem",
+      "beeld": "Onderwijscatalogus stuurt de summatieve resultaatstructuur naar het studentvolgsysteem",
       "fase": 4,
       "stap": "Detailspecificaties leveren aan het LMS",
       "soort": "stroomt",
@@ -4840,7 +4840,7 @@
     },
     {
       "beeld_id": "F4-05",
-      "beeld": "Onderwijscatalogus levert de summatieve resultaatstructuur aan de kernregistratie",
+      "beeld": "Onderwijscatalogus stuurt de summatieve resultaatstructuur naar de kernregistratie",
       "fase": 4,
       "stap": "Detailspecificaties leveren aan het LMS",
       "soort": "stroomt",
@@ -4864,7 +4864,7 @@
     },
     {
       "beeld_id": "F4-05",
-      "beeld": "Onderwijscatalogus levert de summatieve resultaatstructuur aan de kernregistratie",
+      "beeld": "Onderwijscatalogus stuurt de summatieve resultaatstructuur naar de kernregistratie",
       "fase": 4,
       "stap": "Detailspecificaties leveren aan het LMS",
       "soort": "stroomt",
@@ -4898,7 +4898,7 @@
     },
     {
       "beeld_id": "F4-05",
-      "beeld": "Onderwijscatalogus levert de summatieve resultaatstructuur aan de kernregistratie",
+      "beeld": "Onderwijscatalogus stuurt de summatieve resultaatstructuur naar de kernregistratie",
       "fase": 4,
       "stap": "Detailspecificaties leveren aan het LMS",
       "soort": "stroomt",
@@ -4918,7 +4918,7 @@
     },
     {
       "beeld_id": "F4-05",
-      "beeld": "Onderwijscatalogus levert de summatieve resultaatstructuur aan de kernregistratie",
+      "beeld": "Onderwijscatalogus stuurt de summatieve resultaatstructuur naar de kernregistratie",
       "fase": 4,
       "stap": "Detailspecificaties leveren aan het LMS",
       "soort": "stroomt",
@@ -4938,7 +4938,7 @@
     },
     {
       "beeld_id": "F4-06",
-      "beeld": "Kernregistratie stuurt de plaatsingsgroepen naar planning",
+      "beeld": "Kernregistratie stuurt de plaatsingsgroepen naar het planningssysteem",
       "fase": 4,
       "stap": "Plaatsings- en planninggroepen definieren en aan personen koppelen",
       "soort": "stroomt",
@@ -4963,7 +4963,7 @@
     },
     {
       "beeld_id": "F4-06",
-      "beeld": "Kernregistratie stuurt de plaatsingsgroepen naar planning",
+      "beeld": "Kernregistratie stuurt de plaatsingsgroepen naar het planningssysteem",
       "fase": 4,
       "stap": "Plaatsings- en planninggroepen definieren en aan personen koppelen",
       "soort": "stroomt",
@@ -4982,7 +4982,7 @@
     },
     {
       "beeld_id": "F4-06",
-      "beeld": "Kernregistratie stuurt de plaatsingsgroepen naar planning",
+      "beeld": "Kernregistratie stuurt de plaatsingsgroepen naar het planningssysteem",
       "fase": 4,
       "stap": "Plaatsings- en planninggroepen definieren en aan personen koppelen",
       "soort": "stroomt",
@@ -5003,7 +5003,7 @@
     },
     {
       "beeld_id": "F4-07",
-      "beeld": "Planning stuurt de te roosteren leergelegenheden naar het rooster",
+      "beeld": "Planningssysteem stuurt de te roosteren leergelegenheden naar het roostersysteem",
       "fase": 4,
       "stap": "Te roosteren specificaties aan het roostersysteem geven",
       "soort": "stroomt",
@@ -5135,7 +5135,7 @@
     },
     {
       "beeld_id": "F4-10",
-      "beeld": "Rooster stuurt student, verbintenissen en groep naar het LMS",
+      "beeld": "Roostersysteem stuurt student, verbintenissen en groep naar het LMS",
       "fase": 4,
       "stap": "Verwachte deelnemers delen en toegang geven",
       "soort": "stroomt",
@@ -5154,7 +5154,7 @@
     },
     {
       "beeld_id": "F4-10",
-      "beeld": "Rooster stuurt student, verbintenissen en groep naar het LMS",
+      "beeld": "Roostersysteem stuurt student, verbintenissen en groep naar het LMS",
       "fase": 4,
       "stap": "Verwachte deelnemers delen en toegang geven",
       "soort": "stroomt",
@@ -5178,7 +5178,7 @@
     },
     {
       "beeld_id": "F4-10",
-      "beeld": "Rooster stuurt student, verbintenissen en groep naar het LMS",
+      "beeld": "Roostersysteem stuurt student, verbintenissen en groep naar het LMS",
       "fase": 4,
       "stap": "Verwachte deelnemers delen en toegang geven",
       "soort": "stroomt",
@@ -5197,7 +5197,7 @@
     },
     {
       "beeld_id": "F4-10",
-      "beeld": "Rooster stuurt student, verbintenissen en groep naar het LMS",
+      "beeld": "Roostersysteem stuurt student, verbintenissen en groep naar het LMS",
       "fase": 4,
       "stap": "Verwachte deelnemers delen en toegang geven",
       "soort": "stroomt",
@@ -5217,7 +5217,7 @@
     },
     {
       "beeld_id": "F4-10",
-      "beeld": "Rooster stuurt student, verbintenissen en groep naar het LMS",
+      "beeld": "Roostersysteem stuurt student, verbintenissen en groep naar het LMS",
       "fase": 4,
       "stap": "Verwachte deelnemers delen en toegang geven",
       "soort": "stroomt",
@@ -5637,7 +5637,7 @@
       "beeld_id": "F6-01",
       "beeld": "Planner maakt het keuzedeelaanbod per laag",
       "fase": 6,
-      "stap": "Keuzedeelaanbod ontsluiten naar het studentkeuzesysteem",
+      "stap": "Keuzedeel kiesbaar maken in het studentkeuzesysteem",
       "soort": "bestaat",
       "objecttype": "Keuzedeel specificatie",
       "instantie": "K0037 Farmaceutische Patientenzorg (480 SBU, verdiepend)",
@@ -5653,7 +5653,7 @@
       "beeld_id": "F6-01",
       "beeld": "Planner maakt het keuzedeelaanbod per laag",
       "fase": 6,
-      "stap": "Keuzedeelaanbod ontsluiten naar het studentkeuzesysteem",
+      "stap": "Keuzedeel kiesbaar maken in het studentkeuzesysteem",
       "soort": "bestaat",
       "objecttype": "Onderwijseenheid specificatie",
       "instantie": "D1-K1 Voert farmaceutische patientenzorg uit",
@@ -5670,7 +5670,7 @@
       "beeld_id": "F6-01",
       "beeld": "Planner maakt het keuzedeelaanbod per laag",
       "fase": 6,
-      "stap": "Keuzedeelaanbod ontsluiten naar het studentkeuzesysteem",
+      "stap": "Keuzedeel kiesbaar maken in het studentkeuzesysteem",
       "soort": "bestaat",
       "objecttype": "Leeronderdeel specificatie",
       "instantie": "Het medicatieoverzicht opstellen",
@@ -5687,7 +5687,7 @@
       "beeld_id": "F6-01",
       "beeld": "Planner maakt het keuzedeelaanbod per laag",
       "fase": 6,
-      "stap": "Keuzedeelaanbod ontsluiten naar het studentkeuzesysteem",
+      "stap": "Keuzedeel kiesbaar maken in het studentkeuzesysteem",
       "soort": "bestaat",
       "objecttype": "Leeronderdeel specificatie",
       "instantie": "Zorg aan specifieke doelgroepen",
@@ -5704,7 +5704,7 @@
       "beeld_id": "F6-01",
       "beeld": "Planner maakt het keuzedeelaanbod per laag",
       "fase": 6,
-      "stap": "Keuzedeelaanbod ontsluiten naar het studentkeuzesysteem",
+      "stap": "Keuzedeel kiesbaar maken in het studentkeuzesysteem",
       "soort": "ontstaat",
       "wie": "planner",
       "objecttype": "Keuzedeel aanbod",
@@ -5726,13 +5726,13 @@
           "instantie": "K0037 Farmaceutische Patientenzorg (480 SBU, verdiepend)"
         }
       ],
-      "zin": "De keuzedeelruimte nadert. Planning maakt het aanbod van K0037 laag voor laag uit de specificatie van fase 1 (F1-08): het keuzedeel, de onderwijseenheid en per leeronderdeel een leergelegenheid. Het aanbod voegt plaats, tijd en capaciteit toe; wat kiesbaar is, staat op de specificatie. Het aanbod blijft bij planning, en het studentkeuzesysteem haalt het daar op (F6-03)."
+      "zin": "Het keuzemoment nadert. De planner maakt het aanbod van K0037 laag voor laag uit de specificatie van fase 1: het keuzedeel, de onderwijseenheid en per leeronderdeel een leergelegenheid. Het aanbod voegt plaats, tijd en capaciteit toe; wat kiesbaar is, staat op de specificatie. Het aanbod blijft bij planning, en het studentkeuzesysteem haalt het daar op (F6-03)."
     },
     {
       "beeld_id": "F6-01",
       "beeld": "Planner maakt het keuzedeelaanbod per laag",
       "fase": 6,
-      "stap": "Keuzedeelaanbod ontsluiten naar het studentkeuzesysteem",
+      "stap": "Keuzedeel kiesbaar maken in het studentkeuzesysteem",
       "soort": "ontstaat",
       "wie": "planner",
       "objecttype": "Onderwijseenheid aanbod",
@@ -5760,7 +5760,7 @@
       "beeld_id": "F6-01",
       "beeld": "Planner maakt het keuzedeelaanbod per laag",
       "fase": 6,
-      "stap": "Keuzedeelaanbod ontsluiten naar het studentkeuzesysteem",
+      "stap": "Keuzedeel kiesbaar maken in het studentkeuzesysteem",
       "soort": "ontstaat",
       "wie": "planner",
       "objecttype": "Leergelegenheid",
@@ -5788,7 +5788,7 @@
       "beeld_id": "F6-01",
       "beeld": "Planner maakt het keuzedeelaanbod per laag",
       "fase": 6,
-      "stap": "Keuzedeelaanbod ontsluiten naar het studentkeuzesysteem",
+      "stap": "Keuzedeel kiesbaar maken in het studentkeuzesysteem",
       "soort": "ontstaat",
       "wie": "planner",
       "objecttype": "Leergelegenheid",
@@ -5816,7 +5816,7 @@
       "beeld_id": "F6-02",
       "beeld": "Onderwijscatalogus ontsluit specificatie en keuzeregels naar het studentkeuzesysteem",
       "fase": 6,
-      "stap": "Keuzedeelaanbod ontsluiten naar het studentkeuzesysteem",
+      "stap": "Keuzedeel kiesbaar maken in het studentkeuzesysteem",
       "soort": "stroomt",
       "van": "Onderwijscatalogus",
       "naar": "Student Keuze Systeem (SKS)",
@@ -5830,14 +5830,14 @@
         "van": "Keuzedeel specificatie",
         "naar": "Opleidingsprogramma specificatie"
       },
-      "zin": "De catalogus stuurt het studentkeuzesysteem de specificatiestructuur van het keuzedeel met de studentkeuzeregels: wat Jochem mag kiezen. De regels horen op de specificatie, en dat beantwoordt de vraag die hier eerder stond. Het aanbod gaat niet over deze lijn.",
+      "zin": "De catalogus stuurt het studentkeuzesysteem de specificatiestructuur van het keuzedeel met de studentkeuzeregels: wat Jochem mag kiezen. De regels horen op de specificatie. Het aanbod haalt het studentkeuzesysteem bij planning (F6-03).",
       "vraag": "De pijl van de catalogus naar het studentkeuzesysteem heet op de hoofdplaat 'Opleidingsprogramma aanbod', terwijl in de sessie van 17 november besloten is dat over deze lijn de specificatie en de regelset gaan. Hoort het label naar de specificatie?"
     },
     {
       "beeld_id": "F6-02",
       "beeld": "Onderwijscatalogus ontsluit specificatie en keuzeregels naar het studentkeuzesysteem",
       "fase": 6,
-      "stap": "Keuzedeelaanbod ontsluiten naar het studentkeuzesysteem",
+      "stap": "Keuzedeel kiesbaar maken in het studentkeuzesysteem",
       "soort": "stroomt",
       "van": "Onderwijscatalogus",
       "naar": "Student Keuze Systeem (SKS)",
@@ -5858,7 +5858,7 @@
       "beeld_id": "F6-02",
       "beeld": "Onderwijscatalogus ontsluit specificatie en keuzeregels naar het studentkeuzesysteem",
       "fase": 6,
-      "stap": "Keuzedeelaanbod ontsluiten naar het studentkeuzesysteem",
+      "stap": "Keuzedeel kiesbaar maken in het studentkeuzesysteem",
       "soort": "stroomt",
       "van": "Onderwijscatalogus",
       "naar": "Student Keuze Systeem (SKS)",
@@ -5879,7 +5879,7 @@
       "beeld_id": "F6-02",
       "beeld": "Onderwijscatalogus ontsluit specificatie en keuzeregels naar het studentkeuzesysteem",
       "fase": 6,
-      "stap": "Keuzedeelaanbod ontsluiten naar het studentkeuzesysteem",
+      "stap": "Keuzedeel kiesbaar maken in het studentkeuzesysteem",
       "soort": "stroomt",
       "van": "Onderwijscatalogus",
       "naar": "Student Keuze Systeem (SKS)",
@@ -5900,7 +5900,7 @@
       "beeld_id": "F6-02",
       "beeld": "Onderwijscatalogus ontsluit specificatie en keuzeregels naar het studentkeuzesysteem",
       "fase": 6,
-      "stap": "Keuzedeelaanbod ontsluiten naar het studentkeuzesysteem",
+      "stap": "Keuzedeel kiesbaar maken in het studentkeuzesysteem",
       "soort": "stroomt",
       "van": "Onderwijscatalogus",
       "naar": "Student Keuze Systeem (SKS)",
@@ -5925,9 +5925,9 @@
     },
     {
       "beeld_id": "F6-03",
-      "beeld": "Planning ontsluit het geplande aanbod naar het studentkeuzesysteem",
+      "beeld": "Planningssysteem ontsluit het geplande aanbod naar het studentkeuzesysteem",
       "fase": 6,
-      "stap": "Keuzedeelaanbod ontsluiten naar het studentkeuzesysteem",
+      "stap": "Keuzedeel kiesbaar maken in het studentkeuzesysteem",
       "soort": "stroomt",
       "van": "Planningssysteem",
       "naar": "Student Keuze Systeem (SKS)",
@@ -5950,14 +5950,14 @@
           "instantie": "K0037 Farmaceutische Patientenzorg (480 SBU, verdiepend)"
         }
       ],
-      "zin": "Het studentkeuzesysteem vraagt planning welk aanbod er bij de specificatie gepland is, en met hoeveel plaatsen. Dat verandert steeds, dus het haalt het op bij de bron. Is er geen aanbod, dan meldt het studentkeuzesysteem dat aan planning, over de lijn voor de intekening op nog ongepland aanbod (id-726d0826).",
+      "zin": "Het studentkeuzesysteem vraagt planning welk aanbod er bij de specificatie gepland is, en met hoeveel plaatsen. Dat verandert steeds, dus het haalt het op bij de bron. Is er geen aanbod, dan meldt het studentkeuzesysteem dat aan planning met een `Verzoek tot Aanbod / Intekening op specificatie`.",
       "vraag": "De pijl van planning naar het studentkeuzesysteem noemt 'geplande leergelegenheden', terwijl de student bij planning kiest op programma en onderwijseenheid. Welke laag hoort in het label?"
     },
     {
       "beeld_id": "F6-03",
-      "beeld": "Planning ontsluit het geplande aanbod naar het studentkeuzesysteem",
+      "beeld": "Planningssysteem ontsluit het geplande aanbod naar het studentkeuzesysteem",
       "fase": 6,
-      "stap": "Keuzedeelaanbod ontsluiten naar het studentkeuzesysteem",
+      "stap": "Keuzedeel kiesbaar maken in het studentkeuzesysteem",
       "soort": "stroomt",
       "van": "Planningssysteem",
       "naar": "Student Keuze Systeem (SKS)",
@@ -6034,7 +6034,7 @@
         "label": "Op basis van",
         "instantie": "K0037 Farmaceutische Patientenzorg, periode 7, locatie A"
       },
-      "zin": "Het keuzemoment is er en Jochem kiest direct uit het aanbod: K0037 in periode 7. Dat is de regel; een geprioriteerde voorkeurslijst is de uitzondering. Het studentkeuzesysteem toont eerst het aanbod op Jochems eigen locatie en pas daarna breder. Dat filter is logica van het studentkeuzesysteem en krijgt geen eigen objecttype. De verbintenis komt op het keuzedeel en op de onderwijseenheid; de periode lag al vast in de planning, want daar zit zijn keuzedeelruimte."
+      "zin": "Het keuzemoment is er en Jochem kiest direct uit het aanbod: K0037 in periode 7. Dat is de regel; een geprioriteerde voorkeurslijst is de uitzondering. Het studentkeuzesysteem toont eerst het aanbod op Jochems eigen locatie en daarna breder. Dat filter is logica van het studentkeuzesysteem, buiten het informatiemodel. De verbintenis komt op het keuzedeel en op de onderwijseenheid; de periode lag al vast in de jaaruitzetting van zijn plaatsingsgroep."
     },
     {
       "beeld_id": "F6-04",
@@ -6096,7 +6096,7 @@
     },
     {
       "beeld_id": "F6-05",
-      "beeld": "Studentkeuzesysteem stuurt Jochems keuze naar planning",
+      "beeld": "Studentkeuzesysteem stuurt Jochems verbintenissen op K0037 naar het planningssysteem",
       "fase": 6,
       "stap": "Keuzedeel kiezen in het studentkeuzesysteem",
       "soort": "stroomt",
@@ -6119,7 +6119,7 @@
     },
     {
       "beeld_id": "F6-05",
-      "beeld": "Studentkeuzesysteem stuurt Jochems keuze naar planning",
+      "beeld": "Studentkeuzesysteem stuurt Jochems verbintenissen op K0037 naar het planningssysteem",
       "fase": 6,
       "stap": "Keuzedeel kiezen in het studentkeuzesysteem",
       "soort": "stroomt",
@@ -6155,9 +6155,18 @@
       "wie": "planner",
       "objecttype": "Keuzedeel aanbod",
       "instantie": "K0037 Farmaceutische Patientenzorg, periode 7, locatie A: 1 groep, 18 plaatsen",
-      "toestand": "planbaar",
+      "toestand": "fijnmazig gepland",
       "bron": "leerroute-1-regulier.md, Fase 6: de planner verwerkt definitieve keuzes periodiek naar groepen en capaciteit; scenario-1.1-regulier-happyflow.md, blok D (maatvoering uit de review van 29 september 2026)",
-      "zin": "De planner verwerkt de definitieve keuzes periodiek naar groepen en capaciteit, op het keuzedeel en op de onderwijseenheid."
+      "zin": "De planner verwerkt de definitieve keuzes periodiek naar groepen en capaciteit, op het keuzedeel en op de onderwijseenheid.",
+      "relaties": [
+        {
+          "soort": "Association",
+          "van": "Keuzedeel specificatie",
+          "naar": "Keuzedeel aanbod",
+          "label": "wordt aangeboden als",
+          "instantie": "K0037 Farmaceutische Patientenzorg (480 SBU, verdiepend)"
+        }
+      ]
     },
     {
       "beeld_id": "F6-06",
@@ -6168,12 +6177,21 @@
       "wie": "planner",
       "objecttype": "Onderwijseenheid aanbod",
       "instantie": "D1-K1, periode 7, locatie A: 1 groep, 18 plaatsen",
-      "toestand": "planbaar",
-      "bron": "leerroute-1-regulier.md, Fase 6: de planner verwerkt definitieve keuzes periodiek naar groepen en capaciteit; scenario-1.1-regulier-happyflow.md, blok D (maatvoering uit de review van 29 september 2026)"
+      "toestand": "fijnmazig gepland",
+      "bron": "leerroute-1-regulier.md, Fase 6: de planner verwerkt definitieve keuzes periodiek naar groepen en capaciteit; scenario-1.1-regulier-happyflow.md, blok D (maatvoering uit de review van 29 september 2026)",
+      "relaties": [
+        {
+          "soort": "Association",
+          "van": "Onderwijseenheid specificatie",
+          "naar": "Onderwijseenheid aanbod",
+          "label": "wordt aangeboden als",
+          "instantie": "D1-K1 Voert farmaceutische patientenzorg uit"
+        }
+      ]
     },
     {
       "beeld_id": "F6-07",
-      "beeld": "Planning werkt het keuzedeelaanbod bij in de catalogus",
+      "beeld": "Planningssysteem stuurt het bijgewerkte keuzedeelaanbod naar de onderwijscatalogus",
       "fase": 6,
       "stap": "Planbaar aanbod actualiseren",
       "soort": "stroomt",
@@ -6193,12 +6211,12 @@
           "instantie": "K0037 Farmaceutische Patientenzorg (480 SBU, verdiepend)"
         }
       ],
-      "zin": "Het geactualiseerde planbare aanbod gaat terug naar de catalogus. Het moment waarop Jochem moet kiezen komt niet uit deze stroom: dat hangt aan de jaaruitzetting van zijn plaatsingsgroep, en kan per groep verschillen omdat dat capaciteitstechnisch beter uitkomt.",
-      "vraag": "Welk systeem start het keuzemoment van een student? Planning is het enige systeem met een notie van onderwijsperiode, het keuzesysteem beheert de regels, en de SLB'er heeft in de praktijk een evaluatierol. Op de plaatsingsgroep houdt het verkeer laag; per student levert groepen van een op."
+      "zin": "Het geactualiseerde planbare aanbod gaat terug naar de catalogus. Jochems keuzemoment hangt aan de jaaruitzetting van zijn plaatsingsgroep, en kan per groep verschillen omdat dat capaciteitstechnisch beter uitkomt.",
+      "vraag": "Welk systeem start het keuzemoment van een student? Planning is het enige systeem met een notie van onderwijsperiode, het keuzesysteem beheert de regels, en de SLB'er heeft in de praktijk een evaluatierol. Starten op de plaatsingsgroep houdt het verkeer laag; starten per student levert groepen van één student op."
     },
     {
       "beeld_id": "F6-07",
-      "beeld": "Planning werkt het keuzedeelaanbod bij in de catalogus",
+      "beeld": "Planningssysteem stuurt het bijgewerkte keuzedeelaanbod naar de onderwijscatalogus",
       "fase": 6,
       "stap": "Planbaar aanbod actualiseren",
       "soort": "stroomt",
@@ -6243,7 +6261,7 @@
         "naar": "Inschrijving",
         "label": "Wordt na formalisatie"
       },
-      "zin": "Past het gekozen aanbod, dan wordt Jochems aanmelding een inschrijving, en staan zijn verbintenissen op het keuzedeel en op de onderwijseenheid op ingeschreven. Past het niet, dan orienteert hij zich opnieuw op een andere periode of locatie; die variant laat dit voorbeeld liggen."
+      "zin": "Past het gekozen aanbod, dan wordt Jochems aanmelding een inschrijving, en staan zijn verbintenissen op het keuzedeel en op de onderwijseenheid op ingeschreven. Past het niet, dan oriënteert hij zich opnieuw op een andere periode of locatie; die variant laat dit voorbeeld liggen."
     },
     {
       "beeld_id": "F6-08",
@@ -6287,7 +6305,7 @@
     },
     {
       "beeld_id": "F6-09",
-      "beeld": "Planning bevestigt de verbintenis aan het studentkeuzesysteem",
+      "beeld": "Planningssysteem stuurt de bevestigde verbintenis naar het studentkeuzesysteem",
       "fase": 6,
       "stap": "Keuzedeel formeel inschrijven",
       "soort": "stroomt",
@@ -6311,7 +6329,7 @@
     },
     {
       "beeld_id": "F6-09",
-      "beeld": "Planning bevestigt de verbintenis aan het studentkeuzesysteem",
+      "beeld": "Planningssysteem stuurt de bevestigde verbintenis naar het studentkeuzesysteem",
       "fase": 6,
       "stap": "Keuzedeel formeel inschrijven",
       "soort": "stroomt",
@@ -6340,7 +6358,7 @@
     },
     {
       "beeld_id": "F6-10",
-      "beeld": "Studentkeuzesysteem geeft de verbintenis door aan de kernregistratie",
+      "beeld": "Studentkeuzesysteem stuurt de verbintenis naar de kernregistratie",
       "fase": 6,
       "stap": "Keuzedeel formeel inschrijven",
       "soort": "stroomt",
@@ -6364,11 +6382,11 @@
           "naar": "Opleidingsprogramma aanbod verbintenis"
         }
       ],
-      "zin": "Het studentkeuzesysteem geeft de inschrijving door aan de kernregistratie."
+      "zin": "Het studentkeuzesysteem geeft de verbintenis op het keuzedeel door aan de kernregistratie."
     },
     {
       "beeld_id": "F6-11",
-      "beeld": "Kernregistratie meldt het verwachte resultaat aan het studentvolgsysteem",
+      "beeld": "Kernregistratie stuurt de verbintenissen op K0037 naar het studentvolgsysteem",
       "fase": 6,
       "stap": "Keuzedeel formeel inschrijven",
       "soort": "stroomt",
@@ -6385,20 +6403,14 @@
           "van": "Keuzedeel aanbod",
           "naar": "Keuzedeel aanbod verbintenis",
           "instantie": "K0037 Farmaceutische Patientenzorg, periode 7, locatie A"
-        },
-        {
-          "soort": "Association",
-          "van": "Keuzedeel aanbod verbintenis",
-          "naar": "Keuzedeel resultaat",
-          "instantie": "verwacht: K0037 Farmaceutische Patientenzorg"
         }
       ],
-      "zin": "De kernregistratie meldt het studentvolgsysteem dat er op Jochems verbintenissen voor K0037 resultaat en voortgang komen.",
+      "zin": "De kernregistratie meldt het studentvolgsysteem Jochems verbintenissen op K0037. Wat het studentvolgsysteem daarop aan resultaat en voortgang verwacht, volgt uit de summatieve resultaatstructuur die het in fase 4 kreeg (F4-04).",
       "vraag": "De hoofdplaat kent geen lijn van de kernregistratie naar het studentvolgsysteem, wel een van het studentkeuzesysteem naar het studentvolgsysteem (id-3aefce69). Welk systeem meldt de verwachting: de kernregistratie die de inschrijving vastlegt, of het studentkeuzesysteem waar de keuze ontstaat?"
     },
     {
       "beeld_id": "F6-11",
-      "beeld": "Kernregistratie meldt het verwachte resultaat aan het studentvolgsysteem",
+      "beeld": "Kernregistratie stuurt de verbintenissen op K0037 naar het studentvolgsysteem",
       "fase": 6,
       "stap": "Keuzedeel formeel inschrijven",
       "soort": "stroomt",
@@ -6422,18 +6434,12 @@
           "van": "Onderwijseenheid aanbod",
           "naar": "Onderwijseenheid aanbod verbintenis",
           "instantie": "D1-K1, periode 7, locatie A: 18 plaatsen"
-        },
-        {
-          "soort": "Association",
-          "van": "Onderwijseenheid aanbod verbintenis",
-          "naar": "Onderwijseenheid resultaat",
-          "instantie": "verwacht: D1-K1"
         }
       ]
     },
     {
       "beeld_id": "F6-12",
-      "beeld": "Planning stuurt de leergelegenheden van K0037 naar het rooster",
+      "beeld": "Planningssysteem stuurt de leergelegenheden van K0037 naar het roostersysteem",
       "fase": 6,
       "stap": "Gekozen keuzedeel roosteren en deelnemers delen",
       "soort": "stroomt",
@@ -6463,7 +6469,7 @@
     },
     {
       "beeld_id": "F6-12",
-      "beeld": "Planning stuurt de leergelegenheden van K0037 naar het rooster",
+      "beeld": "Planningssysteem stuurt de leergelegenheden van K0037 naar het roostersysteem",
       "fase": 6,
       "stap": "Gekozen keuzedeel roosteren en deelnemers delen",
       "soort": "stroomt",
@@ -6493,7 +6499,7 @@
     },
     {
       "beeld_id": "F6-12",
-      "beeld": "Planning stuurt de leergelegenheden van K0037 naar het rooster",
+      "beeld": "Planningssysteem stuurt de leergelegenheden van K0037 naar het roostersysteem",
       "fase": 6,
       "stap": "Gekozen keuzedeel roosteren en deelnemers delen",
       "soort": "stroomt",
@@ -6512,7 +6518,7 @@
           "instantie": "APO26-1A en twee andere plaatsingsgroepen"
         }
       ],
-      "vraag": "Planningsgroep is op de plaat een compositie van Plaatsingsgroep. Een keuzedeelgroep brengt studenten uit meer plaatsingsgroepen samen. Hoort de planningsgroep van een keuzedeel bij een plaatsingsgroep, of staat zij daarnaast?"
+      "vraag": "Op de plaat is `Planningsgroep` een deel (compositie) van één `Plaatsingsgroep`, en de begrippenlijst noemt haar een opdeling daarvan. Een keuzedeelgroep brengt studenten uit drie plaatsingsgroepen samen, en dat past bij `Lesgroep`. Welk objecttype gaat er naar het rooster?"
     },
     {
       "beeld_id": "F6-13",
@@ -6537,7 +6543,16 @@
       "instantie": "Het medicatieoverzicht opstellen, periode 7: donderdagmiddag, leerapotheek, docent 4711",
       "toestand": "geroosterd",
       "bron": "sessie Keuzedeelmodel en informatiemodel, 17 november 2026 (Niels van Duin, Niek Derksen); geen bron, keuze van het voorbeeld: dag, lokaal en docent",
-      "zin": "De roosteraar roostert de leergelegenheden van K0037. Jochem krijgt een verbintenis op de leergelegenheid, onder zijn verbintenis op de onderwijseenheid, en komt in een lesgroep. Dat het donderdag wordt, wist hij bij de keuze nog niet: hij koos op het aanbod bij planning."
+      "zin": "De roosteraar roostert de leergelegenheden van K0037. Jochem krijgt een verbintenis op de leergelegenheid, onder zijn verbintenis op de onderwijseenheid, en komt in een lesgroep. Dat het donderdag wordt, wist hij bij de keuze nog niet: hij koos op het aanbod bij planning.",
+      "relaties": [
+        {
+          "soort": "Association",
+          "van": "Leeronderdeel specificatie",
+          "naar": "Leergelegenheid",
+          "label": "wordt aangeboden als",
+          "instantie": "Het medicatieoverzicht opstellen"
+        }
+      ]
     },
     {
       "beeld_id": "F6-13",
@@ -6553,7 +6568,8 @@
       "relatie": {
         "soort": "Association",
         "van": "Leergelegenheid",
-        "naar": "Leergelegenheid verbintenis"
+        "naar": "Leergelegenheid verbintenis",
+        "instantie": "Het medicatieoverzicht opstellen, periode 7"
       },
       "relaties": [
         {
@@ -6573,7 +6589,7 @@
     },
     {
       "beeld_id": "F6-14",
-      "beeld": "Rooster ontsluit de geroosterde leergelegenheid naar het studentkeuzesysteem",
+      "beeld": "Roostersysteem ontsluit de geroosterde leergelegenheid naar het studentkeuzesysteem",
       "fase": 6,
       "stap": "Gekozen keuzedeel roosteren en deelnemers delen",
       "soort": "stroomt",
@@ -6586,6 +6602,13 @@
       "bron": "sessie Keuzedeelmodel en informatiemodel, 17 november 2026 (Niels van Duin, Niek Derksen): het rooster geeft het studentkeuzesysteem terug welke leergelegenheden het worden",
       "relaties": [
         {
+          "soort": "Association",
+          "van": "Leeronderdeel specificatie",
+          "naar": "Leergelegenheid",
+          "label": "wordt aangeboden als",
+          "instantie": "Het medicatieoverzicht opstellen"
+        },
+        {
           "soort": "Aggregation",
           "van": "Onderwijseenheid aanbod",
           "naar": "Leergelegenheid",
@@ -6596,7 +6619,7 @@
     },
     {
       "beeld_id": "F6-14",
-      "beeld": "Rooster ontsluit de geroosterde leergelegenheid naar het studentkeuzesysteem",
+      "beeld": "Roostersysteem ontsluit de geroosterde leergelegenheid naar het studentkeuzesysteem",
       "fase": 6,
       "stap": "Gekozen keuzedeel roosteren en deelnemers delen",
       "soort": "stroomt",
@@ -6610,7 +6633,8 @@
       "relatie": {
         "soort": "Association",
         "van": "Leergelegenheid",
-        "naar": "Leergelegenheid verbintenis"
+        "naar": "Leergelegenheid verbintenis",
+        "instantie": "Het medicatieoverzicht opstellen, periode 7"
       },
       "relaties": [
         {
@@ -6619,11 +6643,12 @@
           "naar": "Leergelegenheid verbintenis",
           "instantie": "Jochem op D1-K1, periode 7"
         }
-      ]
+      ],
+      "vraag": "De pijl van het rooster naar het studentkeuzesysteem die hier wordt gebruikt, draagt de geroosterde leergelegenheden zonder verbintenis. De verbintenis gaat op de plaat over een eigen lijn (id-7a7e0a17), op programma en onderwijseenheid. Hoort de verbintenis op de leergelegenheid over een van beide lijnen?"
     },
     {
       "beeld_id": "F6-15",
-      "beeld": "Rooster stuurt de lesgroep naar het LMS",
+      "beeld": "Roostersysteem stuurt de lesgroep naar het LMS",
       "fase": 6,
       "stap": "Gekozen keuzedeel roosteren en deelnemers delen",
       "soort": "stroomt",
@@ -6634,11 +6659,12 @@
       "objecttype": "Lesgroep",
       "instantie": "K0037-P7-A: 18 studenten uit drie plaatsingsgroepen",
       "bron": "sessie Keuzedeelmodel en informatiemodel, 17 november 2026 (Niels van Duin, Niek Derksen): de lescombinatie moet naar de leeromgeving; sparsessie PR 314, deel 2, 4 november 2026: de bron van de lesgroep is het roostersysteem",
-      "zin": "Het roostersysteem geeft de lesgroep met Jochems verbintenis door aan het LMS, zodat hij toegang krijgt tot de leeromgeving van K0037. De hoofdplaat kent die lijn nog niet; zie de uitwisseling in de kop van fase 6."
+      "zin": "Het roostersysteem geeft de lesgroep met Jochems verbintenis door aan het LMS, zodat hij toegang krijgt tot de leeromgeving van K0037.",
+      "vraag": "De hoofdplaat kent geen lijn van het roostersysteem naar het LMS. Wel van het studentkeuzesysteem naar het LMS (id-926ba88e, verbintenis en planningsgroep) en van de kernregistratie naar het LMS (id-865f297e). Welk systeem levert de lesgroep aan het LMS?"
     },
     {
       "beeld_id": "F6-15",
-      "beeld": "Rooster stuurt de lesgroep naar het LMS",
+      "beeld": "Roostersysteem stuurt de lesgroep naar het LMS",
       "fase": 6,
       "stap": "Gekozen keuzedeel roosteren en deelnemers delen",
       "soort": "stroomt",
@@ -6667,7 +6693,7 @@
     },
     {
       "beeld_id": "F6-15",
-      "beeld": "Rooster stuurt de lesgroep naar het LMS",
+      "beeld": "Roostersysteem stuurt de lesgroep naar het LMS",
       "fase": 6,
       "stap": "Gekozen keuzedeel roosteren en deelnemers delen",
       "soort": "stroomt",
@@ -6713,7 +6739,7 @@
     },
     {
       "beeld_id": "F7-03",
-      "beeld": "Kernregistratie stuurt de plaatsingsgroep naar planning",
+      "beeld": "Kernregistratie stuurt de plaatsingsgroep naar het planningssysteem",
       "fase": 7,
       "stap": "Bestaande verbintenissen annuleren",
       "soort": "stroomt",
@@ -6750,7 +6776,7 @@
     },
     {
       "beeld_id": "F7-05",
-      "beeld": "Planning stuurt het bijgestuurde aanbod naar de catalogus",
+      "beeld": "Planningssysteem stuurt het bijgestuurde aanbod naar de onderwijscatalogus",
       "fase": 7,
       "stap": "Nieuw aanbod maken en publiceren",
       "soort": "stroomt",
@@ -6774,7 +6800,7 @@
     },
     {
       "beeld_id": "F7-06",
-      "beeld": "Planning stuurt de nieuwe leergelegenheden naar het rooster",
+      "beeld": "Planningssysteem stuurt de nieuwe leergelegenheden naar het roostersysteem",
       "fase": 7,
       "stap": "Nieuw aanbod maken en publiceren",
       "soort": "stroomt",
@@ -6833,7 +6859,7 @@
     },
     {
       "beeld_id": "F8-03",
-      "beeld": "Examinator, beoordelaar en surveillant nemen af en beoordelen",
+      "beeld": "Examinator, beoordelaar en surveillant nemen het examen af en beoordelen het",
       "fase": 8,
       "stap": "Zitting uitvoeren en resultaten doorgeven",
       "soort": "ontstaat",
@@ -6850,7 +6876,7 @@
     },
     {
       "beeld_id": "F8-03",
-      "beeld": "Examinator, beoordelaar en surveillant nemen af en beoordelen",
+      "beeld": "Examinator, beoordelaar en surveillant nemen het examen af en beoordelen het",
       "fase": 8,
       "stap": "Zitting uitvoeren en resultaten doorgeven",
       "soort": "ontstaat",
@@ -6863,7 +6889,7 @@
     },
     {
       "beeld_id": "F8-03",
-      "beeld": "Examinator, beoordelaar en surveillant nemen af en beoordelen",
+      "beeld": "Examinator, beoordelaar en surveillant nemen het examen af en beoordelen het",
       "fase": 8,
       "stap": "Zitting uitvoeren en resultaten doorgeven",
       "soort": "ontstaat",
@@ -6876,7 +6902,7 @@
     },
     {
       "beeld_id": "F8-03",
-      "beeld": "Examinator, beoordelaar en surveillant nemen af en beoordelen",
+      "beeld": "Examinator, beoordelaar en surveillant nemen het examen af en beoordelen het",
       "fase": 8,
       "stap": "Zitting uitvoeren en resultaten doorgeven",
       "soort": "ontstaat",

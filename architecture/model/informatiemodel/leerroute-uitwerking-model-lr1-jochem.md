@@ -46,10 +46,10 @@ Een keuzedeel is daarmee in opbouw bijna hetzelfde als een programma: het erft d
 het eigen heeft komt in het logisch gegevensmodel erbij. Het algemene begrip staat dus al op de plaat, en het
 keuzedeel is de invulling die het mbo eraan geeft.
 
-Drie soorten regels, in de vormtaal van de plaat:
+Soorten regels, in de vormtaal van de plaat:
 
-- **Ontstaat**: een rol (geel, rolicoon) voert een processtap uit (geel, procesicoon) en daaruit ontstaan objecttypen (geel, objecticoon) met Jochems waarde. "Bestaat uit" is nesting; een relatielabel van de plaat staat tussen twee objecten of als verwijzing op een object dat aan een eerdere stap hangt. Een gestippelde rand is een aanname; grijs is een objecttype dat de plaat buiten de uitwisseling zet en dit voorbeeld toch meeneemt.
-- **Bestaat** (grijs vlak "Eerder ontstaan", links): een object dat in een eerder beeld is gemaakt, onder de rol en de processtap van dat beeld. Rechts staat in een wit vlak met een oranje rand ("Ontstaat hier") wat in dit beeld ontstaat. De eerdere processtap triggert de huidige, en lagen die bij elkaar horen staan op dezelfde hoogte. Een lijn van links naar rechts is een verwijzing: het object wordt een keer gemaakt en daarna niet opnieuw of als kopie, maar het nieuwe object verwijst ernaar. Hoe die verwijzing technisch loopt, met een sleutel in het gegevensmodel, valt buiten dit voorbeeld. Onderin elk zulk beeld staat een legenda; onder het beeld staat de herkomst als link.
+- **Ontstaat**: een rol (geel, rolicoon) voert een processtap uit (geel, procesicoon) en daaruit ontstaan objecttypen (geel, objecticoon) met Jochems waarde. "Bestaat uit" is nesting; een relatielabel van de plaat staat tussen twee objecten of als verwijzing op een object dat aan een eerdere stap hangt. Een gestippelde rand is een aanname; grijs is een objecttype dat de plaat buiten de uitwisseling zet en dit voorbeeld toch meeneemt. Een object dat al bestond en verandert, staat er op dezelfde manier, met zijn nieuwe toestand eronder.
+- **Bestaat** (grijs vlak "Eerder ontstaan", links): een object uit een eerder beeld, onder de rol en de processtap van dat beeld. Die processtap zet de huidige in gang (trigger). Rechts, in het witte vlak met oranje rand ("Ontstaat hier"), staat wat in dit beeld ontstaat. Een lijn tussen de vlakken is een relatie van de plaat, in haar leesrichting: het nieuwe object verwijst naar het object dat eenmaal gemaakt is. Onder het beeld staat de herkomst als link.
 - **Stroomt** (blauwe rand): van welk systeem naar welk systeem gaat welk object, met de koppeling-ID of "zonder koppelingspecificatie", en de processtap waarna het gebeurt.
 
 Waar de herkomst loopt: het kwalificatiedossier, de kwalificatie, de kerntaken en de werkprocessen staan in het eerste beeld van fase 1, en het derde beeld vertaalt ze naar leeruitkomsten. Daarna verwijzen specificaties, toets- en examenonderdelen, aanbod, verbintenissen en resultaten naar de leeruitkomst; de plaat kent buiten die route alleen een directe verwijzing vanuit het examenplan en de OER. Een dossiercode in een instantienaam (B1-K1, B1-K1-W1) is daarom een leeshulp die zegt over welk deel van het dossier het gaat, en geen relatie. Op de conceptplaat loopt daarnaast een eigen pad binnen de instelling: de kerntaak wordt daar onderwijskundig vertaald tot een leerdoel.
@@ -175,13 +175,13 @@ De gemarkeerde lijnen zijn de stromen die deze fase raakt, met het beeld waarin 
 
 ![stroomt: Grofmazig resultaat publiceren naar de onderwijscatalogus](img/regels/f1-12-curriculum-ontwerptool-publiceert-de-opleiding-naar-de-onderwijscatalogus.svg)
 
-**Interactie:** Curriculum ontwerptool naar Onderwijscatalogus, geen pijl op de hoofdplaat. Op de [hoofdplaat](#de-hoofdplaat-als-kaart) en in de faseplaat hierboven staat deze lijn gemarkeerd met F1-12.
+**Interactie:** Curriculum ontwerptool naar Onderwijscatalogus, geen pijl op de hoofdplaat. In de faseplaat hierboven staat deze lijn gestippeld met F1-12.
 
 ### F1-13 - Curriculum ontwerptool publiceert het onderwijsontwerp naar de onderwijscatalogus
 
 ![stroomt: Grofmazig resultaat publiceren naar de onderwijscatalogus](img/regels/f1-13-curriculum-ontwerptool-publiceert-het-onderwijsontwerp-naar-de-onderwijscatalogus.svg)
 
-**Interactie:** Curriculum ontwerptool naar Onderwijscatalogus, geen pijl op de hoofdplaat. Op de [hoofdplaat](#de-hoofdplaat-als-kaart) en in de faseplaat hierboven staat deze lijn gemarkeerd met F1-13.
+**Interactie:** Curriculum ontwerptool naar Onderwijscatalogus, geen pijl op de hoofdplaat. In de faseplaat hierboven staat deze lijn gestippeld met F1-13.
 
 ## Fase 2: Publiceren en planbaar maken
 
@@ -201,15 +201,15 @@ De gemarkeerde lijnen zijn de stromen die deze fase raakt, met het beeld waarin 
 
 ![ontstaat: Planningssysteem verzoeken om onderwijsaanbod](img/regels/f2-02-planner-stelt-het-verzoek-om-onderwijsaanbod-op.svg)
 
-### F2-03 - Onderwijscatalogus stuurt het verzoek met de specificatie naar planning
+### F2-03 - Onderwijscatalogus stuurt het verzoek met de specificatie naar het planningssysteem
 
-![stroomt: Planningssysteem verzoeken om onderwijsaanbod](img/regels/f2-03-onderwijscatalogus-stuurt-het-verzoek-met-de-specificatie-naar-planning.svg)
+![stroomt: Planningssysteem verzoeken om onderwijsaanbod](img/regels/f2-03-onderwijscatalogus-stuurt-het-verzoek-met-de-specificatie-naar-het-planningssysteem.svg)
 
 **Interactie:** Onderwijscatalogus naar Planningssysteem, OC-P&R. Op de [hoofdplaat](#de-hoofdplaat-als-kaart) en in de faseplaat hierboven staat deze lijn gemarkeerd met F2-03.
 
-### F2-04 - Planning meldt de haalbaarheid van de specificatie aan de catalogus
+### F2-04 - Planningssysteem stuurt het getoetste verzoek terug naar de onderwijscatalogus
 
-![stroomt: Specificatie op haalbaarheid toetsen](img/regels/f2-04-planning-meldt-de-haalbaarheid-van-de-specificatie-aan-de-catalogus.svg)
+![stroomt: Specificatie op haalbaarheid toetsen](img/regels/f2-04-planningssysteem-stuurt-het-getoetste-verzoek-terug-naar-de-onderwijscatalogus.svg)
 
 **Interactie:** Planningssysteem naar Onderwijscatalogus, OC-P&R. Op de [hoofdplaat](#de-hoofdplaat-als-kaart) en in de faseplaat hierboven staat deze lijn gemarkeerd met F2-04.
 
@@ -229,9 +229,9 @@ De gemarkeerde lijnen zijn de stromen die deze fase raakt, met het beeld waarin 
 
 ![ontstaat: Aanbod plannen](img/regels/f2-08-planner-plant-opleiding-programma-eenheid-en-gelegenheid.svg)
 
-### F2-09 - Planning levert het geplande aanbod terug aan de catalogus
+### F2-09 - Planningssysteem stuurt het geplande aanbod naar de onderwijscatalogus
 
-![stroomt: Gepland aanbod terugleveren aan de onderwijscatalogus](img/regels/f2-09-planning-levert-het-geplande-aanbod-terug-aan-de-catalogus.svg)
+![stroomt: Gepland aanbod terugleveren aan de onderwijscatalogus](img/regels/f2-09-planningssysteem-stuurt-het-geplande-aanbod-naar-de-onderwijscatalogus.svg)
 
 **Interactie:** Planningssysteem naar Onderwijscatalogus, OC-P&R. Op de [hoofdplaat](#de-hoofdplaat-als-kaart) en in de faseplaat hierboven staat deze lijn gemarkeerd met F2-09.
 
@@ -245,9 +245,9 @@ Het kaderscenario beschrijft vraaggestuurd plannen: de planner vormt groepen nad
 
 ![ontstaat: Keuzedeelaanbod plannen op inzetbare capaciteit en prognose](img/regels/f2-c01-planner-plant-k0037-vooraf-op-capaciteit.svg)
 
-#### F2-C02 - Planning levert de geplande keuzedeelgroepen terug aan de catalogus
+#### F2-C02 - Planningssysteem stuurt de geplande keuzedeelgroepen naar de onderwijscatalogus
 
-![stroomt: Gepland keuzedeelaanbod terugleveren aan de onderwijscatalogus](img/regels/f2-c02-planning-levert-de-geplande-keuzedeelgroepen-terug-aan-de-catalogus.svg)
+![stroomt: Gepland keuzedeelaanbod terugleveren aan de onderwijscatalogus](img/regels/f2-c02-planningssysteem-stuurt-de-geplande-keuzedeelgroepen-naar-de-onderwijscatalogus.svg)
 
 **Interactie:** Planningssysteem naar Onderwijscatalogus, OC-P&R. Op de [hoofdplaat](#de-hoofdplaat-als-kaart) en in de faseplaat hierboven staat deze lijn gemarkeerd met F2-C02.
 
@@ -271,7 +271,7 @@ De gemarkeerde lijnen zijn de stromen die deze fase raakt, met het beeld waarin 
 
 ![stroomt: Orienteren op het gepubliceerde aanbod](img/regels/f3-02-kernregistratie-ontsluit-het-aanmeldbare-aanbod-naar-aii.svg)
 
-**Interactie:** Kernregistratie systeem studenten (KRS) naar AII (centraal aanmelden), geen pijl op de hoofdplaat. Op de [hoofdplaat](#de-hoofdplaat-als-kaart) en in de faseplaat hierboven staat deze lijn gemarkeerd met F3-02.
+**Interactie:** Kernregistratie systeem studenten (KRS) naar AII (centraal aanmelden), geen pijl op de hoofdplaat. In de faseplaat hierboven staat deze lijn gestippeld met F3-02.
 
 ### F3-03 - Jochem meldt zich aan voor de opleiding
 
@@ -281,7 +281,7 @@ De gemarkeerde lijnen zijn de stromen die deze fase raakt, met het beeld waarin 
 
 ![stroomt: Aanmelden via het intakesysteem](img/regels/f3-04-aii-stuurt-de-aanmelding-naar-het-intakesysteem.svg)
 
-**Interactie:** AII (centraal aanmelden) naar Intake systeem, geen pijl op de hoofdplaat. Op de [hoofdplaat](#de-hoofdplaat-als-kaart) en in de faseplaat hierboven staat deze lijn gemarkeerd met F3-04.
+**Interactie:** AII (centraal aanmelden) naar Intake systeem, geen pijl op de hoofdplaat. In de faseplaat hierboven staat deze lijn gestippeld met F3-04.
 
 ### F3-05 - SLB'er plaatst Jochem in een plaatsingsgroep
 
@@ -317,39 +317,39 @@ De gemarkeerde lijnen zijn de stromen die deze fase raakt, met het beeld waarin 
 
 ![ontstaat: Leeronderdeel- en toetsonderdeelspecificaties fijnmazig uitwerken](img/regels/f4-01-onderwijsontwikkelaar-werkt-het-leeronderdeel-fijnmazig-uit.svg)
 
-### F4-02 - Onderwijscatalogus levert de detailspecificaties aan het LMS
+### F4-02 - Onderwijscatalogus stuurt de detailspecificaties naar het LMS
 
-![stroomt: Detailspecificaties leveren aan het LMS](img/regels/f4-02-onderwijscatalogus-levert-de-detailspecificaties-aan-het-lms.svg)
+![stroomt: Detailspecificaties leveren aan het LMS](img/regels/f4-02-onderwijscatalogus-stuurt-de-detailspecificaties-naar-het-lms.svg)
 
 **Interactie:** Onderwijscatalogus naar Leer management systeem (LMS), OC-LMS. Op de [hoofdplaat](#de-hoofdplaat-als-kaart) en in de faseplaat hierboven staat deze lijn gemarkeerd met F4-02.
 
-### F4-03 - Onderwijscatalogus levert les en toets van binnen aan het LMS
+### F4-03 - Onderwijscatalogus stuurt de opbouw van les en toets naar het LMS
 
-![stroomt: Detailspecificaties leveren aan het LMS](img/regels/f4-03-onderwijscatalogus-levert-les-en-toets-van-binnen-aan-het-lms.svg)
+![stroomt: Detailspecificaties leveren aan het LMS](img/regels/f4-03-onderwijscatalogus-stuurt-de-opbouw-van-les-en-toets-naar-het-lms.svg)
 
 **Interactie:** Onderwijscatalogus naar Leer management systeem (LMS), OC-LMS. Op de [hoofdplaat](#de-hoofdplaat-als-kaart) en in de faseplaat hierboven staat deze lijn gemarkeerd met F4-03.
 
-### F4-04 - Onderwijscatalogus levert de summatieve resultaatstructuur aan het studentvolgsysteem
+### F4-04 - Onderwijscatalogus stuurt de summatieve resultaatstructuur naar het studentvolgsysteem
 
-![stroomt: Detailspecificaties leveren aan het LMS](img/regels/f4-04-onderwijscatalogus-levert-de-summatieve-resultaatstructuur-aan-het-studentvolgsysteem.svg)
+![stroomt: Detailspecificaties leveren aan het LMS](img/regels/f4-04-onderwijscatalogus-stuurt-de-summatieve-resultaatstructuur-naar-het-studentvolgsysteem.svg)
 
 **Interactie:** Onderwijscatalogus naar Student volg systeem (SVS), OC-SVS. Op de [hoofdplaat](#de-hoofdplaat-als-kaart) en in de faseplaat hierboven staat deze lijn gemarkeerd met F4-04.
 
-### F4-05 - Onderwijscatalogus levert de summatieve resultaatstructuur aan de kernregistratie
+### F4-05 - Onderwijscatalogus stuurt de summatieve resultaatstructuur naar de kernregistratie
 
-![stroomt: Detailspecificaties leveren aan het LMS](img/regels/f4-05-onderwijscatalogus-levert-de-summatieve-resultaatstructuur-aan-de-kernregistratie.svg)
+![stroomt: Detailspecificaties leveren aan het LMS](img/regels/f4-05-onderwijscatalogus-stuurt-de-summatieve-resultaatstructuur-naar-de-kernregistratie.svg)
 
 **Interactie:** Onderwijscatalogus naar Kernregistratie systeem studenten (KRS), OC-KRS. Op de [hoofdplaat](#de-hoofdplaat-als-kaart) en in de faseplaat hierboven staat deze lijn gemarkeerd met F4-05.
 
-### F4-06 - Kernregistratie stuurt de plaatsingsgroepen naar planning
+### F4-06 - Kernregistratie stuurt de plaatsingsgroepen naar het planningssysteem
 
-![stroomt: Plaatsings- en planninggroepen definieren en aan personen koppelen](img/regels/f4-06-kernregistratie-stuurt-de-plaatsingsgroepen-naar-planning.svg)
+![stroomt: Plaatsings- en planninggroepen definieren en aan personen koppelen](img/regels/f4-06-kernregistratie-stuurt-de-plaatsingsgroepen-naar-het-planningssysteem.svg)
 
 **Interactie:** Kernregistratie systeem studenten (KRS) naar Planningssysteem, zonder koppelingspecificatie. Op de [hoofdplaat](#de-hoofdplaat-als-kaart) en in de faseplaat hierboven staat deze lijn gemarkeerd met F4-06.
 
-### F4-07 - Planning stuurt de te roosteren leergelegenheden naar het rooster
+### F4-07 - Planningssysteem stuurt de te roosteren leergelegenheden naar het roostersysteem
 
-![stroomt: Te roosteren specificaties aan het roostersysteem geven](img/regels/f4-07-planning-stuurt-de-te-roosteren-leergelegenheden-naar-het-rooster.svg)
+![stroomt: Te roosteren specificaties aan het roostersysteem geven](img/regels/f4-07-planningssysteem-stuurt-de-te-roosteren-leergelegenheden-naar-het-roostersysteem.svg)
 
 **Interactie:** Planningssysteem naar Roostersysteem, zonder koppelingspecificatie. Op de [hoofdplaat](#de-hoofdplaat-als-kaart) en in de faseplaat hierboven staat deze lijn gemarkeerd met F4-07.
 
@@ -361,9 +361,9 @@ De gemarkeerde lijnen zijn de stromen die deze fase raakt, met het beeld waarin 
 
 ![ontstaat: Verwachte deelnemers delen en toegang geven](img/regels/f4-09-slb-er-en-planner-verbinden-jochem-aan-de-geroosterde-gelegenheden.svg)
 
-### F4-10 - Rooster stuurt student, verbintenissen en groep naar het LMS
+### F4-10 - Roostersysteem stuurt student, verbintenissen en groep naar het LMS
 
-![stroomt: Verwachte deelnemers delen en toegang geven](img/regels/f4-10-rooster-stuurt-student-verbintenissen-en-groep-naar-het-lms.svg)
+![stroomt: Verwachte deelnemers delen en toegang geven](img/regels/f4-10-roostersysteem-stuurt-student-verbintenissen-en-groep-naar-het-lms.svg)
 
 **Interactie:** Roostersysteem naar Leer management systeem (LMS), zonder koppelingspecificatie. Op de [hoofdplaat](#de-hoofdplaat-als-kaart) en in de faseplaat hierboven staat deze lijn gemarkeerd met F4-10.
 
@@ -371,7 +371,7 @@ De gemarkeerde lijnen zijn de stromen die deze fase raakt, met het beeld waarin 
 
 ![stroomt: Verwachte deelnemers delen en toegang geven](img/regels/f4-11-kernregistratie-stuurt-de-verbintenissen-naar-het-studentvolgsysteem.svg)
 
-**Interactie:** Kernregistratie systeem studenten (KRS) naar Student volg systeem (SVS), geen pijl op de hoofdplaat. Op de [hoofdplaat](#de-hoofdplaat-als-kaart) en in de faseplaat hierboven staat deze lijn gemarkeerd met F4-11.
+**Interactie:** Kernregistratie systeem studenten (KRS) naar Student volg systeem (SVS), geen pijl op de hoofdplaat. In de faseplaat hierboven staat deze lijn gestippeld met F4-11.
 
 ### Variant capaciteitsgestuurd
 
@@ -381,9 +381,9 @@ Hieraan gaan vooraf: [F2-C01](#f2-c01---planner-plant-k0037-vooraf-op-capaciteit
 
 ![Hoofdplaat met de stromen van fase 4 in de variant capaciteitsgestuurd gemarkeerd](img/hoofdplaat/f4-capaciteitsgestuurd.svg)
 
-#### F4-C01 - Planning stuurt de keuzedeelgroep met vaste capaciteit naar het rooster
+#### F4-C01 - Planningssysteem stuurt de keuzedeelgroep met vaste capaciteit naar het roostersysteem
 
-![stroomt: Keuzedeelgroep met vaste capaciteit aan het roostersysteem geven](img/regels/f4-c01-planning-stuurt-de-keuzedeelgroep-met-vaste-capaciteit-naar-het-rooster.svg)
+![stroomt: Keuzedeelgroep met vaste capaciteit aan het roostersysteem geven](img/regels/f4-c01-planningssysteem-stuurt-de-keuzedeelgroep-met-vaste-capaciteit-naar-het-roostersysteem.svg)
 
 **Interactie:** Planningssysteem naar Roostersysteem, zonder koppelingspecificatie. Op de [hoofdplaat](#de-hoofdplaat-als-kaart) en in de faseplaat hierboven staat deze lijn gemarkeerd met F4-C01.
 
@@ -431,19 +431,19 @@ De gemarkeerde lijnen zijn de stromen die deze fase raakt, met het beeld waarin 
 
 ### F6-01 - Planner maakt het keuzedeelaanbod per laag
 
-![ontstaat: Keuzedeelaanbod ontsluiten naar het studentkeuzesysteem](img/regels/f6-01-planner-maakt-het-keuzedeelaanbod-per-laag.svg)
+![ontstaat: Keuzedeel kiesbaar maken in het studentkeuzesysteem](img/regels/f6-01-planner-maakt-het-keuzedeelaanbod-per-laag.svg)
 
 **Herkomst:** uit [F1-08](#f1-08---onderwijsontwerper-geeft-keuzedelen-en-minor-een-eigen-specificatie): `Keuzedeel specificatie` K0037 Farmaceutische Patientenzorg (480 SBU, verdiepend); `Onderwijseenheid specificatie` D1-K1 Voert farmaceutische patientenzorg uit; `Leeronderdeel specificatie` Het medicatieoverzicht opstellen; `Leeronderdeel specificatie` Zorg aan specifieke doelgroepen.
 
 ### F6-02 - Onderwijscatalogus ontsluit specificatie en keuzeregels naar het studentkeuzesysteem
 
-![stroomt: Keuzedeelaanbod ontsluiten naar het studentkeuzesysteem](img/regels/f6-02-onderwijscatalogus-ontsluit-specificatie-en-keuzeregels-naar-het-studentkeuzesysteem.svg)
+![stroomt: Keuzedeel kiesbaar maken in het studentkeuzesysteem](img/regels/f6-02-onderwijscatalogus-ontsluit-specificatie-en-keuzeregels-naar-het-studentkeuzesysteem.svg)
 
 **Interactie:** Onderwijscatalogus naar Student Keuze Systeem (SKS), zonder koppelingspecificatie. Op de [hoofdplaat](#de-hoofdplaat-als-kaart) en in de faseplaat hierboven staat deze lijn gemarkeerd met F6-02.
 
-### F6-03 - Planning ontsluit het geplande aanbod naar het studentkeuzesysteem
+### F6-03 - Planningssysteem ontsluit het geplande aanbod naar het studentkeuzesysteem
 
-![stroomt: Keuzedeelaanbod ontsluiten naar het studentkeuzesysteem](img/regels/f6-03-planning-ontsluit-het-geplande-aanbod-naar-het-studentkeuzesysteem.svg)
+![stroomt: Keuzedeel kiesbaar maken in het studentkeuzesysteem](img/regels/f6-03-planningssysteem-ontsluit-het-geplande-aanbod-naar-het-studentkeuzesysteem.svg)
 
 **Interactie:** Planningssysteem naar Student Keuze Systeem (SKS), zonder koppelingspecificatie. Op de [hoofdplaat](#de-hoofdplaat-als-kaart) en in de faseplaat hierboven staat deze lijn gemarkeerd met F6-03.
 
@@ -453,9 +453,9 @@ De gemarkeerde lijnen zijn de stromen die deze fase raakt, met het beeld waarin 
 
 **Herkomst:** uit [F6-01](#f6-01---planner-maakt-het-keuzedeelaanbod-per-laag): `Keuzedeel aanbod` K0037 Farmaceutische Patientenzorg, periode 7, locatie A; `Onderwijseenheid aanbod` D1-K1, periode 7, locatie A: 18 plaatsen.
 
-### F6-05 - Studentkeuzesysteem stuurt Jochems keuze naar planning
+### F6-05 - Studentkeuzesysteem stuurt Jochems verbintenissen op K0037 naar het planningssysteem
 
-![stroomt: Keuzedeel kiezen in het studentkeuzesysteem](img/regels/f6-05-studentkeuzesysteem-stuurt-jochems-keuze-naar-planning.svg)
+![stroomt: Keuzedeel kiezen in het studentkeuzesysteem](img/regels/f6-05-studentkeuzesysteem-stuurt-jochems-verbintenissen-op-k0037-naar-het-planningssysteem.svg)
 
 **Interactie:** Student Keuze Systeem (SKS) naar Planningssysteem, zonder koppelingspecificatie. Op de [hoofdplaat](#de-hoofdplaat-als-kaart) en in de faseplaat hierboven staat deze lijn gemarkeerd met F6-05.
 
@@ -463,9 +463,9 @@ De gemarkeerde lijnen zijn de stromen die deze fase raakt, met het beeld waarin 
 
 ![ontstaat: Definitieve keuzes verwerken naar groepen en capaciteit](img/regels/f6-06-planner-verwerkt-de-keuzes-tot-groepen-en-capaciteit.svg)
 
-### F6-07 - Planning werkt het keuzedeelaanbod bij in de catalogus
+### F6-07 - Planningssysteem stuurt het bijgewerkte keuzedeelaanbod naar de onderwijscatalogus
 
-![stroomt: Planbaar aanbod actualiseren](img/regels/f6-07-planning-werkt-het-keuzedeelaanbod-bij-in-de-catalogus.svg)
+![stroomt: Planbaar aanbod actualiseren](img/regels/f6-07-planningssysteem-stuurt-het-bijgewerkte-keuzedeelaanbod-naar-de-onderwijscatalogus.svg)
 
 **Interactie:** Planningssysteem naar Onderwijscatalogus, OC-P&R. Op de [hoofdplaat](#de-hoofdplaat-als-kaart) en in de faseplaat hierboven staat deze lijn gemarkeerd met F6-07.
 
@@ -473,27 +473,27 @@ De gemarkeerde lijnen zijn de stromen die deze fase raakt, met het beeld waarin 
 
 ![ontstaat: Keuzedeel formeel inschrijven](img/regels/f6-08-planner-schrijft-jochem-in-op-het-keuzedeel.svg)
 
-### F6-09 - Planning bevestigt de verbintenis aan het studentkeuzesysteem
+### F6-09 - Planningssysteem stuurt de bevestigde verbintenis naar het studentkeuzesysteem
 
-![stroomt: Keuzedeel formeel inschrijven](img/regels/f6-09-planning-bevestigt-de-verbintenis-aan-het-studentkeuzesysteem.svg)
+![stroomt: Keuzedeel formeel inschrijven](img/regels/f6-09-planningssysteem-stuurt-de-bevestigde-verbintenis-naar-het-studentkeuzesysteem.svg)
 
-**Interactie:** Planningssysteem naar Student Keuze Systeem (SKS), geen pijl op de hoofdplaat. Op de [hoofdplaat](#de-hoofdplaat-als-kaart) en in de faseplaat hierboven staat deze lijn gemarkeerd met F6-09.
+**Interactie:** Planningssysteem naar Student Keuze Systeem (SKS), geen pijl op de hoofdplaat. In de faseplaat hierboven staat deze lijn gestippeld met F6-09.
 
-### F6-10 - Studentkeuzesysteem geeft de verbintenis door aan de kernregistratie
+### F6-10 - Studentkeuzesysteem stuurt de verbintenis naar de kernregistratie
 
-![stroomt: Keuzedeel formeel inschrijven](img/regels/f6-10-studentkeuzesysteem-geeft-de-verbintenis-door-aan-de-kernregistratie.svg)
+![stroomt: Keuzedeel formeel inschrijven](img/regels/f6-10-studentkeuzesysteem-stuurt-de-verbintenis-naar-de-kernregistratie.svg)
 
 **Interactie:** Student Keuze Systeem (SKS) naar Kernregistratie systeem studenten (KRS), zonder koppelingspecificatie. Op de [hoofdplaat](#de-hoofdplaat-als-kaart) en in de faseplaat hierboven staat deze lijn gemarkeerd met F6-10.
 
-### F6-11 - Kernregistratie meldt het verwachte resultaat aan het studentvolgsysteem
+### F6-11 - Kernregistratie stuurt de verbintenissen op K0037 naar het studentvolgsysteem
 
-![stroomt: Keuzedeel formeel inschrijven](img/regels/f6-11-kernregistratie-meldt-het-verwachte-resultaat-aan-het-studentvolgsysteem.svg)
+![stroomt: Keuzedeel formeel inschrijven](img/regels/f6-11-kernregistratie-stuurt-de-verbintenissen-op-k0037-naar-het-studentvolgsysteem.svg)
 
-**Interactie:** Kernregistratie systeem studenten (KRS) naar Student volg systeem (SVS), geen pijl op de hoofdplaat. Op de [hoofdplaat](#de-hoofdplaat-als-kaart) en in de faseplaat hierboven staat deze lijn gemarkeerd met F6-11.
+**Interactie:** Kernregistratie systeem studenten (KRS) naar Student volg systeem (SVS), geen pijl op de hoofdplaat. In de faseplaat hierboven staat deze lijn gestippeld met F6-11.
 
-### F6-12 - Planning stuurt de leergelegenheden van K0037 naar het rooster
+### F6-12 - Planningssysteem stuurt de leergelegenheden van K0037 naar het roostersysteem
 
-![stroomt: Gekozen keuzedeel roosteren en deelnemers delen](img/regels/f6-12-planning-stuurt-de-leergelegenheden-van-k0037-naar-het-rooster.svg)
+![stroomt: Gekozen keuzedeel roosteren en deelnemers delen](img/regels/f6-12-planningssysteem-stuurt-de-leergelegenheden-van-k0037-naar-het-roostersysteem.svg)
 
 **Interactie:** Planningssysteem naar Roostersysteem, zonder koppelingspecificatie. Op de [hoofdplaat](#de-hoofdplaat-als-kaart) en in de faseplaat hierboven staat deze lijn gemarkeerd met F6-12.
 
@@ -503,23 +503,23 @@ De gemarkeerde lijnen zijn de stromen die deze fase raakt, met het beeld waarin 
 
 **Herkomst:** uit [F6-08](#f6-08---planner-schrijft-jochem-in-op-het-keuzedeel): `Onderwijseenheid aanbod verbintenis` Jochem op D1-K1, periode 7.
 
-### F6-14 - Rooster ontsluit de geroosterde leergelegenheid naar het studentkeuzesysteem
+### F6-14 - Roostersysteem ontsluit de geroosterde leergelegenheid naar het studentkeuzesysteem
 
-![stroomt: Gekozen keuzedeel roosteren en deelnemers delen](img/regels/f6-14-rooster-ontsluit-de-geroosterde-leergelegenheid-naar-het-studentkeuzesysteem.svg)
+![stroomt: Gekozen keuzedeel roosteren en deelnemers delen](img/regels/f6-14-roostersysteem-ontsluit-de-geroosterde-leergelegenheid-naar-het-studentkeuzesysteem.svg)
 
 **Interactie:** Roostersysteem naar Student Keuze Systeem (SKS), zonder koppelingspecificatie. Op de [hoofdplaat](#de-hoofdplaat-als-kaart) en in de faseplaat hierboven staat deze lijn gemarkeerd met F6-14.
 
-### F6-15 - Rooster stuurt de lesgroep naar het LMS
+### F6-15 - Roostersysteem stuurt de lesgroep naar het LMS
 
-![stroomt: Gekozen keuzedeel roosteren en deelnemers delen](img/regels/f6-15-rooster-stuurt-de-lesgroep-naar-het-lms.svg)
+![stroomt: Gekozen keuzedeel roosteren en deelnemers delen](img/regels/f6-15-roostersysteem-stuurt-de-lesgroep-naar-het-lms.svg)
 
-**Interactie:** Roostersysteem naar Leer management systeem (LMS), geen pijl op de hoofdplaat. Op de [hoofdplaat](#de-hoofdplaat-als-kaart) en in de faseplaat hierboven staat deze lijn gemarkeerd met F6-15.
+**Interactie:** Roostersysteem naar Leer management systeem (LMS), geen pijl op de hoofdplaat. In de faseplaat hierboven staat deze lijn gestippeld met F6-15.
 
 ### Variant capaciteitsgestuurd
 
-In deze vorm is de capaciteit vooraf gepland op de meerjarencapaciteitsplanning (F2-C01). De keuze in F6-04 geldt hier als animo, en de animocheck is een controle op die capaciteitsplanning, niet de planning zelf. De keuze valt op de onderwijseenheid, net als in de basis; de leergelegenheid volgt bij het roosteren. Een afwijking tussen prognose en animo tot 50 procent ligt in dit voorbeeld binnen de marge; daarboven verbetert de instelling de prognose zelf. F6-07 neemt de uitkomst mee (KD-A blijft, KD-B is geannuleerd), en F6-10 geldt ook hier. Bijgesteld na de sessie van 17 november 2026.
+In deze vorm is de capaciteit vooraf gepland op de meerjarencapaciteitsplanning, in twee groepen (F2-C01). De keuze in F6-04 geldt hier als animo, en de animocheck (F6-C01) toetst die capaciteitsplanning. De keuze valt op de onderwijseenheid, net als in de basis. F6-07 neemt de uitkomst van de animocheck mee, en F6-10 geldt ook hier.
 
-Hieraan gaan vooraf: [F6-01](#f6-01---planner-maakt-het-keuzedeelaanbod-per-laag), [F6-02](#f6-02---onderwijscatalogus-ontsluit-specificatie-en-keuzeregels-naar-het-studentkeuzesysteem), [F6-03](#f6-03---planning-ontsluit-het-geplande-aanbod-naar-het-studentkeuzesysteem), [F6-04](#f6-04---jochem-kiest-keuzedeel-k0037), [F6-05](#f6-05---studentkeuzesysteem-stuurt-jochems-keuze-naar-planning).
+Hieraan gaan vooraf: [F6-01](#f6-01---planner-maakt-het-keuzedeelaanbod-per-laag), [F6-02](#f6-02---onderwijscatalogus-ontsluit-specificatie-en-keuzeregels-naar-het-studentkeuzesysteem), [F6-03](#f6-03---planningssysteem-ontsluit-het-geplande-aanbod-naar-het-studentkeuzesysteem), [F6-04](#f6-04---jochem-kiest-keuzedeel-k0037), [F6-05](#f6-05---studentkeuzesysteem-stuurt-jochems-verbintenissen-op-k0037-naar-het-planningssysteem).
 
 Vervalt in deze vorm of schuift hierheen: [F6-06](#f6-06---planner-verwerkt-de-keuzes-tot-groepen-en-capaciteit), [F6-08](#f6-08---planner-schrijft-jochem-in-op-het-keuzedeel).
 
@@ -553,9 +553,9 @@ De gemarkeerde lijnen zijn de stromen die deze fase raakt, met het beeld waarin 
 
 ![ontstaat: Bestaande verbintenissen annuleren](img/regels/f7-02-planner-annuleert-de-verbintenis-op-de-onderwijseenheid.svg)
 
-### F7-03 - Kernregistratie stuurt de plaatsingsgroep naar planning
+### F7-03 - Kernregistratie stuurt de plaatsingsgroep naar het planningssysteem
 
-![stroomt: Bestaande verbintenissen annuleren](img/regels/f7-03-kernregistratie-stuurt-de-plaatsingsgroep-naar-planning.svg)
+![stroomt: Bestaande verbintenissen annuleren](img/regels/f7-03-kernregistratie-stuurt-de-plaatsingsgroep-naar-het-planningssysteem.svg)
 
 **Interactie:** Kernregistratie systeem studenten (KRS) naar Planningssysteem, zonder koppelingspecificatie. Op de [hoofdplaat](#de-hoofdplaat-als-kaart) en in de faseplaat hierboven staat deze lijn gemarkeerd met F7-03.
 
@@ -563,15 +563,15 @@ De gemarkeerde lijnen zijn de stromen die deze fase raakt, met het beeld waarin 
 
 ![ontstaat: Nieuw aanbod maken en publiceren](img/regels/f7-04-planner-maakt-nieuw-aanbod-voor-de-plaatsingsgroep.svg)
 
-### F7-05 - Planning stuurt het bijgestuurde aanbod naar de catalogus
+### F7-05 - Planningssysteem stuurt het bijgestuurde aanbod naar de onderwijscatalogus
 
-![stroomt: Nieuw aanbod maken en publiceren](img/regels/f7-05-planning-stuurt-het-bijgestuurde-aanbod-naar-de-catalogus.svg)
+![stroomt: Nieuw aanbod maken en publiceren](img/regels/f7-05-planningssysteem-stuurt-het-bijgestuurde-aanbod-naar-de-onderwijscatalogus.svg)
 
 **Interactie:** Planningssysteem naar Onderwijscatalogus, OC-P&R. Op de [hoofdplaat](#de-hoofdplaat-als-kaart) en in de faseplaat hierboven staat deze lijn gemarkeerd met F7-05.
 
-### F7-06 - Planning stuurt de nieuwe leergelegenheden naar het rooster
+### F7-06 - Planningssysteem stuurt de nieuwe leergelegenheden naar het roostersysteem
 
-![stroomt: Nieuw aanbod maken en publiceren](img/regels/f7-06-planning-stuurt-de-nieuwe-leergelegenheden-naar-het-rooster.svg)
+![stroomt: Nieuw aanbod maken en publiceren](img/regels/f7-06-planningssysteem-stuurt-de-nieuwe-leergelegenheden-naar-het-roostersysteem.svg)
 
 **Interactie:** Planningssysteem naar Roostersysteem, zonder koppelingspecificatie. Op de [hoofdplaat](#de-hoofdplaat-als-kaart) en in de faseplaat hierboven staat deze lijn gemarkeerd met F7-06.
 
@@ -585,9 +585,9 @@ Bij bijsturen blijft de bestaande planninggroep staan: een plek die vrijkomt, ga
 
 ![ontstaat: Vrijgekomen plek binnen de capaciteit verwerken](img/regels/f7-c01-planner-verwerkt-een-vrijgekomen-plek-binnen-de-capaciteit.svg)
 
-#### F7-C02 - Planning ontsluit de vrije plek naar het studentkeuzesysteem
+#### F7-C02 - Planningssysteem ontsluit de vrije plek naar het studentkeuzesysteem
 
-![stroomt: Vrije plek ontsluiten naar het studentkeuzesysteem](img/regels/f7-c02-planning-ontsluit-de-vrije-plek-naar-het-studentkeuzesysteem.svg)
+![stroomt: Vrije plek ontsluiten naar het studentkeuzesysteem](img/regels/f7-c02-planningssysteem-ontsluit-de-vrije-plek-naar-het-studentkeuzesysteem.svg)
 
 **Interactie:** Planningssysteem naar Student Keuze Systeem (SKS), zonder koppelingspecificatie. Op de [hoofdplaat](#de-hoofdplaat-als-kaart) en in de faseplaat hierboven staat deze lijn gemarkeerd met F7-C02.
 
@@ -609,15 +609,15 @@ De gemarkeerde lijnen zijn de stromen die deze fase raakt, met het beeld waarin 
 
 ![ontstaat: Kandidatenlijsten samenstellen](img/regels/f8-02-slb-er-zet-jochem-op-de-kandidatenlijst.svg)
 
-### F8-03 - Examinator, beoordelaar en surveillant nemen af en beoordelen
+### F8-03 - Examinator, beoordelaar en surveillant nemen het examen af en beoordelen het
 
-![ontstaat: Zitting uitvoeren en resultaten doorgeven](img/regels/f8-03-examinator-beoordelaar-en-surveillant-nemen-af-en-beoordelen.svg)
+![ontstaat: Zitting uitvoeren en resultaten doorgeven](img/regels/f8-03-examinator-beoordelaar-en-surveillant-nemen-het-examen-af-en-beoordelen-het.svg)
 
 ### F8-04 - Afnamesysteem stuurt het examenresultaat naar het studentvolgsysteem
 
 ![stroomt: Zitting uitvoeren en resultaten doorgeven](img/regels/f8-04-afnamesysteem-stuurt-het-examenresultaat-naar-het-studentvolgsysteem.svg)
 
-**Interactie:** Toets- en examen afname systeem naar Student volg systeem (SVS), geen pijl op de hoofdplaat. Op de [hoofdplaat](#de-hoofdplaat-als-kaart) en in de faseplaat hierboven staat deze lijn gemarkeerd met F8-04.
+**Interactie:** Toets- en examen afname systeem naar Student volg systeem (SVS), geen pijl op de hoofdplaat. In de faseplaat hierboven staat deze lijn gestippeld met F8-04.
 
 ### F8-05 - Examencommissie stelt het resultaat summatief vast
 
@@ -627,7 +627,7 @@ De gemarkeerde lijnen zijn de stromen die deze fase raakt, met het beeld waarin 
 
 ![stroomt: Summatief vaststellen](img/regels/f8-06-studentvolgsysteem-stuurt-de-vaststelling-naar-de-kernregistratie.svg)
 
-**Interactie:** Student volg systeem (SVS) naar Kernregistratie systeem studenten (KRS), geen pijl op de hoofdplaat. Op de [hoofdplaat](#de-hoofdplaat-als-kaart) en in de faseplaat hierboven staat deze lijn gemarkeerd met F8-06.
+**Interactie:** Student volg systeem (SVS) naar Kernregistratie systeem studenten (KRS), geen pijl op de hoofdplaat. In de faseplaat hierboven staat deze lijn gestippeld met F8-06.
 
 ### F8-07 - Examencommissie registreert kwalificering en diploma
 
@@ -763,7 +763,7 @@ De vragen die de regels zelf oproepen, met de regel waar de vraag zichtbaar word
 6. Wordt deze terugkoppeling een koppeling in OKx, of blijft zij buiten de uitwisseling? Een telefoontje naar de ontwerper is hier een logische vorm, en een volledige interface in de planningsapplicatie vraagt veel informatie. Zie issue 439. (F2-04, `Verzoek tot Aanbod / Intekening op specificatie`)
 7. Komt het signaal dat de jaarplanning niet rond komt uit het planningssysteem, uit de onderwijscatalogus, of uit beide? Zie issue 436. (F2-06, `Jaarplanningsbeperkingen`)
 
-### Vragen, vervolg (2 van 3)
+### Vragen, vervolg (2 van 4)
 
 8. De conceptplaat noemt hier Examenmoment, Examen instrument en Examen. Het OKx-framework kent examenspecificatie, examengelegenheid en examenresultaat, en het exameninstrument hoort bij de specificatie. Het grootste deel hiervan valt buiten de scope van OKx. Komt de conceptplaat op deze termen, en wat daarvan komt binnen de scope? Zie issue 438. (F2-07, `Jaarplanning`)
 9. Het intakesysteem voert de intake uit (F3-05) maar is niet de afzender van de inschrijving: de plaat laat die lijn van de voorziening naar de kernregistratie lopen. Wat gaat er dan terug van het intakesysteem naar de voorziening, en langs welke lijn? De plaat kent geen stroom van het intakesysteem naar de voorziening. (F3-07, `Inschrijving`)
@@ -773,17 +773,22 @@ De vragen die de regels zelf oproepen, met de regel waar de vraag zichtbaar word
 13. Aanwezigheidsregistratie zelf valt buiten OKx. Wat de scope wel raakt is het afgeleide deelnameresultaat: bij een onderwijseenheid die niet wordt getoetst kan het aandeel bijgewoonde lesgelegenheden een studievoortgangsresultaat zijn dat in het keuzesysteem keuzes vrijgeeft of beperkt. Hoort dat afgeleide resultaat in de uitwisseling, en blijft de registratie erbuiten? (F5-01, `Aanwezigheid`)
 14. De pijl van de catalogus naar het studentkeuzesysteem heet op de hoofdplaat 'Opleidingsprogramma aanbod', terwijl in de sessie van 17 november besloten is dat over deze lijn de specificatie en de regelset gaan. Hoort het label naar de specificatie? (F6-02, `Keuzedeel specificatie`)
 
-### Vragen, vervolg (3 van 3)
+### Vragen, vervolg (3 van 4)
 
 15. De pijl van planning naar het studentkeuzesysteem noemt 'geplande leergelegenheden', terwijl de student bij planning kiest op programma en onderwijseenheid. Welke laag hoort in het label? (F6-03, `Keuzedeel aanbod`)
-16. Welk systeem start het keuzemoment van een student? Planning is het enige systeem met een notie van onderwijsperiode, het keuzesysteem beheert de regels, en de SLB'er heeft in de praktijk een evaluatierol. Op de plaatsingsgroep houdt het verkeer laag; per student levert groepen van een op. (F6-07, `Keuzedeel aanbod`)
+16. Welk systeem start het keuzemoment van een student? Planning is het enige systeem met een notie van onderwijsperiode, het keuzesysteem beheert de regels, en de SLB'er heeft in de praktijk een evaluatierol. Starten op de plaatsingsgroep houdt het verkeer laag; starten per student levert groepen van één student op. (F6-07, `Keuzedeel aanbod`)
 17. Planning bevestigt de verbintenis direct na de keuze, over een lijn die de hoofdplaat niet kent. De plaat brengt de verbintenis met de planningsgroep na het roosteren terug, van het roostersysteem naar het studentkeuzesysteem (id-7a7e0a17). Welke route klopt, of horen ze allebei? (F6-09, `Keuzedeel aanbod verbintenis`)
 18. De hoofdplaat kent geen lijn van de kernregistratie naar het studentvolgsysteem, wel een van het studentkeuzesysteem naar het studentvolgsysteem (id-3aefce69). Welk systeem meldt de verwachting: de kernregistratie die de inschrijving vastlegt, of het studentkeuzesysteem waar de keuze ontstaat? (F6-11, `Keuzedeel aanbod verbintenis`)
-19. Planningsgroep is op de plaat een compositie van Plaatsingsgroep. Een keuzedeelgroep brengt studenten uit meer plaatsingsgroepen samen. Hoort de planningsgroep van een keuzedeel bij een plaatsingsgroep, of staat zij daarnaast? (F6-12, `Planningsgroep`)
-20. Gaat maatwerkaanbod voor een specifieke groep achterblijvers terug naar de catalogus? Het voorbeeld publiceert het bijgestuurde aanbod, zodat de catalogus de bron blijft, en bij een maatwerkprogramma voor een handvol studenten is de waarde daarvan de vraag. (F7-05, `Onderwijseenheid aanbod`)
-21. Examinering kent objecten en rollen die de informatiemodelplaat niet draagt: zitting, zittingsrapport en examendossier, en de rollen surveillant, beoordelaar en examenbureaumedewerker. Dit voorbeeld toont ze gestippeld, want OKx heeft ze nodig voor de verantwoording en uitwisseling naar de kernregistratie, en juist die stap behandelt OKE niet. Horen zij als uitbreiding op de plaat? (F8-05, `Examendossier`)
+19. Op de plaat is `Planningsgroep` een deel (compositie) van één `Plaatsingsgroep`, en de begrippenlijst noemt haar een opdeling daarvan. Een keuzedeelgroep brengt studenten uit drie plaatsingsgroepen samen, en dat past bij `Lesgroep`. Welk objecttype gaat er naar het rooster? (F6-12, `Planningsgroep`)
+20. De pijl van het rooster naar het studentkeuzesysteem die hier wordt gebruikt, draagt de geroosterde leergelegenheden zonder verbintenis. De verbintenis gaat op de plaat over een eigen lijn (id-7a7e0a17), op programma en onderwijseenheid. Hoort de verbintenis op de leergelegenheid over een van beide lijnen? (F6-14, `Leergelegenheid verbintenis`)
+21. De hoofdplaat kent geen lijn van het roostersysteem naar het LMS. Wel van het studentkeuzesysteem naar het LMS (id-926ba88e, verbintenis en planningsgroep) en van de kernregistratie naar het LMS (id-865f297e). Welk systeem levert de lesgroep aan het LMS? (F6-15, `Lesgroep`)
 
-De eerste 7 vragen gaan als ronde mee naar de kerngroep; dat is wat een sessie kan wegen. De overige 14 staan hierboven en wachten op een volgende ronde.
+### Vragen, vervolg (4 van 4)
+
+22. Gaat maatwerkaanbod voor een specifieke groep achterblijvers terug naar de catalogus? Het voorbeeld publiceert het bijgestuurde aanbod, zodat de catalogus de bron blijft, en bij een maatwerkprogramma voor een handvol studenten is de waarde daarvan de vraag. (F7-05, `Onderwijseenheid aanbod`)
+23. Examinering kent objecten en rollen die de informatiemodelplaat niet draagt: zitting, zittingsrapport en examendossier, en de rollen surveillant, beoordelaar en examenbureaumedewerker. Dit voorbeeld toont ze gestippeld, want OKx heeft ze nodig voor de verantwoording en uitwisseling naar de kernregistratie, en juist die stap behandelt OKE niet. Horen zij als uitbreiding op de plaat? (F8-05, `Examendossier`)
+
+De eerste 7 vragen gaan als ronde mee naar de kerngroep; dat is wat een sessie kan wegen. De overige 16 staan hierboven en wachten op een volgende ronde.
 
 Vragen over patronen, schema's, de toetslijst en endpoints horen bij de koppelvlakspecificatie en staan hier niet.
 
@@ -982,7 +987,7 @@ Elke regel onder het ID en de titel van haar beeld (fase, stap, bestand) met de 
 |---|---|---|---|
 | ontstaat | Verzoek tot Aanbod / Intekening op specificatie | Planopgave Apothekersassistent, cohort 2026 | geen bron, keuze van het voorbeeld: op de plaat een objecttype, in het kaderscenario een handeling van OC |
 
-**F2-03 - Onderwijscatalogus stuurt het verzoek met de specificatie naar planning** (fase 2, Planningssysteem verzoeken om onderwijsaanbod; [f2-03-onderwijscatalogus-stuurt-het-verzoek-met-de-specificatie-naar-planning.svg](img/regels/f2-03-onderwijscatalogus-stuurt-het-verzoek-met-de-specificatie-naar-planning.svg))
+**F2-03 - Onderwijscatalogus stuurt het verzoek met de specificatie naar het planningssysteem** (fase 2, Planningssysteem verzoeken om onderwijsaanbod; [f2-03-onderwijscatalogus-stuurt-het-verzoek-met-de-specificatie-naar-het-planningssysteem.svg](img/regels/f2-03-onderwijscatalogus-stuurt-het-verzoek-met-de-specificatie-naar-het-planningssysteem.svg))
 
 | Soort | Objecttype | Instantie | Bron |
 |---|---|---|---|
@@ -998,7 +1003,7 @@ Elke regel onder het ID en de titel van haar beeld (fase, stap, bestand) met de 
 | stroomt (conceptplaat) | Studiebelasting en begeleide onderwijstijd indicatie | Begeleide onderwijstijd: 50 uur voor Baliegesprekken 101, 30 uur voor Medicatiebewaking | model.archimate, view Informatiemodel Onderwijsontwerp (conceptplaat); sparsessie met Niels van Duin en Garik Hakopian, 28 oktober 2026: de studiebelasting en de onbegeleide onderwijstijd gaan niet mee, planning plant alleen de begeleide onderwijstijd |
 | stroomt | Nominale Leerroute | Nominale leerroute Apothekersassistent, cohort 2026: Baliegesprekken 101 in periode 1, Medicatiebewaking in de leerapotheek in periode 2 | conceptplaat-onderwijsontwerp.json: Onderwijs programma aggregeert Nominale Leerroute; sparsessie met Niels van Duin en Garik Hakopian, 28 oktober 2026: de nominale leerroute draagt een verwijzing naar de specificatie en een gewenste periode, zodat de specificatie herbruikbaar blijft en planning toch weet wanneer een onderdeel gepland moet worden |
 
-**F2-04 - Planning meldt de haalbaarheid van de specificatie aan de catalogus** (fase 2, Specificatie op haalbaarheid toetsen; [f2-04-planning-meldt-de-haalbaarheid-van-de-specificatie-aan-de-catalogus.svg](img/regels/f2-04-planning-meldt-de-haalbaarheid-van-de-specificatie-aan-de-catalogus.svg))
+**F2-04 - Planningssysteem stuurt het getoetste verzoek terug naar de onderwijscatalogus** (fase 2, Specificatie op haalbaarheid toetsen; [f2-04-planningssysteem-stuurt-het-getoetste-verzoek-terug-naar-de-onderwijscatalogus.svg](img/regels/f2-04-planningssysteem-stuurt-het-getoetste-verzoek-terug-naar-de-onderwijscatalogus.svg))
 
 | Soort | Objecttype | Instantie | Bron |
 |---|---|---|---|
@@ -1044,7 +1049,7 @@ Elke regel onder het ID en de titel van haar beeld (fase, stap, bestand) met de 
 | ontstaat | Leergelegenheid | Baliegesprekken 101, periode 1, twee groepen van 18 | [voorbeeldpayloads.md](https://github.com/Npuls-OKx/Public/blob/dev/Koppelvlakspecificaties/Datamodelschema's/voorbeeldpayloads.md), aanbodInstanties[3] (04070a96); scenario-1.1-regulier-happyflow.md, blok D (maatvoering uit de review van 29 september 2026); sparsessie met Niels van Duin en Garik Hakopian, 28 oktober 2026: in deze fase staan het lokaaltype en de docentexpertise vast, het lokaal, de persoon en het tijdvenster nog niet |
 | ontstaat | Toetsgelegenheid | Praktijktoets baliegesprek (OSCE), einde periode 1 | [leerroute-1-regulier.md](https://github.com/Npuls-OKx/Public/blob/dev/Referentiemateriaal/kaderscenario's/leerroute-1-regulier.md), [r1114](https://github.com/Npuls-OKx/Public/blob/dev/Referentiemateriaal/kaderscenario's/leerroute-1-regulier.md?plain=1#L1114) tot [1117](https://github.com/Npuls-OKx/Public/blob/dev/Referentiemateriaal/kaderscenario's/leerroute-1-regulier.md?plain=1#L1117); sparsessie met Niels van Duin en Garik Hakopian, 28 oktober 2026: in deze fase staan het lokaaltype en de docentexpertise vast, het lokaal, de persoon en het tijdvenster nog niet |
 
-**F2-09 - Planning levert het geplande aanbod terug aan de catalogus** (fase 2, Gepland aanbod terugleveren aan de onderwijscatalogus; [f2-09-planning-levert-het-geplande-aanbod-terug-aan-de-catalogus.svg](img/regels/f2-09-planning-levert-het-geplande-aanbod-terug-aan-de-catalogus.svg))
+**F2-09 - Planningssysteem stuurt het geplande aanbod naar de onderwijscatalogus** (fase 2, Gepland aanbod terugleveren aan de onderwijscatalogus; [f2-09-planningssysteem-stuurt-het-geplande-aanbod-naar-de-onderwijscatalogus.svg](img/regels/f2-09-planningssysteem-stuurt-het-geplande-aanbod-naar-de-onderwijscatalogus.svg))
 
 | Soort | Objecttype | Instantie | Bron |
 |---|---|---|---|
@@ -1128,7 +1133,7 @@ Elke regel onder het ID en de titel van haar beeld (fase, stap, bestand) met de 
 | ontstaat | Les specificatie | Les 1 Introductie WHAM-vragen en triage | [leerroute-1-regulier.md](https://github.com/Npuls-OKx/Public/blob/dev/Referentiemateriaal/kaderscenario's/leerroute-1-regulier.md), [r1094](https://github.com/Npuls-OKx/Public/blob/dev/Referentiemateriaal/kaderscenario's/leerroute-1-regulier.md?plain=1#L1094) tot [1100](https://github.com/Npuls-OKx/Public/blob/dev/Referentiemateriaal/kaderscenario's/leerroute-1-regulier.md?plain=1#L1100): lesspecificatie les 1 |
 | ontstaat | Les specificatie | Les 2 Baliegesprek oefenen met rollenspel | [leerroute-1-regulier.md](https://github.com/Npuls-OKx/Public/blob/dev/Referentiemateriaal/kaderscenario's/leerroute-1-regulier.md), [r626](https://github.com/Npuls-OKx/Public/blob/dev/Referentiemateriaal/kaderscenario's/leerroute-1-regulier.md?plain=1#L626) (Leeronderdeel-specificatie 0..* Lesspecificatie) en [r604](https://github.com/Npuls-OKx/Public/blob/dev/Referentiemateriaal/kaderscenario's/leerroute-1-regulier.md?plain=1#L604) (de lesspecificatie is het kleinste geplande leermoment binnen een leeronderdeel); de les blijft buiten de uitwisseling, ontwerpkeuze 8 |
 
-**F4-02 - Onderwijscatalogus levert de detailspecificaties aan het LMS** (fase 4, Detailspecificaties leveren aan het LMS; [f4-02-onderwijscatalogus-levert-de-detailspecificaties-aan-het-lms.svg](img/regels/f4-02-onderwijscatalogus-levert-de-detailspecificaties-aan-het-lms.svg))
+**F4-02 - Onderwijscatalogus stuurt de detailspecificaties naar het LMS** (fase 4, Detailspecificaties leveren aan het LMS; [f4-02-onderwijscatalogus-stuurt-de-detailspecificaties-naar-het-lms.svg](img/regels/f4-02-onderwijscatalogus-stuurt-de-detailspecificaties-naar-het-lms.svg))
 
 | Soort | Objecttype | Instantie | Bron |
 |---|---|---|---|
@@ -1138,7 +1143,7 @@ Elke regel onder het ID en de titel van haar beeld (fase, stap, bestand) met de 
 | stroomt | Toetsonderdeel specificatie | Formatieve check baliegesprek, les 1 | informatiemodel.json: Toetsonderdeel specificatie naar Leeruitkomst; leerroute-1-regulier.md, r886 (het LMS detailleert de leeronderdeelspecificatie en eventueel de lesspecificaties) en r955 |
 | stroomt | Formatieve resultaat structuur | Formatieve voortgangsstructuur bij Baliegesprekken 101 | review Niels van Duin op PR 252: het LMS heeft baat bij de volledige specificatieboom en de formatieve structuur |
 
-**F4-03 - Onderwijscatalogus levert les en toets van binnen aan het LMS** (fase 4, Detailspecificaties leveren aan het LMS; [f4-03-onderwijscatalogus-levert-les-en-toets-van-binnen-aan-het-lms.svg](img/regels/f4-03-onderwijscatalogus-levert-les-en-toets-van-binnen-aan-het-lms.svg))
+**F4-03 - Onderwijscatalogus stuurt de opbouw van les en toets naar het LMS** (fase 4, Detailspecificaties leveren aan het LMS; [f4-03-onderwijscatalogus-stuurt-de-opbouw-van-les-en-toets-naar-het-lms.svg](img/regels/f4-03-onderwijscatalogus-stuurt-de-opbouw-van-les-en-toets-naar-het-lms.svg))
 
 | Soort | Objecttype | Instantie | Bron |
 |---|---|---|---|
@@ -1151,7 +1156,7 @@ Elke regel onder het ID en de titel van haar beeld (fase, stap, bestand) met de 
 | stroomt (conceptplaat) | Toetsinstrument | Observatieformulier WHAM-vragen | model.archimate, view Informatiemodel Onderwijsontwerp (conceptplaat): Les specificatie / toets specificatie aggregeert Toetsinstrument; leerroute-1-regulier.md, r886 (het LMS detailleert de leeronderdeelspecificatie en eventueel de lesspecificaties) en r955 |
 | stroomt (conceptplaat) | Lesuitkomst | Stelt de WHAM-vragen volledig en in volgorde | model.archimate, view Informatiemodel Onderwijsontwerp (conceptplaat): Les specificatie / toets specificatie aggregeert Lesuitkomst; leerroute-1-regulier.md, r886 (het LMS detailleert de leeronderdeelspecificatie en eventueel de lesspecificaties) en r955 |
 
-**F4-04 - Onderwijscatalogus levert de summatieve resultaatstructuur aan het studentvolgsysteem** (fase 4, Detailspecificaties leveren aan het LMS; [f4-04-onderwijscatalogus-levert-de-summatieve-resultaatstructuur-aan-het-studentvolgsysteem.svg](img/regels/f4-04-onderwijscatalogus-levert-de-summatieve-resultaatstructuur-aan-het-studentvolgsysteem.svg))
+**F4-04 - Onderwijscatalogus stuurt de summatieve resultaatstructuur naar het studentvolgsysteem** (fase 4, Detailspecificaties leveren aan het LMS; [f4-04-onderwijscatalogus-stuurt-de-summatieve-resultaatstructuur-naar-het-studentvolgsysteem.svg](img/regels/f4-04-onderwijscatalogus-stuurt-de-summatieve-resultaatstructuur-naar-het-studentvolgsysteem.svg))
 
 | Soort | Objecttype | Instantie | Bron |
 |---|---|---|---|
@@ -1160,7 +1165,7 @@ Elke regel onder het ID en de titel van haar beeld (fase, stap, bestand) met de 
 | stroomt | Examenonderdeel weging | Proeve van bekwaamheid B1-K1: weging 2 | informatiemodel.json: Summatieve resultaat structuur aggregeert Toetsonderdeel specificatie, Examenonderdeelspecificatie is een Toetsonderdeel specificatie, Examenonderdeel weging naar Examenonderdeelspecificatie |
 | stroomt | Summatief Afrondingscriterium | Alle kerntaken voldoende, de keuzedeelruimte gevuld en afgerond, en het basisdeel behaald: Nederlands en rekenen op 2F of 3F met een eigen regeling, Engels en loopbaan en burgerschap voldaan | [leerroute-1-regulier.md](https://github.com/Npuls-OKx/Public/blob/dev/Referentiemateriaal/kaderscenario's/leerroute-1-regulier.md), [Fase 4](https://github.com/Npuls-OKx/Public/blob/dev/Referentiemateriaal/kaderscenario's/leerroute-1-regulier.md#fase-4--detailleren-roosteren-en-inschrijven): OC naar SVS |
 
-**F4-05 - Onderwijscatalogus levert de summatieve resultaatstructuur aan de kernregistratie** (fase 4, Detailspecificaties leveren aan het LMS; [f4-05-onderwijscatalogus-levert-de-summatieve-resultaatstructuur-aan-de-kernregistratie.svg](img/regels/f4-05-onderwijscatalogus-levert-de-summatieve-resultaatstructuur-aan-de-kernregistratie.svg))
+**F4-05 - Onderwijscatalogus stuurt de summatieve resultaatstructuur naar de kernregistratie** (fase 4, Detailspecificaties leveren aan het LMS; [f4-05-onderwijscatalogus-stuurt-de-summatieve-resultaatstructuur-naar-de-kernregistratie.svg](img/regels/f4-05-onderwijscatalogus-stuurt-de-summatieve-resultaatstructuur-naar-de-kernregistratie.svg))
 
 | Soort | Objecttype | Instantie | Bron |
 |---|---|---|---|
@@ -1169,7 +1174,7 @@ Elke regel onder het ID en de titel van haar beeld (fase, stap, bestand) met de 
 | stroomt | Examenonderdeel weging | Proeve van bekwaamheid B1-K1: weging 2 | informatiemodel.json: Summatieve resultaat structuur aggregeert Toetsonderdeel specificatie, Examenonderdeelspecificatie is een Toetsonderdeel specificatie, Examenonderdeel weging naar Examenonderdeelspecificatie |
 | stroomt | Summatief Afrondingscriterium | Alle kerntaken voldoende, de keuzedeelruimte gevuld en afgerond, en het basisdeel behaald: Nederlands en rekenen op 2F of 3F met een eigen regeling, Engels en loopbaan en burgerschap voldaan | keuze van de sectorarchitect |
 
-**F4-06 - Kernregistratie stuurt de plaatsingsgroepen naar planning** (fase 4, Plaatsings- en planninggroepen definieren en aan personen koppelen; [f4-06-kernregistratie-stuurt-de-plaatsingsgroepen-naar-planning.svg](img/regels/f4-06-kernregistratie-stuurt-de-plaatsingsgroepen-naar-planning.svg))
+**F4-06 - Kernregistratie stuurt de plaatsingsgroepen naar het planningssysteem** (fase 4, Plaatsings- en planninggroepen definieren en aan personen koppelen; [f4-06-kernregistratie-stuurt-de-plaatsingsgroepen-naar-het-planningssysteem.svg](img/regels/f4-06-kernregistratie-stuurt-de-plaatsingsgroepen-naar-het-planningssysteem.svg))
 
 | Soort | Objecttype | Instantie | Bron |
 |---|---|---|---|
@@ -1177,7 +1182,7 @@ Elke regel onder het ID en de titel van haar beeld (fase, stap, bestand) met de 
 | stroomt | Student | Jochem, cohort 2026 | informatiemodel.json: Persoon naar Plaatsingsgroep (Worden gegroepeerd via), Student is een Persoon |
 | stroomt | Student | 29 andere studenten in dezelfde groep | informatiemodel.json: Persoon naar Plaatsingsgroep (Worden gegroepeerd via), Student is een Persoon |
 
-**F4-07 - Planning stuurt de te roosteren leergelegenheden naar het rooster** (fase 4, Te roosteren specificaties aan het roostersysteem geven; [f4-07-planning-stuurt-de-te-roosteren-leergelegenheden-naar-het-rooster.svg](img/regels/f4-07-planning-stuurt-de-te-roosteren-leergelegenheden-naar-het-rooster.svg))
+**F4-07 - Planningssysteem stuurt de te roosteren leergelegenheden naar het roostersysteem** (fase 4, Te roosteren specificaties aan het roostersysteem geven; [f4-07-planningssysteem-stuurt-de-te-roosteren-leergelegenheden-naar-het-roostersysteem.svg](img/regels/f4-07-planningssysteem-stuurt-de-te-roosteren-leergelegenheden-naar-het-roostersysteem.svg))
 
 | Soort | Objecttype | Instantie | Bron |
 |---|---|---|---|
@@ -1200,7 +1205,7 @@ Elke regel onder het ID en de titel van haar beeld (fase, stap, bestand) met de 
 | ontstaat | Lesgelegenheid verbintenis | Jochem op les 1, 1 september 09:00 | [scenario-1.1-regulier-happyflow.md](../../docs/specificatie/leerroute-uitwerking/doc/scenario-uitwerkingen/scenario-1.1-regulier-happyflow.md), [r98](../../docs/specificatie/leerroute-uitwerking/doc/scenario-uitwerkingen/scenario-1.1-regulier-happyflow.md?plain=1#L98): lesgelegenheden eerste week geroosterd |
 | verandert | Opleidingsprogramma aanbod verbintenis | Jochem op Regulier BOL 2026 | [scenario-1.1-regulier-happyflow.md](../../docs/specificatie/leerroute-uitwerking/doc/scenario-uitwerkingen/scenario-1.1-regulier-happyflow.md), [r95](../../docs/specificatie/leerroute-uitwerking/doc/scenario-uitwerkingen/scenario-1.1-regulier-happyflow.md?plain=1#L95): enrolled op nominaal traject |
 
-**F4-10 - Rooster stuurt student, verbintenissen en groep naar het LMS** (fase 4, Verwachte deelnemers delen en toegang geven; [f4-10-rooster-stuurt-student-verbintenissen-en-groep-naar-het-lms.svg](img/regels/f4-10-rooster-stuurt-student-verbintenissen-en-groep-naar-het-lms.svg))
+**F4-10 - Roostersysteem stuurt student, verbintenissen en groep naar het LMS** (fase 4, Verwachte deelnemers delen en toegang geven; [f4-10-roostersysteem-stuurt-student-verbintenissen-en-groep-naar-het-lms.svg](img/regels/f4-10-roostersysteem-stuurt-student-verbintenissen-en-groep-naar-het-lms.svg))
 
 | Soort | Objecttype | Instantie | Bron |
 |---|---|---|---|
@@ -1261,7 +1266,7 @@ Elke regel onder het ID en de titel van haar beeld (fase, stap, bestand) met de 
 | ontstaat | Onderwijseenheid aanbod | B1-K1, leerjaar 1, periode 1 tot 4: de nominale route | [leerroute-1-regulier.md](https://github.com/Npuls-OKx/Public/blob/dev/Referentiemateriaal/kaderscenario's/leerroute-1-regulier.md), [r868](https://github.com/Npuls-OKx/Public/blob/dev/Referentiemateriaal/kaderscenario's/leerroute-1-regulier.md?plain=1#L868) (het studentvolgsysteem legt onderwijsresultaten per onderwijsverbintenis vast en houdt de studiepadadministratie bij tot kwalificering) en [r870](https://github.com/Npuls-OKx/Public/blob/dev/Referentiemateriaal/kaderscenario's/leerroute-1-regulier.md?plain=1#L870) (resultaten worden bijgehouden tegen de specificatie uit de catalogus) |
 | ontstaat | Summatieve resultaat structuur | Resultaatstructuur Apothekersassistent, cohort 2026 | [leerroute-1-regulier.md](https://github.com/Npuls-OKx/Public/blob/dev/Referentiemateriaal/kaderscenario's/leerroute-1-regulier.md), [r868](https://github.com/Npuls-OKx/Public/blob/dev/Referentiemateriaal/kaderscenario's/leerroute-1-regulier.md?plain=1#L868) (het studentvolgsysteem legt onderwijsresultaten per onderwijsverbintenis vast en houdt de studiepadadministratie bij tot kwalificering) en [r870](https://github.com/Npuls-OKx/Public/blob/dev/Referentiemateriaal/kaderscenario's/leerroute-1-regulier.md?plain=1#L870) (resultaten worden bijgehouden tegen de specificatie uit de catalogus) |
 
-**F6-01 - Planner maakt het keuzedeelaanbod per laag** (fase 6, Keuzedeelaanbod ontsluiten naar het studentkeuzesysteem; [f6-01-planner-maakt-het-keuzedeelaanbod-per-laag.svg](img/regels/f6-01-planner-maakt-het-keuzedeelaanbod-per-laag.svg))
+**F6-01 - Planner maakt het keuzedeelaanbod per laag** (fase 6, Keuzedeel kiesbaar maken in het studentkeuzesysteem; [f6-01-planner-maakt-het-keuzedeelaanbod-per-laag.svg](img/regels/f6-01-planner-maakt-het-keuzedeelaanbod-per-laag.svg))
 
 | Soort | Objecttype | Instantie | Bron |
 |---|---|---|---|
@@ -1274,7 +1279,7 @@ Elke regel onder het ID en de titel van haar beeld (fase, stap, bestand) met de 
 | ontstaat | Leergelegenheid | Het medicatieoverzicht opstellen, periode 7 | sessie Keuzedeelmodel en informatiemodel, 17 november 2026 (Niels van Duin, Niek Derksen); geen bron, keuze van het voorbeeld |
 | ontstaat | Leergelegenheid | Zorg aan specifieke doelgroepen, periode 7 | sessie Keuzedeelmodel en informatiemodel, 17 november 2026 (Niels van Duin, Niek Derksen); geen bron, keuze van het voorbeeld |
 
-**F6-02 - Onderwijscatalogus ontsluit specificatie en keuzeregels naar het studentkeuzesysteem** (fase 6, Keuzedeelaanbod ontsluiten naar het studentkeuzesysteem; [f6-02-onderwijscatalogus-ontsluit-specificatie-en-keuzeregels-naar-het-studentkeuzesysteem.svg](img/regels/f6-02-onderwijscatalogus-ontsluit-specificatie-en-keuzeregels-naar-het-studentkeuzesysteem.svg))
+**F6-02 - Onderwijscatalogus ontsluit specificatie en keuzeregels naar het studentkeuzesysteem** (fase 6, Keuzedeel kiesbaar maken in het studentkeuzesysteem; [f6-02-onderwijscatalogus-ontsluit-specificatie-en-keuzeregels-naar-het-studentkeuzesysteem.svg](img/regels/f6-02-onderwijscatalogus-ontsluit-specificatie-en-keuzeregels-naar-het-studentkeuzesysteem.svg))
 
 | Soort | Objecttype | Instantie | Bron |
 |---|---|---|---|
@@ -1284,7 +1289,7 @@ Elke regel onder het ID en de titel van haar beeld (fase, stap, bestand) met de 
 | stroomt | Leeronderdeel specificatie | Zorg aan specifieke doelgroepen | K0037-farmaceutische-patientenzorg.md (keuzedeel mbo K0037, 480 SBU, aard verdiepend, gevalideerd 26-11-2015) |
 | stroomt | Student keuze regelset | Kiesbare keuzedelen voor Apothekersassistent | [voorbeeldpayloads.md](https://github.com/Npuls-OKx/Public/blob/dev/Koppelvlakspecificaties/Datamodelschema's/voorbeeldpayloads.md), regelsets[0] (e4037953); keuze-requirements.md; sessie Keuzedeelmodel en informatiemodel, 17 november 2026 (Niels van Duin, Niek Derksen) |
 
-**F6-03 - Planning ontsluit het geplande aanbod naar het studentkeuzesysteem** (fase 6, Keuzedeelaanbod ontsluiten naar het studentkeuzesysteem; [f6-03-planning-ontsluit-het-geplande-aanbod-naar-het-studentkeuzesysteem.svg](img/regels/f6-03-planning-ontsluit-het-geplande-aanbod-naar-het-studentkeuzesysteem.svg))
+**F6-03 - Planningssysteem ontsluit het geplande aanbod naar het studentkeuzesysteem** (fase 6, Keuzedeel kiesbaar maken in het studentkeuzesysteem; [f6-03-planningssysteem-ontsluit-het-geplande-aanbod-naar-het-studentkeuzesysteem.svg](img/regels/f6-03-planningssysteem-ontsluit-het-geplande-aanbod-naar-het-studentkeuzesysteem.svg))
 
 | Soort | Objecttype | Instantie | Bron |
 |---|---|---|---|
@@ -1301,7 +1306,7 @@ Elke regel onder het ID en de titel van haar beeld (fase, stap, bestand) met de 
 | ontstaat | Keuzedeel aanbod verbintenis | Jochem op K0037 Farmaceutische Patientenzorg, periode 7 | sessie Keuzedeelmodel en informatiemodel, 17 november 2026 (Niels van Duin, Niek Derksen) |
 | ontstaat | Onderwijseenheid aanbod verbintenis | Jochem op D1-K1, periode 7 | sessie Keuzedeelmodel en informatiemodel, 17 november 2026 (Niels van Duin, Niek Derksen) |
 
-**F6-05 - Studentkeuzesysteem stuurt Jochems keuze naar planning** (fase 6, Keuzedeel kiezen in het studentkeuzesysteem; [f6-05-studentkeuzesysteem-stuurt-jochems-keuze-naar-planning.svg](img/regels/f6-05-studentkeuzesysteem-stuurt-jochems-keuze-naar-planning.svg))
+**F6-05 - Studentkeuzesysteem stuurt Jochems verbintenissen op K0037 naar het planningssysteem** (fase 6, Keuzedeel kiezen in het studentkeuzesysteem; [f6-05-studentkeuzesysteem-stuurt-jochems-verbintenissen-op-k0037-naar-het-planningssysteem.svg](img/regels/f6-05-studentkeuzesysteem-stuurt-jochems-verbintenissen-op-k0037-naar-het-planningssysteem.svg))
 
 | Soort | Objecttype | Instantie | Bron |
 |---|---|---|---|
@@ -1315,7 +1320,7 @@ Elke regel onder het ID en de titel van haar beeld (fase, stap, bestand) met de 
 | verandert | Keuzedeel aanbod | K0037 Farmaceutische Patientenzorg, periode 7, locatie A: 1 groep, 18 plaatsen | [leerroute-1-regulier.md](https://github.com/Npuls-OKx/Public/blob/dev/Referentiemateriaal/kaderscenario's/leerroute-1-regulier.md), [Fase 6](https://github.com/Npuls-OKx/Public/blob/dev/Referentiemateriaal/kaderscenario's/leerroute-1-regulier.md#fase-6--organiseren-van-keuzemomenten): de planner verwerkt definitieve keuzes periodiek naar groepen en capaciteit; scenario-1.1-regulier-happyflow.md, blok D (maatvoering uit de review van 29 september 2026) |
 | verandert | Onderwijseenheid aanbod | D1-K1, periode 7, locatie A: 1 groep, 18 plaatsen | [leerroute-1-regulier.md](https://github.com/Npuls-OKx/Public/blob/dev/Referentiemateriaal/kaderscenario's/leerroute-1-regulier.md), [Fase 6](https://github.com/Npuls-OKx/Public/blob/dev/Referentiemateriaal/kaderscenario's/leerroute-1-regulier.md#fase-6--organiseren-van-keuzemomenten): de planner verwerkt definitieve keuzes periodiek naar groepen en capaciteit; scenario-1.1-regulier-happyflow.md, blok D (maatvoering uit de review van 29 september 2026) |
 
-**F6-07 - Planning werkt het keuzedeelaanbod bij in de catalogus** (fase 6, Planbaar aanbod actualiseren; [f6-07-planning-werkt-het-keuzedeelaanbod-bij-in-de-catalogus.svg](img/regels/f6-07-planning-werkt-het-keuzedeelaanbod-bij-in-de-catalogus.svg))
+**F6-07 - Planningssysteem stuurt het bijgewerkte keuzedeelaanbod naar de onderwijscatalogus** (fase 6, Planbaar aanbod actualiseren; [f6-07-planningssysteem-stuurt-het-bijgewerkte-keuzedeelaanbod-naar-de-onderwijscatalogus.svg](img/regels/f6-07-planningssysteem-stuurt-het-bijgewerkte-keuzedeelaanbod-naar-de-onderwijscatalogus.svg))
 
 | Soort | Objecttype | Instantie | Bron |
 |---|---|---|---|
@@ -1330,27 +1335,27 @@ Elke regel onder het ID en de titel van haar beeld (fase, stap, bestand) met de 
 | verandert | Keuzedeel aanbod verbintenis | Jochem op K0037 Farmaceutische Patientenzorg, periode 7 | [leerroute-1-regulier.md](https://github.com/Npuls-OKx/Public/blob/dev/Referentiemateriaal/kaderscenario's/leerroute-1-regulier.md), [r850](https://github.com/Npuls-OKx/Public/blob/dev/Referentiemateriaal/kaderscenario's/leerroute-1-regulier.md?plain=1#L850) (bij passend aanbod levert planning de formele inschrijving) en [r87](https://github.com/Npuls-OKx/Public/blob/dev/Referentiemateriaal/kaderscenario's/leerroute-1-regulier.md?plain=1#L87) (past het niet, dan orienteert de student zich opnieuw) |
 | verandert | Onderwijseenheid aanbod verbintenis | Jochem op D1-K1, periode 7 | [leerroute-1-regulier.md](https://github.com/Npuls-OKx/Public/blob/dev/Referentiemateriaal/kaderscenario's/leerroute-1-regulier.md), [r850](https://github.com/Npuls-OKx/Public/blob/dev/Referentiemateriaal/kaderscenario's/leerroute-1-regulier.md?plain=1#L850) (bij passend aanbod levert planning de formele inschrijving) en [r87](https://github.com/Npuls-OKx/Public/blob/dev/Referentiemateriaal/kaderscenario's/leerroute-1-regulier.md?plain=1#L87) (past het niet, dan orienteert de student zich opnieuw) |
 
-**F6-09 - Planning bevestigt de verbintenis aan het studentkeuzesysteem** (fase 6, Keuzedeel formeel inschrijven; [f6-09-planning-bevestigt-de-verbintenis-aan-het-studentkeuzesysteem.svg](img/regels/f6-09-planning-bevestigt-de-verbintenis-aan-het-studentkeuzesysteem.svg))
+**F6-09 - Planningssysteem stuurt de bevestigde verbintenis naar het studentkeuzesysteem** (fase 6, Keuzedeel formeel inschrijven; [f6-09-planningssysteem-stuurt-de-bevestigde-verbintenis-naar-het-studentkeuzesysteem.svg](img/regels/f6-09-planningssysteem-stuurt-de-bevestigde-verbintenis-naar-het-studentkeuzesysteem.svg))
 
 | Soort | Objecttype | Instantie | Bron |
 |---|---|---|---|
 | stroomt | Keuzedeel aanbod verbintenis | Jochem op K0037 Farmaceutische Patientenzorg, periode 7, ingeschreven | sessie Keuzedeelmodel en informatiemodel, 17 november 2026 (Niels van Duin, Niek Derksen): na de keuze koppelt planning de inschrijving en de verbintenis op het keuzedeelaanbod terug aan het studentkeuzesysteem |
 | stroomt | Onderwijseenheid aanbod verbintenis | Jochem op D1-K1, periode 7, ingeschreven | sessie Keuzedeelmodel en informatiemodel, 17 november 2026 (Niels van Duin, Niek Derksen) |
 
-**F6-10 - Studentkeuzesysteem geeft de verbintenis door aan de kernregistratie** (fase 6, Keuzedeel formeel inschrijven; [f6-10-studentkeuzesysteem-geeft-de-verbintenis-door-aan-de-kernregistratie.svg](img/regels/f6-10-studentkeuzesysteem-geeft-de-verbintenis-door-aan-de-kernregistratie.svg))
+**F6-10 - Studentkeuzesysteem stuurt de verbintenis naar de kernregistratie** (fase 6, Keuzedeel formeel inschrijven; [f6-10-studentkeuzesysteem-stuurt-de-verbintenis-naar-de-kernregistratie.svg](img/regels/f6-10-studentkeuzesysteem-stuurt-de-verbintenis-naar-de-kernregistratie.svg))
 
 | Soort | Objecttype | Instantie | Bron |
 |---|---|---|---|
 | stroomt | Keuzedeel aanbod verbintenis | Jochem op K0037 Farmaceutische Patientenzorg, periode 7, ingeschreven | [leerroute-1-regulier.md](https://github.com/Npuls-OKx/Public/blob/dev/Referentiemateriaal/kaderscenario's/leerroute-1-regulier.md), [Fase 6](https://github.com/Npuls-OKx/Public/blob/dev/Referentiemateriaal/kaderscenario's/leerroute-1-regulier.md#fase-6--organiseren-van-keuzemomenten): Planning naar KRS (formele inschrijving keuzedeel); hoofdplaat kent alleen SKS naar KRS; sessie Keuzedeelmodel en informatiemodel, 17 november 2026 (Niels van Duin, Niek Derksen) |
 
-**F6-11 - Kernregistratie meldt het verwachte resultaat aan het studentvolgsysteem** (fase 6, Keuzedeel formeel inschrijven; [f6-11-kernregistratie-meldt-het-verwachte-resultaat-aan-het-studentvolgsysteem.svg](img/regels/f6-11-kernregistratie-meldt-het-verwachte-resultaat-aan-het-studentvolgsysteem.svg))
+**F6-11 - Kernregistratie stuurt de verbintenissen op K0037 naar het studentvolgsysteem** (fase 6, Keuzedeel formeel inschrijven; [f6-11-kernregistratie-stuurt-de-verbintenissen-op-k0037-naar-het-studentvolgsysteem.svg](img/regels/f6-11-kernregistratie-stuurt-de-verbintenissen-op-k0037-naar-het-studentvolgsysteem.svg))
 
 | Soort | Objecttype | Instantie | Bron |
 |---|---|---|---|
 | stroomt | Keuzedeel aanbod verbintenis | Jochem op K0037 Farmaceutische Patientenzorg, periode 7, ingeschreven | sessie Keuzedeelmodel en informatiemodel, 17 november 2026 (Niels van Duin, Niek Derksen): de kernregistratie meldt het studentvolgsysteem dat er op deze verbintenis resultaten en voortgang verwacht worden |
 | stroomt | Onderwijseenheid aanbod verbintenis | Jochem op D1-K1, periode 7, ingeschreven | sessie Keuzedeelmodel en informatiemodel, 17 november 2026 (Niels van Duin, Niek Derksen) |
 
-**F6-12 - Planning stuurt de leergelegenheden van K0037 naar het rooster** (fase 6, Gekozen keuzedeel roosteren en deelnemers delen; [f6-12-planning-stuurt-de-leergelegenheden-van-k0037-naar-het-rooster.svg](img/regels/f6-12-planning-stuurt-de-leergelegenheden-van-k0037-naar-het-rooster.svg))
+**F6-12 - Planningssysteem stuurt de leergelegenheden van K0037 naar het roostersysteem** (fase 6, Gekozen keuzedeel roosteren en deelnemers delen; [f6-12-planningssysteem-stuurt-de-leergelegenheden-van-k0037-naar-het-roostersysteem.svg](img/regels/f6-12-planningssysteem-stuurt-de-leergelegenheden-van-k0037-naar-het-roostersysteem.svg))
 
 | Soort | Objecttype | Instantie | Bron |
 |---|---|---|---|
@@ -1366,14 +1371,14 @@ Elke regel onder het ID en de titel van haar beeld (fase, stap, bestand) met de 
 | verandert | Leergelegenheid | Het medicatieoverzicht opstellen, periode 7: donderdagmiddag, leerapotheek, docent 4711 | sessie Keuzedeelmodel en informatiemodel, 17 november 2026 (Niels van Duin, Niek Derksen); geen bron, keuze van het voorbeeld: dag, lokaal en docent |
 | ontstaat | Leergelegenheid verbintenis | Jochem op Het medicatieoverzicht opstellen, periode 7 | sessie Keuzedeelmodel en informatiemodel, 17 november 2026 (Niels van Duin, Niek Derksen) |
 
-**F6-14 - Rooster ontsluit de geroosterde leergelegenheid naar het studentkeuzesysteem** (fase 6, Gekozen keuzedeel roosteren en deelnemers delen; [f6-14-rooster-ontsluit-de-geroosterde-leergelegenheid-naar-het-studentkeuzesysteem.svg](img/regels/f6-14-rooster-ontsluit-de-geroosterde-leergelegenheid-naar-het-studentkeuzesysteem.svg))
+**F6-14 - Roostersysteem ontsluit de geroosterde leergelegenheid naar het studentkeuzesysteem** (fase 6, Gekozen keuzedeel roosteren en deelnemers delen; [f6-14-roostersysteem-ontsluit-de-geroosterde-leergelegenheid-naar-het-studentkeuzesysteem.svg](img/regels/f6-14-roostersysteem-ontsluit-de-geroosterde-leergelegenheid-naar-het-studentkeuzesysteem.svg))
 
 | Soort | Objecttype | Instantie | Bron |
 |---|---|---|---|
 | stroomt | Leergelegenheid | Het medicatieoverzicht opstellen, periode 7: donderdagmiddag, leerapotheek, docent 4711 | sessie Keuzedeelmodel en informatiemodel, 17 november 2026 (Niels van Duin, Niek Derksen): het rooster geeft het studentkeuzesysteem terug welke leergelegenheden het worden |
 | stroomt | Leergelegenheid verbintenis | Jochem op Het medicatieoverzicht opstellen, periode 7 | sessie Keuzedeelmodel en informatiemodel, 17 november 2026 (Niels van Duin, Niek Derksen) |
 
-**F6-15 - Rooster stuurt de lesgroep naar het LMS** (fase 6, Gekozen keuzedeel roosteren en deelnemers delen; [f6-15-rooster-stuurt-de-lesgroep-naar-het-lms.svg](img/regels/f6-15-rooster-stuurt-de-lesgroep-naar-het-lms.svg))
+**F6-15 - Roostersysteem stuurt de lesgroep naar het LMS** (fase 6, Gekozen keuzedeel roosteren en deelnemers delen; [f6-15-roostersysteem-stuurt-de-lesgroep-naar-het-lms.svg](img/regels/f6-15-roostersysteem-stuurt-de-lesgroep-naar-het-lms.svg))
 
 | Soort | Objecttype | Instantie | Bron |
 |---|---|---|---|
@@ -1393,7 +1398,7 @@ Elke regel onder het ID en de titel van haar beeld (fase, stap, bestand) met de 
 |---|---|---|---|
 | verandert | Onderwijseenheid aanbod verbintenis | Jochem op B1-K2, periode 3 | [leerroute-1-regulier.md](https://github.com/Npuls-OKx/Public/blob/dev/Referentiemateriaal/kaderscenario's/leerroute-1-regulier.md), [Fase 7](https://github.com/Npuls-OKx/Public/blob/dev/Referentiemateriaal/kaderscenario's/leerroute-1-regulier.md#fase-7--bijsturen-planning-en-aanbod): bestaande onderwijseenheid-verbintenissen worden via KRS geannuleerd |
 
-**F7-03 - Kernregistratie stuurt de plaatsingsgroep naar planning** (fase 7, Bestaande verbintenissen annuleren; [f7-03-kernregistratie-stuurt-de-plaatsingsgroep-naar-planning.svg](img/regels/f7-03-kernregistratie-stuurt-de-plaatsingsgroep-naar-planning.svg))
+**F7-03 - Kernregistratie stuurt de plaatsingsgroep naar het planningssysteem** (fase 7, Bestaande verbintenissen annuleren; [f7-03-kernregistratie-stuurt-de-plaatsingsgroep-naar-het-planningssysteem.svg](img/regels/f7-03-kernregistratie-stuurt-de-plaatsingsgroep-naar-het-planningssysteem.svg))
 
 | Soort | Objecttype | Instantie | Bron |
 |---|---|---|---|
@@ -1405,13 +1410,13 @@ Elke regel onder het ID en de titel van haar beeld (fase, stap, bestand) met de 
 |---|---|---|---|
 | verandert | Onderwijseenheid aanbod | B1-K2, periode 5, plaatsingsgroep temporiseren | [leerroute-1-regulier.md](https://github.com/Npuls-OKx/Public/blob/dev/Referentiemateriaal/kaderscenario's/leerroute-1-regulier.md), [Fase 7](https://github.com/Npuls-OKx/Public/blob/dev/Referentiemateriaal/kaderscenario's/leerroute-1-regulier.md#fase-7--bijsturen-planning-en-aanbod): nieuw onderwijsaanbod op basis van dezelfde opleidingsprogramma-specificatie |
 
-**F7-05 - Planning stuurt het bijgestuurde aanbod naar de catalogus** (fase 7, Nieuw aanbod maken en publiceren; [f7-05-planning-stuurt-het-bijgestuurde-aanbod-naar-de-catalogus.svg](img/regels/f7-05-planning-stuurt-het-bijgestuurde-aanbod-naar-de-catalogus.svg))
+**F7-05 - Planningssysteem stuurt het bijgestuurde aanbod naar de onderwijscatalogus** (fase 7, Nieuw aanbod maken en publiceren; [f7-05-planningssysteem-stuurt-het-bijgestuurde-aanbod-naar-de-onderwijscatalogus.svg](img/regels/f7-05-planningssysteem-stuurt-het-bijgestuurde-aanbod-naar-de-onderwijscatalogus.svg))
 
 | Soort | Objecttype | Instantie | Bron |
 |---|---|---|---|
 | stroomt | Onderwijseenheid aanbod | B1-K2, periode 5, bijgestuurd | [leerroute-1-regulier.md](https://github.com/Npuls-OKx/Public/blob/dev/Referentiemateriaal/kaderscenario's/leerroute-1-regulier.md), [Fase 7](https://github.com/Npuls-OKx/Public/blob/dev/Referentiemateriaal/kaderscenario's/leerroute-1-regulier.md#fase-7--bijsturen-planning-en-aanbod): Planning naar OC (mutaties planbaar aanbod) |
 
-**F7-06 - Planning stuurt de nieuwe leergelegenheden naar het rooster** (fase 7, Nieuw aanbod maken en publiceren; [f7-06-planning-stuurt-de-nieuwe-leergelegenheden-naar-het-rooster.svg](img/regels/f7-06-planning-stuurt-de-nieuwe-leergelegenheden-naar-het-rooster.svg))
+**F7-06 - Planningssysteem stuurt de nieuwe leergelegenheden naar het roostersysteem** (fase 7, Nieuw aanbod maken en publiceren; [f7-06-planningssysteem-stuurt-de-nieuwe-leergelegenheden-naar-het-roostersysteem.svg](img/regels/f7-06-planningssysteem-stuurt-de-nieuwe-leergelegenheden-naar-het-roostersysteem.svg))
 
 | Soort | Objecttype | Instantie | Bron |
 |---|---|---|---|
@@ -1429,7 +1434,7 @@ Elke regel onder het ID en de titel van haar beeld (fase, stap, bestand) met de 
 |---|---|---|---|
 | ontstaat | Examengelegenheid verbintenis | Jochem op de proeve, periode 12 | [leerroute-1-regulier.md](https://github.com/Npuls-OKx/Public/blob/dev/Referentiemateriaal/kaderscenario's/leerroute-1-regulier.md), [Fase 8](https://github.com/Npuls-OKx/Public/blob/dev/Referentiemateriaal/kaderscenario's/leerroute-1-regulier.md#fase-8--examineren-vaststellen-en-diplomeren): toets- en examenplanning stelt kandidatenlijsten samen |
 
-**F8-03 - Examinator, beoordelaar en surveillant nemen af en beoordelen** (fase 8, Zitting uitvoeren en resultaten doorgeven; [f8-03-examinator-beoordelaar-en-surveillant-nemen-af-en-beoordelen.svg](img/regels/f8-03-examinator-beoordelaar-en-surveillant-nemen-af-en-beoordelen.svg))
+**F8-03 - Examinator, beoordelaar en surveillant nemen het examen af en beoordelen het** (fase 8, Zitting uitvoeren en resultaten doorgeven; [f8-03-examinator-beoordelaar-en-surveillant-nemen-het-examen-af-en-beoordelen-het.svg](img/regels/f8-03-examinator-beoordelaar-en-surveillant-nemen-het-examen-af-en-beoordelen-het.svg))
 
 | Soort | Objecttype | Instantie | Bron |
 |---|---|---|---|

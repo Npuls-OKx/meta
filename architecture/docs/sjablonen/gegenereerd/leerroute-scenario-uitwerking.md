@@ -197,7 +197,7 @@ Elke uitwisseling levert functionele eisen op: wat de leverende component moet k
 | Informatiestroom | *de koppeling op de hoofdplaat informatiestromen, bijvoorbeeld OC-P&R* |
 | Functionele eisen | *FE-LR..-...: Het <component> ..., met de instellingseis waaruit hij komt; een regel per eis* |
 
-![Voorbeeld van sjabloononderdeel B: het verzoek om onderwijsaanbod gaat met de hele specificatiestructuur en de planbare waarden van de onderwijscatalogus naar het planningssysteem](<img/leerroute-scenario-uitwerking/f2-03-onderwijscatalogus-stuurt-het-verzoek-met-de-specificatie-naar-planning.png>)
+![Voorbeeld van sjabloononderdeel B: het verzoek om onderwijsaanbod gaat met de hele specificatiestructuur en de planbare waarden van de onderwijscatalogus naar het planningssysteem](<img/leerroute-scenario-uitwerking/f2-03-onderwijscatalogus-stuurt-het-verzoek-met-de-specificatie-naar-het-planningssysteem.png>)
 
 *Schrijf hier de uitwerking.*
 

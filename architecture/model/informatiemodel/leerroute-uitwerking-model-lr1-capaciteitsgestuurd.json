@@ -41,7 +41,7 @@
         "F6-06",
         "F6-08"
       ],
-      "toelichting": "In deze vorm is de capaciteit vooraf gepland op de meerjarencapaciteitsplanning (F2-C01). De keuze in F6-04 geldt hier als animo, en de animocheck is een controle op die capaciteitsplanning, niet de planning zelf. De keuze valt op de onderwijseenheid, net als in de basis; de leergelegenheid volgt bij het roosteren. Een afwijking tussen prognose en animo tot 50 procent ligt in dit voorbeeld binnen de marge; daarboven verbetert de instelling de prognose zelf. F6-07 neemt de uitkomst mee (KD-A blijft, KD-B is geannuleerd), en F6-10 geldt ook hier. Bijgesteld na de sessie van 17 november 2026."
+      "toelichting": "In deze vorm is de capaciteit vooraf gepland op de meerjarencapaciteitsplanning, in twee groepen (F2-C01). De keuze in F6-04 geldt hier als animo, en de animocheck (F6-C01) toetst die capaciteitsplanning. De keuze valt op de onderwijseenheid, net als in de basis. F6-07 neemt de uitkomst van de animocheck mee, en F6-10 geldt ook hier."
     },
     {
       "nummer": 7,
@@ -114,7 +114,7 @@
     },
     {
       "beeld_id": "F2-C02",
-      "beeld": "Planning levert de geplande keuzedeelgroepen terug aan de catalogus",
+      "beeld": "Planningssysteem stuurt de geplande keuzedeelgroepen naar de onderwijscatalogus",
       "fase": 2,
       "stap": "Gepland keuzedeelaanbod terugleveren aan de onderwijscatalogus",
       "soort": "stroomt",
@@ -128,7 +128,7 @@
     },
     {
       "beeld_id": "F2-C02",
-      "beeld": "Planning levert de geplande keuzedeelgroepen terug aan de catalogus",
+      "beeld": "Planningssysteem stuurt de geplande keuzedeelgroepen naar de onderwijscatalogus",
       "fase": 2,
       "stap": "Gepland keuzedeelaanbod terugleveren aan de onderwijscatalogus",
       "soort": "stroomt",
@@ -142,7 +142,7 @@
     },
     {
       "beeld_id": "F2-C02",
-      "beeld": "Planning levert de geplande keuzedeelgroepen terug aan de catalogus",
+      "beeld": "Planningssysteem stuurt de geplande keuzedeelgroepen naar de onderwijscatalogus",
       "fase": 2,
       "stap": "Gepland keuzedeelaanbod terugleveren aan de onderwijscatalogus",
       "soort": "stroomt",
@@ -156,7 +156,7 @@
     },
     {
       "beeld_id": "F4-C01",
-      "beeld": "Planning stuurt de keuzedeelgroep met vaste capaciteit naar het rooster",
+      "beeld": "Planningssysteem stuurt de keuzedeelgroep met vaste capaciteit naar het roostersysteem",
       "fase": 4,
       "stap": "Keuzedeelgroep met vaste capaciteit aan het roostersysteem geven",
       "soort": "stroomt",
@@ -176,11 +176,12 @@
       "stap": "Capaciteitsplanning toetsen aan de animo",
       "soort": "verandert",
       "wie": "planner",
-      "objecttype": "Onderwijseenheid aanbod",
-      "instantie": "D1-K1, periode 7, groep KD-A: 19 aanmeldingen bij de animo tegen een prognose van 30, een groep van 24 blijft",
+      "objecttype": "Leergelegenheid",
+      "instantie": "K0037 Farmaceutische Patientenzorg, periode 7, planninggroep KD-A: 19 aanmeldingen bij de animo tegen een prognose van 30, één groep van 24 blijft",
       "bron": "instellingspraktijk: capaciteitsgestuurd plannen (#402); sessie Keuzedeelmodel en informatiemodel, 17 november 2026 (Niels van Duin, Niek Derksen): de animocheck is een controle op de capaciteitsplanning",
       "toestand": "gepland",
-      "zin": "De planner legt de animo naast de capaciteitsplanning uit F2-C01: een groep is genoeg. De docentinzet en het lokaal van KD-B gaan terug naar de inzetplanning. Een afwijking van ongeveer 37 procent ligt binnen de marge die de instelling in dit voorbeeld hanteert; vanaf 50 procent verbetert zij de prognose zelf."
+      "zin": "De planner legt de animo naast de capaciteitsplanning uit F2-C01: één groep is genoeg. De docentinzet en het lokaal van KD-B gaan terug naar de inzetplanning. Een afwijking van ongeveer 37 procent ligt binnen de marge die de instelling in dit voorbeeld hanteert; vanaf 50 procent verbetert zij de prognose zelf.",
+      "vraag": "Is een groep van een keuzedeel een eigen aanbod, zoals hier een `Leergelegenheid` per groep, of een `Planningsgroep` op één aanbod?"
     },
     {
       "beeld_id": "F6-C01",
@@ -189,8 +190,8 @@
       "stap": "Capaciteitsplanning toetsen aan de animo",
       "soort": "verandert",
       "wie": "planner",
-      "objecttype": "Onderwijseenheid aanbod",
-      "instantie": "D1-K1, periode 7, groep KD-B: geannuleerd",
+      "objecttype": "Leergelegenheid",
+      "instantie": "K0037 Farmaceutische Patientenzorg, periode 7, planninggroep KD-B: geannuleerd",
       "bron": "instellingspraktijk: capaciteitsgestuurd plannen (#402); sessie Keuzedeelmodel en informatiemodel, 17 november 2026 (Niels van Duin, Niek Derksen): de animocheck is een controle op de capaciteitsplanning",
       "toestand": "geannuleerd"
     },
@@ -210,27 +211,35 @@
         "van": "Onderwijseenheid aanbod",
         "naar": "Aanmelding",
         "label": "Op basis van",
-        "instantie": "D1-K1, periode 7, KD-A"
+        "instantie": "D1-K1, periode 7, locatie A: 18 plaatsen"
       },
-      "zin": "Jochem kiest nu een plek in de groep die na de animo is blijven staan. Zijn keuze in F6-04 gaf de animo; de plek volgt hier, op de onderwijseenheid."
+      "zin": "Jochem kiest nu een plek in de groep die na de animo is blijven staan. Zijn keuze in F6-04 gaf de animo; zijn verbintenis op de onderwijseenheid krijgt hier de groep KD-A."
     },
     {
       "beeld_id": "F6-C02",
       "beeld": "Jochem kiest een plek in de vastgestelde groep",
       "fase": 6,
       "stap": "Plek kiezen binnen de vastgestelde groep",
-      "soort": "ontstaat",
+      "soort": "verandert",
       "wie": "student",
       "objecttype": "Onderwijseenheid aanbod verbintenis",
       "instantie": "Jochem op D1-K1, periode 7, groep KD-A",
       "bron": "instellingspraktijk: capaciteitsgestuurd plannen (#402); sessie Keuzedeelmodel en informatiemodel, 17 november 2026 (Niels van Duin, Niek Derksen): de animocheck is een controle op de capaciteitsplanning",
-      "nieuwe_instantie": true,
       "relatie": {
         "soort": "Association",
         "van": "Aanmelding",
         "naar": "Onderwijseenheid aanbod verbintenis",
         "label": "middels"
-      }
+      },
+      "toestand": "aangemeld",
+      "relaties": [
+        {
+          "soort": "Association",
+          "van": "Onderwijseenheid aanbod",
+          "naar": "Onderwijseenheid aanbod verbintenis",
+          "instantie": "D1-K1, periode 7, locatie A: 18 plaatsen"
+        }
+      ]
     },
     {
       "beeld_id": "F6-C03",
@@ -240,7 +249,7 @@
       "soort": "ontstaat",
       "wie": "planner",
       "objecttype": "Inschrijving",
-      "instantie": "D1-K1, periode 7, groep KD-A: plek 20 van 24",
+      "instantie": "D1-K1, periode 7, groep KD-A: plek 19 van 24",
       "bron": "instellingspraktijk: capaciteitsgestuurd plannen (#402); sessie Keuzedeelmodel en informatiemodel, 17 november 2026 (Niels van Duin, Niek Derksen): de animocheck is een controle op de capaciteitsplanning",
       "nieuwe_instantie": true,
       "relatie": {
@@ -262,7 +271,15 @@
       "objecttype": "Keuzedeel aanbod verbintenis",
       "instantie": "Jochem op K0037 Farmaceutische Patientenzorg, periode 7",
       "bron": "instellingspraktijk: capaciteitsgestuurd plannen (#402); sessie Keuzedeelmodel en informatiemodel, 17 november 2026 (Niels van Duin, Niek Derksen): de animocheck is een controle op de capaciteitsplanning",
-      "toestand": "ingeschreven"
+      "toestand": "ingeschreven",
+      "relaties": [
+        {
+          "soort": "Association",
+          "van": "Keuzedeel aanbod",
+          "naar": "Keuzedeel aanbod verbintenis",
+          "instantie": "K0037 Farmaceutische Patientenzorg, periode 7, locatie A"
+        }
+      ]
     },
     {
       "beeld_id": "F7-C01",
@@ -279,7 +296,7 @@
     },
     {
       "beeld_id": "F7-C02",
-      "beeld": "Planning ontsluit de vrije plek naar het studentkeuzesysteem",
+      "beeld": "Planningssysteem ontsluit de vrije plek naar het studentkeuzesysteem",
       "fase": 7,
       "stap": "Vrije plek ontsluiten naar het studentkeuzesysteem",
       "soort": "stroomt",
