@@ -289,6 +289,32 @@ class DeHashIsPrecies(unittest.TestCase):
             self.assertEqual(voor, mod.viewhash(kopie, "OKx hoofdplaat"),
                              "een wijziging in een andere view dwingt een uitgave af")
 
+    def _notitie_hash(self, tekst):
+        mod = laad()
+        with tempfile.TemporaryDirectory() as map_:
+            kopie = Path(map_) / "model.archimate"
+            shutil.copy(MODEL, kopie)
+            boom = ET.parse(kopie)
+            el = mod.view_element(boom.getroot(), "OKx hoofdplaat")
+            notitie = next(c for c in el.iter() if c.get(XSI) == "archimate:Note")
+            notitie.find("content").text = tekst
+            boom.write(kopie, encoding="utf-8", xml_declaration=True)
+            return mod.viewhash(kopie, "OKx hoofdplaat")
+
+    def test_given_a_changed_note_text_when_rehashed_then_the_hash_changes(self):
+        """#575: de tekst van een notitie staat in een eigen element en telt mee."""
+        self.assertNotEqual(self._notitie_hash("OKx hoofdplaat <concept>"),
+                            self._notitie_hash("OKx hoofdplaat 1.7 <concept>"))
+
+    def test_given_only_other_line_endings_when_rehashed_then_the_hash_is_unchanged(self):
+        self.assertEqual(self._notitie_hash("regel een\r\nregel twee"),
+                         self._notitie_hash("regel een\nregel twee"))
+
+    def test_given_hoofdplaat_1_7_1_and_1_7_2_when_compared_then_the_hashes_differ(self):
+        b = manifest()["platen"]["hoofdplaat"]["versies"]
+        h = {v["versie"]: v["viewhash"] for v in b}
+        self.assertNotEqual(h["1.7.1"], h["1.7.2"])
+
 
 if __name__ == "__main__":
     unittest.main()
