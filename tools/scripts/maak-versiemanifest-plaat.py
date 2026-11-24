@@ -107,6 +107,16 @@ def view_element(wortel, naam):
     return None
 
 
+def notitietekst(kind):
+    """De tekst van een notitie, met witruimte genormaliseerd.
+
+    Archi bewaart die in een eigen element `content`, niet in een attribuut (#575);
+    zonder dat element gaf een gewijzigd notitievak dezelfde hash.
+    """
+    tekst = kind.get("content") or kind.findtext("content") or ""
+    return " ".join(tekst.split())
+
+
 def _hash_van_view(el):
     regels = []
     for kind in el.iter():
@@ -130,7 +140,7 @@ def _hash_van_view(el):
         regels.append("|".join([kind.get("id") or "", ae or "", ar or "", vak, knik,
                                 kind.get("fillColor") or "", kind.get("font") or "",
                                 kind.get("name") or "", label,
-                                (kind.get("content") or "").strip()]))
+                                notitietekst(kind)]))
     return "sha256:" + hashlib.sha256("\n".join(sorted(regels)).encode("utf-8")).hexdigest()
 
 
