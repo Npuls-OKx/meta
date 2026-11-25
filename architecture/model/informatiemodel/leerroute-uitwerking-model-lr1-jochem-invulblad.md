@@ -65,15 +65,19 @@ Hoort bij [de opleiding van Jochem in het informatiemodel](leerroute-uitwerking-
 | 2 | F2-01 | Leeronderdeel specificatie | | | | |
 | 2 | F2-01 | Leeronderdeel specificatie | | | | |
 | 2 | F2-02 | Verzoek tot Aanbod / Intekening op specificatie | | | | |
+| 2 | F2-05 | Prognose | | | | |
 | 2 | F2-08 | Opleidingsaanbod van Instelling | | | | |
 | 2 | F2-08 | Opleiding aanbod | | | | |
 | 2 | F2-08 | Opleidingsprogramma aanbod | | | | |
 | 2 | F2-08 | Onderwijseenheid aanbod | | | | |
 | 2 | F2-08 | Leergelegenheid | | | | |
+| 2 | F2-08 | Leergelegenheid | | | | |
 | 2 | F2-08 | Toetsgelegenheid | | | | |
 | 2 | F2-08 | Toetsgelegenheid | | | | |
 | 2 | F2-08 | Keuzedeel aanbod | | | | |
 | 2 | F2-08 | Plaatsingsgroep | | | | |
+| 2 | F2-08 | Planningsgroep | | | | |
+| 2 | F2-08 | Planningsgroep | | | | |
 | 2 | F2-08 | Planningsgroep | | | | |
 | 2 | F2-08 | Planningsgroep | | | | |
 | 2 | F2-08 | Planningsgroep | | | | |
@@ -127,9 +131,9 @@ Hoort bij [de opleiding van Jochem in het informatiemodel](leerroute-uitwerking-
 | 6 | F6-06 | Leergelegenheid | | | | |
 | 6 | F6-06 | Leergelegenheid | | | | |
 | 6 | F6-06 | Planningsgroep | | | | |
-| 6 | F6-08 | Inschrijving | | | | |
-| 6 | F6-08 | Keuzedeel aanbod verbintenis | | | | |
-| 6 | F6-08 | Onderwijseenheid aanbod verbintenis | | | | |
+| 6 | F6-09 | Inschrijving | | | | |
+| 6 | F6-09 | Keuzedeel aanbod verbintenis | | | | |
+| 6 | F6-09 | Onderwijseenheid aanbod verbintenis | | | | |
 | 6 | F6-13 | Leergelegenheid | | | | |
 | 6 | F6-13 | Lesgelegenheid | | | | |
 | 6 | F6-13 | Lesgroep | | | | |

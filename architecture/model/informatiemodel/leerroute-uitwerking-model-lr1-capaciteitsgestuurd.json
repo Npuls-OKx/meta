@@ -39,9 +39,9 @@
       ],
       "vervangt": [
         "F6-06",
-        "F6-08"
+        "F6-09"
       ],
-      "toelichting": "In deze vorm is de capaciteit vooraf gepland op de meerjarencapaciteitsplanning (F2-C01). De keuze in F6-04 geldt hier als animo, en de animocheck (F6-C01) toetst die capaciteitsplanning. De keuze valt op de onderwijseenheid, net als in de basis. F6-07 neemt de uitkomst van de animocheck mee, en F6-10 geldt ook hier."
+      "toelichting": "In deze vorm is de capaciteit vooraf gepland op de meerjarencapaciteitsplanning (F2-C01). De keuze in F6-04 geldt hier als animo, en de animocheck (F6-C01) toetst die capaciteitsplanning. De keuze valt op de onderwijseenheid, net als in de basis. F6-07 neemt de uitkomst van de animocheck mee, en F6-08 geldt ook hier."
     },
     {
       "nummer": 7,
@@ -300,7 +300,7 @@
         "label": "middels",
         "instantie": "Jochem op D1-K1, periode 7, KD-A"
       },
-      "zin": "De planner wijst Jochem toe binnen de capaciteit. Deze inschrijving op het keuzedeel vervangt die uit F6-08: ook de verbintenis op het keuzedeelaanbod staat daarmee op ingeschreven."
+      "zin": "De planner wijst Jochem toe binnen de capaciteit. Deze inschrijving op het keuzedeel vervangt die uit F6-09: ook de verbintenis op het keuzedeelaanbod staat daarmee op ingeschreven."
     },
     {
       "beeld_id": "F6-C03",

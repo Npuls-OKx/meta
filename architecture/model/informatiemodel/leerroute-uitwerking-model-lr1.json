@@ -348,7 +348,7 @@
             "inschrijving keuzedeel bij passend aanbod"
           ],
           "bron": "leerroute-1-regulier.md, Procesfasen, interacties op de plaat en informatie, Fase 6: Wat licht op in de plaat",
-          "afwijking": "hoofdplaat v1.7 kent geen lijn van planning naar de kernregistratie. De inschrijving op het keuzedeel loopt in het voorbeeld van het studentkeuzesysteem naar de kernregistratie (F6-10), de stroom die de plaat wel kent"
+          "afwijking": "hoofdplaat v1.7 kent geen lijn van planning naar de kernregistratie. De inschrijving op het keuzedeel loopt in het voorbeeld van het studentkeuzesysteem naar de kernregistratie (F6-08), de stroom die de plaat wel kent"
         },
         {
           "van": "Planningssysteem",
@@ -495,7 +495,8 @@
     "student",
     "examenbureaumedewerker",
     "surveillant",
-    "beoordelaar"
+    "beoordelaar",
+    "studentadministratie"
   ],
   "toestanden": [
     {
@@ -3398,7 +3399,7 @@
       "wie": "planner",
       "aanname": true,
       "objecttype": "Onderwijsaanbod Model",
-      "instantie": "Jaarplan 2026-2027: prognose 36 instromers, twee groepen van 18, vier perioden van tien weken",
+      "instantie": "Jaarplan 2026-2027: prognose 96 instromers, vier groepen van 24, vier perioden van tien weken",
       "bron": "model.archimate, view Informatiemodel Onderwijsontwerp (conceptplaat): Planning bevat Onderwijsaanbod Model; leerroute-1-regulier.md, Fase 2: strategische jaarplanning; scenario-1.1-regulier-happyflow.md, blok D (maatvoering uit de review van 29 september 2026)",
       "relatie": {
         "soort": "Association",
@@ -3443,6 +3444,20 @@
         "van": "Medewerker",
         "naar": "Schaartste van mensen"
       }
+    },
+    {
+      "beeld_id": "F2-05",
+      "beeld": "Planner legt de aanbodvraag naast de schaarste van ruimtes en mensen",
+      "fase": 2,
+      "stap": "Aanbodvraag per opleiding bepalen",
+      "soort": "ontstaat",
+      "wie": "planner",
+      "objecttype": "Prognose",
+      "instantie": "Apothekersassistent 2026: 96 verwachte instromers, op te knippen in vier plaatsingsgroepen van 24",
+      "voorstel": true,
+      "bron": "sparsessie Niels van Duin en Niek Derksen, 25 november 2026: de planner maakt een prognose van de instroom en knipt die op in plaatsingsgroepen (Niels: 'ik verwacht 80 studenten, knip ik dat op in vier plaatsingsgroepen'); het informatiemodel kent nog geen prognose; 24 volgt de simulatieruimte uit leerroute-1-regulier.md, r723 en r736",
+      "zin": "De planner legt de verwachte instroom vast in een prognose: 96 instromers voor Apothekersassistent, op te knippen in vier plaatsingsgroepen van 24. Het informatiemodel kent de prognose nog niet; zij staat hier als voorstel.",
+      "verdieping": "ruimtes en mensen op de specificatie"
     },
     {
       "beeld_id": "F2-06",
@@ -3680,6 +3695,23 @@
       "fase": 2,
       "stap": "Aanbod plannen",
       "soort": "bestaat",
+      "objecttype": "Leeronderdeel specificatie",
+      "instantie": "Medicatiebewaking in de leerapotheek: BOT 30 uur, praktijkruimte, docent farmacie",
+      "herkomst": "F2-01",
+      "bron": "aanwijzing van de opdrachtgever, 25 november 2026: de specificatie waarop het aanbod gepland wordt",
+      "relatie": {
+        "soort": "Aggregation",
+        "van": "Onderwijseenheid specificatie",
+        "naar": "Leeronderdeel specificatie",
+        "nesting": true
+      }
+    },
+    {
+      "beeld_id": "F2-08",
+      "beeld": "Planner plant opleiding, programma, eenheid en gelegenheid",
+      "fase": 2,
+      "stap": "Aanbod plannen",
+      "soort": "bestaat",
       "objecttype": "Toetsonderdeel specificatie",
       "instantie": "Praktijktoets baliegesprek (OSCE), summatief: schaal 1,0 tot 10,0 met een decimaal, afname in de simulatieapotheek, 30 minuten, geen hulpmiddelen, twee pogingen",
       "herkomst": "F1-09",
@@ -3707,7 +3739,7 @@
       "instantie": "ROC Leren Zonder Drempels: ambitie en verwachte instroom voor cohort 2026",
       "aanname": true,
       "bron": "geen bron, keuze van het voorbeeld: het objecttype heeft geen instantie in het kaderscenario; leerroute-1-regulier.md, r657 (drie stadia van onderwijsaanbod, parallel aan meerjaren-, jaar- en periodeplanning)",
-      "zin": "Het aanbod rijpt in tredes die met de planningshorizon meelopen. In de meerjarenplanning staat de intentie: welke opleiding, met welke verwachte instroom. In de jaarplanning plant de planner het aanbod op de planbare specificatie, met perioden en capaciteit, nog zonder lokalen en docenten. Naast elk aanbod staat de groep die erop gepland is, gevuld met een prognose en met een maximale capaciteit: twee plaatsingsgroepen van 18 op het programma, planningsgroepen op de onderwijseenheid en de leergelegenheid, en op de toets en haar herkansing. Zo draait een eerste roosteriteratie en blijkt of het aanbod haalbaar is. Een lesgroep is de definitieve planningsgroep met studenten en ontstaat pas bij het roosteren. Het keuzedeel K0037 krijgt een capaciteitsgroep tot 24 op de prognose; in fase 6 komen de echte keuzes erin.",
+      "zin": "Het aanbod rijpt in tredes die met de planningshorizon meelopen. In de meerjarenplanning staat de intentie: welke opleiding, met welke verwachte instroom. In de jaarplanning plant de planner het aanbod op de planbare specificatie, met perioden en capaciteit, nog zonder lokalen en docenten. Naast elk aanbod staat de groep die erop gepland is. De prognose van 96 (F2-05) wordt opgeknipt in vier plaatsingsgroepen van 24; met studenten erin is zo'n groep ook planningsgroep, voor de onderwijseenheid, de balie-simulatie en de toets. Het practicum in de leerapotheek heeft twaalf werkplekken, dus daar worden het twee planningsgroepen, zonder dat er een keuze aan te pas komt. Een groep hangt altijd aan capaciteit, niet aan alle studenten met dezelfde verbintenis. Zo draait een eerste roosteriteratie en blijkt of het aanbod haalbaar is. Een lesgroep is de definitieve planningsgroep en ontstaat pas bij het roosteren. K0037 krijgt een capaciteitsgroep tot 24 op de prognose.",
       "toestand": "intentie"
     },
     {
@@ -3718,7 +3750,7 @@
       "soort": "ontstaat",
       "wie": "planner",
       "objecttype": "Opleiding aanbod",
-      "instantie": "Apothekersassistent 2026: vier perioden, 36 plaatsen",
+      "instantie": "Apothekersassistent 2026: vier perioden, 96 plaatsen",
       "bron": "voorbeeldpayloads.md, aanbodInstanties[0] (7aa6609f); leerroute-1-regulier.md, r738 (aanbod is minimaal gepland zodra perioden en capaciteit vastliggen) en r1021 (stadium 2a, nog zonder lokalen en docenten); scenario-1.1-regulier-happyflow.md, blok D (maatvoering uit de review van 29 september 2026)",
       "relatie": {
         "soort": "Composition",
@@ -3745,7 +3777,7 @@
       "soort": "ontstaat",
       "wie": "planner",
       "objecttype": "Opleidingsprogramma aanbod",
-      "instantie": "Regulier BOL 2026: 18 tot 36 studenten",
+      "instantie": "Regulier BOL 2026: tot 96 studenten",
       "bron": "voorbeeldpayloads.md, aanbodInstanties[1] (8c494250); leerroute-1-regulier.md, r738 (aanbod is minimaal gepland zodra perioden en capaciteit vastliggen) en r1021 (stadium 2a, nog zonder lokalen en docenten); scenario-1.1-regulier-happyflow.md, blok D (maatvoering uit de review van 29 september 2026)",
       "relatie": {
         "soort": "Composition",
@@ -3799,7 +3831,7 @@
       "soort": "ontstaat",
       "wie": "planner",
       "objecttype": "Leergelegenheid",
-      "instantie": "Baliegesprekken 101, periode 1, twee groepen van 18",
+      "instantie": "Baliegesprekken 101, periode 1, vier groepen van 24",
       "bron": "voorbeeldpayloads.md, aanbodInstanties[3] (04070a96); scenario-1.1-regulier-happyflow.md, blok D (maatvoering uit de review van 29 september 2026); sparsessie met Niels van Duin en Garik Hakopian, 28 oktober 2026: in deze fase staan het lokaaltype en de docentexpertise vast, het lokaal, de persoon en het tijdvenster nog niet",
       "relatie": {
         "soort": "Aggregation",
@@ -3815,6 +3847,34 @@
           "naar": "Leergelegenheid",
           "label": "wordt aangeboden als",
           "instantie": "Baliegesprekken 101: BOT 50 uur, praktijkruimte, docent farmacie"
+        }
+      ]
+    },
+    {
+      "beeld_id": "F2-08",
+      "beeld": "Planner plant opleiding, programma, eenheid en gelegenheid",
+      "fase": 2,
+      "stap": "Aanbod plannen",
+      "soort": "ontstaat",
+      "wie": "planner",
+      "objecttype": "Leergelegenheid",
+      "relatie": {
+        "soort": "Aggregation",
+        "van": "Onderwijseenheid aanbod",
+        "naar": "Leergelegenheid",
+        "nesting": true
+      },
+      "toestand": "grofmazig gepland",
+      "instantie": "Medicatiebewaking in de leerapotheek, periode 1: twaalf werkplekken",
+      "nieuwe_instantie": true,
+      "bron": "sparsessie Niels van Duin en Niek Derksen, 25 november 2026: een practicum met plek voor twaalf vraagt van een plaatsingsgroep van 24 twee planningsgroepen; leeronderdeel uit F2-01",
+      "relaties": [
+        {
+          "soort": "Association",
+          "van": "Leeronderdeel specificatie",
+          "naar": "Leergelegenheid",
+          "label": "wordt aangeboden als",
+          "instantie": "Medicatiebewaking in de leerapotheek: BOT 30 uur, praktijkruimte, docent farmacie"
         }
       ]
     },
@@ -3892,19 +3952,20 @@
       "beeld": "Planner plant opleiding, programma, eenheid en gelegenheid",
       "fase": 2,
       "stap": "Aanbod plannen",
-      "soort": "ontstaat",
-      "wie": "planner",
-      "objecttype": "Plaatsingsgroep",
-      "instantie": "APO26-1A: prognose 18 studenten, de eerste van twee plaatsingsgroepen",
+      "soort": "bestaat",
+      "objecttype": "Prognose",
+      "instantie": "Apothekersassistent 2026: 96 verwachte instromers, op te knippen in vier plaatsingsgroepen van 24",
+      "herkomst": "F2-05",
       "naast": true,
-      "bron": "aanwijzing van de opdrachtgever, 25 november 2026: in de jaarplanning verwacht de planner de plaatsingsgroepen te vullen en zet hij op het aanbod een eerste set planningsgroepen en concept-lesgroepen, gevuld met een prognose, zodat een eerste roosteriteratie de haalbaarheid toetst; voor toetsen, herkansingen en keuzedelen net zo; aantallen volgen het cohort van 36 in twee groepen van 18 (#296); antwoord van Niels van Duin op #579, 25 november 2026, vraag 8: zowel plaatsingsgroepen als de eerste planningsgroepen ontstaan in de jaarplanning op de prognose; plannen en roosteren lopen door, en op periodeniveau ontstaan nieuwe planningsgroepen",
+      "voorstel": true,
+      "bron": "sparsessie Niels van Duin en Niek Derksen, 25 november 2026: de prognose op het programma leidt tot het opknippen in plaatsingsgroepen",
       "relatie": {
         "soort": "Association",
-        "van": "Plaatsingsgroep",
-        "naar": "Opleidingsprogramma aanbod",
-        "label": "is gepland op",
+        "van": "Prognose",
+        "naar": "Opleiding aanbod",
+        "label": "voorspelt de instroom van",
         "voorstel": true,
-        "instantie": "Regulier BOL 2026: 18 tot 36 studenten"
+        "instantie": "Apothekersassistent 2026: vier perioden, 96 plaatsen"
       }
     },
     {
@@ -3914,10 +3975,39 @@
       "stap": "Aanbod plannen",
       "soort": "ontstaat",
       "wie": "planner",
-      "objecttype": "Planningsgroep",
-      "instantie": "B1-K1 periode 1: APO26-1A, prognose 18 studenten",
+      "objecttype": "Plaatsingsgroep",
+      "instantie": "APO26-1A: prognose 24 studenten, de eerste van vier plaatsingsgroepen",
       "naast": true,
-      "bron": "aanwijzing van de opdrachtgever, 25 november 2026: in de jaarplanning verwacht de planner de plaatsingsgroepen te vullen en zet hij op het aanbod een eerste set planningsgroepen en concept-lesgroepen, gevuld met een prognose, zodat een eerste roosteriteratie de haalbaarheid toetst; voor toetsen, herkansingen en keuzedelen net zo; antwoord van Niels van Duin op #579, 25 november 2026, vraag 8: zowel plaatsingsgroepen als de eerste planningsgroepen ontstaan in de jaarplanning op de prognose; plannen en roosteren lopen door, en op periodeniveau ontstaan nieuwe planningsgroepen",
+      "bron": "aanwijzing van de opdrachtgever, 25 november 2026: in de jaarplanning vult de planner het aanbod met groepen op de prognose, zodat een eerste roosteriteratie de haalbaarheid toetst; sparsessie Niels van Duin en Niek Derksen, 25 november 2026: een groep hangt altijd aan capaciteit en planning, niet aan alle studenten met dezelfde verbintenis; antwoord van Niels van Duin op #579, 25 november 2026, vraag 8: plaatsingsgroepen en de eerste planningsgroepen ontstaan in de jaarplanning op de prognose",
+      "relatie": {
+        "soort": "Association",
+        "van": "Plaatsingsgroep",
+        "naar": "Opleidingsprogramma aanbod",
+        "label": "is gepland op",
+        "voorstel": true,
+        "instantie": "Regulier BOL 2026: tot 96 studenten"
+      },
+      "relaties": [
+        {
+          "soort": "Association",
+          "van": "Prognose",
+          "naar": "Plaatsingsgroep",
+          "label": "wordt opgeknipt in",
+          "voorstel": true
+        }
+      ]
+    },
+    {
+      "beeld_id": "F2-08",
+      "beeld": "Planner plant opleiding, programma, eenheid en gelegenheid",
+      "fase": 2,
+      "stap": "Aanbod plannen",
+      "soort": "ontstaat",
+      "wie": "planner",
+      "objecttype": "Planningsgroep",
+      "instantie": "B1-K1 periode 1: APO26-1A, 24 studenten",
+      "naast": true,
+      "bron": "aanwijzing van de opdrachtgever, 25 november 2026: in de jaarplanning vult de planner het aanbod met groepen op de prognose, zodat een eerste roosteriteratie de haalbaarheid toetst; sparsessie Niels van Duin en Niek Derksen, 25 november 2026: een groep hangt altijd aan capaciteit en planning, niet aan alle studenten met dezelfde verbintenis; antwoord van Niels van Duin op #579, 25 november 2026, vraag 8: plaatsingsgroepen en de eerste planningsgroepen ontstaan in de jaarplanning op de prognose; sparsessie Niels van Duin en Niek Derksen, 25 november 2026: zodra een plaatsingsgroep met studenten naar planning gaat, is zij per definitie ook een planningsgroep, met een ander doel",
       "relatie": {
         "soort": "Composition",
         "van": "Plaatsingsgroep",
@@ -3942,17 +4032,16 @@
       "soort": "ontstaat",
       "wie": "planner",
       "objecttype": "Planningsgroep",
-      "instantie": "Baliegesprekken 101-A: APO26-1A, prognose 18, tot 24 in de simulatieruimte",
+      "instantie": "Baliegesprekken 101-A: APO26-1A, 24 studenten, past in de simulatieruimte",
       "naast": true,
-      "nieuwe_instantie": true,
-      "bron": "antwoord van Niels van Duin op #579, 25 november 2026, vraag 1 en 8: een lesgroep is de definitieve planningsgroep met studenten; in de jaarplanning ontstaan plaatsingsgroepen en de eerste planningsgroepen op de prognose, elk met een maximale capaciteit; capaciteit uit leerroute-1-regulier.md, r723 en r736 (simulatieruimte apotheekbalie, max. 24 studenten)",
+      "bron": "aanwijzing van de opdrachtgever, 25 november 2026: in de jaarplanning vult de planner het aanbod met groepen op de prognose, zodat een eerste roosteriteratie de haalbaarheid toetst; sparsessie Niels van Duin en Niek Derksen, 25 november 2026: een groep hangt altijd aan capaciteit en planning, niet aan alle studenten met dezelfde verbintenis; antwoord van Niels van Duin op #579, 25 november 2026, vraag 8: plaatsingsgroepen en de eerste planningsgroepen ontstaan in de jaarplanning op de prognose; capaciteit uit leerroute-1-regulier.md, r723 en r736 (simulatieruimte apotheekbalie, max. 24 studenten)",
       "relatie": {
         "soort": "Association",
         "van": "Planningsgroep",
         "naar": "Leergelegenheid",
         "label": "is gepland op",
         "voorstel": true,
-        "instantie": "Baliegesprekken 101, periode 1, twee groepen van 18"
+        "instantie": "Baliegesprekken 101, periode 1, vier groepen van 24"
       },
       "relaties": [
         {
@@ -3960,7 +4049,8 @@
           "van": "Plaatsingsgroep",
           "naar": "Planningsgroep"
         }
-      ]
+      ],
+      "nieuwe_instantie": true
     },
     {
       "beeld_id": "F2-08",
@@ -3970,9 +4060,65 @@
       "soort": "ontstaat",
       "wie": "planner",
       "objecttype": "Planningsgroep",
-      "instantie": "OSCE einde periode 1: APO26-1A, prognose 18 studenten",
+      "instantie": "Medicatiebewaking 1A-1: 12 van APO26-1A",
       "naast": true,
-      "bron": "aanwijzing van de opdrachtgever, 25 november 2026: in de jaarplanning verwacht de planner de plaatsingsgroepen te vullen en zet hij op het aanbod een eerste set planningsgroepen en concept-lesgroepen, gevuld met een prognose, zodat een eerste roosteriteratie de haalbaarheid toetst; voor toetsen, herkansingen en keuzedelen net zo; antwoord van Niels van Duin op #579, 25 november 2026, vraag 8: zowel plaatsingsgroepen als de eerste planningsgroepen ontstaan in de jaarplanning op de prognose; plannen en roosteren lopen door, en op periodeniveau ontstaan nieuwe planningsgroepen",
+      "bron": "aanwijzing van de opdrachtgever, 25 november 2026: in de jaarplanning vult de planner het aanbod met groepen op de prognose, zodat een eerste roosteriteratie de haalbaarheid toetst; sparsessie Niels van Duin en Niek Derksen, 25 november 2026: een groep hangt altijd aan capaciteit en planning, niet aan alle studenten met dezelfde verbintenis; antwoord van Niels van Duin op #579, 25 november 2026, vraag 8: plaatsingsgroepen en de eerste planningsgroepen ontstaan in de jaarplanning op de prognose; sparsessie Niels van Duin en Niek Derksen, 25 november 2026: een plaatsingsgroep van 24 en een practicum met plek voor twaalf geeft twee planningsgroepen, zonder dat er een keuze aan te pas komt",
+      "relatie": {
+        "soort": "Association",
+        "van": "Planningsgroep",
+        "naar": "Leergelegenheid",
+        "label": "is gepland op",
+        "voorstel": true,
+        "instantie": "Medicatiebewaking in de leerapotheek, periode 1: twaalf werkplekken"
+      },
+      "relaties": [
+        {
+          "soort": "Composition",
+          "van": "Plaatsingsgroep",
+          "naar": "Planningsgroep"
+        }
+      ],
+      "nieuwe_instantie": true
+    },
+    {
+      "beeld_id": "F2-08",
+      "beeld": "Planner plant opleiding, programma, eenheid en gelegenheid",
+      "fase": 2,
+      "stap": "Aanbod plannen",
+      "soort": "ontstaat",
+      "wie": "planner",
+      "objecttype": "Planningsgroep",
+      "instantie": "Medicatiebewaking 1A-2: 12 van APO26-1A",
+      "naast": true,
+      "bron": "aanwijzing van de opdrachtgever, 25 november 2026: in de jaarplanning vult de planner het aanbod met groepen op de prognose, zodat een eerste roosteriteratie de haalbaarheid toetst; sparsessie Niels van Duin en Niek Derksen, 25 november 2026: een groep hangt altijd aan capaciteit en planning, niet aan alle studenten met dezelfde verbintenis; antwoord van Niels van Duin op #579, 25 november 2026, vraag 8: plaatsingsgroepen en de eerste planningsgroepen ontstaan in de jaarplanning op de prognose; sparsessie Niels van Duin en Niek Derksen, 25 november 2026: een plaatsingsgroep van 24 en een practicum met plek voor twaalf geeft twee planningsgroepen, zonder dat er een keuze aan te pas komt",
+      "relatie": {
+        "soort": "Association",
+        "van": "Planningsgroep",
+        "naar": "Leergelegenheid",
+        "label": "is gepland op",
+        "voorstel": true,
+        "instantie": "Medicatiebewaking in de leerapotheek, periode 1: twaalf werkplekken"
+      },
+      "relaties": [
+        {
+          "soort": "Composition",
+          "van": "Plaatsingsgroep",
+          "naar": "Planningsgroep"
+        }
+      ],
+      "nieuwe_instantie": true
+    },
+    {
+      "beeld_id": "F2-08",
+      "beeld": "Planner plant opleiding, programma, eenheid en gelegenheid",
+      "fase": 2,
+      "stap": "Aanbod plannen",
+      "soort": "ontstaat",
+      "wie": "planner",
+      "objecttype": "Planningsgroep",
+      "instantie": "OSCE einde periode 1: APO26-1A, 24 studenten",
+      "naast": true,
+      "bron": "aanwijzing van de opdrachtgever, 25 november 2026: in de jaarplanning vult de planner het aanbod met groepen op de prognose, zodat een eerste roosteriteratie de haalbaarheid toetst; sparsessie Niels van Duin en Niek Derksen, 25 november 2026: een groep hangt altijd aan capaciteit en planning, niet aan alle studenten met dezelfde verbintenis; antwoord van Niels van Duin op #579, 25 november 2026, vraag 8: plaatsingsgroepen en de eerste planningsgroepen ontstaan in de jaarplanning op de prognose; sparsessie Niels van Duin en Niek Derksen, 25 november 2026: de plaatsingsgroep die naar planning gaat is ook planningsgroep",
       "relatie": {
         "soort": "Association",
         "van": "Planningsgroep",
@@ -3998,9 +4144,9 @@
       "soort": "ontstaat",
       "wie": "planner",
       "objecttype": "Planningsgroep",
-      "instantie": "Herkansing OSCE periode 2: prognose 4 studenten",
+      "instantie": "Herkansing OSCE periode 2: prognose 10 studenten",
       "naast": true,
-      "bron": "aanwijzing van de opdrachtgever, 25 november 2026: in de jaarplanning verwacht de planner de plaatsingsgroepen te vullen en zet hij op het aanbod een eerste set planningsgroepen en concept-lesgroepen, gevuld met een prognose, zodat een eerste roosteriteratie de haalbaarheid toetst; voor toetsen, herkansingen en keuzedelen net zo; de herkansers komen uit meer plaatsingsgroepen, dus de groep hangt aan geen enkele; antwoord van Niels van Duin op #579, 25 november 2026, vraag 8: zowel plaatsingsgroepen als de eerste planningsgroepen ontstaan in de jaarplanning op de prognose; plannen en roosteren lopen door, en op periodeniveau ontstaan nieuwe planningsgroepen",
+      "bron": "aanwijzing van de opdrachtgever, 25 november 2026: in de jaarplanning vult de planner het aanbod met groepen op de prognose, zodat een eerste roosteriteratie de haalbaarheid toetst; sparsessie Niels van Duin en Niek Derksen, 25 november 2026: een groep hangt altijd aan capaciteit en planning, niet aan alle studenten met dezelfde verbintenis; antwoord van Niels van Duin op #579, 25 november 2026, vraag 8: plaatsingsgroepen en de eerste planningsgroepen ontstaan in de jaarplanning op de prognose; de herkansers komen uit meer plaatsingsgroepen, dus de groep hangt aan geen enkele",
       "relatie": {
         "soort": "Association",
         "van": "Planningsgroep",
@@ -4059,7 +4205,7 @@
       "pijl": "id-020f091db6ea4763aad7527a98afaf99",
       "koppeling": "OC-P&R",
       "objecttype": "Opleiding aanbod",
-      "instantie": "Apothekersassistent 2026: vier perioden, 36 plaatsen",
+      "instantie": "Apothekersassistent 2026: vier perioden, 96 plaatsen",
       "bron": "leerroute-1-regulier.md, Fase 2: Planning naar OC (opleidingsaanbod als planbaar resultaat); informatiemodel.json: de specificatie is geassocieerd met haar aanbod; het verzoek leidt tot aanbod; scenario-1.1-regulier-happyflow.md, blok D (maatvoering uit de review van 29 september 2026)",
       "toestand": "gepland",
       "relatie": {
@@ -4095,7 +4241,7 @@
       "pijl": "id-020f091db6ea4763aad7527a98afaf99",
       "koppeling": "OC-P&R",
       "objecttype": "Opleidingsprogramma aanbod",
-      "instantie": "Regulier BOL 2026: 18 tot 36 studenten",
+      "instantie": "Regulier BOL 2026: tot 96 studenten",
       "bron": "leerroute-1-regulier.md, Fase 2; informatiemodel.json: de specificatie is geassocieerd met haar aanbod; het verzoek leidt tot aanbod; scenario-1.1-regulier-happyflow.md, blok D (maatvoering uit de review van 29 september 2026)",
       "relatie": {
         "soort": "Composition",
@@ -4167,7 +4313,7 @@
       "pijl": "id-020f091db6ea4763aad7527a98afaf99",
       "koppeling": "OC-P&R",
       "objecttype": "Leergelegenheid",
-      "instantie": "Baliegesprekken 101, periode 1, twee groepen van 18",
+      "instantie": "Baliegesprekken 101, periode 1, vier groepen van 24",
       "bron": "leerroute-1-regulier.md, Fase 2: planbaar aanbod; informatiemodel.json: de specificatie is geassocieerd met haar aanbod; het verzoek leidt tot aanbod; scenario-1.1-regulier-happyflow.md, blok D (maatvoering uit de review van 29 september 2026); sparsessie met Niels van Duin en Garik Hakopian, 28 oktober 2026: in deze fase staan het lokaaltype en de docentexpertise vast, het lokaal, de persoon en het tijdvenster nog niet",
       "relatie": {
         "soort": "Aggregation",
@@ -4364,7 +4510,7 @@
           "soort": "Association",
           "van": "Opleidingsprogramma aanbod",
           "naar": "Opleidingsprogramma aanbod verbintenis",
-          "instantie": "Regulier BOL 2026: 18 tot 36 studenten"
+          "instantie": "Regulier BOL 2026: tot 96 studenten"
         }
       ]
     },
@@ -4480,7 +4626,7 @@
       "soort": "verandert",
       "wie": "SLB'er",
       "objecttype": "Plaatsingsgroep",
-      "instantie": "APO26-1A: Jochem en 17 andere studenten geplaatst",
+      "instantie": "APO26-1A: Jochem en 23 andere studenten geplaatst",
       "bron": "voorbeeldpayloads.md, groepen (13cc9125); leerroute-1-regulier.md, Fase 3: initiele plaatsingsgroep; plek van ontstaan aangescherpt in de sparsessie PR 314, deel 2, 4 november 2026; aanwijzing van de opdrachtgever, 25 november 2026: de plaatsingsgroep uit de jaarplanning (F2-08) wordt gevuld met echte studenten",
       "relatie": {
         "soort": "Association",
@@ -5314,7 +5460,7 @@
           "van": "Persoon",
           "naar": "Plaatsingsgroep",
           "label": "Worden gegroepeerd via",
-          "instantie": "Jochem en 17 andere studenten"
+          "instantie": "Jochem en 23 andere studenten"
         }
       ],
       "vraag": "Het kaderscenario zet groepen in twee richtingen tussen planning en de kernregistratie, en hoofdplaat v1.7 kent alleen de lijn van de kernregistratie naar planning. Een planninggroep die de planner om logistieke redenen vormt, hoort die terug naar de kernregistratie als nieuwe plaatsingsgroep, en mist de plaat dan een stroom?"
@@ -5370,7 +5516,7 @@
       "pijl": "id-08467fe302794db6b935ff685e83efe0",
       "koppeling": null,
       "objecttype": "Leergelegenheid",
-      "instantie": "Baliegesprekken 101, periode 1: lokaaltype balie-simulatie, docentexpertise farmacie met baliepraktijk, twee groepen van 18",
+      "instantie": "Baliegesprekken 101, periode 1: lokaaltype balie-simulatie, docentexpertise farmacie met baliepraktijk, vier groepen van 24",
       "bron": "leerroute-1-regulier.md, Fase 4: Planning naar Rooster (te roosteren specificaties); scenario-1.1-regulier-happyflow.md, blok D (maatvoering uit de review van 29 september 2026)",
       "zin": "Planning geeft de leergelegenheden van periode 1 aan het roostersysteem. Zonder de vaste kenmerken heeft roosteren niets aan die uitwisseling: het lokaaltype en de docentexpertise bepalen wat er past, en de groep bindt de studenten die hetzelfde aanbod afnemen en dus niet gelijktijdig geroosterd kunnen worden. De groep mag nog leeg zijn.",
       "relaties": [
@@ -5529,7 +5675,7 @@
           "soort": "Association",
           "van": "Opleidingsprogramma aanbod",
           "naar": "Opleidingsprogramma aanbod verbintenis",
-          "instantie": "Regulier BOL 2026: 18 tot 36 studenten"
+          "instantie": "Regulier BOL 2026: tot 96 studenten"
         }
       ]
     },
@@ -6961,120 +7107,7 @@
     },
     {
       "beeld_id": "F6-08",
-      "beeld": "Planner schrijft Jochem in op het keuzedeel",
-      "fase": 6,
-      "stap": "Keuzedeel formeel inschrijven",
-      "soort": "ontstaat",
-      "wie": "planner",
-      "objecttype": "Inschrijving",
-      "instantie": "Inschrijving op K0037 Farmaceutische Patientenzorg, periode 7",
-      "bron": "leerroute-1-regulier.md, r850 (bij passend aanbod levert planning de formele inschrijving) en r87 (past het niet, dan orienteert de student zich opnieuw)",
-      "nieuwe_instantie": true,
-      "relatie": {
-        "soort": "Association",
-        "van": "Aanmelding",
-        "naar": "Inschrijving",
-        "label": "Wordt na formalisatie"
-      },
-      "zin": "Past het gekozen aanbod, dan wordt Jochems aanmelding een inschrijving, en staan zijn verbintenissen op het keuzedeel en op de onderwijseenheid op ingeschreven. Past het niet, dan oriënteert hij zich opnieuw op een andere periode of locatie; die variant laat dit voorbeeld liggen.",
-      "vraag": "De inschrijving is de afspraak tussen instelling en student, en de verbintenis draagt de status; het voorbeeld houdt ze allebei. Hier maakt de planner de inschrijving. Wie formaliseert haar: planning, of de kernregistratie na F6-10?"
-    },
-    {
-      "beeld_id": "F6-08",
-      "beeld": "Planner schrijft Jochem in op het keuzedeel",
-      "fase": 6,
-      "stap": "Keuzedeel formeel inschrijven",
-      "soort": "verandert",
-      "wie": "planner",
-      "objecttype": "Keuzedeel aanbod verbintenis",
-      "instantie": "Jochem op K0037 Farmaceutische Patientenzorg, periode 7",
-      "toestand": "ingeschreven",
-      "bron": "leerroute-1-regulier.md, r850 (bij passend aanbod levert planning de formele inschrijving) en r87 (past het niet, dan orienteert de student zich opnieuw)",
-      "relaties": [
-        {
-          "soort": "Association",
-          "van": "Keuzedeel aanbod",
-          "naar": "Keuzedeel aanbod verbintenis",
-          "instantie": "K0037 Farmaceutische Patientenzorg, periode 7, locatie A"
-        }
-      ]
-    },
-    {
-      "beeld_id": "F6-08",
-      "beeld": "Planner schrijft Jochem in op het keuzedeel",
-      "fase": 6,
-      "stap": "Keuzedeel formeel inschrijven",
-      "soort": "verandert",
-      "wie": "planner",
-      "objecttype": "Onderwijseenheid aanbod verbintenis",
-      "instantie": "Jochem op D1-K1, periode 7",
-      "toestand": "ingeschreven",
-      "bron": "leerroute-1-regulier.md, r850 (bij passend aanbod levert planning de formele inschrijving) en r87 (past het niet, dan orienteert de student zich opnieuw)",
-      "relaties": [
-        {
-          "soort": "Association",
-          "van": "Onderwijseenheid aanbod",
-          "naar": "Onderwijseenheid aanbod verbintenis",
-          "instantie": "D1-K1, periode 7, locatie A: 18 plaatsen"
-        }
-      ]
-    },
-    {
-      "beeld_id": "F6-09",
-      "beeld": "Planningssysteem stuurt de bevestigde verbintenis naar het studentkeuzesysteem",
-      "fase": 6,
-      "stap": "Keuzedeel formeel inschrijven",
-      "soort": "stroomt",
-      "van": "Planningssysteem",
-      "naar": "Student Keuze Systeem (SKS)",
-      "pijl": "geen pijl op de hoofdplaat",
-      "koppeling": null,
-      "objecttype": "Keuzedeel aanbod verbintenis",
-      "instantie": "Jochem op K0037 Farmaceutische Patientenzorg, periode 7, ingeschreven",
-      "bron": "sessie Keuzedeelmodel en informatiemodel, 17 november 2026 (Niels van Duin, Niek Derksen): na de keuze koppelt planning de inschrijving en de verbintenis op het keuzedeelaanbod terug aan het studentkeuzesysteem",
-      "relaties": [
-        {
-          "soort": "Association",
-          "van": "Keuzedeel aanbod",
-          "naar": "Keuzedeel aanbod verbintenis",
-          "instantie": "K0037 Farmaceutische Patientenzorg, periode 7, locatie A"
-        }
-      ],
-      "zin": "Planning bevestigt het studentkeuzesysteem dat Jochem is ingeschreven, met de verbintenis op het keuzedeel en op de onderwijseenheid.",
-      "vraag": "Planning bevestigt de verbintenis direct na de keuze, over een lijn die de hoofdplaat niet kent. Na het roosteren meldt het roostersysteem haar alsnog over een lijn die de plaat wel kent (F6-15). Is die eerste bevestiging nodig?"
-    },
-    {
-      "beeld_id": "F6-09",
-      "beeld": "Planningssysteem stuurt de bevestigde verbintenis naar het studentkeuzesysteem",
-      "fase": 6,
-      "stap": "Keuzedeel formeel inschrijven",
-      "soort": "stroomt",
-      "van": "Planningssysteem",
-      "naar": "Student Keuze Systeem (SKS)",
-      "pijl": "geen pijl op de hoofdplaat",
-      "koppeling": null,
-      "objecttype": "Onderwijseenheid aanbod verbintenis",
-      "instantie": "Jochem op D1-K1, periode 7, ingeschreven",
-      "bron": "sessie Keuzedeelmodel en informatiemodel, 17 november 2026 (Niels van Duin, Niek Derksen)",
-      "nieuwe_instantie": true,
-      "relatie": {
-        "soort": "Aggregation",
-        "van": "Opleidingsprogramma aanbod verbintenis",
-        "naar": "Onderwijseenheid aanbod verbintenis",
-        "nesting": true
-      },
-      "relaties": [
-        {
-          "soort": "Association",
-          "van": "Onderwijseenheid aanbod",
-          "naar": "Onderwijseenheid aanbod verbintenis",
-          "instantie": "D1-K1, periode 7, locatie A: 18 plaatsen"
-        }
-      ]
-    },
-    {
-      "beeld_id": "F6-10",
-      "beeld": "Studentkeuzesysteem stuurt de verbintenis naar de kernregistratie",
+      "beeld": "Studentkeuzesysteem stuurt Jochems verbintenis op K0037 naar de kernregistratie",
       "fase": 6,
       "stap": "Keuzedeel formeel inschrijven",
       "soort": "stroomt",
@@ -7083,8 +7116,8 @@
       "pijl": "id-642ea2bf4fcd4d58968ba4f952a7e990",
       "koppeling": null,
       "objecttype": "Keuzedeel aanbod verbintenis",
-      "instantie": "Jochem op K0037 Farmaceutische Patientenzorg, periode 7, ingeschreven",
-      "bron": "leerroute-1-regulier.md, Fase 6: Planning naar KRS (formele inschrijving keuzedeel); hoofdplaat kent alleen SKS naar KRS; sessie Keuzedeelmodel en informatiemodel, 17 november 2026 (Niels van Duin, Niek Derksen)",
+      "instantie": "Jochem op K0037 Farmaceutische Patientenzorg, periode 7, aangemeld",
+      "bron": "leerroute-1-regulier.md, Fase 6: Planning naar KRS (formele inschrijving keuzedeel); hoofdplaat kent alleen SKS naar KRS; sessie Keuzedeelmodel en informatiemodel, 17 november 2026 (Niels van Duin, Niek Derksen); antwoord van Niels van Duin op #579, 25 november 2026, vraag 3: de kernregistratie formaliseert de inschrijving, nadat het studentkeuzesysteem de verbintenis heeft doorgegeven",
       "relaties": [
         {
           "soort": "Association",
@@ -7098,10 +7131,69 @@
           "naar": "Opleidingsprogramma aanbod verbintenis"
         }
       ],
-      "zin": "Het studentkeuzesysteem geeft de verbintenis op het keuzedeel door aan de kernregistratie."
+      "zin": "Het studentkeuzesysteem geeft de verbintenis op het keuzedeel door aan de kernregistratie, die de inschrijving daarna formaliseert (F6-09)."
     },
     {
-      "beeld_id": "F6-11",
+      "beeld_id": "F6-09",
+      "beeld": "Studentadministratie schrijft Jochem in op het keuzedeel",
+      "fase": 6,
+      "stap": "Keuzedeel formeel inschrijven",
+      "soort": "ontstaat",
+      "wie": "studentadministratie",
+      "objecttype": "Inschrijving",
+      "instantie": "Inschrijving op K0037 Farmaceutische Patientenzorg, periode 7",
+      "bron": "antwoord van Niels van Duin op #579, 25 november 2026, vraag 3: de kernregistratie formaliseert de inschrijving na de verbintenis uit het studentkeuzesysteem (F6-08); leerroute-1-regulier.md, r87 (past het niet, dan orienteert de student zich opnieuw)",
+      "nieuwe_instantie": true,
+      "relatie": {
+        "soort": "Association",
+        "van": "Aanmelding",
+        "naar": "Inschrijving",
+        "label": "Wordt na formalisatie"
+      },
+      "zin": "De studentadministratie formaliseert in de kernregistratie Jochems aanmelding tot een inschrijving, nu het studentkeuzesysteem de verbintenis heeft doorgegeven (F6-08). Zijn verbintenissen op het keuzedeel en op de onderwijseenheid staan daarmee op ingeschreven. Past het niet, dan oriënteert hij zich opnieuw op een andere periode of locatie; die variant laat dit voorbeeld liggen."
+    },
+    {
+      "beeld_id": "F6-09",
+      "beeld": "Studentadministratie schrijft Jochem in op het keuzedeel",
+      "fase": 6,
+      "stap": "Keuzedeel formeel inschrijven",
+      "soort": "verandert",
+      "wie": "studentadministratie",
+      "objecttype": "Keuzedeel aanbod verbintenis",
+      "instantie": "Jochem op K0037 Farmaceutische Patientenzorg, periode 7",
+      "toestand": "ingeschreven",
+      "bron": "antwoord van Niels van Duin op #579, 25 november 2026, vraag 3: de kernregistratie formaliseert de inschrijving na de verbintenis uit het studentkeuzesysteem (F6-08); leerroute-1-regulier.md, r87 (past het niet, dan orienteert de student zich opnieuw)",
+      "relaties": [
+        {
+          "soort": "Association",
+          "van": "Keuzedeel aanbod",
+          "naar": "Keuzedeel aanbod verbintenis",
+          "instantie": "K0037 Farmaceutische Patientenzorg, periode 7, locatie A"
+        }
+      ]
+    },
+    {
+      "beeld_id": "F6-09",
+      "beeld": "Studentadministratie schrijft Jochem in op het keuzedeel",
+      "fase": 6,
+      "stap": "Keuzedeel formeel inschrijven",
+      "soort": "verandert",
+      "wie": "studentadministratie",
+      "objecttype": "Onderwijseenheid aanbod verbintenis",
+      "instantie": "Jochem op D1-K1, periode 7",
+      "toestand": "ingeschreven",
+      "bron": "antwoord van Niels van Duin op #579, 25 november 2026, vraag 3: de kernregistratie formaliseert de inschrijving na de verbintenis uit het studentkeuzesysteem (F6-08); leerroute-1-regulier.md, r87 (past het niet, dan orienteert de student zich opnieuw)",
+      "relaties": [
+        {
+          "soort": "Association",
+          "van": "Onderwijseenheid aanbod",
+          "naar": "Onderwijseenheid aanbod verbintenis",
+          "instantie": "D1-K1, periode 7, locatie A: 18 plaatsen"
+        }
+      ]
+    },
+    {
+      "beeld_id": "F6-10",
       "beeld": "Kernregistratie stuurt de verbintenissen op K0037 naar het studentvolgsysteem",
       "fase": 6,
       "stap": "Keuzedeel formeel inschrijven",
@@ -7112,7 +7204,7 @@
       "koppeling": null,
       "objecttype": "Keuzedeel aanbod verbintenis",
       "instantie": "Jochem op K0037 Farmaceutische Patientenzorg, periode 7, ingeschreven",
-      "bron": "sessie Keuzedeelmodel en informatiemodel, 17 november 2026 (Niels van Duin, Niek Derksen): de kernregistratie meldt het studentvolgsysteem dat er op deze verbintenis resultaten en voortgang verwacht worden",
+      "bron": "sessie Keuzedeelmodel en informatiemodel, 17 november 2026 (Niels van Duin, Niek Derksen): de kernregistratie meldt het studentvolgsysteem dat er op deze verbintenis resultaten en voortgang verwacht worden; antwoord van Niels van Duin op #579, 25 november 2026, vraag 5: het studentkeuzesysteem, maar als de kernregistratie formaliseert (vraag 3) is de route via de kernregistratie de juiste; het voorbeeld volgt die, de lijn is een voorstel voor de modelronde",
       "relaties": [
         {
           "soort": "Association",
@@ -7121,11 +7213,10 @@
           "instantie": "K0037 Farmaceutische Patientenzorg, periode 7, locatie A"
         }
       ],
-      "zin": "De kernregistratie meldt het studentvolgsysteem Jochems verbintenissen op K0037. Wat het studentvolgsysteem daarop aan resultaat en voortgang verwacht, volgt uit de summatieve resultaatstructuur die het in fase 4 kreeg (F4-04).",
-      "vraag": "De hoofdplaat kent geen lijn van de kernregistratie naar het studentvolgsysteem, wel een van het studentkeuzesysteem naar het studentvolgsysteem (id-3aefce69). Welk systeem meldt de verwachting: de kernregistratie die de inschrijving vastlegt, of het studentkeuzesysteem waar de keuze ontstaat?"
+      "zin": "De kernregistratie meldt het studentvolgsysteem Jochems verbintenissen op K0037. Wat het studentvolgsysteem daarop aan resultaat en voortgang verwacht, volgt uit de summatieve resultaatstructuur die het in fase 4 kreeg (F4-04)."
     },
     {
-      "beeld_id": "F6-11",
+      "beeld_id": "F6-10",
       "beeld": "Kernregistratie stuurt de verbintenissen op K0037 naar het studentvolgsysteem",
       "fase": 6,
       "stap": "Keuzedeel formeel inschrijven",
@@ -7136,7 +7227,7 @@
       "koppeling": null,
       "objecttype": "Onderwijseenheid aanbod verbintenis",
       "instantie": "Jochem op D1-K1, periode 7, ingeschreven",
-      "bron": "sessie Keuzedeelmodel en informatiemodel, 17 november 2026 (Niels van Duin, Niek Derksen)",
+      "bron": "sessie Keuzedeelmodel en informatiemodel, 17 november 2026 (Niels van Duin, Niek Derksen); antwoord van Niels van Duin op #579, 25 november 2026, vraag 5: het studentkeuzesysteem, maar als de kernregistratie formaliseert (vraag 3) is de route via de kernregistratie de juiste; het voorbeeld volgt die, de lijn is een voorstel voor de modelronde",
       "nieuwe_instantie": true,
       "relatie": {
         "soort": "Aggregation",
@@ -7152,6 +7243,60 @@
           "instantie": "D1-K1, periode 7, locatie A: 18 plaatsen"
         }
       ]
+    },
+    {
+      "beeld_id": "F6-11",
+      "beeld": "Kernregistratie meldt de inschrijving op K0037 terug aan het studentkeuzesysteem",
+      "fase": 6,
+      "stap": "Keuzedeel formeel inschrijven",
+      "soort": "stroomt",
+      "van": "Kernregistratie systeem studenten (KRS)",
+      "naar": "Student Keuze Systeem (SKS)",
+      "pijl": "id-865f297e8c1f4371aa143aa225fe4b7f",
+      "koppeling": null,
+      "objecttype": "Keuzedeel aanbod verbintenis",
+      "instantie": "Jochem op K0037 Farmaceutische Patientenzorg, periode 7, ingeschreven",
+      "bron": "keuze van de opdrachtgever, 25 november 2026: na de formalisatie meldt de kernregistratie de inschrijving terug aan het studentkeuzesysteem, langs de lijn die de hoofdplaat kent (Student, opleidingsprogramma verbintenis, relevante groepen); antwoord van Niels van Duin op #579, 25 november 2026, vraag 4: kon hij niet plaatsen, en met de formalisatie in de kernregistratie vervalt een bevestiging vanuit planning",
+      "relaties": [
+        {
+          "soort": "Association",
+          "van": "Keuzedeel aanbod",
+          "naar": "Keuzedeel aanbod verbintenis",
+          "instantie": "K0037 Farmaceutische Patientenzorg, periode 7, locatie A"
+        }
+      ],
+      "zin": "Na de formalisatie meldt de kernregistratie het studentkeuzesysteem dat Jochem is ingeschreven, met de verbintenis op het keuzedeel en op de onderwijseenheid. Die terugmelding loopt langs een lijn die de hoofdplaat kent; dat juist deze lijn haar draagt, is een keuze van het voorbeeld.",
+      "aanname": true
+    },
+    {
+      "beeld_id": "F6-11",
+      "beeld": "Kernregistratie meldt de inschrijving op K0037 terug aan het studentkeuzesysteem",
+      "fase": 6,
+      "stap": "Keuzedeel formeel inschrijven",
+      "soort": "stroomt",
+      "van": "Kernregistratie systeem studenten (KRS)",
+      "naar": "Student Keuze Systeem (SKS)",
+      "pijl": "id-865f297e8c1f4371aa143aa225fe4b7f",
+      "koppeling": null,
+      "objecttype": "Onderwijseenheid aanbod verbintenis",
+      "instantie": "Jochem op D1-K1, periode 7, ingeschreven",
+      "bron": "keuze van de opdrachtgever, 25 november 2026: na de formalisatie meldt de kernregistratie de inschrijving terug aan het studentkeuzesysteem, langs de lijn die de hoofdplaat kent (Student, opleidingsprogramma verbintenis, relevante groepen); antwoord van Niels van Duin op #579, 25 november 2026, vraag 4: kon hij niet plaatsen, en met de formalisatie in de kernregistratie vervalt een bevestiging vanuit planning",
+      "nieuwe_instantie": true,
+      "relatie": {
+        "soort": "Aggregation",
+        "van": "Opleidingsprogramma aanbod verbintenis",
+        "naar": "Onderwijseenheid aanbod verbintenis",
+        "nesting": true
+      },
+      "relaties": [
+        {
+          "soort": "Association",
+          "van": "Onderwijseenheid aanbod",
+          "naar": "Onderwijseenheid aanbod verbintenis",
+          "instantie": "D1-K1, periode 7, locatie A: 18 plaatsen"
+        }
+      ],
+      "aanname": true
     },
     {
       "beeld_id": "F6-12",
@@ -7270,7 +7415,7 @@
       "soort": "bestaat",
       "objecttype": "Onderwijseenheid aanbod verbintenis",
       "instantie": "Jochem op D1-K1, periode 7",
-      "herkomst": "F6-08",
+      "herkomst": "F6-09",
       "bron": "sessie Keuzedeelmodel en informatiemodel, 17 november 2026 (Niels van Duin, Niek Derksen)",
       "toestand": "ingeschreven"
     },
@@ -7655,7 +7800,7 @@
           "soort": "Aggregation",
           "van": "Opleidingsprogramma aanbod",
           "naar": "Onderwijseenheid aanbod",
-          "instantie": "Regulier BOL 2026: 18 tot 36 studenten"
+          "instantie": "Regulier BOL 2026: tot 96 studenten"
         }
       ],
       "zin": "Planning publiceert het bijgestuurde aanbod naar de catalogus en het rooster volgt.",
