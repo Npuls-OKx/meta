@@ -3617,13 +3617,97 @@
       "beeld": "Planner plant opleiding, programma, eenheid en gelegenheid",
       "fase": 2,
       "stap": "Aanbod plannen",
+      "soort": "bestaat",
+      "objecttype": "Opleiding specificatie",
+      "instantie": "Apothekersassistent, versie 2026.1",
+      "herkomst": "F1-07",
+      "bron": "aanwijzing van de opdrachtgever, 25 november 2026: de specificatie waarop het aanbod gepland wordt"
+    },
+    {
+      "beeld_id": "F2-08",
+      "beeld": "Planner plant opleiding, programma, eenheid en gelegenheid",
+      "fase": 2,
+      "stap": "Aanbod plannen",
+      "soort": "bestaat",
+      "objecttype": "Opleidingsprogramma specificatie",
+      "instantie": "BOL voltijd, planbaar: tijdvensters en capaciteit",
+      "herkomst": "F2-01",
+      "bron": "aanwijzing van de opdrachtgever, 25 november 2026: de specificatie waarop het aanbod gepland wordt",
+      "relatie": {
+        "soort": "Composition",
+        "van": "Opleiding specificatie",
+        "naar": "Opleidingsprogramma specificatie",
+        "nesting": true
+      }
+    },
+    {
+      "beeld_id": "F2-08",
+      "beeld": "Planner plant opleiding, programma, eenheid en gelegenheid",
+      "fase": 2,
+      "stap": "Aanbod plannen",
+      "soort": "bestaat",
+      "objecttype": "Onderwijseenheid specificatie",
+      "instantie": "Blok B1-K1, leerjaar 1: plek in de opleidingsduur en groepsgrootte",
+      "herkomst": "F2-01",
+      "bron": "aanwijzing van de opdrachtgever, 25 november 2026: de specificatie waarop het aanbod gepland wordt",
+      "relatie": {
+        "soort": "Aggregation",
+        "van": "Opleidingsprogramma specificatie",
+        "naar": "Onderwijseenheid specificatie",
+        "nesting": true
+      }
+    },
+    {
+      "beeld_id": "F2-08",
+      "beeld": "Planner plant opleiding, programma, eenheid en gelegenheid",
+      "fase": 2,
+      "stap": "Aanbod plannen",
+      "soort": "bestaat",
+      "objecttype": "Leeronderdeel specificatie",
+      "instantie": "Baliegesprekken 101: BOT 50 uur, praktijkruimte, docent farmacie",
+      "herkomst": "F2-01",
+      "bron": "aanwijzing van de opdrachtgever, 25 november 2026: de specificatie waarop het aanbod gepland wordt",
+      "relatie": {
+        "soort": "Aggregation",
+        "van": "Onderwijseenheid specificatie",
+        "naar": "Leeronderdeel specificatie",
+        "nesting": true
+      }
+    },
+    {
+      "beeld_id": "F2-08",
+      "beeld": "Planner plant opleiding, programma, eenheid en gelegenheid",
+      "fase": 2,
+      "stap": "Aanbod plannen",
+      "soort": "bestaat",
+      "objecttype": "Toetsonderdeel specificatie",
+      "instantie": "Praktijktoets baliegesprek (OSCE), summatief: schaal 1,0 tot 10,0 met een decimaal, afname in de simulatieapotheek, 30 minuten, geen hulpmiddelen, twee pogingen",
+      "herkomst": "F1-09",
+      "bron": "aanwijzing van de opdrachtgever, 25 november 2026: de specificatie waarop het aanbod gepland wordt"
+    },
+    {
+      "beeld_id": "F2-08",
+      "beeld": "Planner plant opleiding, programma, eenheid en gelegenheid",
+      "fase": 2,
+      "stap": "Aanbod plannen",
+      "soort": "bestaat",
+      "objecttype": "Keuzedeel specificatie",
+      "instantie": "K0037 Farmaceutische Patientenzorg (480 SBU, aard verdiepend), beroepsspecifiek keuzedeel",
+      "herkomst": "F1-08",
+      "bron": "aanwijzing van de opdrachtgever, 25 november 2026: de specificatie waarop het aanbod gepland wordt"
+    },
+    {
+      "beeld_id": "F2-08",
+      "beeld": "Planner plant opleiding, programma, eenheid en gelegenheid",
+      "fase": 2,
+      "stap": "Aanbod plannen",
       "soort": "ontstaat",
       "wie": "planner",
       "objecttype": "Opleidingsaanbod van Instelling",
       "instantie": "ROC Leren Zonder Drempels: ambitie en verwachte instroom voor cohort 2026",
       "aanname": true,
       "bron": "geen bron, keuze van het voorbeeld: het objecttype heeft geen instantie in het kaderscenario; leerroute-1-regulier.md, r657 (drie stadia van onderwijsaanbod, parallel aan meerjaren-, jaar- en periodeplanning)",
-      "zin": "Het aanbod rijpt in tredes die met de planningshorizon meelopen. In de meerjarenplanning staat de intentie: welke opleiding, met welke verwachte instroom. In de jaarplanning wordt het aanbod gepland met perioden en capaciteit, nog zonder lokalen en docenten. De planner verwacht twee plaatsingsgroepen van 18 te vullen en zet op de onderwijseenheid een eerste planningsgroep, op de leergelegenheid een concept-lesgroep en op de toets dezelfde groep, alle met mock-studenten. Zo draait een eerste roosteriteratie en blijkt of het aanbod haalbaar is. Het keuzedeelaanbod K0037 krijgt zo een planningsgroep op de prognose; in fase 6 komen de echte keuzes ervoor in de plaats.",
+      "zin": "Het aanbod rijpt in tredes die met de planningshorizon meelopen. In de meerjarenplanning staat de intentie: welke opleiding, met welke verwachte instroom. In de jaarplanning plant de planner het aanbod op de planbare specificatie, met perioden en capaciteit, nog zonder lokalen en docenten. Naast elk aanbod staat de groep die erop gepland is, gevuld met een prognose: twee plaatsingsgroepen van 18 op het programma, een planningsgroep op de onderwijseenheid, een concept-lesgroep op de leergelegenheid, en voor de toets en haar herkansing hetzelfde. Zo draait een eerste roosteriteratie en blijkt of het aanbod haalbaar is. Het keuzedeel K0037 krijgt een planningsgroep op de prognose; in fase 6 komen de echte keuzes ervoor in de plaats.",
       "toestand": "intentie"
     },
     {
@@ -3642,7 +3726,16 @@
         "naar": "Opleiding aanbod",
         "nesting": true
       },
-      "toestand": "gepland"
+      "toestand": "gepland",
+      "relaties": [
+        {
+          "soort": "Association",
+          "van": "Opleiding specificatie",
+          "naar": "Opleiding aanbod",
+          "label": "wordt aangeboden als",
+          "instantie": "Apothekersassistent, versie 2026.1"
+        }
+      ]
     },
     {
       "beeld_id": "F2-08",
@@ -3660,7 +3753,16 @@
         "naar": "Opleidingsprogramma aanbod",
         "nesting": true
       },
-      "toestand": "gepland"
+      "toestand": "gepland",
+      "relaties": [
+        {
+          "soort": "Association",
+          "van": "Opleidingsprogramma specificatie",
+          "naar": "Opleidingsprogramma aanbod",
+          "label": "wordt aangeboden als",
+          "instantie": "BOL voltijd, planbaar: tijdvensters en capaciteit"
+        }
+      ]
     },
     {
       "beeld_id": "F2-08",
@@ -3678,7 +3780,16 @@
         "naar": "Onderwijseenheid aanbod",
         "nesting": true
       },
-      "toestand": "gepland"
+      "toestand": "gepland",
+      "relaties": [
+        {
+          "soort": "Association",
+          "van": "Onderwijseenheid specificatie",
+          "naar": "Onderwijseenheid aanbod",
+          "label": "wordt aangeboden als",
+          "instantie": "Blok B1-K1, leerjaar 1: plek in de opleidingsduur en groepsgrootte"
+        }
+      ]
     },
     {
       "beeld_id": "F2-08",
@@ -3696,7 +3807,16 @@
         "naar": "Leergelegenheid",
         "nesting": true
       },
-      "toestand": "grofmazig gepland"
+      "toestand": "grofmazig gepland",
+      "relaties": [
+        {
+          "soort": "Association",
+          "van": "Leeronderdeel specificatie",
+          "naar": "Leergelegenheid",
+          "label": "wordt aangeboden als",
+          "instantie": "Baliegesprekken 101: BOT 50 uur, praktijkruimte, docent farmacie"
+        }
+      ]
     },
     {
       "beeld_id": "F2-08",
@@ -3711,7 +3831,8 @@
       "relatie": {
         "soort": "Association",
         "van": "Toetsonderdeel specificatie",
-        "naar": "Toetsgelegenheid"
+        "naar": "Toetsgelegenheid",
+        "instantie": "Praktijktoets baliegesprek (OSCE), summatief: schaal 1,0 tot 10,0 met een decimaal, afname in de simulatieapotheek, 30 minuten, geen hulpmiddelen, twee pogingen"
       },
       "toestand": "grofmazig gepland"
     },
@@ -3722,9 +3843,61 @@
       "stap": "Aanbod plannen",
       "soort": "ontstaat",
       "wie": "planner",
+      "objecttype": "Toetsgelegenheid",
+      "instantie": "Herkansing praktijktoets baliegesprek (OSCE), periode 2",
+      "nieuwe_instantie": true,
+      "toestand": "grofmazig gepland",
+      "bron": "F1-09, Toetsonderdeel specificatie: twee pogingen; aanwijzing van de opdrachtgever, 25 november 2026",
+      "relatie": {
+        "soort": "Association",
+        "van": "Toetsonderdeel specificatie",
+        "naar": "Toetsgelegenheid",
+        "instantie": "Praktijktoets baliegesprek (OSCE), summatief: schaal 1,0 tot 10,0 met een decimaal, afname in de simulatieapotheek, 30 minuten, geen hulpmiddelen, twee pogingen"
+      }
+    },
+    {
+      "beeld_id": "F2-08",
+      "beeld": "Planner plant opleiding, programma, eenheid en gelegenheid",
+      "fase": 2,
+      "stap": "Aanbod plannen",
+      "soort": "ontstaat",
+      "wie": "planner",
+      "objecttype": "Keuzedeel aanbod",
+      "instantie": "K0037 Farmaceutische Patientenzorg, periode 7, locatie A",
+      "toestand": "gepland",
+      "bron": "sessie OKx-werkverdeling en leerrouteontwerp, 10 november 2026 (Niels van Duin, Niek Derksen, Garik Hakopian): het keuzedeelaanbod bepaal je ieder jaar opnieuw, in de jaarplanning; besluit van de opdrachtgever, 24 november 2026: lijn b",
+      "relatie": {
+        "soort": "Association",
+        "van": "Keuzedeel specificatie",
+        "naar": "Keuzedeel aanbod",
+        "label": "wordt aangeboden als",
+        "instantie": "K0037 Farmaceutische Patientenzorg (480 SBU, aard verdiepend), beroepsspecifiek keuzedeel"
+      },
+      "relaties": [
+        {
+          "soort": "Specialization",
+          "van": "Keuzedeel aanbod",
+          "naar": "Opleidingsprogramma aanbod"
+        },
+        {
+          "soort": "Association",
+          "van": "Verzoek tot Aanbod / Intekening op specificatie",
+          "naar": "Keuzedeel aanbod",
+          "label": "Leidt tot"
+        }
+      ]
+    },
+    {
+      "beeld_id": "F2-08",
+      "beeld": "Planner plant opleiding, programma, eenheid en gelegenheid",
+      "fase": 2,
+      "stap": "Aanbod plannen",
+      "soort": "ontstaat",
+      "wie": "planner",
       "objecttype": "Plaatsingsgroep",
-      "instantie": "APO26-1A: 18 mock-studenten, de eerste van twee plaatsingsgroepen",
-      "bron": "aanwijzing van de opdrachtgever, 25 november 2026: in de jaarplanning verwacht de planner de plaatsingsgroepen te vullen en zet hij op het aanbod een eerste set planningsgroepen en concept-lesgroepen, met mock-studenten, zodat een eerste roosteriteratie de haalbaarheid toetst; voor toetsen en keuzedelen net zo; aantallen volgen het cohort van 36 in twee groepen van 18 (#296)",
+      "instantie": "APO26-1A: prognose 18 studenten, de eerste van twee plaatsingsgroepen",
+      "naast": true,
+      "bron": "aanwijzing van de opdrachtgever, 25 november 2026: in de jaarplanning verwacht de planner de plaatsingsgroepen te vullen en zet hij op het aanbod een eerste set planningsgroepen en concept-lesgroepen, gevuld met een prognose, zodat een eerste roosteriteratie de haalbaarheid toetst; voor toetsen, herkansingen en keuzedelen net zo; aantallen volgen het cohort van 36 in twee groepen van 18 (#296)",
       "relatie": {
         "soort": "Association",
         "van": "Plaatsingsgroep",
@@ -3742,8 +3915,9 @@
       "soort": "ontstaat",
       "wie": "planner",
       "objecttype": "Planningsgroep",
-      "instantie": "B1-K1 periode 1: APO26-1A met 18 mock-studenten",
-      "bron": "aanwijzing van de opdrachtgever, 25 november 2026: in de jaarplanning verwacht de planner de plaatsingsgroepen te vullen en zet hij op het aanbod een eerste set planningsgroepen en concept-lesgroepen, met mock-studenten, zodat een eerste roosteriteratie de haalbaarheid toetst; voor toetsen en keuzedelen net zo",
+      "instantie": "B1-K1 periode 1: APO26-1A, prognose 18 studenten",
+      "naast": true,
+      "bron": "aanwijzing van de opdrachtgever, 25 november 2026: in de jaarplanning verwacht de planner de plaatsingsgroepen te vullen en zet hij op het aanbod een eerste set planningsgroepen en concept-lesgroepen, gevuld met een prognose, zodat een eerste roosteriteratie de haalbaarheid toetst; voor toetsen, herkansingen en keuzedelen net zo",
       "relatie": {
         "soort": "Composition",
         "van": "Plaatsingsgroep",
@@ -3757,14 +3931,6 @@
           "label": "is gepland op",
           "voorstel": true,
           "instantie": "B1-K1, leerjaar 1, periode 1 tot 4"
-        },
-        {
-          "soort": "Association",
-          "van": "Planningsgroep",
-          "naar": "Toetsgelegenheid",
-          "label": "is gepland op",
-          "voorstel": true,
-          "instantie": "Praktijktoets baliegesprek (OSCE), einde periode 1"
         }
       ]
     },
@@ -3776,8 +3942,9 @@
       "soort": "ontstaat",
       "wie": "planner",
       "objecttype": "Lesgroep",
-      "instantie": "Baliegesprekken 101-A (concept): 18 mock-studenten",
-      "bron": "aanwijzing van de opdrachtgever, 25 november 2026: in de jaarplanning verwacht de planner de plaatsingsgroepen te vullen en zet hij op het aanbod een eerste set planningsgroepen en concept-lesgroepen, met mock-studenten, zodat een eerste roosteriteratie de haalbaarheid toetst; voor toetsen en keuzedelen net zo",
+      "instantie": "Baliegesprekken 101-A (concept): prognose 18 studenten",
+      "naast": true,
+      "bron": "aanwijzing van de opdrachtgever, 25 november 2026: in de jaarplanning verwacht de planner de plaatsingsgroepen te vullen en zet hij op het aanbod een eerste set planningsgroepen en concept-lesgroepen, gevuld met een prognose, zodat een eerste roosteriteratie de haalbaarheid toetst; voor toetsen, herkansingen en keuzedelen net zo",
       "relatie": {
         "soort": "Association",
         "van": "Planningsgroep",
@@ -3804,31 +3971,56 @@
       "stap": "Aanbod plannen",
       "soort": "ontstaat",
       "wie": "planner",
-      "objecttype": "Keuzedeel aanbod",
-      "instantie": "K0037 Farmaceutische Patientenzorg, periode 7, locatie A",
-      "toestand": "gepland",
-      "bron": "sessie OKx-werkverdeling en leerrouteontwerp, 10 november 2026 (Niels van Duin, Niek Derksen, Garik Hakopian): het keuzedeelaanbod bepaal je ieder jaar opnieuw, in de jaarplanning; besluit van de opdrachtgever, 24 november 2026: lijn b",
+      "objecttype": "Planningsgroep",
+      "instantie": "OSCE einde periode 1: APO26-1A, prognose 18 studenten",
+      "naast": true,
+      "bron": "aanwijzing van de opdrachtgever, 25 november 2026: in de jaarplanning verwacht de planner de plaatsingsgroepen te vullen en zet hij op het aanbod een eerste set planningsgroepen en concept-lesgroepen, gevuld met een prognose, zodat een eerste roosteriteratie de haalbaarheid toetst; voor toetsen, herkansingen en keuzedelen net zo",
       "relatie": {
-        "soort": "Specialization",
-        "van": "Keuzedeel aanbod",
-        "naar": "Opleidingsprogramma aanbod"
+        "soort": "Association",
+        "van": "Planningsgroep",
+        "naar": "Toetsgelegenheid",
+        "label": "is gepland op",
+        "voorstel": true,
+        "instantie": "Praktijktoets baliegesprek (OSCE), einde periode 1"
+      },
+      "relaties": [
+        {
+          "soort": "Composition",
+          "van": "Plaatsingsgroep",
+          "naar": "Planningsgroep"
+        }
+      ],
+      "nieuwe_instantie": true
+    },
+    {
+      "beeld_id": "F2-08",
+      "beeld": "Planner plant opleiding, programma, eenheid en gelegenheid",
+      "fase": 2,
+      "stap": "Aanbod plannen",
+      "soort": "ontstaat",
+      "wie": "planner",
+      "objecttype": "Lesgroep",
+      "instantie": "OSCE-A (concept): prognose 18 studenten",
+      "naast": true,
+      "bron": "aanwijzing van de opdrachtgever, 25 november 2026: in de jaarplanning verwacht de planner de plaatsingsgroepen te vullen en zet hij op het aanbod een eerste set planningsgroepen en concept-lesgroepen, gevuld met een prognose, zodat een eerste roosteriteratie de haalbaarheid toetst; voor toetsen, herkansingen en keuzedelen net zo",
+      "relatie": {
+        "soort": "Association",
+        "van": "Planningsgroep",
+        "naar": "Lesgroep",
+        "label": "vormt",
+        "voorstel": true
       },
       "relaties": [
         {
           "soort": "Association",
-          "van": "Keuzedeel specificatie",
-          "naar": "Keuzedeel aanbod",
-          "label": "wordt aangeboden als",
-          "instantie": "K0037 Farmaceutische Patientenzorg (480 SBU, aard verdiepend), beroepsspecifiek keuzedeel"
-        },
-        {
-          "soort": "Association",
-          "van": "Verzoek tot Aanbod / Intekening op specificatie",
-          "naar": "Keuzedeel aanbod",
-          "label": "Leidt tot",
-          "instantie": "Planopgave Apothekersassistent, cohort 2026, met het keuzedeel K0037"
+          "van": "Lesgroep",
+          "naar": "Toetsgelegenheid",
+          "label": "is gepland op",
+          "voorstel": true,
+          "instantie": "Praktijktoets baliegesprek (OSCE), einde periode 1"
         }
-      ]
+      ],
+      "nieuwe_instantie": true
     },
     {
       "beeld_id": "F2-08",
@@ -3838,17 +4030,40 @@
       "soort": "ontstaat",
       "wie": "planner",
       "objecttype": "Planningsgroep",
-      "instantie": "K0037 periode 7, locatie A: prognose 18 mock-studenten",
+      "instantie": "Herkansing OSCE periode 2: prognose 4 studenten",
+      "naast": true,
+      "bron": "aanwijzing van de opdrachtgever, 25 november 2026: in de jaarplanning verwacht de planner de plaatsingsgroepen te vullen en zet hij op het aanbod een eerste set planningsgroepen en concept-lesgroepen, gevuld met een prognose, zodat een eerste roosteriteratie de haalbaarheid toetst; voor toetsen, herkansingen en keuzedelen net zo; de herkansers komen uit meer plaatsingsgroepen, dus de groep hangt aan geen enkele",
+      "relatie": {
+        "soort": "Association",
+        "van": "Planningsgroep",
+        "naar": "Toetsgelegenheid",
+        "label": "is gepland op",
+        "voorstel": true,
+        "instantie": "Herkansing praktijktoets baliegesprek (OSCE), periode 2"
+      },
+      "nieuwe_instantie": true
+    },
+    {
+      "beeld_id": "F2-08",
+      "beeld": "Planner plant opleiding, programma, eenheid en gelegenheid",
+      "fase": 2,
+      "stap": "Aanbod plannen",
+      "soort": "ontstaat",
+      "wie": "planner",
+      "objecttype": "Planningsgroep",
+      "instantie": "K0037 periode 7, locatie A: prognose 18 studenten",
       "bron": "besluit van de opdrachtgever, 24 november 2026: de planningsgroep ontstaat al bij ontwerp en capaciteitsgestuurd plannen, en wordt na de keuzes heroverwogen",
       "relatie": {
         "soort": "Association",
         "van": "Planningsgroep",
         "naar": "Keuzedeel aanbod",
         "label": "is gepland op",
-        "voorstel": true
+        "voorstel": true,
+        "instantie": "K0037 Farmaceutische Patientenzorg, periode 7, locatie A"
       },
       "vraag": "Een planningsgroep op een keuzedeel bundelt studenten uit meer plaatsingsgroepen, terwijl de plaat een `Planningsgroep` tekent als deel (compositie) van een `Plaatsingsgroep`. Past die compositie hier, of hoort er een andere relatie? De relatie van `Planningsgroep` naar `Keuzedeel aanbod` is een voorstel.",
-      "nieuwe_instantie": true
+      "nieuwe_instantie": true,
+      "naast": true
     },
     {
       "beeld_id": "F2-09",
@@ -4288,7 +4503,7 @@
         "van": "Student",
         "naar": "Persoon"
       },
-      "zin": "De SLB'er voert de intake uit en plaatst Jochem in een plaatsingsgroep. Een keuzedeelvoorkeur legt zij hier nog niet vast: dat is bij de intake niet gebruikelijk, en de definitieve keuze valt pas minimaal een periode voor de keuzedeelruimte in het programma. De plaatsingsgroep stond al als verwachting in de jaarplanning (F2-08), gevuld met mock-studenten; nu komen de echte studenten erin. De SLB'er bepaalt bij wie Jochem hoort, de kernregistratie legt de groep vast nadat de intake is afgerond."
+      "zin": "De SLB'er voert de intake uit en plaatst Jochem in een plaatsingsgroep. Een keuzedeelvoorkeur legt zij hier nog niet vast: dat is bij de intake niet gebruikelijk, en de definitieve keuze valt pas minimaal een periode voor de keuzedeelruimte in het programma. De plaatsingsgroep stond al als verwachting in de jaarplanning (F2-08), gevuld met een prognose; nu komen de echte studenten erin. De SLB'er bepaalt bij wie Jochem hoort, de kernregistratie legt de groep vast nadat de intake is afgerond."
     },
     {
       "beeld_id": "F3-05",
@@ -6434,7 +6649,7 @@
       "stap": "Definitieve keuzes verwerken naar groepen en capaciteit",
       "soort": "bestaat",
       "objecttype": "Planningsgroep",
-      "instantie": "K0037 periode 7, locatie A: prognose 18 mock-studenten",
+      "instantie": "K0037 periode 7, locatie A: prognose 18 studenten",
       "herkomst": "F2-08",
       "bron": "aanwijzing van de opdrachtgever, 24 november 2026"
     },
@@ -6492,7 +6707,7 @@
       "objecttype": "Planningsgroep",
       "instantie": "K0037 periode 7, locatie A: 18 keuzes, de groep past",
       "toestand": "bevestigd",
-      "bron": "aanwijzing van de opdrachtgever, 24 november 2026: na de keuzes heroverweegt de planner de groep uit de jaarplanning; aanwijzing van de opdrachtgever, 25 november 2026: de verbintenissen van de studenten die kozen vervangen de mock-studenten en komen in de planningsgroep, die zo naar het rooster gaat",
+      "bron": "aanwijzing van de opdrachtgever, 24 november 2026: na de keuzes heroverweegt de planner de groep uit de jaarplanning; aanwijzing van de opdrachtgever, 25 november 2026: de verbintenissen van de studenten die kozen vervangen de prognose en komen in de planningsgroep, die zo naar het rooster gaat",
       "relatie": {
         "soort": "Association",
         "van": "Planningsgroep",
@@ -6501,7 +6716,7 @@
         "voorstel": true,
         "instantie": "K0037 Farmaceutische Patientenzorg, periode 7, locatie A"
       },
-      "zin": "De planner legt de verbintenissen van de 18 studenten die K0037 kozen naast de planningsgroep uit de jaarplanning (F2-08). Waar daar 18 mock-studenten stonden, staan nu Jochem, Sanne, Mohammed, Lotte en veertien anderen: de groep past. Elke verbintenis komt in de planningsgroep, en als planningsgroep gaat K0037 naar het rooster (F6-12). Fijnmazig plannen voegt het gebouw toe; het lokaaltype en de docentexpertise lagen al vast.",
+      "zin": "De planner legt de verbintenissen van de 18 studenten die K0037 kozen naast de planningsgroep uit de jaarplanning (F2-08). Waar daar een prognose van 18 stond, staan nu Jochem, Sanne, Mohammed, Lotte en veertien anderen: de groep past. Elke verbintenis komt in de planningsgroep, en als planningsgroep gaat K0037 naar het rooster (F6-12). Fijnmazig plannen voegt het gebouw toe; het lokaaltype en de docentexpertise lagen al vast.",
       "relaties": [
         {
           "soort": "Association",
