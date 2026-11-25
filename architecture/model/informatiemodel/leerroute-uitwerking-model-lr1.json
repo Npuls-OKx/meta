@@ -81,7 +81,9 @@
         "Leergelegenheid",
         "Toetsgelegenheid",
         "Keuzedeel aanbod",
-        "Planningsgroep"
+        "Planningsgroep",
+        "Plaatsingsgroep",
+        "Lesgroep"
       ],
       "uitwisselingen": [
         {
@@ -132,8 +134,7 @@
         "Aanmelding",
         "Inschrijving",
         "Opleiding aanbod verbintenis",
-        "Opleidingsprogramma aanbod verbintenis",
-        "Plaatsingsgroep"
+        "Opleidingsprogramma aanbod verbintenis"
       ],
       "uitwisselingen": [
         {
@@ -177,7 +178,6 @@
         "Les specificatie",
         "Lesgelegenheid",
         "Lesgelegenheid verbintenis",
-        "Lesgroep",
         "Medewerker",
         "Onderwijseenheid aanbod verbintenis"
       ],
@@ -564,7 +564,7 @@
     },
     {
       "naam": "bevestigd",
-      "bron": "aanwijzing van de opdrachtgever, 24 november 2026: na de keuzes heroverweegt de planner de planningsgroep uit de jaarplanning; past zij, dan is zij bevestigd"
+      "bron": "aanwijzing van de opdrachtgever, 24 november 2026: na de keuzes heroverweegt de planner de planningsgroep uit de jaarplanning; past zij, dan is zij bevestigd; aanwijzing van de opdrachtgever, 25 november 2026: de plaatsingsgroep uit de jaarplanning is bevestigd zodra de studenten erin geplaatst zijn"
     }
   ],
   "scope_uitzonderingen": [
@@ -3623,7 +3623,7 @@
       "instantie": "ROC Leren Zonder Drempels: ambitie en verwachte instroom voor cohort 2026",
       "aanname": true,
       "bron": "geen bron, keuze van het voorbeeld: het objecttype heeft geen instantie in het kaderscenario; leerroute-1-regulier.md, r657 (drie stadia van onderwijsaanbod, parallel aan meerjaren-, jaar- en periodeplanning)",
-      "zin": "Het aanbod rijpt in tredes die met de planningshorizon meelopen. In de meerjarenplanning staat de intentie: welke opleiding, met welke verwachte instroom. In de jaarplanning wordt het aanbod gepland met perioden en capaciteit, nog zonder lokalen en docenten. In de periodeplanning worden de gelegenheden fijnmazig gepland, met groepen en tijdvensters. Roosteren volgt daarna en valt buiten de uitwisseling. Het keuzedeelaanbod K0037 wordt in de jaarplanning vastgesteld, met een planningsgroep op de prognose; in fase 6 werkt de planner het per laag uit.",
+      "zin": "Het aanbod rijpt in tredes die met de planningshorizon meelopen. In de meerjarenplanning staat de intentie: welke opleiding, met welke verwachte instroom. In de jaarplanning wordt het aanbod gepland met perioden en capaciteit, nog zonder lokalen en docenten. De planner verwacht twee plaatsingsgroepen van 18 te vullen en zet op de onderwijseenheid een eerste planningsgroep, op de leergelegenheid een concept-lesgroep en op de toets dezelfde groep, alle met mock-studenten. Zo draait een eerste roosteriteratie en blijkt of het aanbod haalbaar is. Het keuzedeelaanbod K0037 krijgt zo een planningsgroep op de prognose; in fase 6 komen de echte keuzes ervoor in de plaats.",
       "toestand": "intentie"
     },
     {
@@ -3722,6 +3722,88 @@
       "stap": "Aanbod plannen",
       "soort": "ontstaat",
       "wie": "planner",
+      "objecttype": "Plaatsingsgroep",
+      "instantie": "APO26-1A: 18 mock-studenten, de eerste van twee plaatsingsgroepen",
+      "bron": "aanwijzing van de opdrachtgever, 25 november 2026: in de jaarplanning verwacht de planner de plaatsingsgroepen te vullen en zet hij op het aanbod een eerste set planningsgroepen en concept-lesgroepen, met mock-studenten, zodat een eerste roosteriteratie de haalbaarheid toetst; voor toetsen en keuzedelen net zo; aantallen volgen het cohort van 36 in twee groepen van 18 (#296)",
+      "relatie": {
+        "soort": "Association",
+        "van": "Plaatsingsgroep",
+        "naar": "Opleidingsprogramma aanbod",
+        "label": "is gepland op",
+        "voorstel": true,
+        "instantie": "Regulier BOL 2026: 18 tot 36 studenten"
+      }
+    },
+    {
+      "beeld_id": "F2-08",
+      "beeld": "Planner plant opleiding, programma, eenheid en gelegenheid",
+      "fase": 2,
+      "stap": "Aanbod plannen",
+      "soort": "ontstaat",
+      "wie": "planner",
+      "objecttype": "Planningsgroep",
+      "instantie": "B1-K1 periode 1: APO26-1A met 18 mock-studenten",
+      "bron": "aanwijzing van de opdrachtgever, 25 november 2026: in de jaarplanning verwacht de planner de plaatsingsgroepen te vullen en zet hij op het aanbod een eerste set planningsgroepen en concept-lesgroepen, met mock-studenten, zodat een eerste roosteriteratie de haalbaarheid toetst; voor toetsen en keuzedelen net zo",
+      "relatie": {
+        "soort": "Composition",
+        "van": "Plaatsingsgroep",
+        "naar": "Planningsgroep"
+      },
+      "relaties": [
+        {
+          "soort": "Association",
+          "van": "Planningsgroep",
+          "naar": "Onderwijseenheid aanbod",
+          "label": "is gepland op",
+          "voorstel": true,
+          "instantie": "B1-K1, leerjaar 1, periode 1 tot 4"
+        },
+        {
+          "soort": "Association",
+          "van": "Planningsgroep",
+          "naar": "Toetsgelegenheid",
+          "label": "is gepland op",
+          "voorstel": true,
+          "instantie": "Praktijktoets baliegesprek (OSCE), einde periode 1"
+        }
+      ]
+    },
+    {
+      "beeld_id": "F2-08",
+      "beeld": "Planner plant opleiding, programma, eenheid en gelegenheid",
+      "fase": 2,
+      "stap": "Aanbod plannen",
+      "soort": "ontstaat",
+      "wie": "planner",
+      "objecttype": "Lesgroep",
+      "instantie": "Baliegesprekken 101-A (concept): 18 mock-studenten",
+      "bron": "aanwijzing van de opdrachtgever, 25 november 2026: in de jaarplanning verwacht de planner de plaatsingsgroepen te vullen en zet hij op het aanbod een eerste set planningsgroepen en concept-lesgroepen, met mock-studenten, zodat een eerste roosteriteratie de haalbaarheid toetst; voor toetsen en keuzedelen net zo",
+      "relatie": {
+        "soort": "Association",
+        "van": "Planningsgroep",
+        "naar": "Lesgroep",
+        "label": "vormt",
+        "voorstel": true
+      },
+      "relaties": [
+        {
+          "soort": "Association",
+          "van": "Lesgroep",
+          "naar": "Leergelegenheid",
+          "label": "is gepland op",
+          "voorstel": true,
+          "instantie": "Baliegesprekken 101, periode 1, twee groepen van 18"
+        }
+      ],
+      "vraag": "Een concept-lesgroep in de jaarplanning heeft nog geen verbintenissen, dus geen route via `Leergelegenheid verbintenis` (Groepeert tot). Hoort er een relatie van `Lesgroep` naar `Leergelegenheid`, en van `Planningsgroep` naar het aanbod waarop zij gepland is?"
+    },
+    {
+      "beeld_id": "F2-08",
+      "beeld": "Planner plant opleiding, programma, eenheid en gelegenheid",
+      "fase": 2,
+      "stap": "Aanbod plannen",
+      "soort": "ontstaat",
+      "wie": "planner",
       "objecttype": "Keuzedeel aanbod",
       "instantie": "K0037 Farmaceutische Patientenzorg, periode 7, locatie A",
       "toestand": "gepland",
@@ -3756,7 +3838,7 @@
       "soort": "ontstaat",
       "wie": "planner",
       "objecttype": "Planningsgroep",
-      "instantie": "K0037 periode 7, locatie A: prognose 18 studenten",
+      "instantie": "K0037 periode 7, locatie A: prognose 18 mock-studenten",
       "bron": "besluit van de opdrachtgever, 24 november 2026: de planningsgroep ontstaat al bij ontwerp en capaciteitsgestuurd plannen, en wordt na de keuzes heroverwogen",
       "relatie": {
         "soort": "Association",
@@ -3765,7 +3847,8 @@
         "label": "is gepland op",
         "voorstel": true
       },
-      "vraag": "Hoe volgen de planningsgroepen in de jaarplanning uit de plaatsingsgroepen? Op de plaat is een `Planningsgroep` een deel van een `Plaatsingsgroep`, terwijl plaatsingsgroepen pas in fase 3 ontstaan. De relatie van `Planningsgroep` naar `Keuzedeel aanbod` is een voorstel."
+      "vraag": "Een planningsgroep op een keuzedeel bundelt studenten uit meer plaatsingsgroepen, terwijl de plaat een `Planningsgroep` tekent als deel (compositie) van een `Plaatsingsgroep`. Past die compositie hier, of hoort er een andere relatie? De relatie van `Planningsgroep` naar `Keuzedeel aanbod` is een voorstel.",
+      "nieuwe_instantie": true
     },
     {
       "beeld_id": "F2-09",
@@ -4205,25 +4288,25 @@
         "van": "Student",
         "naar": "Persoon"
       },
-      "zin": "De SLB'er voert de intake uit en plaatst Jochem in een plaatsingsgroep. Een keuzedeelvoorkeur legt zij hier nog niet vast: dat is bij de intake niet gebruikelijk, en de definitieve keuze valt pas minimaal een periode voor de keuzedeelruimte in het programma. De groep zelf krijgt pas vorm in de kernregistratie, nadat de intake is afgerond; de SLB'er bepaalt bij wie Jochem hoort, de kernregistratie legt de groep vast."
+      "zin": "De SLB'er voert de intake uit en plaatst Jochem in een plaatsingsgroep. Een keuzedeelvoorkeur legt zij hier nog niet vast: dat is bij de intake niet gebruikelijk, en de definitieve keuze valt pas minimaal een periode voor de keuzedeelruimte in het programma. De plaatsingsgroep stond al als verwachting in de jaarplanning (F2-08), gevuld met mock-studenten; nu komen de echte studenten erin. De SLB'er bepaalt bij wie Jochem hoort, de kernregistratie legt de groep vast nadat de intake is afgerond."
     },
     {
       "beeld_id": "F3-05",
       "beeld": "SLB'er plaatst Jochem in een plaatsingsgroep",
       "fase": 3,
       "stap": "Intake doorlopen en plaatsen",
-      "soort": "ontstaat",
+      "soort": "verandert",
       "wie": "SLB'er",
       "objecttype": "Plaatsingsgroep",
-      "instantie": "APO26-1A",
-      "bron": "voorbeeldpayloads.md, groepen (13cc9125); leerroute-1-regulier.md, Fase 3: initiele plaatsingsgroep; plek van ontstaan aangescherpt in de sparsessie PR 314, deel 2, 4 november 2026",
-      "aanname": true,
+      "instantie": "APO26-1A: Jochem en 17 andere studenten geplaatst",
+      "bron": "voorbeeldpayloads.md, groepen (13cc9125); leerroute-1-regulier.md, Fase 3: initiele plaatsingsgroep; plek van ontstaan aangescherpt in de sparsessie PR 314, deel 2, 4 november 2026; aanwijzing van de opdrachtgever, 25 november 2026: de plaatsingsgroep uit de jaarplanning (F2-08) wordt gevuld met echte studenten",
       "relatie": {
         "soort": "Association",
         "van": "Persoon",
         "naar": "Plaatsingsgroep",
         "label": "Worden gegroepeerd via"
-      }
+      },
+      "toestand": "bevestigd"
     },
     {
       "beeld_id": "F3-06",
@@ -5049,7 +5132,7 @@
           "van": "Persoon",
           "naar": "Plaatsingsgroep",
           "label": "Worden gegroepeerd via",
-          "instantie": "Jochem en 29 andere studenten"
+          "instantie": "Jochem en 17 andere studenten"
         }
       ],
       "vraag": "Het kaderscenario zet groepen in twee richtingen tussen planning en de kernregistratie, en hoofdplaat v1.7 kent alleen de lijn van de kernregistratie naar planning. Een planninggroep die de planner om logistieke redenen vormt, hoort die terug naar de kernregistratie als nieuwe plaatsingsgroep, en mist de plaat dan een stroom?"
@@ -6126,7 +6209,7 @@
     },
     {
       "beeld_id": "F6-04",
-      "beeld": "Jochem kiest keuzedeel K0037",
+      "beeld": "Jochem en 17 medestudenten kiezen keuzedeel K0037",
       "fase": 6,
       "stap": "Keuzedeel kiezen in het studentkeuzesysteem",
       "soort": "bestaat",
@@ -6142,7 +6225,7 @@
     },
     {
       "beeld_id": "F6-04",
-      "beeld": "Jochem kiest keuzedeel K0037",
+      "beeld": "Jochem en 17 medestudenten kiezen keuzedeel K0037",
       "fase": 6,
       "stap": "Keuzedeel kiezen in het studentkeuzesysteem",
       "soort": "bestaat",
@@ -6159,7 +6242,7 @@
     },
     {
       "beeld_id": "F6-04",
-      "beeld": "Jochem kiest keuzedeel K0037",
+      "beeld": "Jochem en 17 medestudenten kiezen keuzedeel K0037",
       "fase": 6,
       "stap": "Keuzedeel kiezen in het studentkeuzesysteem",
       "soort": "ontstaat",
@@ -6175,11 +6258,11 @@
         "label": "Op basis van",
         "instantie": "K0037 Farmaceutische Patientenzorg, periode 7, locatie A"
       },
-      "zin": "Het keuzemoment is er en Jochem kiest direct uit het aanbod: K0037 in periode 7. Dat is de regel; een geprioriteerde voorkeurslijst is de uitzondering. Het studentkeuzesysteem toont eerst het aanbod op Jochems eigen locatie en daarna breder. Dat filter is logica van het studentkeuzesysteem, buiten het informatiemodel. De verbintenis komt op het keuzedeel en op de onderwijseenheid; de periode lag al vast in de jaaruitzetting van zijn plaatsingsgroep."
+      "zin": "Het keuzemoment is er en Jochem kiest direct uit het aanbod: K0037 in periode 7. Dat is de regel; een geprioriteerde voorkeurslijst is de uitzondering. Het studentkeuzesysteem toont eerst het aanbod op Jochems eigen locatie en daarna breder. Dat filter is logica van het studentkeuzesysteem, buiten het informatiemodel. De verbintenis komt op het keuzedeel en op de onderwijseenheid; de periode lag al vast in de jaaruitzetting van zijn plaatsingsgroep. Sanne, Mohammed, Lotte en veertien anderen kiezen ook K0037: samen 18 keuzes."
     },
     {
       "beeld_id": "F6-04",
-      "beeld": "Jochem kiest keuzedeel K0037",
+      "beeld": "Jochem en 17 medestudenten kiezen keuzedeel K0037",
       "fase": 6,
       "stap": "Keuzedeel kiezen in het studentkeuzesysteem",
       "soort": "ontstaat",
@@ -6210,7 +6293,64 @@
     },
     {
       "beeld_id": "F6-04",
-      "beeld": "Jochem kiest keuzedeel K0037",
+      "beeld": "Jochem en 17 medestudenten kiezen keuzedeel K0037",
+      "fase": 6,
+      "stap": "Keuzedeel kiezen in het studentkeuzesysteem",
+      "soort": "ontstaat",
+      "wie": "student",
+      "objecttype": "Keuzedeel aanbod verbintenis",
+      "instantie": "Sanne op K0037 Farmaceutische Patientenzorg, periode 7",
+      "bron": "geen bron, keuze van het voorbeeld: aanwijzing van de opdrachtgever, 25 november 2026 (meer studenten kiezen hetzelfde keuzedeel)",
+      "nieuwe_instantie": true,
+      "toestand": "aangemeld",
+      "relatie": {
+        "soort": "Association",
+        "van": "Keuzedeel aanbod",
+        "naar": "Keuzedeel aanbod verbintenis",
+        "instantie": "K0037 Farmaceutische Patientenzorg, periode 7, locatie A"
+      }
+    },
+    {
+      "beeld_id": "F6-04",
+      "beeld": "Jochem en 17 medestudenten kiezen keuzedeel K0037",
+      "fase": 6,
+      "stap": "Keuzedeel kiezen in het studentkeuzesysteem",
+      "soort": "ontstaat",
+      "wie": "student",
+      "objecttype": "Keuzedeel aanbod verbintenis",
+      "instantie": "Mohammed op K0037 Farmaceutische Patientenzorg, periode 7",
+      "bron": "geen bron, keuze van het voorbeeld: aanwijzing van de opdrachtgever, 25 november 2026 (meer studenten kiezen hetzelfde keuzedeel)",
+      "nieuwe_instantie": true,
+      "toestand": "aangemeld",
+      "relatie": {
+        "soort": "Association",
+        "van": "Keuzedeel aanbod",
+        "naar": "Keuzedeel aanbod verbintenis",
+        "instantie": "K0037 Farmaceutische Patientenzorg, periode 7, locatie A"
+      }
+    },
+    {
+      "beeld_id": "F6-04",
+      "beeld": "Jochem en 17 medestudenten kiezen keuzedeel K0037",
+      "fase": 6,
+      "stap": "Keuzedeel kiezen in het studentkeuzesysteem",
+      "soort": "ontstaat",
+      "wie": "student",
+      "objecttype": "Keuzedeel aanbod verbintenis",
+      "instantie": "Lotte en 14 anderen op K0037 Farmaceutische Patientenzorg, periode 7",
+      "bron": "geen bron, keuze van het voorbeeld: aanwijzing van de opdrachtgever, 25 november 2026 (meer studenten kiezen hetzelfde keuzedeel)",
+      "nieuwe_instantie": true,
+      "toestand": "aangemeld",
+      "relatie": {
+        "soort": "Association",
+        "van": "Keuzedeel aanbod",
+        "naar": "Keuzedeel aanbod verbintenis",
+        "instantie": "K0037 Farmaceutische Patientenzorg, periode 7, locatie A"
+      }
+    },
+    {
+      "beeld_id": "F6-04",
+      "beeld": "Jochem en 17 medestudenten kiezen keuzedeel K0037",
       "fase": 6,
       "stap": "Keuzedeel kiezen in het studentkeuzesysteem",
       "soort": "ontstaat",
@@ -6294,9 +6434,53 @@
       "stap": "Definitieve keuzes verwerken naar groepen en capaciteit",
       "soort": "bestaat",
       "objecttype": "Planningsgroep",
-      "instantie": "K0037 periode 7, locatie A: prognose 18 studenten",
+      "instantie": "K0037 periode 7, locatie A: prognose 18 mock-studenten",
       "herkomst": "F2-08",
       "bron": "aanwijzing van de opdrachtgever, 24 november 2026"
+    },
+    {
+      "beeld_id": "F6-06",
+      "beeld": "Planner verwerkt de keuzes tot groepen en capaciteit",
+      "fase": 6,
+      "stap": "Definitieve keuzes verwerken naar groepen en capaciteit",
+      "soort": "bestaat",
+      "objecttype": "Keuzedeel aanbod verbintenis",
+      "instantie": "Jochem op K0037 Farmaceutische Patientenzorg, periode 7",
+      "herkomst": "F6-04",
+      "bron": "aanwijzing van de opdrachtgever, 25 november 2026"
+    },
+    {
+      "beeld_id": "F6-06",
+      "beeld": "Planner verwerkt de keuzes tot groepen en capaciteit",
+      "fase": 6,
+      "stap": "Definitieve keuzes verwerken naar groepen en capaciteit",
+      "soort": "bestaat",
+      "objecttype": "Keuzedeel aanbod verbintenis",
+      "instantie": "Sanne op K0037 Farmaceutische Patientenzorg, periode 7",
+      "herkomst": "F6-04",
+      "bron": "aanwijzing van de opdrachtgever, 25 november 2026"
+    },
+    {
+      "beeld_id": "F6-06",
+      "beeld": "Planner verwerkt de keuzes tot groepen en capaciteit",
+      "fase": 6,
+      "stap": "Definitieve keuzes verwerken naar groepen en capaciteit",
+      "soort": "bestaat",
+      "objecttype": "Keuzedeel aanbod verbintenis",
+      "instantie": "Mohammed op K0037 Farmaceutische Patientenzorg, periode 7",
+      "herkomst": "F6-04",
+      "bron": "aanwijzing van de opdrachtgever, 25 november 2026"
+    },
+    {
+      "beeld_id": "F6-06",
+      "beeld": "Planner verwerkt de keuzes tot groepen en capaciteit",
+      "fase": 6,
+      "stap": "Definitieve keuzes verwerken naar groepen en capaciteit",
+      "soort": "bestaat",
+      "objecttype": "Keuzedeel aanbod verbintenis",
+      "instantie": "Lotte en 14 anderen op K0037 Farmaceutische Patientenzorg, periode 7",
+      "herkomst": "F6-04",
+      "bron": "aanwijzing van de opdrachtgever, 25 november 2026"
     },
     {
       "beeld_id": "F6-06",
@@ -6308,7 +6492,7 @@
       "objecttype": "Planningsgroep",
       "instantie": "K0037 periode 7, locatie A: 18 keuzes, de groep past",
       "toestand": "bevestigd",
-      "bron": "aanwijzing van de opdrachtgever, 24 november 2026: na de keuzes heroverweegt de planner de groep uit de jaarplanning",
+      "bron": "aanwijzing van de opdrachtgever, 24 november 2026: na de keuzes heroverweegt de planner de groep uit de jaarplanning; aanwijzing van de opdrachtgever, 25 november 2026: de verbintenissen van de studenten die kozen vervangen de mock-studenten en komen in de planningsgroep, die zo naar het rooster gaat",
       "relatie": {
         "soort": "Association",
         "van": "Planningsgroep",
@@ -6317,7 +6501,41 @@
         "voorstel": true,
         "instantie": "K0037 Farmaceutische Patientenzorg, periode 7, locatie A"
       },
-      "zin": "De planner legt de keuzes naast de planningsgroep uit de jaarplanning (F2-08): 18 keuzes op een prognose van 18, de groep past. Fijnmazig plannen voegt de groep en het gebouw toe; het lokaaltype en de docentexpertise lagen al vast bij het detailleren (F6-01). Past het niet, dan stuurt de planner bij: een groep minder of een groep erbij, zoals in fase 7. De beelden tonen een voorstel: de planningsgroep hangt aan het keuzedeel (vraag 1 in #579)."
+      "zin": "De planner legt de verbintenissen van de 18 studenten die K0037 kozen naast de planningsgroep uit de jaarplanning (F2-08). Waar daar 18 mock-studenten stonden, staan nu Jochem, Sanne, Mohammed, Lotte en veertien anderen: de groep past. Elke verbintenis komt in de planningsgroep, en als planningsgroep gaat K0037 naar het rooster (F6-12). Fijnmazig plannen voegt het gebouw toe; het lokaaltype en de docentexpertise lagen al vast.",
+      "relaties": [
+        {
+          "soort": "Association",
+          "van": "Keuzedeel aanbod verbintenis",
+          "naar": "Planningsgroep",
+          "label": "wordt geplaatst in",
+          "voorstel": true,
+          "instantie": "Jochem op K0037 Farmaceutische Patientenzorg, periode 7"
+        },
+        {
+          "soort": "Association",
+          "van": "Keuzedeel aanbod verbintenis",
+          "naar": "Planningsgroep",
+          "label": "wordt geplaatst in",
+          "voorstel": true,
+          "instantie": "Sanne op K0037 Farmaceutische Patientenzorg, periode 7"
+        },
+        {
+          "soort": "Association",
+          "van": "Keuzedeel aanbod verbintenis",
+          "naar": "Planningsgroep",
+          "label": "wordt geplaatst in",
+          "voorstel": true,
+          "instantie": "Mohammed op K0037 Farmaceutische Patientenzorg, periode 7"
+        },
+        {
+          "soort": "Association",
+          "van": "Keuzedeel aanbod verbintenis",
+          "naar": "Planningsgroep",
+          "label": "wordt geplaatst in",
+          "voorstel": true,
+          "instantie": "Lotte en 14 anderen op K0037 Farmaceutische Patientenzorg, periode 7"
+        }
+      ]
     },
     {
       "beeld_id": "F6-06",
@@ -6891,7 +7109,8 @@
           "instantie": "K0037 periode 7, locatie A: 18 keuzes, de groep past"
         }
       ],
-      "vraag": "Hoort er een relatie van `Planningsgroep` naar `Lesgroep`, en van `Medewerker` naar `Lesgelegenheid`, of loopt dat via de verbintenis?"
+      "vraag": "Hoort er een relatie van `Planningsgroep` naar `Lesgroep`, en van `Medewerker` naar `Lesgelegenheid`, of loopt dat via de verbintenis?",
+      "nieuwe_instantie": true
     },
     {
       "beeld_id": "F6-13",
