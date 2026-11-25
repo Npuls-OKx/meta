@@ -730,3 +730,50 @@ class OmwegDeMoeite(unittest.TestCase):
     def test_given_the_block_already_holds_three_detours_when_weighed_then_a_reference(self):
         vol = self.objecten("A", "B") + [{"over_afstand": True} for _ in range(tv.OMWEG_MAX)]
         self.assertFalse(tv._de_moeite(vol, "A", "hangt aan"))
+
+
+def _naast_regels(met_bestaand=True):
+    """F2-08 in het klein: specificatie links, aanbod in het midden, groepen ernaast."""
+    k = {"beeld_id": "F2-08", "beeld": "Planner plant", "fase": 2, "stap": "Aanbod plannen", "bron": "b"}
+    r = []
+    if met_bestaand:
+        r.append(dict(k, soort="bestaat", objecttype="Opleidingsprogramma specificatie", instantie="s", herkomst="F1-01"))
+    r += [
+        dict(k, soort="ontstaat", wie="planner", objecttype="Opleidingsprogramma aanbod", instantie="a",
+             relaties=[{"soort": "Association", "van": "Opleidingsprogramma specificatie", "naar": "Opleidingsprogramma aanbod",
+                        "label": "wordt aangeboden als", "instantie": "s"}]),
+        dict(k, soort="ontstaat", wie="planner", objecttype="Onderwijseenheid aanbod", instantie="b",
+             relatie={"soort": "Aggregation", "van": "Opleidingsprogramma aanbod", "naar": "Onderwijseenheid aanbod", "nesting": True}),
+        dict(k, soort="ontstaat", wie="planner", objecttype="Plaatsingsgroep", instantie="g1", naast=True,
+             relatie={"soort": "Association", "van": "Plaatsingsgroep", "naar": "Opleidingsprogramma aanbod", "label": "is gepland op", "instantie": "a"}),
+        dict(k, soort="ontstaat", wie="planner", objecttype="Planningsgroep", instantie="g2", naast=True,
+             relatie={"soort": "Composition", "van": "Plaatsingsgroep", "naar": "Planningsgroep"},
+             relaties=[{"soort": "Association", "van": "Planningsgroep", "naar": "Onderwijseenheid aanbod", "label": "is gepland op"}]),
+    ]
+    return {"regels": r}
+
+
+class NaastTests(unittest.TestCase):
+    """Een groep staat in een kolom naast het aanbod waarop zij gepland is, op dezelfde hoogte (F2-08)."""
+
+    def test_given_group_marked_naast_when_grouped_then_it_is_beside_and_not_in_the_column(self):
+        blok = tv.groepeer(_naast_regels())[0]
+        self.assertEqual([g["type"] for g in blok["naast"]], ["Plaatsingsgroep", "Planningsgroep"])
+        self.assertNotIn("Plaatsingsgroep", tv._types_in_blok(blok["objecten"]))
+        self.assertEqual(blok["naast"][0]["anker"], ("Opleidingsprogramma aanbod", "a"))
+        self.assertEqual(blok["naast"][1]["anker"], ("Onderwijseenheid aanbod", "b"))
+        self.assertEqual(blok["naast"][1]["groep_rel"]["soort"], "Composition")
+
+    def test_given_groups_beside_when_drawn_then_each_at_the_height_of_its_offer(self):
+        blok = tv.groepeer(_naast_regels())[0]
+        svg = tv.regel_ontstaat(blok, set())
+        P = tv.POSITIES
+        self.assertEqual(P[("Plaatsingsgroep", "g1")][1], P[("Opleidingsprogramma aanbod", "a")][1])
+        self.assertEqual(P[("Planningsgroep", "g2")][1], P[("Onderwijseenheid aanbod", "b")][1])
+        self.assertGreater(P[("Plaatsingsgroep", "g1")][0], P[("Opleidingsprogramma aanbod", "a")][0] + P[("Opleidingsprogramma aanbod", "a")][2])
+        self.assertIn("is gepland op", teksten(svg))
+
+    def test_given_groups_beside_without_existing_objects_when_grouped_then_they_are_not_lost(self):
+        blok = tv.groepeer(_naast_regels(met_bestaand=False))[0]
+        self.assertIn("Plaatsingsgroep", tv._types_in_blok(blok["objecten"]))
+        self.assertIn("Planningsgroep", tv._types_in_blok(blok["objecten"]))

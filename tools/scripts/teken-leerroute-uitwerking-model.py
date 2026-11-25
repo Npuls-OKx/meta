@@ -606,7 +606,10 @@ class _Kant:
             self.cursor = it["_bodem"] + (28 if diepte == 0 else 8)
 
 
-def _uitgelijnd(lx, rx, y, links, rechts, lijnen, uitzonderingen):
+NAAST_BAAN = 8   # afstand tussen de geknikte lijnen naar groepen die onder hun anker schuiven
+
+
+def _uitgelijnd(lx, rx, y, links, rechts, lijnen, uitzonderingen, naast=()):
     """Beide kolommen onder elkaar, met elk paar uit een herkomstlijn op dezelfde hoogte: de laag van de
     specificatie naast de laag van het aanbod. Geeft (svg links, svg rechts, hoogte), of None als de paren
     niet in dezelfde volgorde staan of een relatie over afstand loopt; dan valt het beeld terug op twee
@@ -614,8 +617,25 @@ def _uitgelijnd(lx, rx, y, links, rechts, lijnen, uitzonderingen):
     pl, pr = _plat(links), _plat(rechts)
     if pl is None or pr is None:
         return None
-    paar = {l["bron"]: l["doel"] for l in lijnen}
+    paar = {}
+    for l in lijnen:
+        # trekt een object twee lijnen (de toets en haar herkansing), dan lijnt het uit met de eerste
+        paar.setdefault(l["bron"], l["doel"])
     sleutel = lambda it: (it["type"], it["instantie"])
+    # groepen naast het aanbod: per anker de groepen die erop gepland zijn, in volgorde
+    anker = {}
+    for g in naast:
+        anker.setdefault(g.get("anker"), []).append(g)
+    kg, geplaatst = _Kant(y), []
+
+    def groepen_bij(r_it, yy):
+        gs = anker.pop(sleutel(r_it), [])
+        return (max(yy, kg.cursor) if gs else yy), gs
+
+    def plaats_groepen(gs, yy):
+        for n, g in enumerate(gs):
+            kg.plaats(g, 0, yy if n == 0 else kg.cursor)
+            geplaatst.append(g)
     volgorde = [sleutel(it) for it, _, _ in pr]
     gepaard = [volgorde.index(paar[sleutel(it)]) for it, _, _ in pl if paar.get(sleutel(it)) in volgorde]
     if gepaard != sorted(gepaard):
@@ -629,17 +649,22 @@ def _uitgelijnd(lx, rx, y, links, rechts, lijnen, uitzonderingen):
         if l and paar.get(sleutel(l[0])) is not None and r and paar[sleutel(l[0])] == sleutel(r[0]):
             kl.sluit_tot(l[1]); kr.sluit_tot(r[1])
             extra = 16 if r[2] is not None and r[1] == 0 else 0
-            yy = max(kl.cursor, kr.cursor + extra)
+            yy, gs = groepen_bij(r[0], max(kl.cursor, kr.cursor + extra))
             kl.plaats(l[0], l[1], yy); kr.plaats(r[0], r[1], yy)
+            plaats_groepen(gs, yy)
             i += 1; j += 1
         elif l and paar.get(sleutel(l[0])) is None:
             kl.sluit_tot(l[1]); kl.plaats(l[0], l[1], kl.cursor); i += 1
         elif r and sleutel(r[0]) not in doelen or (r and l is None):
             kr.sluit_tot(r[1])
-            kr.plaats(r[0], r[1], kr.cursor + (16 if r[2] is not None and r[1] == 0 else 0)); j += 1
+            yy, gs = groepen_bij(r[0], kr.cursor + (16 if r[2] is not None and r[1] == 0 else 0))
+            kr.plaats(r[0], r[1], yy); j += 1
+            plaats_groepen(gs, yy)
         else:
             return None
     kl.sluit_tot(0); kr.sluit_tot(0)
+    # een groep zonder anker in deze kolom komt onderaan
+    plaats_groepen([g for gs in anker.values() for g in gs], kg.cursor)
 
     def teken_kolom(plat, x0):
         out, lijnen_svg, vorige = "", "", None
@@ -668,8 +693,60 @@ def _uitgelijnd(lx, rx, y, links, rechts, lijnen, uitzonderingen):
                 vorige = it["_bodem"]
         return out + lijnen_svg
 
-    hoogte = max([it["_bodem"] for it, _, _ in pl + pr] + [y]) - y
-    return teken_kolom(pl, lx), teken_kolom(pr, rx), hoogte
+    hoogte = max([it["_bodem"] for it, _, _ in pl + pr] + [it["_bodem"] for it in geplaatst] + [y]) - y
+    rsvg = teken_kolom(pr, rx)
+    if geplaatst:
+        rsvg += _teken_naast(rx, rechts, geplaatst, list(naast), teken_kolom)
+    return teken_kolom(pl, lx), rsvg, hoogte
+
+
+def _naast_x(rx, rechts, naast):
+    """De linkerrand van de kolom met groepen: voorbij het breedste aanbod en de labels van de relaties."""
+    mid_w = max([_maat(it)[0] for it in rechts if "type" in it] + [0])
+    labelw = max([tw(g["anker_rel"]["label"], 10) for g in naast if g.get("anker_rel")] + [0])
+    knikken = sum(1 for g in naast if g.get("_y") is not None and g.get("anker") in POSITIES
+                  and POSITIES[g["anker"]][1] != g["_y"])
+    return rx + mid_w + labelw + 40 + NAAST_BAAN * knikken
+
+
+def _teken_naast(rx, rechts, geplaatst, volgorde, teken_kolom):
+    """De groepen in hun kolom, met een lijn naar het aanbod waarop ze gepland zijn. Staat een groep op
+    de hoogte van haar anker, dan is de lijn recht; anders knikt zij in een eigen baan vlak voor de kolom."""
+    gx = _naast_x(rx, rechts, volgorde)
+    plat = []
+    for i, g in enumerate(geplaatst):
+        rel = g.get("groep_rel")
+        voorganger = volgorde[volgorde.index(g) - 1] if volgorde.index(g) > 0 else None
+        if rel and not (i > 0 and geplaatst[i - 1] is voorganger):
+            # de groep erboven in de kolom is niet de groep van de relatie: verwijzing in plaats van lijn
+            g["verwijzingen"].insert(0, g.get("_groep_ref"))
+            rel = None
+        plat.append((g, 0, rel))
+    out = teken_kolom(plat, gx)
+    lijnen, gelabeld, knik = "", set(), 0
+    for g in geplaatst:
+        if not g.get("anker") or g["anker"] not in POSITIES:
+            continue
+        ax, ay, aw = POSITIES[g["anker"]]
+        x1, y1, y2 = ax + aw, ay + 24, g["_y"] + 24
+        if y1 == y2:
+            d = f"M{x1:.0f} {y1:.0f}H{gx:.0f}"
+        else:
+            mx = gx - 14 - NAAST_BAAN * knik
+            knik += 1
+            d = f"M{x1:.0f} {y1:.0f}H{mx:.0f}V{y2:.0f}H{gx:.0f}"
+        lijnen += f'<path class="naastlijn" d="{d}" stroke="#444" stroke-width="1.3" fill="none"/>'
+        rel = g["anker_rel"]
+        if rel["label"] and rel["soort"] == "Association":
+            # gerichte associatie: open punt aan het eind waar de relatie naartoe wijst
+            if rel["naar_rechts"]:
+                lijnen += f'<path d="M{gx - 9:.0f} {y2 - 5:.0f}L{gx:.0f} {y2:.0f}L{gx - 9:.0f} {y2 + 5:.0f}" fill="none" stroke="#444" stroke-width="1.3"/>'
+            else:
+                lijnen += f'<path d="M{x1 + 9:.0f} {y1 - 5:.0f}L{x1:.0f} {y1:.0f}L{x1 + 9:.0f} {y1 + 5:.0f}" fill="none" stroke="#444" stroke-width="1.3"/>'
+        if rel["label"] and (g["anker"], rel["label"]) not in gelabeld:
+            gelabeld.add((g["anker"], rel["label"]))
+            lijnen += text(x1 + 12, y1 - 5, rel["label"], 10, fill=MUTED)
+    return out + lijnen
 
 
 VLAK_RAND = 14   # binnenmarge van een vlak
@@ -739,16 +816,27 @@ def _regel_herkomst(blok, uitzonderingen):
     verdieping = f"verdieping: {blok['verdieping']}" if blok.get("verdieping") else None
     rkop, rkw, rkh, rstap = _rol_en_stap(rx, iy, blok["wie"], blok["stap"], verdieping)
     oy = iy + max(lkh, rkh) + 24
-    gelijk = _uitgelijnd(lx, rx, oy, blok["bestaand"], blok["objecten"], lijnen, uitzonderingen)
+    naast = blok.get("naast") or []
+    gelijk = _uitgelijnd(lx, rx, oy, blok["bestaand"], blok["objecten"], lijnen, uitzonderingen, naast)
     if gelijk:
         lsvg, rsvg, oh = gelijk
-        rw = max([_maat(it)[0] for it in blok["objecten"] if "type" in it] + [0])
+        rw = max([_maat(it)[0] for it in blok["objecten"] if "type" in it]
+                 + [POSITIES[(g["type"], g["instantie"])][0] + POSITIES[(g["type"], g["instantie"])][2] - rx
+                    for g in naast if (g["type"], g["instantie"]) in POSITIES] + [0])
     else:
         POSITIES.clear()
         # de kolom links staat altijd onder elkaar: zo blijft zij binnen de breedte die het vlak al kreeg
         lsvg, bw, bh = _objecten_kolom(lx, oy, blok["bestaand"], uitzonderingen, alles_onder=True)
         rsvg, rw, rh = objecten(rx, oy, blok["objecten"], uitzonderingen)
         oh = max(bh, rh)
+        if naast:
+            # niet uit te lijnen: de groepen als kolom ernaast, met hun relaties als verwijzing
+            gx = rx + rw + 40
+            for g in naast:
+                g["verwijzingen"][:0] = [v for v in (g.get("_anker_ref"), g.get("_groep_ref")) if v]
+            gsvg, gw, gh = _objecten_kolom(gx, oy, naast, uitzonderingen, alles_onder=True)
+            rsvg += gsvg
+            rw, oh = gx + gw - rx, max(oh, gh)
     rechts_w = max(rkw, rw)
     # de ophanging van elke processtap naar het eerste object eronder
     eerste = lambda items: next((POSITIES.get((it["type"], it["instantie"])) for it in items if "type" in it), None)
@@ -1016,6 +1104,9 @@ def groepeer(regels):
             if r.get("zin") and not laatste["zin"]:
                 laatste["zin"] = r["zin"]
             continue
+        if r.get("naast"):
+            _naast_item(laatste, r)
+            continue
         # een extra relatie waarvan het andere eind al in dit blok staat wordt een lijn met een omweg;
         # de rest blijft een verwijzing onder het object
         _reeds = _types_in_blok(laatste["objecten"])
@@ -1075,9 +1166,58 @@ def groepeer(regels):
         if r.get("zin") and not laatste["zin"]:
             laatste["zin"] = r["zin"]
     for blok in blokken:
+        if blok.get("naast") and not blok.get("bestaand"):
+            # zonder kolom links is er geen uitgelijnd beeld: de groepen gaan onder het aanbod, met hun
+            # relaties als verwijzing, zodat er niets wegvalt
+            for g in blok.pop("naast"):
+                g["verwijzingen"][:0] = [v for v in (g.pop("_anker_ref", None), g.pop("_groep_ref", None)) if v]
+                g.pop("anker", None), g.pop("anker_rel", None), g.pop("groep_rel", None)
+                blok["objecten"].append(g)
         if blok.get("bestaand"):
             _herkomst_afronden(blok, regels["regels"])
     return blokken
+
+
+def _zoek_object(items, objecttype, instantie=None):
+    """Het eerste object van dit type (of met dit type als generalisatie) in het blok, kinderen meegerekend."""
+    for it in items:
+        if "type" not in it:
+            continue
+        if objecttype in (it["type"], it.get("specialiseert")) and instantie in (None, it["instantie"]):
+            return it
+        gevonden = _zoek_object(it.get("kinderen", []), objecttype, instantie)
+        if gevonden is not None:
+            return gevonden
+    return None
+
+
+def _naast_item(blok, r):
+    """Een regel met naast: het object staat in een kolom naast het aanbod, op de hoogte van het object
+    waaraan zijn eerste relatie het in dit blok vastmaakt (de planningsgroep naast de onderwijseenheid
+    waarop zij gepland is). Een relatie naar de groep erboven in die kolom wordt een lijn ertussen; de
+    rest blijft een verwijzing."""
+    item = {"type": r["objecttype"], "instantie": r["instantie"], "aanname": r.get("aanname", False),
+            "plaat": r.get("plaat", "informatiemodel"), "verwijzingen": []}
+    _merk_voorstel(item, r)
+    if r.get("toestand"):
+        item["toestand"] = r["toestand"]
+    vorige = blok["naast"][-1] if blok.get("naast") else None
+    for x in ([r["relatie"]] if r.get("relatie") else []) + list(r.get("relaties", [])):
+        ander = x["naar"] if x["van"] == r["objecttype"] else x["van"]
+        doel = _zoek_object(blok["objecten"], ander, x.get("instantie"))
+        if doel is not None and "anker" not in item:
+            item["anker"] = (doel["type"], doel["instantie"])
+            item["anker_rel"] = {"label": _lab(x), "soort": x["soort"], "naar_rechts": x["naar"] == r["objecttype"]}
+            item["_anker_ref"] = _verwijzing(x, r["objecttype"])
+        elif (vorige is not None and "groep_rel" not in item and ander == vorige["type"]
+              and x.get("instantie") in (None, vorige["instantie"])):
+            item["groep_rel"] = {"relatie": _lab(x), "soort": x["soort"], "naar_rechts": x["naar"] == r["objecttype"]}
+            item["_groep_ref"] = _verwijzing(x, r["objecttype"])
+        else:
+            item["verwijzingen"].append(_verwijzing(x, r["objecttype"]))
+    blok.setdefault("naast", []).append(item)
+    if r.get("zin") and not blok["zin"]:
+        blok["zin"] = r["zin"]
 
 
 def _herkomst_afronden(blok, regels):
