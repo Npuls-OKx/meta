@@ -99,7 +99,7 @@ def afbreken(tekst, maxw, size=14, bold=True):
     return regels or [""]
 
 
-def element(x, y, kind, label, inst, fill=BUS, line=BUS_L, labelkleur=BUS_T, rx=0, dashed=False, toestand=None, verwijzing=None, verwijzingen=()):
+def element(x, y, kind, label, inst, fill=BUS, line=BUS_L, labelkleur=BUS_T, rx=0, dashed=False, toestand=None, verwijzing=None, verwijzingen=(), breedte=None):
     """Eén element: typelabel klein, instantie vet over zo veel regels als nodig, en eronder de toestand
     en de verwijzingen naar objecten buiten het blok. Geeft (svg, w, h).
 
@@ -110,6 +110,9 @@ def element(x, y, kind, label, inst, fill=BUS, line=BUS_L, labelkleur=BUS_T, rx=
     extra = _extra(toestand, verwijzing, verwijzingen)
     regels = afbreken(inst, INSTANTIE_MAX_BREEDTE)
     w = max(120, max([tw(label, 12)] + [tw(r, 14, True) for r in regels] + [tw(e, 12) for e in extra]) + 42)
+    if breedte:
+        # een kolom van gelijke vakken (de groepen naast het aanbod) geeft een vaste breedte mee
+        w = max(w, breedte)
     h = 48 + 18 * (len(regels) - 1) + 17 * len(extra)
     s = box(x, y, w, h, fill, line, rx, dashed) + icon(kind, x + w - 22, y + 5)
     s += text(x + 10, y + 18, label, 12, fill=labelkleur)
@@ -666,7 +669,7 @@ def _uitgelijnd(lx, rx, y, links, rechts, lijnen, uitzonderingen, naast=()):
     # een groep zonder anker in deze kolom komt onderaan
     plaats_groepen([g for gs in anker.values() for g in gs], kg.cursor)
 
-    def teken_kolom(plat, x0):
+    def teken_kolom(plat, x0, breedte=None):
         out, lijnen_svg, vorige = "", "", None
         for it, diepte, rel in plat:
             x = x0 + 14 * diepte
@@ -684,7 +687,7 @@ def _uitgelijnd(lx, rx, y, links, rechts, lijnen, uitzonderingen, naast=()):
                     out += text(x + 10, voet + 17 + 17 * k, e, 12, fill=MUTED)
             else:
                 svg, w, _ = element(x, it["_y"], "object", it["type"], it["instantie"], fill, line, lk, 0, it.get("aanname", False),
-                                    it.get("toestand"), it.get("verwijzing"), it.get("verwijzingen", ()))
+                                    it.get("toestand"), it.get("verwijzing"), it.get("verwijzingen", ()), breedte)
                 out += svg
             POSITIES[(it["type"], it["instantie"])] = (x, it["_y"], w)
             if diepte == 0:
@@ -722,7 +725,8 @@ def _teken_naast(rx, rechts, geplaatst, volgorde, teken_kolom):
             g["verwijzingen"].insert(0, g.get("_groep_ref"))
             rel = None
         plat.append((g, 0, rel))
-    out = teken_kolom(plat, gx)
+    # Niels van Duin, 25 november 2026: de vakken in de groepenkolom even breed
+    out = teken_kolom(plat, gx, max(_maat(g)[0] for g in geplaatst))
     lijnen, gelabeld, knik = "", set(), 0
     for g in geplaatst:
         if not g.get("anker") or g["anker"] not in POSITIES:

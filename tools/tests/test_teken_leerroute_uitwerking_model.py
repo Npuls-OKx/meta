@@ -821,3 +821,14 @@ class NaastVerbintenisTests(unittest.TestCase):
         svg = tv.regel_ontstaat(blok, set())
         self.assertIn('class="naastlijn-groep"', svg)
         self.assertRegex(svg, r'<path d="M[0-9]+ [0-9]+l-7 -5l-7 5l7 5z" fill="#444"')
+
+
+class NaastBreedteTests(unittest.TestCase):
+    def test_given_groups_with_different_text_when_drawn_then_all_boxes_in_the_column_equally_wide(self):
+        # Niels van Duin, 25 november 2026: "maak die balkjes aan de rechterkant even groot"
+        r = _naast_regels()
+        r["regels"][-1]["instantie"] = "een veel langere instantie van de planningsgroep"
+        blok = tv.groepeer(r)[0]
+        tv.regel_ontstaat(blok, set())
+        breedtes = {tv.POSITIES[(g["type"], g["instantie"])][2] for g in blok["naast"]}
+        self.assertEqual(len(breedtes), 1)
