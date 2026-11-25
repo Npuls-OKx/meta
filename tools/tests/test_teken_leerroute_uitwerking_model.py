@@ -777,3 +777,47 @@ class NaastTests(unittest.TestCase):
         blok = tv.groepeer(_naast_regels(met_bestaand=False))[0]
         self.assertIn("Plaatsingsgroep", tv._types_in_blok(blok["objecten"]))
         self.assertIn("Planningsgroep", tv._types_in_blok(blok["objecten"]))
+
+
+def _naast_met_verbintenissen():
+    """F6-06 in het klein: de groep naast het aanbod, en eronder de verbintenissen die erin geplaatst worden."""
+    r = _naast_regels()
+    k = {"beeld_id": "F2-08", "beeld": "Planner plant", "fase": 2, "stap": "Aanbod plannen", "bron": "b"}
+    for n in ("v1", "v2", "v3"):
+        r["regels"].append(dict(k, soort="bestaat", objecttype="Keuzedeel aanbod verbintenis", instantie=n, herkomst="F6-04",
+                                naast=True, relatie={"soort": "Association", "van": "Keuzedeel aanbod verbintenis",
+                                                     "naar": "Planningsgroep", "label": "wordt geplaatst in", "instantie": "g2"}))
+    return r
+
+
+class NaastVerbintenisTests(unittest.TestCase):
+    """Een object dat al bestond kan in de kolom ernaast staan, met een lijn naar de groep erboven (F6-06)."""
+
+    def test_given_existing_objects_beside_when_grouped_then_in_the_column_with_their_origin(self):
+        blok = tv.groepeer(_naast_met_verbintenissen())[0]
+        typen = [g["type"] for g in blok["naast"]]
+        self.assertEqual(typen.count("Keuzedeel aanbod verbintenis"), 3)
+        v = blok["naast"][2]
+        self.assertIn("uit F6-04", v["verwijzingen"])
+        self.assertEqual(v["groep_rel"]["relatie"], "wordt geplaatst in")
+        self.assertEqual(blok["naast"][3]["groep_doel"], ("Planningsgroep", "g2"))
+
+    def test_given_several_objects_to_one_group_when_drawn_then_a_line_each_and_the_label_once(self):
+        blok = tv.groepeer(_naast_met_verbintenissen())[0]
+        svg = tv.regel_ontstaat(blok, set())
+        self.assertEqual(svg.count('class="naastlijn-groep"'), 2)
+        self.assertEqual(teksten(svg).count("wordt geplaatst in"), 1)
+
+
+    def test_given_a_composition_to_a_group_further_up_when_drawn_then_the_diamond_is_at_the_whole(self):
+        r = _naast_regels()
+        k = {"beeld_id": "F2-08", "beeld": "Planner plant", "fase": 2, "stap": "Aanbod plannen", "bron": "b"}
+        r["regels"].append(dict(k, soort="ontstaat", wie="planner", objecttype="Planningsgroep", instantie="g3", naast=True,
+                                relatie={"soort": "Association", "van": "Planningsgroep", "naar": "Onderwijseenheid aanbod", "label": "is gepland op"}))
+        r["regels"].append(dict(k, soort="ontstaat", wie="planner", objecttype="Planningsgroep", instantie="g4", naast=True,
+                                relaties=[{"soort": "Composition", "van": "Plaatsingsgroep", "naar": "Planningsgroep"}]))
+        blok = tv.groepeer(r)[0]
+        self.assertEqual(blok["naast"][3]["groep_doel"], ("Plaatsingsgroep", "g1"))
+        svg = tv.regel_ontstaat(blok, set())
+        self.assertIn('class="naastlijn-groep"', svg)
+        self.assertRegex(svg, r'<path d="M[0-9]+ [0-9]+l-7 -5l-7 5l7 5z" fill="#444"')

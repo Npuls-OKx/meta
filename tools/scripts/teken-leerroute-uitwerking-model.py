@@ -746,7 +746,48 @@ def _teken_naast(rx, rechts, geplaatst, volgorde, teken_kolom):
         if rel["label"] and (g["anker"], rel["label"]) not in gelabeld:
             gelabeld.add((g["anker"], rel["label"]))
             lijnen += text(x1 + 12, y1 - 5, rel["label"], 10, fill=MUTED)
-    return out + lijnen
+    return out + lijnen + _naast_groeplijnen(geplaatst)
+
+
+def _naast_extra(naast):
+    """De breedte die de banen rechts van de kolom vragen, voor relaties naar een groep verder terug."""
+    lijnen = [g for g in naast if g.get("groep_doel")]
+    if not lijnen:
+        return 0
+    return 16 + NAAST_BAAN * len(lijnen) + max(tw(g["groep_doel_rel"]["label"], 10) for g in lijnen) + 10
+
+
+def _naast_groeplijnen(geplaatst):
+    """Elk object met een relatie naar een groep verder terug in de kolom krijgt een lijn langs een eigen
+    baan rechts van de kolom. Het label staat een keer per groep, en niet als de lijn naar het object
+    direct onder de groep het al draagt."""
+    lijnen = [g for g in geplaatst if g.get("groep_doel") in POSITIES and (g["type"], g["instantie"]) in POSITIES]
+    if not lijnen:
+        return ""
+    rand = max(POSITIES[(g["type"], g["instantie"])][0] + POSITIES[(g["type"], g["instantie"])][2] for g in geplaatst
+               if (g["type"], g["instantie"]) in POSITIES)
+    gelabeld = {(geplaatst[i - 1]["type"], geplaatst[i - 1]["instantie"], g["groep_rel"]["relatie"])
+                for i, g in enumerate(geplaatst) if i > 0 and g.get("groep_rel")}
+    uit = ""
+    for k, g in enumerate(lijnen):
+        bx, by, bw = POSITIES[(g["type"], g["instantie"])]
+        dx, dy, dw = POSITIES[g["groep_doel"]]
+        baan = rand + 16 + NAAST_BAAN * k
+        x1, y1, x2, y2 = bx + bw, by + 24, dx + dw, dy + 24 + 6
+        uit += (f'<path class="naastlijn-groep" d="M{x1:.0f} {y1:.0f}H{baan:.0f}V{y2:.0f}H{x2:.0f}" '
+                f'stroke="#444" stroke-width="1.3" fill="none"/>')
+        rel = g["groep_doel_rel"]
+        if rel["soort"] in ("Aggregation", "Composition") and rel["naar_rechts"]:
+            # de groep verder terug is het geheel: de ruit aan haar kant
+            vulling = "#444" if rel["soort"] == "Composition" else "#ffffff"
+            uit += f'<path d="M{x2 + 14:.0f} {y2:.0f}l-7 -5l-7 5l7 5z" fill="{vulling}" stroke="#444" stroke-width="1.3"/>'
+        elif rel["label"] and rel["soort"] == "Association" and not rel["naar_rechts"]:
+            uit += f'<path d="M{x2 + 9:.0f} {y2 - 5:.0f}L{x2:.0f} {y2:.0f}L{x2 + 9:.0f} {y2 + 5:.0f}" fill="none" stroke="#444" stroke-width="1.3"/>'
+        sleutel = (*g["groep_doel"], rel["label"])
+        if rel["label"] and sleutel not in gelabeld:
+            gelabeld.add(sleutel)
+            uit += text(rand + 16 + NAAST_BAAN * len(lijnen) + 6, y2 + 4, rel["label"], 10, fill=MUTED)
+    return uit
 
 
 VLAK_RAND = 14   # binnenmarge van een vlak
@@ -822,7 +863,7 @@ def _regel_herkomst(blok, uitzonderingen):
         lsvg, rsvg, oh = gelijk
         rw = max([_maat(it)[0] for it in blok["objecten"] if "type" in it]
                  + [POSITIES[(g["type"], g["instantie"])][0] + POSITIES[(g["type"], g["instantie"])][2] - rx
-                    for g in naast if (g["type"], g["instantie"]) in POSITIES] + [0])
+                    + _naast_extra(naast) for g in naast if (g["type"], g["instantie"]) in POSITIES] + [0])
     else:
         POSITIES.clear()
         # de kolom links staat altijd onder elkaar: zo blijft zij binnen de breedte die het vlak al kreeg
@@ -1083,6 +1124,11 @@ def groepeer(regels):
         if r.get("wie") and r["wie"] not in laatste["rollen"]:
             laatste["rollen"].append(r["wie"])
             laatste["wie"] = ", ".join(laatste["rollen"])
+        if soort == "bestaat" and r.get("naast"):
+            # eerder ontstaan, maar het hoort bij een groep in de kolom ernaast (de verbintenis die in
+            # de planningsgroep geplaatst wordt): daar, met zijn herkomst als verwijzing
+            _naast_item(laatste, r)
+            continue
         if soort == "bestaat":
             # eerder ontstaan: een eigen kolom links, wit, met het beeld van herkomst; de structuur
             # (nesting) komt terug zoals zij ontstond
@@ -1171,7 +1217,7 @@ def groepeer(regels):
             # relaties als verwijzing, zodat er niets wegvalt
             for g in blok.pop("naast"):
                 g["verwijzingen"][:0] = [v for v in (g.pop("_anker_ref", None), g.pop("_groep_ref", None)) if v]
-                g.pop("anker", None), g.pop("anker_rel", None), g.pop("groep_rel", None)
+                g.pop("anker", None), g.pop("anker_rel", None), g.pop("groep_rel", None), g.pop("groep_doel", None)
                 blok["objecten"].append(g)
         if blok.get("bestaand"):
             _herkomst_afronden(blok, regels["regels"])
@@ -1201,6 +1247,9 @@ def _naast_item(blok, r):
     _merk_voorstel(item, r)
     if r.get("toestand"):
         item["toestand"] = r["toestand"]
+    if r.get("soort") == "bestaat":
+        item["bestaat"] = True
+        item["verwijzingen"].append(f"uit {r['herkomst']}")
     vorige = blok["naast"][-1] if blok.get("naast") else None
     for x in ([r["relatie"]] if r.get("relatie") else []) + list(r.get("relaties", [])):
         ander = x["naar"] if x["van"] == r["objecttype"] else x["van"]
@@ -1212,6 +1261,13 @@ def _naast_item(blok, r):
         elif (vorige is not None and "groep_rel" not in item and ander == vorige["type"]
               and x.get("instantie") in (None, vorige["instantie"])):
             item["groep_rel"] = {"relatie": _lab(x), "soort": x["soort"], "naar_rechts": x["naar"] == r["objecttype"]}
+            item["_groep_ref"] = _verwijzing(x, r["objecttype"])
+        elif "groep_doel" not in item and any(n["type"] == ander and x.get("instantie") in (None, n["instantie"])
+                                              for n in blok.get("naast", [])):
+            # een groep verder terug in de kolom: een lijn langs een baan rechts van de kolom
+            n = next(n for n in reversed(blok["naast"]) if n["type"] == ander and x.get("instantie") in (None, n["instantie"]))
+            item["groep_doel"] = (n["type"], n["instantie"])
+            item["groep_doel_rel"] = {"label": _lab(x), "soort": x["soort"], "naar_rechts": x["naar"] == r["objecttype"]}
             item["_groep_ref"] = _verwijzing(x, r["objecttype"])
         else:
             item["verwijzingen"].append(_verwijzing(x, r["objecttype"]))
