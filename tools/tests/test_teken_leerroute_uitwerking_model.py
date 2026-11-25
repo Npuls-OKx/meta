@@ -308,6 +308,31 @@ class TekenTests(unittest.TestCase):
         paden = [m for m in re.findall(r'd="(M[^"]+)"', svg) if "H" in m and "V" in m]
         self.assertTrue(paden, "verwacht een haaks pad voor de relatie over afstand")
 
+    def test_given_lines_from_several_existing_objects_to_one_target_when_drawn_then_the_label_once(self):
+        # F6-06: vier verbintenissen worden in dezelfde planningsgroep geplaatst; vier labels vallen over elkaar
+        tv.POSITIES.clear()
+        for i, n in enumerate("abcd"):
+            tv.POSITIES[("V", n)] = (10, 10 + 80 * i, 200)
+        tv.POSITIES[("P", "p")] = (400, 10, 200)
+        blok = {"herkomstlijnen": [{"bron": ("V", n), "doel": ("P", "p"), "soort": "Association",
+                                    "label": "wordt geplaatst in", "naar_rechts": True} for n in "abcd"]}
+        svg = tv._herkomstlijnen(blok, 210)
+        self.assertEqual(svg.count("herkomstlijn"), 4)
+        self.assertEqual(teksten(f'<svg xmlns="http://www.w3.org/2000/svg">{svg}</svg>').count("wordt geplaatst in"), 1)
+
+    def test_given_a_line_over_distance_to_a_nested_object_when_drawn_then_the_line_is_not_dropped(self):
+        # F2-08: de planningsgroep is gepland op de onderwijseenheid, die genest in het opleidingsprogramma staat
+        items = [{"type": "A", "instantie": "a", "verwijzingen": [],
+                  "kinderen": [{"type": "B", "instantie": "b", "verwijzingen": []}]},
+                 {"type": "C", "instantie": "c", "verwijzingen": []},
+                 {"relatie": "is gepland op", "soort": "Association", "naar_rechts": False, "ander": "B", "over_afstand": True},
+                 {"type": "D", "instantie": "d", "verwijzingen": []}]
+        tv.POSITIES.clear()
+        svg, _, _ = tv.objecten(10, 10, items, set())
+        self.assertIn("is gepland op", teksten(f'<svg xmlns="http://www.w3.org/2000/svg">{svg}</svg>'))
+        paden = [m for m in re.findall(r'd="(M[^"]+)"', svg) if "H" in m and "V" in m]
+        self.assertTrue(paden, "verwacht een haaks pad naar het geneste object")
+
     def test_given_a_line_over_distance_when_drawn_then_the_label_is_shown(self):
         r = regels()
         r["regels"].insert(3, {"fase": 2, "stap": "Aanbod maken", "soort": "ontstaat", "wie": "planner", "objecttype": "Student keuze regelset", "instantie": "Regels", "bron": "b",

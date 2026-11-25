@@ -269,6 +269,19 @@ def objecten(x, y, items, uitzonderingen):
     return _objecten_kolom(x, y, items, uitzonderingen, alles_onder=True)
 
 
+def _plekken_van_kinderen(plekken, kinderen):
+    """Ook een genest object kan het doel van een omweg zijn (de planningsgroep die op de onderwijseenheid
+    in het opleidingsprogramma gepland is); zijn plek komt uit POSITIES. Zonder plek viel de lijn weg."""
+    for k in kinderen:
+        if "type" not in k:
+            continue
+        plek = POSITIES.get((k["type"], k["instantie"]))
+        if plek:
+            kx, ky, kw = plek
+            plekken[k["type"]] = (kx + kw, ky + 24)
+        _plekken_van_kinderen(plekken, k.get("kinderen", []))
+
+
 def _objecten_kolom(x, y, items, uitzonderingen, alles_onder=False):
     """Eerste object links; de rest als kolom rechts ervan, met verticale relatielijnen.
     alles_onder: ook het eerste object staat in de kolom."""
@@ -285,7 +298,9 @@ def _objecten_kolom(x, y, items, uitzonderingen, alles_onder=False):
     if alles_onder:
         vorige_onder = y + h1
     # waar elk getekend objecttype staat: (rechterrand, middenhoogte); voor een relatie over afstand
-    plekken = {eerste["type"]: (x + w1, y + 24)}
+    plekken = {}
+    _plekken_van_kinderen(plekken, eerste.get("kinderen", []))
+    plekken[eerste["type"]] = (x + w1, y + 24)
     omwegen = []  # (bron_rechts, bron_mid, doel_type, soort, label) om na te tekenen als de goot bekend is
     for it in items[1:]:
         if "relatie" in it and "type" not in it:
@@ -308,6 +323,7 @@ def _objecten_kolom(x, y, items, uitzonderingen, alles_onder=False):
             else:
                 lijnen += relatielijn_v(kx + min(w_it, 120) / 2, vorige_onder, ky, soort, label, wacht.get("naar_rechts", True))
         wachtende_relaties = []
+        _plekken_van_kinderen(plekken, it.get("kinderen", []))
         plekken.setdefault(it["type"], (kx + w_it, ky + 24))
         plekken[it["type"]] = (kx + w_it, ky + 24)
         vorige_onder = ky + h_it
@@ -499,7 +515,7 @@ def _herkomstlijnen(blok, rand):
     op de hoogte van de kop, een eigen verticale baan in de goot, en erin met het label van de plaat.
     Staan de lagen gelijk, dan is de lijn recht. De lijnen komen na de vakken, anders verdwijnt de
     pijlpunt naar een genest object onder zijn ouder."""
-    uit = ""
+    uit, gelabeld = "", set()
     for i, l in enumerate(blok.get("herkomstlijnen") or []):
         if l["bron"] not in POSITIES or l["doel"] not in POSITIES:
             continue
@@ -520,8 +536,10 @@ def _herkomstlijnen(blok, rand):
         elif l["label"]:
             # gerichte associatie: open pijlpunt, zodat zij niet lijkt op de volle punt van een trigger
             uit += f'<path d="M{dx_ + 9*dr:.0f} {dy_ - 5:.0f}L{dx_:.0f} {dy_:.0f}L{dx_ + 9*dr:.0f} {dy_ + 5:.0f}" fill="none" stroke="#444" stroke-width="1.3"/>'
-        if l["label"]:
-            # naast de eigen baan, in de goot: bij het doel valt het label achter de rand van zijn ouder
+        if l["label"] and (l["doel"], l["label"]) not in gelabeld:
+            # naast de eigen baan, in de goot: bij het doel valt het label achter de rand van zijn ouder.
+            # komen meer lijnen met hetzelfde label bij een doel uit, dan staat het label er een keer
+            gelabeld.add((l["doel"], l["label"]))
             uit += text(baan + 6, y2 - 5, l["label"], 10, fill=MUTED)
     return uit
 
