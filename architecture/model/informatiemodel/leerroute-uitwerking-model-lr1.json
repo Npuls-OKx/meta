@@ -82,8 +82,7 @@
         "Toetsgelegenheid",
         "Keuzedeel aanbod",
         "Planningsgroep",
-        "Plaatsingsgroep",
-        "Lesgroep"
+        "Plaatsingsgroep"
       ],
       "uitwisselingen": [
         {
@@ -179,7 +178,8 @@
         "Lesgelegenheid",
         "Lesgelegenheid verbintenis",
         "Medewerker",
-        "Onderwijseenheid aanbod verbintenis"
+        "Onderwijseenheid aanbod verbintenis",
+        "Lesgroep"
       ],
       "uitwisselingen": [
         {
@@ -235,7 +235,7 @@
             "Persoon"
           ],
           "bron": "leerroute-1-regulier.md, Procesfasen, interacties op de plaat en informatie, Fase 4: Wat licht op in de plaat; bron gecorrigeerd in de sparsessie PR 314, deel 2, 4 november 2026",
-          "afwijking": "hoofdplaat v1.7a kent geen lijn van het roostersysteem naar het leermanagementsysteem; vandaag loopt die route via de kernregistratie. De kernregistratie weet niet wat een lesgroep is, dus de bron is het roostersysteem. Of het studentinformatiesysteem de orchestrator voor provisioning blijft, is een open vraag."
+          "afwijking": "hoofdplaat v1.7a kent geen lijn van het roostersysteem naar het leermanagementsysteem; vandaag loopt die route via de kernregistratie. De kernregistratie weet niet wat een lesgroep is, dus de bron is het roostersysteem. Volgens Niels van Duin (#579 vraag 2) levert het roostersysteem groepen die niet aan een keuze hangen rechtstreeks aan het LMS; die lijn is een voorstel voor de modelronde."
         }
       ],
       "dekking": "volledig",
@@ -373,7 +373,7 @@
             "deelnemerscontext"
           ],
           "bron": "leerroute-1-regulier.md, Procesfasen, interacties op de plaat en informatie, Fase 6: Wat licht op in de plaat; bron gecorrigeerd in de sparsessie PR 314, deel 2, 4 november 2026",
-          "afwijking": "hoofdplaat v1.7a kent geen lijn van het roostersysteem naar het leermanagementsysteem. Het voorbeeld volgt de plaat: het roostersysteem meldt verbintenis en lesgroep aan het studentkeuzesysteem (F6-15), en dat geeft ze door aan het LMS (F6-16). Of een directe lijn beter is, staat als vraag bij F6-16."
+          "afwijking": "hoofdplaat v1.7a kent geen lijn van het roostersysteem naar het leermanagementsysteem. Het voorbeeld volgt de plaat: het roostersysteem meldt verbintenis en lesgroep aan het studentkeuzesysteem (F6-15), en dat geeft ze door aan het LMS (F6-16). Voor een keuzedeel is dat ook de route: het LMS krijgt planningsgroep en verbintenis als geheel uit het studentkeuzesysteem (Niels van Duin, #579 vraag 2)."
         },
         {
           "van": "Kernregistratie systeem studenten (KRS)",
@@ -3707,7 +3707,7 @@
       "instantie": "ROC Leren Zonder Drempels: ambitie en verwachte instroom voor cohort 2026",
       "aanname": true,
       "bron": "geen bron, keuze van het voorbeeld: het objecttype heeft geen instantie in het kaderscenario; leerroute-1-regulier.md, r657 (drie stadia van onderwijsaanbod, parallel aan meerjaren-, jaar- en periodeplanning)",
-      "zin": "Het aanbod rijpt in tredes die met de planningshorizon meelopen. In de meerjarenplanning staat de intentie: welke opleiding, met welke verwachte instroom. In de jaarplanning plant de planner het aanbod op de planbare specificatie, met perioden en capaciteit, nog zonder lokalen en docenten. Naast elk aanbod staat de groep die erop gepland is, gevuld met een prognose: twee plaatsingsgroepen van 18 op het programma, een planningsgroep op de onderwijseenheid, een concept-lesgroep op de leergelegenheid, en voor de toets en haar herkansing hetzelfde. Zo draait een eerste roosteriteratie en blijkt of het aanbod haalbaar is. Het keuzedeel K0037 krijgt een planningsgroep op de prognose; in fase 6 komen de echte keuzes ervoor in de plaats.",
+      "zin": "Het aanbod rijpt in tredes die met de planningshorizon meelopen. In de meerjarenplanning staat de intentie: welke opleiding, met welke verwachte instroom. In de jaarplanning plant de planner het aanbod op de planbare specificatie, met perioden en capaciteit, nog zonder lokalen en docenten. Naast elk aanbod staat de groep die erop gepland is, gevuld met een prognose en met een maximale capaciteit: twee plaatsingsgroepen van 18 op het programma, planningsgroepen op de onderwijseenheid en de leergelegenheid, en op de toets en haar herkansing. Zo draait een eerste roosteriteratie en blijkt of het aanbod haalbaar is. Een lesgroep is de definitieve planningsgroep met studenten en ontstaat pas bij het roosteren. Het keuzedeel K0037 krijgt een capaciteitsgroep tot 24 op de prognose; in fase 6 komen de echte keuzes erin.",
       "toestand": "intentie"
     },
     {
@@ -3897,7 +3897,7 @@
       "objecttype": "Plaatsingsgroep",
       "instantie": "APO26-1A: prognose 18 studenten, de eerste van twee plaatsingsgroepen",
       "naast": true,
-      "bron": "aanwijzing van de opdrachtgever, 25 november 2026: in de jaarplanning verwacht de planner de plaatsingsgroepen te vullen en zet hij op het aanbod een eerste set planningsgroepen en concept-lesgroepen, gevuld met een prognose, zodat een eerste roosteriteratie de haalbaarheid toetst; voor toetsen, herkansingen en keuzedelen net zo; aantallen volgen het cohort van 36 in twee groepen van 18 (#296)",
+      "bron": "aanwijzing van de opdrachtgever, 25 november 2026: in de jaarplanning verwacht de planner de plaatsingsgroepen te vullen en zet hij op het aanbod een eerste set planningsgroepen en concept-lesgroepen, gevuld met een prognose, zodat een eerste roosteriteratie de haalbaarheid toetst; voor toetsen, herkansingen en keuzedelen net zo; aantallen volgen het cohort van 36 in twee groepen van 18 (#296); antwoord van Niels van Duin op #579, 25 november 2026, vraag 8: zowel plaatsingsgroepen als de eerste planningsgroepen ontstaan in de jaarplanning op de prognose; plannen en roosteren lopen door, en op periodeniveau ontstaan nieuwe planningsgroepen",
       "relatie": {
         "soort": "Association",
         "van": "Plaatsingsgroep",
@@ -3917,7 +3917,7 @@
       "objecttype": "Planningsgroep",
       "instantie": "B1-K1 periode 1: APO26-1A, prognose 18 studenten",
       "naast": true,
-      "bron": "aanwijzing van de opdrachtgever, 25 november 2026: in de jaarplanning verwacht de planner de plaatsingsgroepen te vullen en zet hij op het aanbod een eerste set planningsgroepen en concept-lesgroepen, gevuld met een prognose, zodat een eerste roosteriteratie de haalbaarheid toetst; voor toetsen, herkansingen en keuzedelen net zo",
+      "bron": "aanwijzing van de opdrachtgever, 25 november 2026: in de jaarplanning verwacht de planner de plaatsingsgroepen te vullen en zet hij op het aanbod een eerste set planningsgroepen en concept-lesgroepen, gevuld met een prognose, zodat een eerste roosteriteratie de haalbaarheid toetst; voor toetsen, herkansingen en keuzedelen net zo; antwoord van Niels van Duin op #579, 25 november 2026, vraag 8: zowel plaatsingsgroepen als de eerste planningsgroepen ontstaan in de jaarplanning op de prognose; plannen en roosteren lopen door, en op periodeniveau ontstaan nieuwe planningsgroepen",
       "relatie": {
         "soort": "Composition",
         "van": "Plaatsingsgroep",
@@ -3941,28 +3941,26 @@
       "stap": "Aanbod plannen",
       "soort": "ontstaat",
       "wie": "planner",
-      "objecttype": "Lesgroep",
-      "instantie": "Baliegesprekken 101-A (concept): prognose 18 studenten",
+      "objecttype": "Planningsgroep",
+      "instantie": "Baliegesprekken 101-A: APO26-1A, prognose 18, tot 24 in de simulatieruimte",
       "naast": true,
-      "bron": "aanwijzing van de opdrachtgever, 25 november 2026: in de jaarplanning verwacht de planner de plaatsingsgroepen te vullen en zet hij op het aanbod een eerste set planningsgroepen en concept-lesgroepen, gevuld met een prognose, zodat een eerste roosteriteratie de haalbaarheid toetst; voor toetsen, herkansingen en keuzedelen net zo",
+      "nieuwe_instantie": true,
+      "bron": "antwoord van Niels van Duin op #579, 25 november 2026, vraag 1 en 8: een lesgroep is de definitieve planningsgroep met studenten; in de jaarplanning ontstaan plaatsingsgroepen en de eerste planningsgroepen op de prognose, elk met een maximale capaciteit; capaciteit uit leerroute-1-regulier.md, r723 en r736 (simulatieruimte apotheekbalie, max. 24 studenten)",
       "relatie": {
         "soort": "Association",
         "van": "Planningsgroep",
-        "naar": "Lesgroep",
-        "label": "vormt",
-        "voorstel": true
+        "naar": "Leergelegenheid",
+        "label": "is gepland op",
+        "voorstel": true,
+        "instantie": "Baliegesprekken 101, periode 1, twee groepen van 18"
       },
       "relaties": [
         {
-          "soort": "Association",
-          "van": "Lesgroep",
-          "naar": "Leergelegenheid",
-          "label": "is gepland op",
-          "voorstel": true,
-          "instantie": "Baliegesprekken 101, periode 1, twee groepen van 18"
+          "soort": "Composition",
+          "van": "Plaatsingsgroep",
+          "naar": "Planningsgroep"
         }
-      ],
-      "vraag": "Een concept-lesgroep in de jaarplanning heeft nog geen verbintenissen, dus geen route via `Leergelegenheid verbintenis` (Groepeert tot). Hoort er een relatie van `Lesgroep` naar `Leergelegenheid`, en van `Planningsgroep` naar het aanbod waarop zij gepland is?"
+      ]
     },
     {
       "beeld_id": "F2-08",
@@ -3974,7 +3972,7 @@
       "objecttype": "Planningsgroep",
       "instantie": "OSCE einde periode 1: APO26-1A, prognose 18 studenten",
       "naast": true,
-      "bron": "aanwijzing van de opdrachtgever, 25 november 2026: in de jaarplanning verwacht de planner de plaatsingsgroepen te vullen en zet hij op het aanbod een eerste set planningsgroepen en concept-lesgroepen, gevuld met een prognose, zodat een eerste roosteriteratie de haalbaarheid toetst; voor toetsen, herkansingen en keuzedelen net zo",
+      "bron": "aanwijzing van de opdrachtgever, 25 november 2026: in de jaarplanning verwacht de planner de plaatsingsgroepen te vullen en zet hij op het aanbod een eerste set planningsgroepen en concept-lesgroepen, gevuld met een prognose, zodat een eerste roosteriteratie de haalbaarheid toetst; voor toetsen, herkansingen en keuzedelen net zo; antwoord van Niels van Duin op #579, 25 november 2026, vraag 8: zowel plaatsingsgroepen als de eerste planningsgroepen ontstaan in de jaarplanning op de prognose; plannen en roosteren lopen door, en op periodeniveau ontstaan nieuwe planningsgroepen",
       "relatie": {
         "soort": "Association",
         "van": "Planningsgroep",
@@ -3999,40 +3997,10 @@
       "stap": "Aanbod plannen",
       "soort": "ontstaat",
       "wie": "planner",
-      "objecttype": "Lesgroep",
-      "instantie": "OSCE-A (concept): prognose 18 studenten",
-      "naast": true,
-      "bron": "aanwijzing van de opdrachtgever, 25 november 2026: in de jaarplanning verwacht de planner de plaatsingsgroepen te vullen en zet hij op het aanbod een eerste set planningsgroepen en concept-lesgroepen, gevuld met een prognose, zodat een eerste roosteriteratie de haalbaarheid toetst; voor toetsen, herkansingen en keuzedelen net zo",
-      "relatie": {
-        "soort": "Association",
-        "van": "Planningsgroep",
-        "naar": "Lesgroep",
-        "label": "vormt",
-        "voorstel": true
-      },
-      "relaties": [
-        {
-          "soort": "Association",
-          "van": "Lesgroep",
-          "naar": "Toetsgelegenheid",
-          "label": "is gepland op",
-          "voorstel": true,
-          "instantie": "Praktijktoets baliegesprek (OSCE), einde periode 1"
-        }
-      ],
-      "nieuwe_instantie": true
-    },
-    {
-      "beeld_id": "F2-08",
-      "beeld": "Planner plant opleiding, programma, eenheid en gelegenheid",
-      "fase": 2,
-      "stap": "Aanbod plannen",
-      "soort": "ontstaat",
-      "wie": "planner",
       "objecttype": "Planningsgroep",
       "instantie": "Herkansing OSCE periode 2: prognose 4 studenten",
       "naast": true,
-      "bron": "aanwijzing van de opdrachtgever, 25 november 2026: in de jaarplanning verwacht de planner de plaatsingsgroepen te vullen en zet hij op het aanbod een eerste set planningsgroepen en concept-lesgroepen, gevuld met een prognose, zodat een eerste roosteriteratie de haalbaarheid toetst; voor toetsen, herkansingen en keuzedelen net zo; de herkansers komen uit meer plaatsingsgroepen, dus de groep hangt aan geen enkele",
+      "bron": "aanwijzing van de opdrachtgever, 25 november 2026: in de jaarplanning verwacht de planner de plaatsingsgroepen te vullen en zet hij op het aanbod een eerste set planningsgroepen en concept-lesgroepen, gevuld met een prognose, zodat een eerste roosteriteratie de haalbaarheid toetst; voor toetsen, herkansingen en keuzedelen net zo; de herkansers komen uit meer plaatsingsgroepen, dus de groep hangt aan geen enkele; antwoord van Niels van Duin op #579, 25 november 2026, vraag 8: zowel plaatsingsgroepen als de eerste planningsgroepen ontstaan in de jaarplanning op de prognose; plannen en roosteren lopen door, en op periodeniveau ontstaan nieuwe planningsgroepen",
       "relatie": {
         "soort": "Association",
         "van": "Planningsgroep",
@@ -4051,8 +4019,8 @@
       "soort": "ontstaat",
       "wie": "planner",
       "objecttype": "Planningsgroep",
-      "instantie": "K0037 periode 7, locatie A: prognose 18 studenten",
-      "bron": "besluit van de opdrachtgever, 24 november 2026: de planningsgroep ontstaat al bij ontwerp en capaciteitsgestuurd plannen, en wordt na de keuzes heroverwogen",
+      "instantie": "K0037-P7-1: capaciteitsgroep tot 24, prognose 18 studenten",
+      "bron": "besluit van de opdrachtgever, 24 november 2026: de planningsgroep ontstaat al bij ontwerp en capaciteitsgestuurd plannen, en wordt na de keuzes heroverwogen; antwoord van Niels van Duin op #579, 25 november 2026, vraag 8: zowel plaatsingsgroepen als de eerste planningsgroepen ontstaan in de jaarplanning op de prognose; plannen en roosteren lopen door, en op periodeniveau ontstaan nieuwe planningsgroepen; vraag 1: de planningsgroep van een keuzedeel is een capaciteitsgroep met een maximum, er zijn zo nodig meer instanties per keuzedeel, en tijdens plannen of roosteren wordt bepaald welke studenten erin zitten; capaciteit uit leerroute-1-regulier.md, r723 en r736 (simulatieruimte apotheekbalie, max. 24 studenten)",
       "relatie": {
         "soort": "Association",
         "van": "Planningsgroep",
@@ -4061,7 +4029,6 @@
         "voorstel": true,
         "instantie": "K0037 Farmaceutische Patientenzorg, periode 7, locatie A"
       },
-      "vraag": "Een planningsgroep op een keuzedeel bundelt studenten uit meer plaatsingsgroepen, terwijl de plaat een `Planningsgroep` tekent als deel (compositie) van een `Plaatsingsgroep`. Past die compositie hier, of hoort er een andere relatie? De relatie van `Planningsgroep` naar `Keuzedeel aanbod` is een voorstel.",
       "nieuwe_instantie": true,
       "naast": true
     },
@@ -5536,13 +5503,12 @@
       "koppeling": null,
       "objecttype": "Student",
       "instantie": "Jochem, cohort 2026",
-      "bron": "leerroute-1-regulier.md, Fase 4: KRS naar LMS, student, verbintenis en relevante groepen; bron gecorrigeerd in de sparsessie PR 314, deel 2, 4 november 2026",
+      "bron": "leerroute-1-regulier.md, Fase 4: KRS naar LMS, student, verbintenis en relevante groepen; bron gecorrigeerd in de sparsessie PR 314, deel 2, 4 november 2026; antwoord van Niels van Duin op #579, 25 november 2026, vraag 2: het roostersysteem levert groepen die niet aan een studentkeuze hangen rechtstreeks aan het LMS, net als zijn lijn naar het studentvolgsysteem; een voorstel voor de modelronde",
       "relatie": {
         "soort": "Specialization",
         "van": "Student",
         "naar": "Persoon"
-      },
-      "vraag": "De hoofdplaat kent geen lijn van het roostersysteem naar het LMS. In fase 6 loopt dezelfde informatie via het studentkeuzesysteem (F6-15 en F6-16), langs lijnen die de plaat wel kent. Hoort fase 4 die route ook te volgen?"
+      }
     },
     {
       "beeld_id": "F4-10",
@@ -5556,7 +5522,7 @@
       "koppeling": null,
       "objecttype": "Opleidingsprogramma aanbod verbintenis",
       "instantie": "Jochem op Regulier BOL 2026",
-      "bron": "leerroute-1-regulier.md, Fase 4: KRS naar LMS (verbintenis en persoon voor rechtmatige toegang); bron gecorrigeerd in de sparsessie PR 314, deel 2, 4 november 2026",
+      "bron": "leerroute-1-regulier.md, Fase 4: KRS naar LMS (verbintenis en persoon voor rechtmatige toegang); bron gecorrigeerd in de sparsessie PR 314, deel 2, 4 november 2026; antwoord van Niels van Duin op #579, 25 november 2026, vraag 2: het roostersysteem levert groepen die niet aan een studentkeuze hangen rechtstreeks aan het LMS, net als zijn lijn naar het studentvolgsysteem; een voorstel voor de modelronde",
       "zin": "De verbintenis gaat naar het LMS zodat Jochem eind augustus toegang krijgt; persoonsgegevens komen uit het IAM. De bron is het roostersysteem en niet de kernregistratie: die weet niet wat een lesgroep is.",
       "relaties": [
         {
@@ -5565,8 +5531,7 @@
           "naar": "Opleidingsprogramma aanbod verbintenis",
           "instantie": "Regulier BOL 2026: 18 tot 36 studenten"
         }
-      ],
-      "vraag": "Op de hoofdplaat staat geen lijn van het roostersysteem naar het leermanagementsysteem; vandaag loopt die route via de kernregistratie. Is het studentinformatiesysteem de orchestrator voor provisioning, of levert elk bronsysteem rechtstreeks?"
+      ]
     },
     {
       "beeld_id": "F4-10",
@@ -6236,14 +6201,13 @@
       "koppeling": null,
       "objecttype": "Keuzedeel specificatie",
       "instantie": "K0037 Farmaceutische Patientenzorg (480 SBU, aard verdiepend), beroepsspecifiek keuzedeel",
-      "bron": "sessie Keuzedeelmodel en informatiemodel, 17 november 2026 (Niels van Duin, Niek Derksen): F6-02 ontsluit de specificatiestructuur met de studentkeuzeregels, niet het aanbod; K0037-farmaceutische-patientenzorg.md (keuzedeel mbo K0037, 480 SBU, aard verdiepend, gevalideerd 26-11-2015)",
+      "bron": "sessie Keuzedeelmodel en informatiemodel, 17 november 2026 (Niels van Duin, Niek Derksen): F6-02 ontsluit de specificatiestructuur met de studentkeuzeregels, niet het aanbod; K0037-farmaceutische-patientenzorg.md (keuzedeel mbo K0037, 480 SBU, aard verdiepend, gevalideerd 26-11-2015); antwoord van Niels van Duin op #579, 25 november 2026, vraag 7: ja, de naam van de lijn gaat mee met wat erover gaat (specificatie en studentkeuzeregels); een voorstel voor de modelronde",
       "relatie": {
         "soort": "Specialization",
         "van": "Keuzedeel specificatie",
         "naar": "Opleidingsprogramma specificatie"
       },
-      "zin": "De catalogus stuurt het studentkeuzesysteem de specificatiestructuur van het keuzedeel met de studentkeuzeregels: wat Jochem mag kiezen. De regels horen op de specificatie. Het aanbod haalt het studentkeuzesysteem bij planning (F6-03).",
-      "vraag": "De pijl van de catalogus naar het studentkeuzesysteem heet op de hoofdplaat 'Opleidingsprogramma aanbod', terwijl in de sessie van 17 november besloten is dat over deze lijn de specificatie en de regelset gaan. Hoort het label naar de specificatie?"
+      "zin": "De catalogus stuurt het studentkeuzesysteem de specificatiestructuur van het keuzedeel met de studentkeuzeregels: wat Jochem mag kiezen. De regels horen op de specificatie. Het aanbod haalt het studentkeuzesysteem bij planning (F6-03)."
     },
     {
       "beeld_id": "F6-02",
@@ -6257,7 +6221,7 @@
       "koppeling": null,
       "objecttype": "Onderwijseenheid specificatie",
       "instantie": "D1-K1 Voert farmaceutische patientenzorg uit",
-      "bron": "K0037-farmaceutische-patientenzorg.md (keuzedeel mbo K0037, 480 SBU, aard verdiepend, gevalideerd 26-11-2015)",
+      "bron": "K0037-farmaceutische-patientenzorg.md (keuzedeel mbo K0037, 480 SBU, aard verdiepend, gevalideerd 26-11-2015); antwoord van Niels van Duin op #579, 25 november 2026, vraag 7: ja, de naam van de lijn gaat mee met wat erover gaat (specificatie en studentkeuzeregels); een voorstel voor de modelronde",
       "nieuwe_instantie": true,
       "relatie": {
         "soort": "Aggregation",
@@ -6278,7 +6242,7 @@
       "koppeling": null,
       "objecttype": "Leeronderdeel specificatie",
       "instantie": "Het medicatieoverzicht opstellen",
-      "bron": "K0037-farmaceutische-patientenzorg.md (keuzedeel mbo K0037, 480 SBU, aard verdiepend, gevalideerd 26-11-2015)",
+      "bron": "K0037-farmaceutische-patientenzorg.md (keuzedeel mbo K0037, 480 SBU, aard verdiepend, gevalideerd 26-11-2015); antwoord van Niels van Duin op #579, 25 november 2026, vraag 7: ja, de naam van de lijn gaat mee met wat erover gaat (specificatie en studentkeuzeregels); een voorstel voor de modelronde",
       "nieuwe_instantie": true,
       "relatie": {
         "soort": "Aggregation",
@@ -6299,7 +6263,7 @@
       "koppeling": null,
       "objecttype": "Leeronderdeel specificatie",
       "instantie": "Zorg aan specifieke doelgroepen",
-      "bron": "K0037-farmaceutische-patientenzorg.md (keuzedeel mbo K0037, 480 SBU, aard verdiepend, gevalideerd 26-11-2015)",
+      "bron": "K0037-farmaceutische-patientenzorg.md (keuzedeel mbo K0037, 480 SBU, aard verdiepend, gevalideerd 26-11-2015); antwoord van Niels van Duin op #579, 25 november 2026, vraag 7: ja, de naam van de lijn gaat mee met wat erover gaat (specificatie en studentkeuzeregels); een voorstel voor de modelronde",
       "nieuwe_instantie": true,
       "relatie": {
         "soort": "Aggregation",
@@ -6320,7 +6284,7 @@
       "koppeling": null,
       "objecttype": "Student keuze regelset",
       "instantie": "Twee blokken: 480 SBU beroepsspecifiek (K0037), 240 SBU generiek (K0262 of Duurzaam ondernemen)",
-      "bron": "voorbeeldpayloads.md, regelsets[0] (e4037953); keuze-requirements.md; sessie Keuzedeelmodel en informatiemodel, 17 november 2026 (Niels van Duin, Niek Derksen)",
+      "bron": "voorbeeldpayloads.md, regelsets[0] (e4037953); keuze-requirements.md; sessie Keuzedeelmodel en informatiemodel, 17 november 2026 (Niels van Duin, Niek Derksen); antwoord van Niels van Duin op #579, 25 november 2026, vraag 7: ja, de naam van de lijn gaat mee met wat erover gaat (specificatie en studentkeuzeregels); een voorstel voor de modelronde",
       "relatie": {
         "soort": "Association",
         "van": "Student keuze regelset",
@@ -6348,7 +6312,7 @@
       "objecttype": "Keuzedeel specificatie",
       "instantie": "K0262 ARBO, kwaliteitszorg en hulpverlening geschikt voor niveau 3 (240 SBU), generiek keuzedeel",
       "nieuwe_instantie": true,
-      "bron": "K0262-arbo-kwaliteitszorg-en-hulpverlening-niveau-3.md; sessie 10 november 2026: het kenmerk generiek keuzedeel gaat mee in de uitwisseling",
+      "bron": "K0262-arbo-kwaliteitszorg-en-hulpverlening-niveau-3.md; sessie 10 november 2026: het kenmerk generiek keuzedeel gaat mee in de uitwisseling; antwoord van Niels van Duin op #579, 25 november 2026, vraag 7: ja, de naam van de lijn gaat mee met wat erover gaat (specificatie en studentkeuzeregels); een voorstel voor de modelronde",
       "relatie": {
         "soort": "Specialization",
         "van": "Keuzedeel specificatie",
@@ -6367,7 +6331,7 @@
       "koppeling": null,
       "objecttype": "Keuzedeel aanbod",
       "instantie": "K0037 Farmaceutische Patientenzorg, periode 7, locatie A",
-      "bron": "sessie Keuzedeelmodel en informatiemodel, 17 november 2026 (Niels van Duin, Niek Derksen): het studentkeuzesysteem haalt op basis van de specificatie het geplande aanbod en de beschikbare capaciteit op bij planning",
+      "bron": "sessie Keuzedeelmodel en informatiemodel, 17 november 2026 (Niels van Duin, Niek Derksen): het studentkeuzesysteem haalt op basis van de specificatie het geplande aanbod en de beschikbare capaciteit op bij planning; antwoord van Niels van Duin op #579, 25 november 2026, vraag 7: ja, geplande leergelegenheden zijn een stap verder in de rijping; de lijn wordt verrijkt met programma en onderwijseenheid, een voorstel voor de modelronde",
       "relatie": {
         "soort": "Specialization",
         "van": "Keuzedeel aanbod",
@@ -6382,8 +6346,7 @@
           "instantie": "K0037 Farmaceutische Patientenzorg (480 SBU, aard verdiepend), beroepsspecifiek keuzedeel"
         }
       ],
-      "zin": "Het studentkeuzesysteem vraagt planning welk aanbod er bij de specificatie gepland is, en met hoeveel plaatsen. Dat verandert steeds, dus het haalt het op bij de bron. Is er geen aanbod, dan meldt het studentkeuzesysteem dat aan planning met een `Verzoek tot Aanbod / Intekening op specificatie`.",
-      "vraag": "De pijl van planning naar het studentkeuzesysteem noemt 'geplande leergelegenheden', terwijl de student bij planning kiest op programma en onderwijseenheid. Welke laag hoort in het label?"
+      "zin": "Het studentkeuzesysteem vraagt planning welk aanbod er bij de specificatie gepland is, en met hoeveel plaatsen. Dat verandert steeds, dus het haalt het op bij de bron. Is er geen aanbod, dan meldt het studentkeuzesysteem dat aan planning met een `Verzoek tot Aanbod / Intekening op specificatie`."
     },
     {
       "beeld_id": "F6-03",
@@ -6397,7 +6360,7 @@
       "koppeling": null,
       "objecttype": "Onderwijseenheid aanbod",
       "instantie": "D1-K1, periode 7, locatie A: 18 plaatsen",
-      "bron": "sessie Keuzedeelmodel en informatiemodel, 17 november 2026 (Niels van Duin, Niek Derksen)",
+      "bron": "sessie Keuzedeelmodel en informatiemodel, 17 november 2026 (Niels van Duin, Niek Derksen); antwoord van Niels van Duin op #579, 25 november 2026, vraag 7: ja, geplande leergelegenheden zijn een stap verder in de rijping; de lijn wordt verrijkt met programma en onderwijseenheid, een voorstel voor de modelronde",
       "nieuwe_instantie": true,
       "relatie": {
         "soort": "Aggregation",
@@ -6648,109 +6611,66 @@
       "fase": 6,
       "stap": "Definitieve keuzes verwerken naar groepen en capaciteit",
       "soort": "bestaat",
-      "objecttype": "Planningsgroep",
-      "instantie": "K0037 periode 7, locatie A: prognose 18 studenten",
-      "herkomst": "F2-08",
-      "bron": "aanwijzing van de opdrachtgever, 24 november 2026"
-    },
-    {
-      "beeld_id": "F6-06",
-      "beeld": "Planner verwerkt de keuzes tot groepen en capaciteit",
-      "fase": 6,
-      "stap": "Definitieve keuzes verwerken naar groepen en capaciteit",
-      "soort": "bestaat",
-      "objecttype": "Keuzedeel aanbod verbintenis",
-      "instantie": "Jochem op K0037 Farmaceutische Patientenzorg, periode 7",
-      "herkomst": "F6-04",
-      "bron": "aanwijzing van de opdrachtgever, 25 november 2026"
-    },
-    {
-      "beeld_id": "F6-06",
-      "beeld": "Planner verwerkt de keuzes tot groepen en capaciteit",
-      "fase": 6,
-      "stap": "Definitieve keuzes verwerken naar groepen en capaciteit",
-      "soort": "bestaat",
-      "objecttype": "Keuzedeel aanbod verbintenis",
-      "instantie": "Sanne op K0037 Farmaceutische Patientenzorg, periode 7",
-      "herkomst": "F6-04",
-      "bron": "aanwijzing van de opdrachtgever, 25 november 2026"
-    },
-    {
-      "beeld_id": "F6-06",
-      "beeld": "Planner verwerkt de keuzes tot groepen en capaciteit",
-      "fase": 6,
-      "stap": "Definitieve keuzes verwerken naar groepen en capaciteit",
-      "soort": "bestaat",
-      "objecttype": "Keuzedeel aanbod verbintenis",
-      "instantie": "Mohammed op K0037 Farmaceutische Patientenzorg, periode 7",
-      "herkomst": "F6-04",
-      "bron": "aanwijzing van de opdrachtgever, 25 november 2026"
-    },
-    {
-      "beeld_id": "F6-06",
-      "beeld": "Planner verwerkt de keuzes tot groepen en capaciteit",
-      "fase": 6,
-      "stap": "Definitieve keuzes verwerken naar groepen en capaciteit",
-      "soort": "bestaat",
-      "objecttype": "Keuzedeel aanbod verbintenis",
-      "instantie": "Lotte en 14 anderen op K0037 Farmaceutische Patientenzorg, periode 7",
-      "herkomst": "F6-04",
-      "bron": "aanwijzing van de opdrachtgever, 25 november 2026"
-    },
-    {
-      "beeld_id": "F6-06",
-      "beeld": "Planner verwerkt de keuzes tot groepen en capaciteit",
-      "fase": 6,
-      "stap": "Definitieve keuzes verwerken naar groepen en capaciteit",
-      "soort": "verandert",
-      "wie": "planner",
-      "objecttype": "Planningsgroep",
-      "instantie": "K0037 periode 7, locatie A: 18 keuzes, de groep past",
-      "toestand": "bevestigd",
-      "bron": "aanwijzing van de opdrachtgever, 24 november 2026: na de keuzes heroverweegt de planner de groep uit de jaarplanning; aanwijzing van de opdrachtgever, 25 november 2026: de verbintenissen van de studenten die kozen vervangen de prognose en komen in de planningsgroep, die zo naar het rooster gaat",
+      "objecttype": "Keuzedeel specificatie",
+      "instantie": "K0037 Farmaceutische Patientenzorg (480 SBU, aard verdiepend), beroepsspecifiek keuzedeel",
+      "herkomst": "F1-08",
+      "bron": "aanwijzing van de opdrachtgever, 25 november 2026: links alleen de specificatie van het keuzedeel waarop het aanbod gepland is",
       "relatie": {
-        "soort": "Association",
-        "van": "Planningsgroep",
-        "naar": "Keuzedeel aanbod",
-        "label": "is gepland op",
-        "voorstel": true,
-        "instantie": "K0037 Farmaceutische Patientenzorg, periode 7, locatie A"
-      },
-      "zin": "De planner legt de verbintenissen van de 18 studenten die K0037 kozen naast de planningsgroep uit de jaarplanning (F2-08). Waar daar een prognose van 18 stond, staan nu Jochem, Sanne, Mohammed, Lotte en veertien anderen: de groep past. Elke verbintenis komt in de planningsgroep, en als planningsgroep gaat K0037 naar het rooster (F6-12). Fijnmazig plannen voegt het gebouw toe; het lokaaltype en de docentexpertise lagen al vast.",
-      "relaties": [
-        {
-          "soort": "Association",
-          "van": "Keuzedeel aanbod verbintenis",
-          "naar": "Planningsgroep",
-          "label": "wordt geplaatst in",
-          "voorstel": true,
-          "instantie": "Jochem op K0037 Farmaceutische Patientenzorg, periode 7"
-        },
-        {
-          "soort": "Association",
-          "van": "Keuzedeel aanbod verbintenis",
-          "naar": "Planningsgroep",
-          "label": "wordt geplaatst in",
-          "voorstel": true,
-          "instantie": "Sanne op K0037 Farmaceutische Patientenzorg, periode 7"
-        },
-        {
-          "soort": "Association",
-          "van": "Keuzedeel aanbod verbintenis",
-          "naar": "Planningsgroep",
-          "label": "wordt geplaatst in",
-          "voorstel": true,
-          "instantie": "Mohammed op K0037 Farmaceutische Patientenzorg, periode 7"
-        },
-        {
-          "soort": "Association",
-          "van": "Keuzedeel aanbod verbintenis",
-          "naar": "Planningsgroep",
-          "label": "wordt geplaatst in",
-          "voorstel": true,
-          "instantie": "Lotte en 14 anderen op K0037 Farmaceutische Patientenzorg, periode 7"
-        }
-      ]
+        "soort": "Specialization",
+        "van": "Keuzedeel specificatie",
+        "naar": "Opleidingsprogramma specificatie"
+      }
+    },
+    {
+      "beeld_id": "F6-06",
+      "beeld": "Planner verwerkt de keuzes tot groepen en capaciteit",
+      "fase": 6,
+      "stap": "Definitieve keuzes verwerken naar groepen en capaciteit",
+      "soort": "bestaat",
+      "objecttype": "Onderwijseenheid specificatie",
+      "instantie": "D1-K1 Voert farmaceutische patientenzorg uit",
+      "herkomst": "F1-08",
+      "bron": "aanwijzing van de opdrachtgever, 25 november 2026: links alleen de specificatie van het keuzedeel waarop het aanbod gepland is",
+      "relatie": {
+        "soort": "Aggregation",
+        "van": "Opleidingsprogramma specificatie",
+        "naar": "Onderwijseenheid specificatie",
+        "nesting": true
+      }
+    },
+    {
+      "beeld_id": "F6-06",
+      "beeld": "Planner verwerkt de keuzes tot groepen en capaciteit",
+      "fase": 6,
+      "stap": "Definitieve keuzes verwerken naar groepen en capaciteit",
+      "soort": "bestaat",
+      "objecttype": "Leeronderdeel specificatie",
+      "instantie": "Het medicatieoverzicht opstellen",
+      "herkomst": "F1-08",
+      "bron": "aanwijzing van de opdrachtgever, 25 november 2026: links alleen de specificatie van het keuzedeel waarop het aanbod gepland is",
+      "relatie": {
+        "soort": "Aggregation",
+        "van": "Onderwijseenheid specificatie",
+        "naar": "Leeronderdeel specificatie",
+        "nesting": true
+      }
+    },
+    {
+      "beeld_id": "F6-06",
+      "beeld": "Planner verwerkt de keuzes tot groepen en capaciteit",
+      "fase": 6,
+      "stap": "Definitieve keuzes verwerken naar groepen en capaciteit",
+      "soort": "bestaat",
+      "objecttype": "Leeronderdeel specificatie",
+      "instantie": "Zorg aan specifieke doelgroepen",
+      "herkomst": "F1-08",
+      "bron": "aanwijzing van de opdrachtgever, 25 november 2026: links alleen de specificatie van het keuzedeel waarop het aanbod gepland is",
+      "relatie": {
+        "soort": "Aggregation",
+        "van": "Onderwijseenheid specificatie",
+        "naar": "Leeronderdeel specificatie",
+        "nesting": true
+      }
     },
     {
       "beeld_id": "F6-06",
@@ -6799,7 +6719,13 @@
           "label": "wordt gegeven op",
           "instantie": "Campus Zuid (locatie A), gebouw C"
         }
-      ]
+      ],
+      "relatie": {
+        "soort": "Aggregation",
+        "van": "Opleidingsprogramma aanbod",
+        "naar": "Onderwijseenheid aanbod",
+        "nesting": true
+      }
     },
     {
       "beeld_id": "F6-06",
@@ -6870,6 +6796,108 @@
       ]
     },
     {
+      "beeld_id": "F6-06",
+      "beeld": "Planner verwerkt de keuzes tot groepen en capaciteit",
+      "fase": 6,
+      "stap": "Definitieve keuzes verwerken naar groepen en capaciteit",
+      "soort": "verandert",
+      "wie": "planner",
+      "objecttype": "Planningsgroep",
+      "instantie": "K0037-P7-1: capaciteitsgroep tot 24, 18 studenten ingedeeld",
+      "toestand": "bevestigd",
+      "bron": "aanwijzing van de opdrachtgever, 24 en 25 november 2026: na de keuzes heroverweegt de planner de groep uit de jaarplanning, en de verbintenissen van de studenten die kozen komen erin; antwoord van Niels van Duin op #579, 25 november 2026, vraag 1: de planningsgroep van een keuzedeel is een capaciteitsgroep; er komt geen groep voor alle studenten met dezelfde verbintenis, maar groepen met een maximum, zo nodig meer per keuzedeel, en tijdens plannen of roosteren wordt bepaald wie erin zit; capaciteit uit leerroute-1-regulier.md, r723 en r736 (simulatieruimte apotheekbalie, max. 24 studenten)",
+      "relatie": {
+        "soort": "Association",
+        "van": "Planningsgroep",
+        "naar": "Keuzedeel aanbod",
+        "label": "is gepland op",
+        "voorstel": true,
+        "instantie": "K0037 Farmaceutische Patientenzorg, periode 7, locatie A: 1 groep, 18 plaatsen"
+      },
+      "zin": "De planner legt de verbintenissen van de 18 studenten die K0037 kozen naast de capaciteitsgroep uit de jaarplanning (F2-08). Die groep heeft een maximum van 24, dus de 18 passen: Jochem, Sanne, Mohammed, Lotte en veertien anderen worden erin ingedeeld. Bij meer dan 24 keuzes komt er een tweede capaciteitsgroep met een eigen leergelegenheid. Als planningsgroep gaat K0037 naar het rooster (F6-12), waar de roosteraar er de lesgroep van maakt. Fijnmazig plannen voegt het gebouw toe; het lokaaltype en de docentexpertise lagen al vast.",
+      "naast": true
+    },
+    {
+      "beeld_id": "F6-06",
+      "beeld": "Planner verwerkt de keuzes tot groepen en capaciteit",
+      "fase": 6,
+      "stap": "Definitieve keuzes verwerken naar groepen en capaciteit",
+      "soort": "bestaat",
+      "objecttype": "Keuzedeel aanbod verbintenis",
+      "instantie": "Jochem op K0037 Farmaceutische Patientenzorg, periode 7",
+      "herkomst": "F6-04",
+      "bron": "aanwijzing van de opdrachtgever, 25 november 2026",
+      "naast": true,
+      "relatie": {
+        "soort": "Association",
+        "van": "Keuzedeel aanbod verbintenis",
+        "naar": "Planningsgroep",
+        "label": "wordt geplaatst in",
+        "voorstel": true,
+        "instantie": "K0037-P7-1: capaciteitsgroep tot 24, 18 studenten ingedeeld"
+      }
+    },
+    {
+      "beeld_id": "F6-06",
+      "beeld": "Planner verwerkt de keuzes tot groepen en capaciteit",
+      "fase": 6,
+      "stap": "Definitieve keuzes verwerken naar groepen en capaciteit",
+      "soort": "bestaat",
+      "objecttype": "Keuzedeel aanbod verbintenis",
+      "instantie": "Sanne op K0037 Farmaceutische Patientenzorg, periode 7",
+      "herkomst": "F6-04",
+      "bron": "aanwijzing van de opdrachtgever, 25 november 2026",
+      "naast": true,
+      "relatie": {
+        "soort": "Association",
+        "van": "Keuzedeel aanbod verbintenis",
+        "naar": "Planningsgroep",
+        "label": "wordt geplaatst in",
+        "voorstel": true,
+        "instantie": "K0037-P7-1: capaciteitsgroep tot 24, 18 studenten ingedeeld"
+      }
+    },
+    {
+      "beeld_id": "F6-06",
+      "beeld": "Planner verwerkt de keuzes tot groepen en capaciteit",
+      "fase": 6,
+      "stap": "Definitieve keuzes verwerken naar groepen en capaciteit",
+      "soort": "bestaat",
+      "objecttype": "Keuzedeel aanbod verbintenis",
+      "instantie": "Mohammed op K0037 Farmaceutische Patientenzorg, periode 7",
+      "herkomst": "F6-04",
+      "bron": "aanwijzing van de opdrachtgever, 25 november 2026",
+      "naast": true,
+      "relatie": {
+        "soort": "Association",
+        "van": "Keuzedeel aanbod verbintenis",
+        "naar": "Planningsgroep",
+        "label": "wordt geplaatst in",
+        "voorstel": true,
+        "instantie": "K0037-P7-1: capaciteitsgroep tot 24, 18 studenten ingedeeld"
+      }
+    },
+    {
+      "beeld_id": "F6-06",
+      "beeld": "Planner verwerkt de keuzes tot groepen en capaciteit",
+      "fase": 6,
+      "stap": "Definitieve keuzes verwerken naar groepen en capaciteit",
+      "soort": "bestaat",
+      "objecttype": "Keuzedeel aanbod verbintenis",
+      "instantie": "Lotte en 14 anderen op K0037 Farmaceutische Patientenzorg, periode 7",
+      "herkomst": "F6-04",
+      "bron": "aanwijzing van de opdrachtgever, 25 november 2026",
+      "naast": true,
+      "relatie": {
+        "soort": "Association",
+        "van": "Keuzedeel aanbod verbintenis",
+        "naar": "Planningsgroep",
+        "label": "wordt geplaatst in",
+        "voorstel": true,
+        "instantie": "K0037-P7-1: capaciteitsgroep tot 24, 18 studenten ingedeeld"
+      }
+    },
+    {
       "beeld_id": "F6-07",
       "beeld": "Planningssysteem stuurt het bijgewerkte keuzedeelaanbod naar de onderwijscatalogus",
       "fase": 6,
@@ -6892,7 +6920,7 @@
         }
       ],
       "zin": "Het geactualiseerde planbare aanbod gaat terug naar de catalogus. Jochems keuzemoment hangt aan de jaaruitzetting van zijn plaatsingsgroep, en kan per groep verschillen omdat dat capaciteitstechnisch beter uitkomt.",
-      "vraag": "Welk systeem start het keuzemoment van een student? Planning is het enige systeem met een notie van onderwijsperiode, het keuzesysteem beheert de regels, en de SLB'er heeft in de praktijk een evaluatierol. Starten op de plaatsingsgroep houdt het verkeer laag; starten per student levert groepen van één student op."
+      "vraag": "Voor de proof of concept: welk systeem start het keuzemoment? Voorlopig het studentkeuzesysteem, waar alles samenkomt (Niels van Duin, #579 vraag 6); ook het studentvolgsysteem kan de start tegenhouden bij te weinig voortgang."
     },
     {
       "beeld_id": "F6-07",
@@ -7210,8 +7238,8 @@
       "pijl": "id-08467fe302794db6b935ff685e83efe0",
       "koppeling": null,
       "objecttype": "Planningsgroep",
-      "instantie": "K0037 periode 7, locatie A: 18 keuzes, de groep past",
-      "bron": "sessie Keuzedeelmodel en informatiemodel, 17 november 2026 (Niels van Duin, Niek Derksen): richting rooster stuurt planning het aanbod op de lager gelegen eenheden door, en daar komt de verbintenis op",
+      "instantie": "K0037-P7-1: capaciteitsgroep tot 24, 18 studenten ingedeeld",
+      "bron": "sessie Keuzedeelmodel en informatiemodel, 17 november 2026 (Niels van Duin, Niek Derksen): richting rooster stuurt planning het aanbod op de lager gelegen eenheden door, en daar komt de verbintenis op; antwoord van Niels van Duin op #579, 25 november 2026, vraag 1: de planningsgroep gaat naar het rooster, en de lesgroep is de definitieve planningsgroep die terugkomt",
       "relaties": [
         {
           "soort": "Association",
@@ -7221,8 +7249,7 @@
           "voorstel": true,
           "instantie": "K0037 Farmaceutische Patientenzorg, periode 7, locatie A"
         }
-      ],
-      "vraag": "Op de plaat is `Planningsgroep` een deel (compositie) van één `Plaatsingsgroep`, en de begrippenlijst noemt haar een opdeling daarvan. Een keuzedeelgroep brengt studenten uit drie plaatsingsgroepen samen, en dat past bij `Lesgroep`. Welk objecttype gaat er naar het rooster? Het voorbeeld hangt de `Planningsgroep` aan het keuzedeel, en per leergelegenheid ontstaat een `Lesgroep` (vraag 1 in #579)."
+      ]
     },
     {
       "beeld_id": "F6-13",
@@ -7231,7 +7258,7 @@
       "stap": "Gekozen keuzedeel roosteren en deelnemers delen",
       "soort": "bestaat",
       "objecttype": "Planningsgroep",
-      "instantie": "K0037 periode 7, locatie A: 18 keuzes, de groep past",
+      "instantie": "K0037-P7-1: capaciteitsgroep tot 24, 18 studenten ingedeeld",
       "herkomst": "F6-06",
       "bron": "aanwijzing van de opdrachtgever, 24 november 2026"
     },
@@ -7313,7 +7340,7 @@
       "wie": "roosteraar",
       "objecttype": "Lesgroep",
       "instantie": "K0037-P7-A: 18 studenten uit drie plaatsingsgroepen",
-      "bron": "aanwijzing van de opdrachtgever, 24 november 2026: de roosteraar groepeert de studenten tot lesgroepen en koppelt ze aan locatie en docent",
+      "bron": "aanwijzing van de opdrachtgever, 24 november 2026: de roosteraar groepeert de studenten tot lesgroepen en koppelt ze aan locatie en docent; antwoord van Niels van Duin op #579, 25 november 2026, vraag 1: een lesgroep is in feite een definitieve planningsgroep met studenten, ingezet voor een of meer leergelegenheden",
       "relaties": [
         {
           "soort": "Association",
@@ -7321,11 +7348,10 @@
           "naar": "Lesgroep",
           "label": "vormt",
           "voorstel": true,
-          "instantie": "K0037 periode 7, locatie A: 18 keuzes, de groep past"
+          "instantie": "K0037-P7-1: capaciteitsgroep tot 24, 18 studenten ingedeeld"
         }
       ],
-      "vraag": "Hoort er een relatie van `Planningsgroep` naar `Lesgroep`, en van `Medewerker` naar `Lesgelegenheid`, of loopt dat via de verbintenis?",
-      "nieuwe_instantie": true
+      "vraag": "Hoort er een relatie van `Medewerker` naar `Lesgelegenheid`, of loopt dat via de verbintenis? De relatie van `Planningsgroep` naar `Lesgroep` (vormt) staat voor de rijping die Niels van Duin in #579 beschrijft, en is een voorstel."
     },
     {
       "beeld_id": "F6-13",
@@ -7372,7 +7398,7 @@
       "koppeling": null,
       "objecttype": "Leergelegenheid",
       "instantie": "Het medicatieoverzicht opstellen, periode 7: donderdagmiddag, leerapotheek, docent 4711",
-      "bron": "sessie Keuzedeelmodel en informatiemodel, 17 november 2026 (Niels van Duin, Niek Derksen): het rooster geeft het studentkeuzesysteem terug welke leergelegenheden het worden",
+      "bron": "sessie Keuzedeelmodel en informatiemodel, 17 november 2026 (Niels van Duin, Niek Derksen): het rooster geeft het studentkeuzesysteem terug welke leergelegenheden het worden; antwoord van Niels van Duin op #579, 25 november 2026, vraag 7: deze lijn ontsluit de geroosterde leergelegenheden en wordt net als die van planning verrijkt met programma en onderwijseenheid; de verbintenis gaat over de bevestigingslijn (F6-15)",
       "relaties": [
         {
           "soort": "Association",
@@ -7454,15 +7480,14 @@
       "koppeling": null,
       "objecttype": "Lesgroep",
       "instantie": "K0037-P7-A: 18 studenten uit drie plaatsingsgroepen",
-      "bron": "aanwijzing van de opdrachtgever, 24 november 2026: het roostersysteem meldt het studentkeuzesysteem met wie en in welke groep de student is ingeroosterd, en het studentkeuzesysteem geeft dat door aan het LMS",
+      "bron": "aanwijzing van de opdrachtgever, 24 november 2026: het roostersysteem meldt het studentkeuzesysteem met wie en in welke groep de student is ingeroosterd, en het studentkeuzesysteem geeft dat door aan het LMS; antwoord van Niels van Duin op #579, 25 november 2026, vraag 1: de planningsgroep gaat naar het rooster, en de lesgroep is de definitieve planningsgroep die terugkomt; vraag 7: van de twee lijnen van het rooster naar het studentkeuzesysteem draagt deze, de bevestiging, de verbintenis",
       "relatie": {
         "soort": "Association",
         "van": "Leergelegenheid verbintenis",
         "naar": "Lesgroep",
         "label": "Groepeert tot",
         "instantie": "Jochem op Het medicatieoverzicht opstellen, periode 7"
-      },
-      "vraag": "De pijlen van F6-15 en F6-16 noemen op de hoofdplaat de planningsgroep; het voorbeeld stuurt de lesgroep. Welke groep gaat erover? Zie ook de vraag bij F6-12."
+      }
     },
     {
       "beeld_id": "F6-16",
@@ -7476,14 +7501,13 @@
       "koppeling": null,
       "objecttype": "Student",
       "instantie": "Jochem, cohort 2026",
-      "bron": "aanwijzing van de opdrachtgever, 24 november 2026: het roostersysteem meldt het studentkeuzesysteem met wie en in welke groep de student is ingeroosterd, en het studentkeuzesysteem geeft dat door aan het LMS",
+      "bron": "aanwijzing van de opdrachtgever, 24 november 2026: het roostersysteem meldt het studentkeuzesysteem met wie en in welke groep de student is ingeroosterd, en het studentkeuzesysteem geeft dat door aan het LMS; antwoord van Niels van Duin op #579, 25 november 2026, vraag 2: voor een keuzedeel heeft het LMS de planningsgroep met de verbintenis als geheel nodig, en dat komt zuiverder uit het studentkeuzesysteem; groepen die niet aan een keuze hangen gaan rechtstreeks van het roostersysteem naar het LMS (F4-10)",
       "relatie": {
         "soort": "Specialization",
         "van": "Student",
         "naar": "Persoon"
       },
-      "zin": "Het studentkeuzesysteem geeft de verbintenis en de lesgroep door aan het LMS, dat daarmee de leeromgeving van K0037 voor Jochem inricht.",
-      "vraag": "Het LMS krijgt de lesgroep via het studentkeuzesysteem, langs lijnen die de hoofdplaat kent. Het roostersysteem is de bron van de lesgroep. Is een directe lijn van het roostersysteem naar het LMS beter?"
+      "zin": "Het studentkeuzesysteem geeft de verbintenis en de lesgroep door aan het LMS, dat daarmee de leeromgeving van K0037 voor Jochem inricht."
     },
     {
       "beeld_id": "F6-16",

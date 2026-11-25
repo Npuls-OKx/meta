@@ -75,9 +75,8 @@ Hoort bij [de opleiding van Jochem in het informatiemodel](leerroute-uitwerking-
 | 2 | F2-08 | Keuzedeel aanbod | | | | |
 | 2 | F2-08 | Plaatsingsgroep | | | | |
 | 2 | F2-08 | Planningsgroep | | | | |
-| 2 | F2-08 | Lesgroep | | | | |
 | 2 | F2-08 | Planningsgroep | | | | |
-| 2 | F2-08 | Lesgroep | | | | |
+| 2 | F2-08 | Planningsgroep | | | | |
 | 2 | F2-08 | Planningsgroep | | | | |
 | 2 | F2-08 | Planningsgroep | | | | |
 | 3 | F3-03 | Persoon | | | | |
@@ -123,11 +122,11 @@ Hoort bij [de opleiding van Jochem in het informatiemodel](leerroute-uitwerking-
 | 6 | F6-04 | Keuzedeel aanbod verbintenis | | | | |
 | 6 | F6-04 | Keuzedeel aanbod verbintenis | | | | |
 | 6 | F6-04 | Onderwijseenheid aanbod verbintenis | | | | |
-| 6 | F6-06 | Planningsgroep | | | | |
 | 6 | F6-06 | Keuzedeel aanbod | | | | |
 | 6 | F6-06 | Onderwijseenheid aanbod | | | | |
 | 6 | F6-06 | Leergelegenheid | | | | |
 | 6 | F6-06 | Leergelegenheid | | | | |
+| 6 | F6-06 | Planningsgroep | | | | |
 | 6 | F6-08 | Inschrijving | | | | |
 | 6 | F6-08 | Keuzedeel aanbod verbintenis | | | | |
 | 6 | F6-08 | Onderwijseenheid aanbod verbintenis | | | | |
