@@ -33,7 +33,7 @@ Volgorde bij elke wijziging, altijd volledig:
 ```
 python3 tools/scripts/exporteer-componenten.py --extra "Intake systeem" "Aanmeld systeem" \
     "Curriculum ontwerptool" "AII (centraal aanmelden)" "Toets- en examen afname systeem"
-python3 tools/scripts/controleer-leerroute-uitwerking-model.py            # bevindingen herleiden; onderaan de metingen (zie Herkomst)
+python3 tools/scripts/controleer-leerroute-uitwerking-model.py            # bevindingen naar nul of verklaard; de metingen onderaan zijn een werklijst
 python3 tools/scripts/teken-leerroute-uitwerking-model.py                 # per beeld de maat en de banen; ruimt verweesde SVG's op
 python3 tools/scripts/teken-hoofdplaat-highlight.py            # alleen als de plaat of de stromen wijzigen
 python3 tools/scripts/genereer-leerroute-uitwerking-model-lr1.py                # waarschuwt voor vragen buiten de zeven
@@ -60,7 +60,7 @@ Elke regel is een fragment van een plaat bij een processtap:
 | Veld | Regel |
 |---|---|
 | `beeld_id` | het ID van het beeld: `F<fase>-<volgnummer>` (F1-02 is het tweede beeld van fase 1), een ID per beeld, oplopend binnen de fase en stabiel als er later een beeld bij komt. Het staat voor de titel in het beeld en in de kop, en in de kolom Beeld van de bijlage, de vragen en het invulblad |
-| `beeld` | de titel van het beeld: een label in de vorm **wie doet wat met welk object**, geen proza. Bij een ontstaat-beeld de rol ("Roosteraar roostert de lesgelegenheid en maakt de lesgroep"), bij een stroom het systeem ("Planningssysteem stuurt leergelegenheden en planningsgroepen naar het roostersysteem"). Noem het object dat nieuw is in het beeld. Uniek, aaneengesloten, in een fase, stap en soort; ID en titel samen vormen de kop en de bestandsnaam (`f4-08-roosteraar-roostert-de-lesgelegenheid-en-maakt-de-lesgroep.svg`), dus een nieuwe titel geeft een nieuw bestand. Verwijs naar een regel met beeld-ID en objecttype |
+| `beeld` | de titel van het beeld: een label in de vorm **wie doet wat met welk object**. Bij een ontstaat-beeld de rol ("Planner deelt de keuzes in de capaciteitsgroep van K0037 in"), bij een stroom het systeem ("Studentkeuzesysteem stuurt Jochems verbintenissen op K0037 naar de kernregistratie"). Noem het object dat nieuw is in het beeld. Uniek, aaneengesloten, in een fase, stap en soort; ID en titel samen vormen de kop en de bestandsnaam (`f6-06-planner-deelt-de-keuzes-in-de-capaciteitsgroep-van-k0037-in.svg`), dus een nieuwe titel geeft een nieuw bestand. Verwijs naar een regel met beeld-ID en objecttype |
 | `stap` | letterlijk uit de stappenlijst van de fase; stappen komen uit het kaderscenario (instellingsreis en happy flow), niet uit scenario-uitwerkingen |
 | `soort` | `ontstaat` (rol, stap, objecttype met instantie), `verandert` (zelfde, met `toestand` uit de lijst), `stroomt` (`van`, `naar`, `pijl` als relatie-id uit stromen.json of "geen pijl op de hoofdplaat", `koppeling`), `bestaat` (een eerder ontstaan object zichtbaar in dit beeld, met `herkomst`; zie Herkomst) |
 | `herkomst` | bij `bestaat`: het beeld van de laatste ontstaat- of verandert-regel van dezelfde instantie; neem de instantie letterlijk over, anders is het een bevinding |
@@ -104,7 +104,7 @@ Wat de controle weigert, hoort niet in het voorbeeld: een objecttype dat niet op
 
 ## Beelden
 
-De renderer tekent per beeld één SVG in ArchiMate-kleur, met het ID en de beeldtitel bovenaan: geel voor rol, processtap en object, blauw voor component, grijs voor een scope-uitzondering, gestippeld voor een aanname, paars voor een objecttype van de conceptplaat (een conceptverdieping heeft bovendien een gestippelde rand en een chip). Bovenaan staat wie en wat (rol en processtap) of de pijl van component naar component als horizontale stippellijn met koppeling-ID en stap; eronder hangen de objecten aan een stippellijn, onderling gerelateerd. Nesting is een container; een relatielijn loopt alleen naar het buurobject (ruit bij aggregatie, open pijlpunt bij specialisatie, gelabelde lijn bij associatie), elke andere relatie staat als verwijzing op het object. Leesbaarheid gaat voor breedte: een beeld is hooguit ongeveer 1000 px breed (letters 12 en 14 px), brede ketens gaan in een kolom of over meer rijen, brede kinderrijen worden een stapel en de zin loopt door over meer regels. GitHub schaalt een breder beeld terug tot onleesbaar.
+De renderer tekent per beeld één SVG in ArchiMate-kleur, met het ID en de beeldtitel bovenaan: geel voor rol, processtap en object, blauw voor component, grijs voor een scope-uitzondering, gestippeld voor een aanname, paars voor een objecttype van de conceptplaat (een conceptverdieping heeft bovendien een gestippelde rand en een chip). Bovenaan staat wie en wat (rol en processtap) of de pijl van component naar component als horizontale stippellijn met koppeling-ID en stap; eronder hangen de objecten aan een stippellijn, onderling gerelateerd. Nesting is een container; een relatielijn loopt naar het buurobject (ruit bij aggregatie, open pijlpunt bij specialisatie, gelabelde lijn bij associatie), naar een object in de kolom eerder ontstaan, en binnen de groepenkolom (zie Herkomst); elke andere relatie staat als verwijzing op het object. Leesbaarheid gaat voor breedte: een beeld is hooguit ongeveer 1000 px breed (letters 12 en 14 px), brede ketens gaan in een kolom of over meer rijen, brede kinderrijen worden een stapel en de zin loopt door over meer regels. GitHub schaalt een breder beeld terug tot onleesbaar.
 
 Een beeld is een bestand. De renderer groepeert de regels van een beeld tot een blok, ook als zij van rol wisselen: de rollen staan dan samen in de kop ("planner, SLB'er"). Een beeld mag dus meer rollen dragen waar het verhaal daarom vraagt, zoals een afname die individueel wordt beoordeeld naast een zitting met een surveillant en een beoordelaar. Leveren twee blokken toch dezelfde bestandsnaam, dan stopt de renderer met beide namen erbij, want een overschreven bestand toont minder dan de tabel zegt.
 
@@ -114,11 +114,11 @@ Bekijk het beeld zelf voordat je het meldt: `soffice --headless --convert-to png
 
 ## Herkomst: wat eerder ontstond, in beeld
 
-Een stap gebruikt bijna altijd iets dat eerder ontstond: het aanbod wordt gepland op de specificatie, de verbintenis hangt aan het aanbod, de lesgroep komt uit de planningsgroep. Zet dat in beeld, niet als tekstverwijzing onder een object. Voorbeelden: [F2-08](../../../architecture/model/informatiemodel/img/regels/f2-08-planner-plant-opleiding-programma-eenheid-en-gelegenheid.svg), F6-06, F4-08 en F4-09.
+Een stap gebruikt bijna altijd iets dat eerder ontstond: het aanbod wordt gepland op de specificatie, de verbintenis hangt aan het aanbod, de lesgroep komt uit de planningsgroep. Zet dat in beeld als `bestaat`-regel met een herkomstlijn naar wat eruit ontstaat. Voorbeelden: [F2-08](../../../architecture/model/informatiemodel/img/regels/f2-08-planner-plant-opleiding-programma-eenheid-en-gelegenheid.svg) en [F6-06](../../../architecture/model/informatiemodel/img/regels/f6-06-planner-deelt-de-keuzes-in-de-capaciteitsgroep-van-k0037-in.svg).
 
 | Element | Vorm |
 |---|---|
-| Twee vlakken | links "Eerder ontstaan" (grijs, met het beeld van herkomst in de tab), rechts "Ontstaat hier" (wit, oranje rand). De objecten houden hun ArchiMate-kleur; het vlak onderscheidt, niet de vulling of een stippelrand (die betekent aanname) |
+| Twee vlakken | links "Eerder ontstaan" (grijs, met het beeld van herkomst in de tab), rechts "Ontstaat hier" (wit, oranje rand). De objecten houden hun ArchiMate-kleur en het vlak onderscheidt; een stippelrand betekent aanname |
 | Rol en processtap | in beide vlakken de rol boven de processtap met een toewijzing; de eerdere processtap triggert de huidige (doorgetrokken lijn, volle punt) |
 | Lagen uitgelijnd | elk paar uit een herkomstlijn op dezelfde hoogte: de laag van de specificatie naast de laag van het aanbod. Lukt dat niet (twee eerdere objecten wijzen naar hetzelfde nieuwe), dan staan beide kolommen onder elkaar |
 | Herkomstlijn | een relatie met `instantie` naar een object links wordt een haakse lijn in de notatie van de relatie; komen meer lijnen met hetzelfde label bij een doel uit, dan staat het label er een keer |
@@ -145,7 +145,7 @@ flowchart LR
     PG -- "bij het roosteren" --> LG["Lesgroep<br/>de definitieve planningsgroep"]
 ```
 
-- Een groep hangt altijd aan capaciteit en planning, nooit aan alle studenten met dezelfde verbintenis.
+- Een groep volgt uit capaciteit en planning.
 - Plaatsingsgroepen en de eerste planningsgroepen ontstaan in de jaarplanning op de prognose (F2-08); plannen en roosteren lopen door, en op periodeniveau ontstaan nieuwe planningsgroepen.
 - Een practicum met twaalf plekken maakt van een plaatsingsgroep van 24 twee planningsgroepen, zonder dat er een keuze aan te pas komt.
 - Een planningsgroep van een keuzedeel is een capaciteitsgroep met een maximum, zo nodig meer per keuzedeel; tijdens plannen of roosteren wordt bepaald wie erin zit (F6-06).
@@ -195,7 +195,7 @@ Drie regels houden dat leesbaar:
 
 1. **Benoem de trede als toestand, met een bron.** Elke trede staat in de toestandenlijst van de kop, met de regel uit het kaderscenario waar zij vandaan komt. Zonder bron geen trede: wat de bron openlaat, blijft een vraag.
 2. **Voeg per trede de informatieobjecten toe die dan pas bestaan.** De specificatie wordt planbaar en krijgt op leeronderdeelniveau studiebelasting, ruimtetype en expertiseprofiel. Het aanbod begint als intentie op instellingsniveau, wordt gepland met perioden en capaciteit, en fijnmazig gepland met groepen en tijdvensters. Het voorbeeld zet die objecten in het beeld van de stap waar ze ontstaan, niet eerder.
-3. **Toon de herkomst als verwijzing, geen kopie.** Een aanbodobject draagt de verwijzing naar de specificatie waarvan het is gemaakt en naar het verzoek dat ertoe leidde; de inhoud zelf blijft bij de specificatie.
+3. **Toon de herkomst als verwijzing in de gegevens en als lijn in het beeld.** Een aanbodobject draagt de verwijzing naar de specificatie waarvan het is gemaakt en naar het verzoek dat ertoe leidde; de inhoud zelf blijft bij de specificatie.
 
 De tredes die de uitwerking van Jochem nu kent:
 
