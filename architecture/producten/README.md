@@ -47,7 +47,7 @@ Per product de rol, de inhoud, de vraag die het beantwoordt en de prioriteit sta
 | Sjablonen | werkwijze | [meta, sjablonen](../docs/sjablonen/README.md); map volgt onder #540 | concept |
 | Product-breakdown | werkwijze | [productmap](product-breakdown/README.md) | 0.2.0 |
 
-Het vlak *werkwijze* staat niet op de plaat: de product-breakdown en de sjablonen beschrijven hoe OKx de andere producten maakt en opschrijft. *Concept* betekent dat het product bestaat en nog geen uitgebracht versienummer draagt.
+Het vlak *werkwijze* valt buiten de plaat: de product-breakdown en de sjablonen beschrijven hoe OKx de andere producten maakt en opschrijft. *Concept* betekent dat het product bestaat en nog geen uitgebracht versienummer draagt.
 
 ## Productmap
 
