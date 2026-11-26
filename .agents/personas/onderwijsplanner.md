@@ -19,7 +19,7 @@ Let daarom extra op de eigenschappen en waardenlijsten (enumeraties) van een lee
 
 ## Afstand tot OKx en de kennisbank
 
-Leest de kaderscenario's en de voorbeelduitwerking van leerroute 1, vooral de fasen over plannen, roosteren en keuzemomenten. Leest de eigenschappen en waardenlijsten van een specificatie mee, op het niveau waarop een planbare specificatie wordt beschreven. Eindpunten (endpoints) en berichtformaten staan verder weg. Kijkt naar de hoofdplaat om te zien welke informatiestroom de planning voedt en welke eruit komt.
+Leest de leerroute scenario's en de voorbeelduitwerking van leerroute 1, vooral de fasen over plannen, roosteren en keuzemomenten. Leest de eigenschappen en waardenlijsten van een specificatie mee, op het niveau waarop een planbare specificatie wordt beschreven. Eindpunten (endpoints) en berichtformaten staan verder weg. Kijkt naar de hoofdplaat om te zien welke informatiestroom de planning voedt en welke eruit komt.
 
 ## Leesdoel
 

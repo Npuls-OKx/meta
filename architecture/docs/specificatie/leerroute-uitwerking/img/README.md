@@ -37,7 +37,7 @@ flowchart LR
 | 3 Versnellen | [Linda](../doc/persona_linda.md) | als verschil in het hoofddocument | [3.1 tot 3.4](../doc/scenario-uitwerkingen/README.md) | open, zie [#443](https://github.com/Npuls-OKx/meta/issues/443) |
 | 4 tot en met 9 | open, zie [#441](https://github.com/Npuls-OKx/meta/issues/441) | open | open | open |
 
-Het kaderscenario dat bij leerroute 1 hoort staat in Npuls-OKx/Public: [leerroute 1, regulier](https://github.com/Npuls-OKx/Public/blob/dev/Referentiemateriaal/kaderscenario's/leerroute-1-regulier.md). De werkwijze met deze drie lagen staat in [#440](https://github.com/Npuls-OKx/meta/issues/440), en de leerroutes komen samen in de milestone [Instellingsreizen per leerroute](https://github.com/Npuls-OKx/meta/milestone/24).
+Het leerroute scenario dat bij leerroute 1 hoort staat in Npuls-OKx/Public: [leerroute 1, regulier](https://github.com/Npuls-OKx/Public/blob/dev/Referentiemateriaal/kaderscenario's/leerroute-1-regulier.md). De werkwijze met deze drie lagen staat in [#440](https://github.com/Npuls-OKx/meta/issues/440), en de leerroutes komen samen in de milestone [Instellingsreizen per leerroute](https://github.com/Npuls-OKx/meta/milestone/24).
 
 ## Herkomst van de tekeningen
 

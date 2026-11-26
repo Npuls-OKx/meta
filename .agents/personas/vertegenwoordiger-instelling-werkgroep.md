@@ -10,7 +10,7 @@ Kent de eigen onderwijslogistiek van binnenuit: hoe het onderwijs wordt ontworpe
 
 ## Afstand tot OKx en de kennisbank
 
-Volgt OKx op afstand en met beperkte tijd naast zijn dagelijkse werk. Leest vooral de kaderscenario's en de leerroutes, en herkent daarin zijn eigen proces of juist niet. Het begrippenkader kent hij niet uit zijn hoofd; termen moeten in de tekst zelf duidelijk worden. Werkt niet dagelijks in de repository.
+Volgt OKx op afstand en met beperkte tijd naast zijn dagelijkse werk. Leest vooral de leerroute scenario's en de leerroutes, en herkent daarin zijn eigen proces of juist niet. Het begrippenkader kent hij niet uit zijn hoofd; termen moeten in de tekst zelf duidelijk worden. Werkt niet dagelijks in de repository.
 
 ## Belangen en drijfveren
 

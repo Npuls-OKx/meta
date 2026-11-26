@@ -32,7 +32,7 @@ Voluit, met de herkomst per uitspraak: [`project/context.md`](project/context.md
 |---|---|
 | Koppelvlakspecificaties, de hoofdoplevering | [Public](https://github.com/Npuls-OKx/Public/tree/dev/Koppelvlakspecificaties) |
 | Informatie- en gegevensmodellen | [Public](https://github.com/Npuls-OKx/Public/tree/dev/Informatie-en-gegevensmodellen) |
-| Referentiemateriaal: principes, uitgangspunten, besluiten, kaderscenario's | [Public](https://github.com/Npuls-OKx/Public/tree/dev/Referentiemateriaal) |
+| Referentiemateriaal: principes, uitgangspunten, besluiten, leerroute scenario's | [Public](https://github.com/Npuls-OKx/Public/tree/dev/Referentiemateriaal) |
 | Kaderstelling en modellen | deze repository |
 
 Waarvoor OKx die levert en wat elk resultaat van de uitwerking vraagt staat in [`project/context.md`](project/context.md); hoe de set wordt opgedeeld in [deel 4 van de leesroute](project/leesroute.md#deel-4-producten).

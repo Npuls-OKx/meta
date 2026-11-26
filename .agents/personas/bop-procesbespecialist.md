@@ -10,7 +10,7 @@ Kent de onderwijslogistiek van het mbo: instroom en intake, onderwijsontwerp, pl
 
 ## Afstand tot OKx en de kennisbank
 
-Leest de kaderscenario's, de leerroute-uitwerking met persona's, en de bovenste lagen van de requirementsboom: opdracht, doelen, epics en features. Techniek staat op afstand: geen datamodelschema's, geen endpoints, geen JSON. Werkt niet dagelijks in de repository; volgt de voortgang via meldingen en vermeldingen bij naam, en verwacht dat een vraag aan hem als zodanig herkenbaar is.
+Leest de leerroute scenario's, de leerroute-uitwerking met persona's, en de bovenste lagen van de requirementsboom: opdracht, doelen, epics en features. Techniek staat op afstand: geen datamodelschema's, geen endpoints, geen JSON. Werkt niet dagelijks in de repository; volgt de voortgang via meldingen en vermeldingen bij naam, en verwacht dat een vraag aan hem als zodanig herkenbaar is.
 
 ## Leesdoel
 
