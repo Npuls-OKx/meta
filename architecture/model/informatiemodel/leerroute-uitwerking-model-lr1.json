@@ -153,7 +153,7 @@
             "opleidingsprogramma-verbintenis",
             "Persoon"
           ],
-          "bron": "leerroute-1-regulier.md, Procesfasen, interacties op de plaat en informatie, Fase 3: Wat licht op in de plaat; hoofdplaat v1.7a, Persoon(Student) Opleidingprogramma verbintenis"
+          "bron": "leerroute-1-regulier.md, Procesfasen, interacties op de plaat en informatie, Fase 3: Wat licht op in de plaat; hoofdplaat 1.7.2, Persoon(Student) Opleidingprogramma verbintenis"
         }
       ],
       "dekking": "volledig",
@@ -235,7 +235,7 @@
             "Persoon"
           ],
           "bron": "leerroute-1-regulier.md, Procesfasen, interacties op de plaat en informatie, Fase 4: Wat licht op in de plaat; bron gecorrigeerd in de sparsessie PR 314, deel 2, 4 november 2026",
-          "afwijking": "hoofdplaat v1.7a kent geen lijn van het roostersysteem naar het leermanagementsysteem; vandaag loopt die route via de kernregistratie. De kernregistratie weet niet wat een lesgroep is, dus de bron is het roostersysteem. Volgens Niels van Duin (#579 vraag 2) levert het roostersysteem groepen die niet aan een keuze hangen rechtstreeks aan het LMS; die lijn is een voorstel voor de modelronde."
+          "afwijking": "hoofdplaat 1.7.2 kent geen lijn van het roostersysteem naar het leermanagementsysteem; vandaag loopt die route via de kernregistratie. De kernregistratie weet niet wat een lesgroep is, dus de bron is het roostersysteem. Volgens Niels van Duin (#579 vraag 2) levert het roostersysteem groepen die niet aan een keuze hangen rechtstreeks aan het LMS; die lijn is een voorstel voor de modelronde."
         }
       ],
       "dekking": "volledig",
@@ -373,7 +373,7 @@
             "deelnemerscontext"
           ],
           "bron": "leerroute-1-regulier.md, Procesfasen, interacties op de plaat en informatie, Fase 6: Wat licht op in de plaat; bron gecorrigeerd in de sparsessie PR 314, deel 2, 4 november 2026",
-          "afwijking": "hoofdplaat v1.7a kent geen lijn van het roostersysteem naar het leermanagementsysteem. Het voorbeeld volgt de plaat: het roostersysteem meldt verbintenis en lesgroep aan het studentkeuzesysteem (F6-15), en dat geeft ze door aan het LMS (F6-16). Voor een keuzedeel is dat ook de route: het LMS krijgt planningsgroep en verbintenis als geheel uit het studentkeuzesysteem (Niels van Duin, #579 vraag 2)."
+          "afwijking": "hoofdplaat 1.7.2 kent geen lijn van het roostersysteem naar het leermanagementsysteem. Het voorbeeld volgt de plaat: het roostersysteem meldt verbintenis en lesgroep aan het studentkeuzesysteem (F6-15), en dat geeft ze door aan het LMS (F6-16). Voor een keuzedeel is dat ook de route: het LMS krijgt planningsgroep en verbintenis als geheel uit het studentkeuzesysteem (Niels van Duin, #579 vraag 2)."
         },
         {
           "van": "Kernregistratie systeem studenten (KRS)",
@@ -4696,8 +4696,8 @@
       "koppeling": null,
       "objecttype": "Inschrijving",
       "instantie": "Juni 2026",
-      "bron": "leerroute-1-regulier.md, r860 en r882, r945 en r949; hoofdplaat v1.7a, stroom Persoon(Student) Opleidingprogramma verbintenis van de Voorziening Centraal Aanmelden naar de kernregistratie; gecorrigeerd op aanwijzing van de opdrachtgever, 6 november 2026",
-      "zin": "Bij een positieve uitkomst van de intake wordt de aanmelding een inschrijving, en de voorziening voor centraal aanmelden draagt die over aan de kernregistratie, samen met de persoon en de verbintenissen die daarmee op ingeschreven staan. Dat is de lijn die hoofdplaat v1.7a kent: Persoon(Student) Opleidingprogramma verbintenis loopt rechtstreeks van de voorziening naar de kernregistratie. Vanaf dat moment is de kernregistratie de bron voor persoon en plaatsing, en registreert zij later de definitieve keuze. Het rijpen van die keuze gebeurt in het studentkeuzesysteem. De plaatsingsgroep zit hier niet bij: zij wordt in de kernregistratie gevormd nadat de intake is afgerond, en gaat van daaruit naar het keuzesysteem (F3-08) en naar planning (F4-06).",
+      "bron": "leerroute-1-regulier.md, r860 en r882, r945 en r949; hoofdplaat 1.7.2, stroom Persoon(Student) Opleidingprogramma verbintenis van de Voorziening Centraal Aanmelden naar de kernregistratie; gecorrigeerd op aanwijzing van de opdrachtgever, 6 november 2026",
+      "zin": "Bij een positieve uitkomst van de intake wordt de aanmelding een inschrijving, en de voorziening voor centraal aanmelden draagt die over aan de kernregistratie, samen met de persoon en de verbintenissen die daarmee op ingeschreven staan. Dat is de lijn die hoofdplaat 1.7.2 kent: Persoon(Student) Opleidingprogramma verbintenis loopt rechtstreeks van de voorziening naar de kernregistratie. Vanaf dat moment is de kernregistratie de bron voor persoon en plaatsing, en registreert zij later de definitieve keuze. Het rijpen van die keuze gebeurt in het studentkeuzesysteem. De plaatsingsgroep zit hier niet bij: zij wordt in de kernregistratie gevormd nadat de intake is afgerond, en gaat van daaruit naar het keuzesysteem (F3-08) en naar planning (F4-06).",
       "relaties": [
         {
           "soort": "Association",
@@ -4721,7 +4721,7 @@
       "koppeling": null,
       "objecttype": "Persoon",
       "instantie": "Jochem, 17, na het vmbo",
-      "bron": "leerroute-1-regulier.md, r860 en r882, r945 en r949; hoofdplaat v1.7a, stroom Persoon(Student) Opleidingprogramma verbintenis van de Voorziening Centraal Aanmelden naar de kernregistratie; gecorrigeerd op aanwijzing van de opdrachtgever, 6 november 2026",
+      "bron": "leerroute-1-regulier.md, r860 en r882, r945 en r949; hoofdplaat 1.7.2, stroom Persoon(Student) Opleidingprogramma verbintenis van de Voorziening Centraal Aanmelden naar de kernregistratie; gecorrigeerd op aanwijzing van de opdrachtgever, 6 november 2026",
       "relaties": [
         {
           "soort": "Access",
@@ -4743,7 +4743,7 @@
       "koppeling": null,
       "objecttype": "Student",
       "instantie": "Jochem, cohort 2026",
-      "bron": "leerroute-1-regulier.md, r860 en r882, r945 en r949; hoofdplaat v1.7a, stroom Persoon(Student) Opleidingprogramma verbintenis van de Voorziening Centraal Aanmelden naar de kernregistratie; gecorrigeerd op aanwijzing van de opdrachtgever, 6 november 2026",
+      "bron": "leerroute-1-regulier.md, r860 en r882, r945 en r949; hoofdplaat 1.7.2, stroom Persoon(Student) Opleidingprogramma verbintenis van de Voorziening Centraal Aanmelden naar de kernregistratie; gecorrigeerd op aanwijzing van de opdrachtgever, 6 november 2026",
       "relatie": {
         "soort": "Specialization",
         "van": "Student",
@@ -4763,7 +4763,7 @@
       "objecttype": "Opleiding aanbod verbintenis",
       "instantie": "Jochem op Apothekersassistent 2026",
       "toestand": "ingeschreven",
-      "bron": "leerroute-1-regulier.md, r860 en r882, r945 en r949; hoofdplaat v1.7a, stroom Persoon(Student) Opleidingprogramma verbintenis van de Voorziening Centraal Aanmelden naar de kernregistratie; gecorrigeerd op aanwijzing van de opdrachtgever, 6 november 2026",
+      "bron": "leerroute-1-regulier.md, r860 en r882, r945 en r949; hoofdplaat 1.7.2, stroom Persoon(Student) Opleidingprogramma verbintenis van de Voorziening Centraal Aanmelden naar de kernregistratie; gecorrigeerd op aanwijzing van de opdrachtgever, 6 november 2026",
       "relatie": {
         "soort": "Association",
         "van": "Plaatsingsgroep",
@@ -4783,7 +4783,7 @@
       "objecttype": "Opleidingsprogramma aanbod verbintenis",
       "instantie": "Jochem op Regulier BOL 2026",
       "toestand": "ingeschreven",
-      "bron": "leerroute-1-regulier.md, r860 en r882, r945 en r949; hoofdplaat v1.7a, stroom Persoon(Student) Opleidingprogramma verbintenis van de Voorziening Centraal Aanmelden naar de kernregistratie; gecorrigeerd op aanwijzing van de opdrachtgever, 6 november 2026",
+      "bron": "leerroute-1-regulier.md, r860 en r882, r945 en r949; hoofdplaat 1.7.2, stroom Persoon(Student) Opleidingprogramma verbintenis van de Voorziening Centraal Aanmelden naar de kernregistratie; gecorrigeerd op aanwijzing van de opdrachtgever, 6 november 2026",
       "relaties": [
         {
           "soort": "Association",
@@ -8056,7 +8056,7 @@
           "instantie": "Resultaatstructuur Apothekersassistent"
         }
       ],
-      "zin": "De vastgestelde resultaten gaan naar de kernregistratie. Welk applicatiecomponent de vaststelling doet is niet voorgeschreven: het kan in het afnamesysteem, de examenlogistiek, het volgsysteem of de kernregistratie gebeuren. Een resultaat reist daarom met een status, zodat de ontvanger weet of het is vastgesteld. Dit voorbeeld stelt vast in het volgsysteem en laat de kernregistratie alleen vastgestelde resultaten verwerken. Deze stap, de verantwoording en uitwisseling naar de kernregistratie, behandelt OKE niet; daarin gaat OKx verder. Hoofdplaat v1.7 heeft deze pijl nog niet; versie 1.7a volgt."
+      "zin": "De vastgestelde resultaten gaan naar de kernregistratie. Welk applicatiecomponent de vaststelling doet is niet voorgeschreven: het kan in het afnamesysteem, de examenlogistiek, het volgsysteem of de kernregistratie gebeuren. Een resultaat reist daarom met een status, zodat de ontvanger weet of het is vastgesteld. Dit voorbeeld stelt vast in het volgsysteem en laat de kernregistratie alleen vastgestelde resultaten verwerken. Deze stap, de verantwoording en uitwisseling naar de kernregistratie, behandelt OKE niet; daarin gaat OKx verder. Hoofdplaat 1.7.2 heeft deze pijl nog niet; zij is een voorstel voor de modelronde."
     },
     {
       "beeld_id": "F8-06",
@@ -8071,7 +8071,7 @@
       "objecttype": "Opleidingsprogramma resultaat",
       "instantie": "Regulier BOL 2026: alle kerntaken en keuzedelen voldoende",
       "bron": "leerroute-1-regulier.md, Fase 8: SVS en KRS (kwalificering en diplomering)",
-      "zin": "De vastgestelde resultaten gaan naar de kernregistratie. Welk applicatiecomponent de vaststelling doet is niet voorgeschreven: het kan in het afnamesysteem, de examenlogistiek, het volgsysteem of de kernregistratie gebeuren. Een resultaat reist daarom met een status, zodat de ontvanger weet of het is vastgesteld. Dit voorbeeld stelt vast in het volgsysteem en laat de kernregistratie alleen vastgestelde resultaten verwerken. Deze stap, de verantwoording en uitwisseling naar de kernregistratie, behandelt OKE niet; daarin gaat OKx verder. Hoofdplaat v1.7 heeft deze pijl nog niet; versie 1.7a volgt.",
+      "zin": "De vastgestelde resultaten gaan naar de kernregistratie. Welk applicatiecomponent de vaststelling doet is niet voorgeschreven: het kan in het afnamesysteem, de examenlogistiek, het volgsysteem of de kernregistratie gebeuren. Een resultaat reist daarom met een status, zodat de ontvanger weet of het is vastgesteld. Dit voorbeeld stelt vast in het volgsysteem en laat de kernregistratie alleen vastgestelde resultaten verwerken. Deze stap, de verantwoording en uitwisseling naar de kernregistratie, behandelt OKE niet; daarin gaat OKx verder. Hoofdplaat 1.7.2 heeft deze pijl nog niet; zij is een voorstel voor de modelronde.",
       "relaties": [
         {
           "soort": "Association",
@@ -8099,7 +8099,7 @@
         "van": "Keuzedeel resultaat",
         "naar": "Opleidingsprogramma resultaat"
       },
-      "zin": "De vastgestelde resultaten gaan naar de kernregistratie. Welk applicatiecomponent de vaststelling doet is niet voorgeschreven: het kan in het afnamesysteem, de examenlogistiek, het volgsysteem of de kernregistratie gebeuren. Een resultaat reist daarom met een status, zodat de ontvanger weet of het is vastgesteld. Dit voorbeeld stelt vast in het volgsysteem en laat de kernregistratie alleen vastgestelde resultaten verwerken. Deze stap, de verantwoording en uitwisseling naar de kernregistratie, behandelt OKE niet; daarin gaat OKx verder. Hoofdplaat v1.7 heeft deze pijl nog niet; versie 1.7a volgt."
+      "zin": "De vastgestelde resultaten gaan naar de kernregistratie. Welk applicatiecomponent de vaststelling doet is niet voorgeschreven: het kan in het afnamesysteem, de examenlogistiek, het volgsysteem of de kernregistratie gebeuren. Een resultaat reist daarom met een status, zodat de ontvanger weet of het is vastgesteld. Dit voorbeeld stelt vast in het volgsysteem en laat de kernregistratie alleen vastgestelde resultaten verwerken. Deze stap, de verantwoording en uitwisseling naar de kernregistratie, behandelt OKE niet; daarin gaat OKx verder. Hoofdplaat 1.7.2 heeft deze pijl nog niet; zij is een voorstel voor de modelronde."
     },
     {
       "beeld_id": "F8-07",

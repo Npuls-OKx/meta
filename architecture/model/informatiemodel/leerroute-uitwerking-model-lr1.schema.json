@@ -58,7 +58,7 @@
     },
     "koppelingen": {
       "type": "object",
-      "description": "koppeling-ID uit Public per (van > naar) op hoofdplaat v1.7a",
+      "description": "koppeling-ID uit Public per (van > naar) op de hoofdplaat (nu 1.7.2)",
       "additionalProperties": {"type": "string"}
     },
     "regels": {
@@ -113,8 +113,8 @@
         "soort": {"type": "string", "enum": ["ontstaat", "verandert", "stroomt", "bestaat"], "description": "bestaat: een object dat eerder ontstond, zichtbaar in dit beeld naast wat er ontstaat; draagt herkomst"},
         "herkomst": {"type": "string", "pattern": "^F[1-8]-[CR]?[0-9]{2}$", "description": "alleen bij bestaat: het beeld van de laatste ontstaat- of verandert-regel van deze instantie voor dit beeld; de instantie staat er letterlijk zoals in die regel"},
         "wie": {"type": "string", "description": "rol uit de rollenlijst; verplicht bij ontstaat en verandert"},
-        "van": {"type": "string", "description": "componentnaam letterlijk uit v1.7a; verplicht bij stroomt"},
-        "naar": {"type": "string", "description": "componentnaam letterlijk uit v1.7a; verplicht bij stroomt"},
+        "van": {"type": "string", "description": "componentnaam letterlijk uit de hoofdplaat (nu 1.7.2); verplicht bij stroomt"},
+        "naar": {"type": "string", "description": "componentnaam letterlijk uit de hoofdplaat (nu 1.7.2); verplicht bij stroomt"},
         "pijl": {"type": "string", "description": "relatie-id uit stromen.json, of 'geen pijl op de hoofdplaat'; verplicht bij stroomt"},
         "koppeling": {"type": ["string", "null"], "description": "koppeling-ID van de uitwisseling die deze regel raakt, een waarde uit de koppelingen-lijst op topniveau, of null voor een stroom zonder koppelingspecificatie (dezelfde betekenis als in stromen.json). Verplicht bij stroomt en alleen daar, zodat per uitwisseling vaststaat of een specificatie haar dekt; de controle toetst de waarde tegen de lijst, omdat JSON Schema niet naar een zusterveld kan verwijzen"},
         "objecttype": {"type": "string", "description": "plaatnaam letterlijk (witruimte genormaliseerd)"},
