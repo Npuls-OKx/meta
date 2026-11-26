@@ -17,6 +17,18 @@ Een map vertelt een nieuwkomer waar hij moet beginnen. Leg een nieuw bestand daa
 - **Scripts verhuizen niet mee.** Zij blijven in `tools/scripts/` en `tools/tests/`. Een script dat bij een document hoort, wordt in dat document met zijn pad genoemd.
 - **Een nieuwe map begint goed.** Maak `bron/` en `gegenereerd/` aan zodra er een tweede soort bestand bijkomt, niet pas wanneer de hoofdmap vol is.
 
+Een product uit de product-breakdown dat in meta leeft, heeft een eigen map onder `architecture/producten/<product>/`. Daarin geldt dezelfde maat, met drie plekken erbij:
+
+| Plek in de productmap | Wat er staat |
+|---|---|
+| `img/` | de beelden die het eindproduct draagt en die met de hand zijn gemaakt |
+| `versies.json` | per versie het nummer, de volledige commit, de tag, de datum en de link naar de release-notes |
+| `agent-artifacts/` | de plannen, iteraties en het onderzoek van dit product |
+
+- **Werk landt bij zijn product.** Een plan, een iteratie of een onderzoek voor een product gaat naar `architecture/producten/<product>/agent-artifacts/`. Werk dat bij geen enkel product hoort, gaat naar `architecture/agent-artifacts/`.
+- **Een nieuw product krijgt een regel.** Een nieuwe productmap krijgt een regel in `architecture/producten/manifest.json`, een `versies.json` en een regel in `architecture/producten/README.md`. `tools/tests/test_producten_manifest.py` faalt zonder.
+- **Een nieuwe versie krijgt een commit.** Leg een uitgebrachte versie vast in `versies.json` met de volledige veertigtekenhash en zet `huidig` in het manifest bij.
+
 Twee soorten uitzondering, beide met hun reden in `tools/tests/test_mapindeling.py`. Blijvend, wanneer een plek buiten ons om vastligt: `skills-lock.json` en `package.json` horen in de wortel waar hun gereedschap draait, `.github/ISSUE_TEMPLATE/config.yml` eist GitHub daar, een gevendorde skill wordt niet herschikt, en gearchiveerd materiaal blijft zoals het was. Wachtend op werk, met een issuenummer, voor een map die nog opgeruimd moet worden.
 
 Raak bij dit alles nooit een `*.archimate`-bestand aan; zie harde regel 1 in AGENTS.md. Een map eromheen mag wel verhuizen, de inhoud van het bestand niet.

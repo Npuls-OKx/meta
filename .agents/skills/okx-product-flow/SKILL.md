@@ -58,6 +58,8 @@ Een criterium is toetsbaar: twee mensen komen er los van elkaar tot hetzelfde oo
 
 Autonoom opgesteld, zodra de criteria vaststaan. Het plan noemt per stap wat er gebeurt, welke bestanden het raakt, in welke volgorde, en hoe elk criterium wordt nagerekend. Botst het met openstaand werk, dan staat die afhankelijkheid erin.
 
+Het plan landt bij zijn product. Elk product uit de [product-breakdown](../../../architecture/producten/README.md) dat in meta leeft, heeft een map onder `architecture/producten/<product>/`; plannen, iteraties en onderzoek van dat product staan daar in `agent-artifacts/`. Werk dat bij geen enkel product hoort, gaat naar `architecture/agent-artifacts/`. Krijgt het werk een nieuw product, dan noemt het plan de nieuwe productmap.
+
 ### 3. Tegenlezing van het plan
 
 Een onafhankelijke tegenlezer beoordeelt het plan in een **verse context**, op het sterkste beschikbare model met hoge inspanning, en krijgt alleen het issue met de criteria en het plan. Niet de makende conversatie. De tegenlezer kiest zijn eigen skills.
@@ -84,6 +86,8 @@ Na een geslaagde tegenlezing vraagt de agent de opdrachtgever om groen licht. Zo
 ### 5. Uitwerken en de review van het resultaat
 
 De maker kiest vooraf de lezerspersona bij het deliverable; afleiden uit de context mag, de keuze wordt ter controle benoemd in de PR-beschrijving of op een stopmoment. De stap begint met de skill-check uit [`skill-first`](../../../.cursor/rules/skill-first.mdc): eerst het manifest ([.agents/skills.json](../../skills.json)) controleren op een passende skill; ontbreekt die, dan staat dat expliciet in de PR-beschrijving en wordt het gat als issue overwogen. Daarna wordt het deliverable uitgewerkt met de passende specialist-skill: [`mbo-informatie-modelleur`](../mbo-informatie-modelleur/SKILL.md) voor informatiemodellen en payloads, [`okx-oeapi-scenario-uitwerking`](../okx-oeapi-scenario-uitwerking/SKILL.md) voor scenario's, het command `ontwerp-document` voor ontwerpen, `adr-opstellen` voor ADR's. Voor scripts en valideerbare definities stelt [`okx-test-persona`](../okx-test-persona/SKILL.md) eerst de testgevallen op en implementeert ze vóór de productiecode.
+
+Het deliverable landt in de productmap: het eindproduct in de hoofdmap, de bron in `bron/`, wat een script schrijft in `gegenereerd/`. Een uitgebrachte versie krijgt een regel in `versies.json` met de volledige commit, en `architecture/producten/manifest.json` gaat mee; de maat staat in [mapindeling](../../../.cursor/rules/mapindeling.mdc).
 
 Daarna de **onafhankelijke review, eigen sporen, verse contexten**. Geef elke reviewer alleen het issue met de criteria, het deliverable en zijn skill; niet de makende conversatie.
 

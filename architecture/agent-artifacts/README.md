@@ -4,6 +4,8 @@ Hier slaan we **onderzoeksverslagen**, **projectaanvragen**, **featureplannen** 
 
 ## Mappen
 
+Plannen, iteraties en onderzoek van een product uit de product-breakdown staan bij dat product, onder `architecture/producten/<product>/agent-artifacts/`; zie de [producten](../producten/README.md). Deze map bewaart wat bij geen enkel product hoort.
+
 | Map | Inhoud |
 |-----|--------|
 | [`research/`](research/) | Onderzoek dat een besluit onderbouwt, met bronvermelding |

@@ -633,7 +633,7 @@ class DeProductafbakeningDraagtEenVersie(unittest.TestCase):
     naar een beeld dat onder zijn voeten verandert.
     """
 
-    MAP = WORTEL / "architecture/product-breakdown/img"
+    MAP = WORTEL / "architecture/producten/product-breakdown/img"
     SEMVER = re.compile(r"^product-breakdown-v(\d+)\.(\d+)\.(\d+)\.svg$")
 
     def versies(self) -> list[tuple[int, int, int]]:
@@ -655,7 +655,7 @@ class DeProductafbakeningDraagtEenVersie(unittest.TestCase):
                         f"de generator leest {maak.BREAKDOWN}, niet {naam}")
 
     def test_de_leeswijzer_noemt_elke_versie(self):
-        t = (WORTEL / "architecture/product-breakdown/README.md").read_text(
+        t = (WORTEL / "architecture/producten/product-breakdown/README.md").read_text(
             encoding="utf-8")
         for versie in self.versies():
             naam = "product-breakdown-v%d.%d.%d.svg" % versie

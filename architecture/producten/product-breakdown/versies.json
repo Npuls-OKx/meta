@@ -1,0 +1,22 @@
+{
+  "product": "product-breakdown",
+  "huidig": "0.2.0",
+  "versies": [
+    {
+      "versie": "0.1.0",
+      "commit": "9f8d2f7e825be278db64a64e2f3e5311a22e18e7",
+      "tag": "",
+      "datum": "2026-11-19",
+      "release_notes": "README.md#versies",
+      "beeld": "img/product-breakdown-v0.1.0.svg"
+    },
+    {
+      "versie": "0.2.0",
+      "commit": "241d165d4d7514bf1f32dd39ee2a087d2f800a55",
+      "tag": "",
+      "datum": "2026-11-23",
+      "release_notes": "README.md#versies",
+      "beeld": "img/product-breakdown-v0.2.0.svg"
+    }
+  ]
+}
