@@ -442,6 +442,12 @@ def meting_invoer(regels):
                 if r.get("soort") == "bestaat":
                     inv.append((norm(r.get("objecttype", "")), r.get("instantie"), r.get("herkomst")))
                     continue
+                if r.get("soort") == "verandert":
+                    # een object dat hier verandert, ontstond eerder: dat is ook invoer
+                    t_r = norm(r.get("objecttype", ""))
+                    eerder = eerst_type.get(t_r)
+                    if eerder and eerder != bid:
+                        inv.append((t_r, None, eerder))
                 for x in _relaties_van(r):
                     ander = norm(x["naar"] if norm(x["van"]) == norm(r.get("objecttype", "")) else x["van"])
                     inst = x.get("instantie")
@@ -459,6 +465,9 @@ def meting_invoer(regels):
                     elif ander not in ontstaat_in:
                         nergens.append({"beeld_id": bid, "objecttype": ander})
             inv = list(dict.fromkeys(inv))
+            # hetzelfde object als type en als instantie telt een keer: de instantie wint
+            met_inst = {(t, b) for t, i, b in inv if i}
+            inv = [x for x in inv if x[1] or (x[0], x[2]) not in met_inst]
             invoer[bid] = inv
             if not inv:
                 zonder.append(bid)
@@ -471,9 +480,24 @@ def meting_invoer(regels):
                 laatst[(norm(r.get("objecttype", "")), r.get("instantie"))] = bid
                 eerst_type.setdefault(norm(r.get("objecttype", "")), bid)
                 uitvoer.setdefault(bid, set()).add(norm(r.get("objecttype", "")))
+    # een melding per beeld en objecttype, niet per relatie
+    later = list({(x["beeld_id"], x["objecttype"]): x for x in later}.values())
+    nergens = list({(x["beeld_id"], x["objecttype"]): x for x in nergens}.values())
     telling = {"beelden": len(invoer), "met_invoer": len(invoer) - len(zonder), "zonder_invoer": len(zonder),
                "invoer": sum(len(v) for v in invoer.values()), "deel": deel}
     return {"invoer": invoer, "later": later, "nergens": nergens, "zonder_invoer": zonder, "telling": telling}
+
+
+def _sleutel(instantie):
+    """Het deel van een instantie voor de eerste dubbele punt of komma: 'Blok B1-K1, leerjaar 1: ...'
+    en 'Blok B1-K1 Biedt farmaceutische patientenzorg' delen 'Blok B1-K1'."""
+    return re.split(r"[:,]", instantie or "")[0].strip()
+
+
+def _zelfde_object(a, b):
+    """Of twee instanties van hetzelfde objecttype hetzelfde object noemen, in een kortere of langere vorm."""
+    ka, kb = _sleutel(a), _sleutel(b)
+    return bool(ka and kb) and (ka.startswith(kb) or kb.startswith(ka))
 
 
 def meting_gebruik(regels):
@@ -493,8 +517,7 @@ def meting_gebruik(regels):
         for x in rs[i + 1:]:
             if x.get("beeld_id") == bid:
                 continue
-            if norm(x.get("objecttype", "")) == naam and x.get("instantie") in (inst, None) or \
-               norm(x.get("objecttype", "")) == naam and x.get("soort") in ("stroomt", "verandert", "bestaat") and inst and inst.split(":")[0] in (x.get("instantie") or ""):
+            if norm(x.get("objecttype", "")) == naam and (x.get("instantie") in (inst, None) or _zelfde_object(inst, x.get("instantie"))):
                 gebruikt = True
                 break
             for y in _relaties_van(x):

@@ -837,9 +837,6 @@ class MainTests(unittest.TestCase):
             self.assertEqual(cv.main(["--regels", str(r), "--model", str(m), "--stromen", str(s)]), 0)
 
 
-if __name__ == "__main__":
-    unittest.main()
-
 
 class MetingHerkomstTests(unittest.TestCase):
     """Criterium 2 van #577: een beeld dat een eerder ontstaan object gebruikt, toont het in de herkomstvorm."""
@@ -903,8 +900,21 @@ class MetingInvoerTests(unittest.TestCase):
 
     def test_given_a_beeld_without_any_input_when_measured_then_signal(self):
         m = cv.meting_invoer(regels())
-        self.assertIn("F4-01", m["zonder_invoer"])
+        self.assertIn("F2-01", m["zonder_invoer"])
         self.assertNotIn("F3-01", m["zonder_invoer"])
+
+    def test_given_a_beeld_that_changes_an_earlier_object_when_measured_then_that_object_is_input(self):
+        # F4-01 roostert het opleidingsaanbod uit F2-01: dat aanbod is de invoer van het beeld
+        m = cv.meting_invoer(regels())
+        self.assertNotIn("F4-01", m["zonder_invoer"])
+        self.assertIn(("Opleidingaanbod", None, "F2-01"), m["invoer"]["F4-01"])
+
+    def test_given_two_relations_to_the_same_later_object_when_measured_then_one_signal(self):
+        r = regels()
+        r["regels"][0]["relaties"] = [{"soort": "Association", "van": "Opleidingaanbod", "naar": "Aanmelding", "label": "Op basis van"},
+                                      {"soort": "Association", "van": "Opleidingaanbod", "naar": "Aanmelding", "label": "Op basis van"}]
+        later = [x for x in cv.meting_invoer(r)["later"] if x["objecttype"] == "Aanmelding"]
+        self.assertEqual(len(later), 1)
 
     def test_given_the_measurement_when_counted_then_with_and_without_add_up(self):
         m = cv.meting_invoer(regels())
@@ -918,3 +928,7 @@ class MetingInvoerTests(unittest.TestCase):
         print(f"\n  echte tabel: {t}")
         self.assertGreater(t["beelden"], 30)
         self.assertEqual(t["met_invoer"] + t["zonder_invoer"], t["beelden"])
+
+
+if __name__ == "__main__":
+    unittest.main()
