@@ -14,8 +14,8 @@ import pathlib
 import sys
 
 WORTEL = pathlib.Path(__file__).resolve().parents[2]
-UIT = (WORTEL / "architecture/agent-artifacts/requirements-in-de-productafbakening"
-       / "gegenereerd/img/requirements-als-artefact.svg")
+UIT = (WORTEL / "architecture/producten/product-breakdown/agent-artifacts"
+       / "requirements-in-de-productafbakening/gegenereerd/img/requirements-als-artefact.svg")
 
 B, H = 224, 112
 LINKS, RECHTS, TOP, RIJ = 40, 420, 76, 158

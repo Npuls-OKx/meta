@@ -1,10 +1,10 @@
 # Sjablonen voor de adviesgroep
 
-Vijf Word-sjablonen waarmee een OKx-product wordt opgeschreven. Elk sjabloon draagt de naam van zijn product in de [productafbakening](../../product-breakdown/README.md), en samen leveren zij het pakket van eisen waarop de solutionlaag bouwt.
+Vijf Word-sjablonen waarmee een OKx-product wordt opgeschreven. Elk sjabloon draagt de naam van zijn product in de [productafbakening](../../producten/product-breakdown/README.md), en samen leveren zij het pakket van eisen waarop de solutionlaag bouwt.
 
 ## Plek in de productafbakening
 
-![Productafbakening v0.2.0: de producten van OKx en hoe zij op elkaar bouwen](../../product-breakdown/img/product-breakdown-v0.2.0.svg)
+![Productafbakening v0.2.0: de producten van OKx en hoe zij op elkaar bouwen](../../producten/product-breakdown/img/product-breakdown-v0.2.0.svg)
 
 Vijf vakken op deze plaat hebben een sjabloon. Elk sjabloon opent met een uitsnede van de plaat waarin het eigen vak is uitgelicht, met eronder de hele plaat in het klein en een kader om de uitsnede.
 

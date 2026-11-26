@@ -22,7 +22,7 @@ Het uitgelichte vak is het product dat u met dit sjabloon beschrijft. De kleine 
 
 Het staat naast alle andere producten en levert de begrippen waarin zij spreken.
 
-Het cijfer rechtsboven in een vak is de prioriteit, waarbij lager eerder is; de hele plaat staat in de [productafbakening](https://github.com/Npuls-OKx/meta/blob/dev/architecture/product-breakdown/README.md).
+Het cijfer rechtsboven in een vak is de prioriteit, waarbij lager eerder is; de hele plaat staat in de [productafbakening](https://github.com/Npuls-OKx/meta/blob/dev/architecture/producten/product-breakdown/README.md).
 
 ## Doelstelling document
 

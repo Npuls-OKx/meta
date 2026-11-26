@@ -99,7 +99,7 @@ KLEUREN = 64
 
 # De productafbakening staat in elk sjabloon, met het vak van dit product
 # uitgelicht: de invuller ziet waar zijn document in het geheel past.
-BREAKDOWN = "architecture/product-breakdown/img/product-breakdown-v0.2.0.svg"
+BREAKDOWN = "architecture/producten/product-breakdown/img/product-breakdown-v0.2.0.svg"
 # Onder de uitsnede staat de hele plaat in het klein, met de uitsnede omkaderd.
 KAARTBREEDTE = 330
 LETTER = "/usr/share/fonts/truetype/dejavu/DejaVuSans.ttf"
@@ -684,7 +684,7 @@ class Sjabloon:
             "Het cijfer rechtsboven in een vak is de prioriteit, waarbij lager "
             "eerder is; de hele plaat staat in de "
             "[productafbakening](https://github.com/Npuls-OKx/meta/blob/dev/"
-            "architecture/product-breakdown/README.md).",
+            "architecture/producten/product-breakdown/README.md).",
             "",
         ]
 

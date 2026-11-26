@@ -108,7 +108,9 @@ Dit vervangt de fork `Npuls-OKx/specification`, die op verzoek van de OEAPI-behe
 | Voorstellen op de hoofdplaat, voor een concept of een sparvraag | [architecture/model/informatiemodel/voorstellen/](architecture/model/informatiemodel/voorstellen/), skill [okx-voorstel-op-de-hoofdplaat](.agents/skills/okx-voorstel-op-de-hoofdplaat/SKILL.md) |
 | Meetingverslagen | [architecture/meetings/](architecture/meetings/) |
 | Specificaties (leerroute-uitwerking, persona's) | [architecture/docs/specificatie/](architecture/docs/specificatie/) |
-| Agent-artifacten (ontwerpen, plannen) | [architecture/agent-artifacts/](architecture/agent-artifacts/) |
+| Producten uit de product-breakdown, elk met een eigen map, een manifest en de versies | [architecture/producten/](architecture/producten/README.md) |
+| Plannen, iteraties en onderzoek van een product | `architecture/producten/<product>/agent-artifacts/` |
+| Agent-artifacten die bij geen enkel product horen | [architecture/agent-artifacts/](architecture/agent-artifacts/) |
 | Onderzoek van het team zelf | [architecture/docs/onderzoek/](architecture/docs/onderzoek/) |
 | MOKA-sjabloon en de uitwerking erop, gearchiveerd | [archief/MOKA/](archief/MOKA/) |
 | Presentaties (Slidev, Npuls huisstijl) | [presentaties/](presentaties/) |
@@ -138,6 +140,17 @@ Een map vertelt een nieuwkomer waar hij moet beginnen. Daarom draagt de hoofdmap
 | `gegenereerd/` | wat een script schrijft, beelden daaronder in `gegenereerd/img/`; hier bewerkt niemand iets met de hand |
 
 Drie keuzes die hierin vastliggen. Het gaat om de **lezer en niet om de maker**: een gegenereerd document dat gelezen wordt staat in de hoofdmap, een gegenereerd gegeven dat niemand opent niet. De naam `gegenereerd` is de **waarschuwing**: wie daar met de hand iets wijzigt, verliest het bij de volgende ronde, en dat is de fout die #411 beschrijft. En **scripts verhuizen niet mee**: zij blijven in [tools/scripts/](tools/scripts/) en [tools/tests/](tools/tests/), zoals #464 ze daar bracht. Een script dat bij een document hoort, wordt in dat document met zijn pad genoemd.
+
+Een product uit de [product-breakdown](architecture/producten/product-breakdown/README.md) dat in meta leeft, krijgt een eigen map onder `architecture/producten/<product>/`, met dezelfde maat binnenin:
+
+| Plek in de productmap | Wat er staat |
+|---|---|
+| `README.md`, het eindproduct en `img/` | wat het product is, voor wie, de actuele versie, en het document of de plaat zelf met de beelden die het draagt |
+| `bron/` en `gegenereerd/` | zoals hierboven |
+| `versies.json` | per versie het nummer, de volledige commit, de tag, de datum en de link naar de release-notes |
+| `agent-artifacts/` | de plannen, iteraties en het onderzoek van dit product |
+
+[`architecture/producten/manifest.json`](architecture/producten/manifest.json) noemt per product de map, de actuele versie, de commit en de tag; `tools/tests/test_producten_manifest.py` houdt manifest, mappen en `versies.json` gelijk. Een product dat in Public leeft, staat met een link in de [README van de producten](architecture/producten/README.md). Het ArchiMate-model blijft op zijn plek in `architecture/model/` (harde regel 1).
 
 De maat staat in [.cursor/rules/mapindeling.mdc](.cursor/rules/mapindeling.mdc) en wordt afgedwongen door `tools/tests/test_mapindeling.py`. Die test draagt een lijst uitzonderingen in twee soorten: blijvend, met de reden erbij, en wachtend op werk, met het issuenummer erbij. Een uitzondering die wacht op werk en inmiddels voldoet laat de test ook falen, zodat de lijst niet blijft staan nadat het werk gedaan is.
 
