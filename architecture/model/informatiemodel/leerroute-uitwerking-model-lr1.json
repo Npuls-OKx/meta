@@ -5576,7 +5576,7 @@
           "instantie": "APO26-1A: Jochem en 23 andere studenten geplaatst"
         }
       ],
-      "zin": "De planner plant periode 1 fijnmazig, over alle opleidingen van de instelling tegelijk. Hij zet de studenten van de plaatsingsgroep op de onderwijseenheid, en legt per leergelegenheid de lesgroepen vast op de capaciteit van het lokaaltype en het aantal docenten per expertise. De aantallen komen uit de plaatsingsgroepen; namen volgen bij het roosteren. De simulatieruimte past een hele plaatsingsgroep van 24; het practicum in de leerapotheek heeft twaalf werkplekken, dus daar worden het twee lesgroepen per plaatsingsgroep, en acht over het cohort van 96."
+      "zin": "De planner plant periode 1 fijnmazig, over alle opleidingen van de instelling tegelijk. Hij zet de studenten van de plaatsingsgroep op de onderwijseenheid, en legt per leergelegenheid de lesgroepen vast op de capaciteit van het lokaaltype en het aantal docenten per expertise. De studenten van de plaatsingsgroep krijgen hun verbintenis op de onderwijseenheid; in de lesgroepen staan nog aantallen, en de namen volgen bij het roosteren. De simulatieruimte past een hele plaatsingsgroep van 24; het practicum in de leerapotheek heeft twaalf werkplekken, dus daar worden het twee lesgroepen per plaatsingsgroep, en acht over het cohort van 96."
     },
     {
       "beeld_id": "F4-07",
@@ -6242,7 +6242,7 @@
       "objecttype": "Lesgroep",
       "instantie": "Baliegesprekken 101-A: Jochem en 23 andere studenten van APO26-1A, docent 4711",
       "bron": "aanwijzing van de opdrachtgever, 26 november 2026: de lesgroep met haar studenten en hun verbintenissen gaan van het rooster naar de kernregistratie, langs 'Ontsluiten planningsgroepen met studenten' op hoofdplaat 1.7.2",
-      "zin": "Het roostersysteem meldt de kernregistratie de geroosterde lesgroep met haar studenten en hun verbintenissen op leergelegenheid en les. Zo kent de kernregistratie wat zij daarna aan het studentvolgsysteem doorgeeft (F4-14)."
+      "zin": "Het roostersysteem meldt de kernregistratie de geroosterde lesgroep met haar studenten en hun verbintenissen op de onderwijseenheid, de leergelegenheid en de les. Zo kent de kernregistratie wat zij daarna aan het studentvolgsysteem doorgeeft (F4-14)."
     },
     {
       "beeld_id": "F4-12",
@@ -6276,6 +6276,20 @@
       "koppeling": null,
       "objecttype": "Lesgelegenheid verbintenis",
       "instantie": "Jochem op les 1, 1 september 09:00",
+      "bron": "aanwijzing van de opdrachtgever, 26 november 2026: de lesgroep met haar studenten en hun verbintenissen gaan van het rooster naar de kernregistratie, langs 'Ontsluiten planningsgroepen met studenten' op hoofdplaat 1.7.2"
+    },
+    {
+      "beeld_id": "F4-12",
+      "beeld": "Roostersysteem stuurt de lesgroep met studenten naar de kernregistratie",
+      "fase": 4,
+      "stap": "Leer-, les- en toetsgelegenheden roosteren",
+      "soort": "stroomt",
+      "van": "Roostersysteem",
+      "naar": "Kernregistratie systeem studenten (KRS)",
+      "pijl": "id-70bdd7dbcb234951ad2c1c719f19c543",
+      "koppeling": null,
+      "objecttype": "Onderwijseenheid aanbod verbintenis",
+      "instantie": "Jochem op B1-K1, leerjaar 1",
       "bron": "aanwijzing van de opdrachtgever, 26 november 2026: de lesgroep met haar studenten en hun verbintenissen gaan van het rooster naar de kernregistratie, langs 'Ontsluiten planningsgroepen met studenten' op hoofdplaat 1.7.2"
     },
     {
