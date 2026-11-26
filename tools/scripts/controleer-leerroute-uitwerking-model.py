@@ -44,6 +44,13 @@ Controles (R1 en R2 uit het featureplan):
     het beeld van de laatste ontstaat- of verandert-regel van dezelfde instantie ervoor, met de instantie
     letterlijk zoals daar. Een bestaat-regel telt niet als ontstaan en niet in de dekking.
 
+Drie metingen, onder een eigen kop en buiten de exitcode (#546, criterium 2 en 3 van #577):
+- invoer: per beeld wat het gebruikt en waar dat ontstond (met --invoer per regel), met een melding bij
+  iets dat later of nergens ontstaat en bij een beeld zonder invoer, en een telling;
+- herkomst: een eerder ontstaan object dat een beeld gebruikt zonder het als bestaat-regel te tonen;
+- gebruik: een ontstaan object dat later niet stroomt, terugkomt of door een relatie genoemd wordt, tenzij
+  het een eindpunt is (veld eindpunt).
+
 Een planningsvorm naast de basis (leerroute-uitwerking-model-lr1-<vorm>.json, #401) krijgt controle 1 tot en met 5,
 8, 9, 11 en 13 op de tabel die ontstaat als zij met de kop van de basis wordt samengevoegd, en controle 10
 tegen haar eigen schema. De dekking (6 en 12) geldt alleen voor de basis, want een variant is een delta.
@@ -370,6 +377,138 @@ def herkomst(regels, voorafgaand=()):
     return uit
 
 
+def _relaties_van(r):
+    """De relaties van een regel zonder nesting: relatie en relaties samen."""
+    return [x for x in ([r.get("relatie")] if isinstance(r.get("relatie"), dict) else []) + list(r.get("relaties") or [])
+            if isinstance(x, dict) and "van" in x and "naar" in x and not x.get("nesting")]
+
+
+def meting_herkomst(regels):
+    """Criterium 2 van #577. Een beeld dat een eerder ontstaan object gebruikt, hoort dat object te tonen in
+    de herkomstvorm: als bestaat-regel, met een lijn naar wat hier ontstaat. Meet per beeld de relaties naar
+    een object uit een eerder beeld dat hier niet als bestaat-regel staat. Met een instantie telt dat ene
+    object; zonder instantie telt het type, als het eerder ontstond en in dit beeld niet voorkomt.
+    Stroombeelden tellen niet: die tonen wat over de lijn gaat. Geeft een lijst gaten."""
+    laatst, eerst_type, gaten = {}, {}, []
+    per_beeld = {}
+    for r in regels.get("regels", []):
+        per_beeld.setdefault(r.get("beeld_id"), []).append(r)
+    for bid, rs in per_beeld.items():
+        if any(r.get("soort") != "stroomt" for r in rs):
+            typen_hier = {norm(r.get("objecttype", "")) for r in rs}
+            bestaat = {(norm(r.get("objecttype", "")), r.get("instantie")) for r in rs if r.get("soort") == "bestaat"}
+            for r in rs:
+                if r.get("soort") == "bestaat":
+                    continue
+                for x in _relaties_van(r):
+                    ander = norm(x["naar"] if norm(x["van"]) == norm(r.get("objecttype", "")) else x["van"])
+                    inst = x.get("instantie")
+                    if inst:
+                        bron = laatst.get((ander, inst))
+                        if bron and bron != bid and (ander, inst) not in bestaat:
+                            gaten.append({"beeld_id": bid, "objecttype": ander, "instantie": inst, "uit": bron})
+                    elif ander not in typen_hier and ander in eerst_type:
+                        gaten.append({"beeld_id": bid, "objecttype": ander, "instantie": None, "uit": eerst_type[ander]})
+        for r in rs:
+            if r.get("soort") in ("ontstaat", "verandert"):
+                laatst[(norm(r.get("objecttype", "")), r.get("instantie"))] = bid
+                eerst_type.setdefault(norm(r.get("objecttype", "")), bid)
+    return gaten
+
+
+def meting_invoer(regels):
+    """#546. De invoer per beeld, afgeleid uit de relaties (zonder nesting) en de bestaat-regels: per invoer
+    het objecttype, de instantie als de relatie die noemt, en het beeld waar het object laatst ontstond of
+    veranderde. Een relatie naar een object in hetzelfde beeld is geen invoer. Drie soorten melding: een
+    invoer die pas in een later beeld ontstaat (later), een invoer die nergens ontstaat (nergens), en een
+    beeld van soort ontstaat of verandert zonder enige invoer (zonder_invoer). De telling zegt ook hoe vaak
+    een beeld maar een deel gebruikt van wat een eerder beeld voortbracht (deel). Stroombeelden tellen niet:
+    die tonen wat over de lijn gaat."""
+    rs = regels.get("regels", [])
+    per_beeld = {}
+    for r in rs:
+        per_beeld.setdefault(r.get("beeld_id"), []).append(r)
+    ontstaat_in = {}
+    for r in rs:
+        if r.get("soort") == "ontstaat":
+            ontstaat_in.setdefault(norm(r.get("objecttype", "")), r.get("beeld_id"))
+    laatst, eerst_type, uitvoer = {}, {}, {}
+    invoer, later, nergens, zonder, deel = {}, [], [], [], 0
+    for bid, rb in per_beeld.items():
+        if any(r.get("soort") != "stroomt" for r in rb):
+            typen_hier = {norm(r.get("objecttype", "")) for r in rb if r.get("soort") in ("ontstaat", "verandert")}
+            inv = []
+            for r in rb:
+                if r.get("soort") == "bestaat":
+                    inv.append((norm(r.get("objecttype", "")), r.get("instantie"), r.get("herkomst")))
+                    continue
+                for x in _relaties_van(r):
+                    ander = norm(x["naar"] if norm(x["van"]) == norm(r.get("objecttype", "")) else x["van"])
+                    inst = x.get("instantie")
+                    if not inst and ander in typen_hier:
+                        continue
+                    bron = laatst.get((ander, inst)) if inst else None
+                    if bron is None:
+                        bron = eerst_type.get(ander)
+                    if bron == bid:
+                        continue
+                    if bron:
+                        inv.append((ander, inst, bron))
+                    elif ander in ontstaat_in and ontstaat_in[ander] != bid:
+                        later.append({"beeld_id": bid, "objecttype": ander, "ontstaat_in": ontstaat_in[ander]})
+                    elif ander not in ontstaat_in:
+                        nergens.append({"beeld_id": bid, "objecttype": ander})
+            inv = list(dict.fromkeys(inv))
+            invoer[bid] = inv
+            if not inv:
+                zonder.append(bid)
+            for bron in {b for _, _, b in inv if b in uitvoer}:
+                gebruikt = {t for t, _, b in inv if b == bron}
+                if 0 < len(gebruikt & uitvoer[bron]) < len(uitvoer[bron]):
+                    deel += 1
+        for r in rb:
+            if r.get("soort") in ("ontstaat", "verandert"):
+                laatst[(norm(r.get("objecttype", "")), r.get("instantie"))] = bid
+                eerst_type.setdefault(norm(r.get("objecttype", "")), bid)
+                uitvoer.setdefault(bid, set()).add(norm(r.get("objecttype", "")))
+    telling = {"beelden": len(invoer), "met_invoer": len(invoer) - len(zonder), "zonder_invoer": len(zonder),
+               "invoer": sum(len(v) for v in invoer.values()), "deel": deel}
+    return {"invoer": invoer, "later": later, "nergens": nergens, "zonder_invoer": zonder, "telling": telling}
+
+
+def meting_gebruik(regels):
+    """Criterium 3 van #577. Een ontstaan object hoort later gebruikt, gelinkt of gekoppeld te worden: het
+    stroomt naar een systeem, staat later als bestaat-regel of verandert, of een latere relatie noemt het
+    (met zijn instantie, of zonder instantie met zijn type). Een object dat het eindpunt is van de reis
+    draagt het veld eindpunt met de reden. Objecten van de conceptplaat tellen niet mee: zij zijn context bij
+    een verdieping. Geeft een lijst losse objecten, met het beeld waar ze ontstonden."""
+    rs = regels.get("regels", [])
+    los = []
+    for i, r in enumerate(rs):
+        if r.get("soort") != "ontstaat" or r.get("eindpunt") or r.get("plaat") == "onderwijsontwerp":
+            # een object van de conceptplaat is context bij een verdieping, geen gegeven in de uitwisseling
+            continue
+        naam, inst, bid = norm(r.get("objecttype", "")), r.get("instantie"), r.get("beeld_id")
+        gebruikt = False
+        for x in rs[i + 1:]:
+            if x.get("beeld_id") == bid:
+                continue
+            if norm(x.get("objecttype", "")) == naam and x.get("instantie") in (inst, None) or \
+               norm(x.get("objecttype", "")) == naam and x.get("soort") in ("stroomt", "verandert", "bestaat") and inst and inst.split(":")[0] in (x.get("instantie") or ""):
+                gebruikt = True
+                break
+            for y in _relaties_van(x):
+                ander = norm(y["naar"] if norm(y["van"]) == norm(x.get("objecttype", "")) else y["van"])
+                if ander == naam and y.get("instantie") in (inst, None):
+                    gebruikt = True
+                    break
+            if gebruikt:
+                break
+        if not gebruikt:
+            los.append({"beeld_id": bid, "objecttype": naam, "instantie": inst})
+    return los
+
+
 def _route_via_leeruitkomst(r, plek, typen):
     """De herkomst uit het kwalificatiekader loopt via de leeruitkomst. Een regel die een objecttype uit
     die familie rechtstreeks aan iets anders knoopt, wijkt daarvan af; de plaat staat dat alleen toe voor
@@ -583,6 +722,7 @@ def main(argv=None):
     parser.add_argument("--variantschema", type=pathlib.Path, default=VARIANTSCHEMA, help="JSON Schema van een variant naast de regeltabel")
     parser.add_argument("--fasen", help="alleen de dekking van deze fasen melden, bijvoorbeeld 2,3,4")
     parser.add_argument("--model-commit", help="commit van informatiemodel.json om tegen de kop te toetsen")
+    parser.add_argument("--invoer", action="store_true", help="per beeld elke invoer met het beeld waar zij ontstond (#546)")
     args = parser.parse_args(argv)
     for pad, wat in ((args.regels, "regeltabel"), (args.model, "informatiemodel")):
         if not pathlib.Path(pad).exists():
@@ -621,6 +761,29 @@ def main(argv=None):
         print("Bevindingen")
         for b in bevindingen:
             print(f"  bevinding: {b}")
+    gaten, los, inv = meting_herkomst(regels), meting_gebruik(regels), meting_invoer(regels)
+    print("Metingen (#546, en criterium 2 en 3 van #577; de exitcode volgt ze niet)")
+    if args.invoer:
+        for bid, lijst in inv["invoer"].items():
+            for t, i, b in lijst:
+                print(f"  invoer: {bid} gebruikt {t}" + (f" {i!r}" if i else "") + f", ontstaan in {b}")
+    for x in inv["later"]:
+        print(f"  invoer: {x['beeld_id']} gebruikt {x['objecttype']}, dat pas in {x['ontstaat_in']} ontstaat")
+    for x in inv["nergens"]:
+        print(f"  invoer: {x['beeld_id']} gebruikt {x['objecttype']}, dat nergens ontstaat")
+    for bid in inv["zonder_invoer"]:
+        print(f"  invoer: {bid} heeft geen invoer")
+    for g in gaten:
+        wat = f"{g['objecttype']} {g['instantie']!r}" if g["instantie"] else f"{g['objecttype']} (type)"
+        print(f"  herkomst: {g['beeld_id']} gebruikt {wat} uit {g['uit']} zonder bestaat-regel")
+    for x in los:
+        print(f"  gebruik: {x['beeld_id']} {x['objecttype']} {x['instantie']!r} wordt later niet gebruikt, gelinkt of gekoppeld")
+    t = inv["telling"]
+    print(f"invoer: {t['met_invoer']} van {t['beelden']} beelden met invoer ({t['invoer']} invoerrelaties), "
+          f"{t['zonder_invoer']} zonder; {len(inv['later'])} keer iets dat later ontstaat, {len(inv['nergens'])} keer iets dat nergens "
+          f"ontstaat; {t['deel']} keer een deel van een eerdere uitvoer")
+    print(f"herkomst: {len({g['beeld_id'] for g in gaten})} beelden met {len(gaten)} verwijzingen zonder herkomstvorm; "
+          f"gebruik: {len(los)} ontstane objecten los")
     n = len(regels.get("regels", []))
     register_open = sum(1 for b in regels.get("bevindingen") or [] if b.get("status") == "open")
     staart = f", {register_open} openstaande bevindingen in het register" if register_open else ""
