@@ -89,7 +89,7 @@
       "versie": "-",
       "toont": "De journey van Larissa, de persona bij leerroute 2.",
       "gebruik_bij": "Vooruitkijken naar wat na leerroute 1 komt.",
-      "let_op": "Leerroute 2 is nog niet als kaderscenario uitgewerkt in Npuls-OKx/Public. Presenteer dit als vooruitblik, niet als vastgesteld materiaal.",
+      "let_op": "Leerroute 2 is nog niet als leerroute scenario uitgewerkt in Npuls-OKx/Public. Presenteer dit als vooruitblik, niet als vastgesteld materiaal.",
       "hash": "f4ac8cdd1c38fb09"
     },
     {
@@ -100,7 +100,7 @@
       "versie": "-",
       "toont": "De journey van Linda, de persona bij leerroute 3.",
       "gebruik_bij": "Vooruitkijken naar wat na leerroute 1 komt.",
-      "let_op": "Zelfde voorbehoud als bij Larissa: nog geen kaderscenario in Npuls-OKx/Public.",
+      "let_op": "Zelfde voorbehoud als bij Larissa: nog geen leerroute scenario in Npuls-OKx/Public.",
       "hash": "8e5c8755927a60d0"
     },
     {
@@ -367,7 +367,7 @@
         "gebruik_bij": "In een plaatje laten zien welke koppelingen er zijn en waar ze aanhaken."
       },
       {
-        "onderwerp": "Van kaderscenario naar koppelvlakspecificatie",
+        "onderwerp": "Van leerroute scenario naar koppelvlakspecificatie",
         "bron": "Npuls-OKx/Public",
         "pad": "Koppelvlakspecificaties/uitgangspunten.md",
         "gebruik_bij": "Uitleggen waarom we per koppeling beschrijven: de som ervan levert het koppelvlak per component op."

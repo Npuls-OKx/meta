@@ -2,7 +2,7 @@
 name: okx-leerroute-uitwerking-model
 description: >-
   Een persona stap voor stap in het OKx-informatiemodel uitdrukken (MIM 1 en 2):
-  een regeltabel per processtap uit een kaderscenario, gecontroleerd tegen de
+  een regeltabel per processtap uit een leerroute scenario, gecontroleerd tegen de
   informatiemodelplaat en de hoofdplaat, getekend in ArchiMate-vormtaal en
   gegenereerd tot een leesdocument met bijlage en vragen, met het invulblad als
   eigen bestand ernaast. Eerder ontstane objecten staan in beeld en worden
@@ -20,7 +20,7 @@ Het voorbeeld is een leeshulp die feedback ophaalt op het informatiemodel, geen 
 
 ```mermaid
 flowchart LR
-    B["Bronnen<br/>kaderscenario, payloads, ontologie"] --> R["Regeltabel<br/>leerroute-uitwerking-model-lr1.json"]
+    B["Bronnen<br/>leerroute scenario, payloads, ontologie"] --> R["Regeltabel<br/>leerroute-uitwerking-model-lr1.json"]
     P["Platen<br/>informatiemodel.json, stromen.json,<br/>conceptplaat-onderwijsontwerp.json"] --> C["controleer-leerroute-uitwerking-model.py"]
     R --> C
     C --> T["teken-leerroute-uitwerking-model.py<br/>SVG per blok"]
@@ -49,11 +49,11 @@ De platen komen uit het ArchiMate-model en worden alleen gelezen: `genereer-info
 
 ## De regeltabel
 
-Kop: `model` (commits waartegen is gecontroleerd), `fasen` (nummer, naam, MORA-hoofdproces, bron, stappen, verwacht, `uitwisselingen` en `dekking`, link naar de fasekop in het kaderscenario), `rollen` (gesloten lijst), `toestanden` (elk met bron), `scope_uitzonderingen` (objecttype buiten scope dat het voorbeeld toch toont, met motivering), `koppelingen` ("Van > Naar" naar koppeling-ID), `thema_toelichting` en `bevindingen` (het register van een reviewronde).
+Kop: `model` (commits waartegen is gecontroleerd), `fasen` (nummer, naam, MORA-hoofdproces, bron, stappen, verwacht, `uitwisselingen` en `dekking`, link naar de fasekop in het leerroute scenario), `rollen` (gesloten lijst), `toestanden` (elk met bron), `scope_uitzonderingen` (objecttype buiten scope dat het voorbeeld toch toont, met motivering), `koppelingen` ("Van > Naar" naar koppeling-ID), `thema_toelichting` en `bevindingen` (het register van een reviewronde).
 
 Het schema `leerroute-uitwerking-model-lr1.schema.json` is de woordenlijst: het staat op `additionalProperties: false` op de tabel, op een regel en op beide relatievormen, en de controle valideert de tabel ertegen. Een veld dat het schema niet kent is dus een bevinding, niet een stille toevoeging. Komt er een veld bij, dan komt het eerst in het schema. De woordenlijst van een regel staat in `$defs/regel`, zodat een variant dezelfde gebruikt.
 
-**Planningsvormen.** De basis volgt het kaderscenario: vraaggestuurd, de student kiest op de specificatie. Een capaciteitsgestuurde of geroosterde vorm staat als eigen tabel ernaast, `leerroute-uitwerking-model-lr1-<vorm>.json` met schema `leerroute-uitwerking-model-variant.schema.json`. Een variant erft de kop van de basis, draagt per fase haar eigen stappen met een eigen bron, en zet de letter van de vorm in het beeld-ID (`F6-C01`, `F6-R01`). Wat al eerder staat, tekent een variant niet opnieuw: `voorafgegaan_door` verwijst ernaar, in de basis of in een variant die eerder in de leesvolgorde komt, zodat een traject van animo via capaciteit naar het rooster zichtbaar wordt. Onder `vervangt` staan de beelden die in haar vorm vervallen of naar die fase schuiven, zoals de plaatsing uit F4-09 bij een geroosterde keuze. De dekkingscontroles gelden alleen voor de basis, want een variant beschrijft een delta: alleen wat afwijkt. Een verdere instantie van een objecttype uit de basis draagt `nieuwe_instantie`. Lees met de [onderwijsplanner](../../personas/onderwijsplanner.md) als persona.
+**Planningsvormen.** De basis volgt het leerroute scenario: vraaggestuurd, de student kiest op de specificatie. Een capaciteitsgestuurde of geroosterde vorm staat als eigen tabel ernaast, `leerroute-uitwerking-model-lr1-<vorm>.json` met schema `leerroute-uitwerking-model-variant.schema.json`. Een variant erft de kop van de basis, draagt per fase haar eigen stappen met een eigen bron, en zet de letter van de vorm in het beeld-ID (`F6-C01`, `F6-R01`). Wat al eerder staat, tekent een variant niet opnieuw: `voorafgegaan_door` verwijst ernaar, in de basis of in een variant die eerder in de leesvolgorde komt, zodat een traject van animo via capaciteit naar het rooster zichtbaar wordt. Onder `vervangt` staan de beelden die in haar vorm vervallen of naar die fase schuiven, zoals de plaatsing uit F4-09 bij een geroosterde keuze. De dekkingscontroles gelden alleen voor de basis, want een variant beschrijft een delta: alleen wat afwijkt. Een verdere instantie van een objecttype uit de basis draagt `nieuwe_instantie`. Lees met de [onderwijsplanner](../../personas/onderwijsplanner.md) als persona.
 
 Elke regel is een fragment van een plaat bij een processtap:
 
@@ -61,7 +61,7 @@ Elke regel is een fragment van een plaat bij een processtap:
 |---|---|
 | `beeld_id` | het ID van het beeld: `F<fase>-<volgnummer>` (F1-02 is het tweede beeld van fase 1), een ID per beeld, oplopend binnen de fase en stabiel als er later een beeld bij komt. Het staat voor de titel in het beeld en in de kop, en in de kolom Beeld van de bijlage, de vragen en het invulblad |
 | `beeld` | de titel van het beeld: een label in de vorm **wie doet wat met welk object**. Bij een ontstaat-beeld de rol ("Planner deelt de keuzes in de capaciteitsgroep van K0037 in"), bij een stroom het systeem ("Studentkeuzesysteem stuurt Jochems verbintenissen op K0037 naar de kernregistratie"). Noem het object dat nieuw is in het beeld. Uniek, aaneengesloten, in een fase, stap en soort; ID en titel samen vormen de kop en de bestandsnaam (`f6-06-planner-deelt-de-keuzes-in-de-capaciteitsgroep-van-k0037-in.svg`), dus een nieuwe titel geeft een nieuw bestand. Verwijs naar een regel met beeld-ID en objecttype |
-| `stap` | letterlijk uit de stappenlijst van de fase; stappen komen uit het kaderscenario (instellingsreis en happy flow), niet uit scenario-uitwerkingen |
+| `stap` | letterlijk uit de stappenlijst van de fase; stappen komen uit het leerroute scenario (instellingsreis en happy flow), niet uit scenario-uitwerkingen |
 | `soort` | `ontstaat` (rol, stap, objecttype met instantie), `verandert` (zelfde, met `toestand` uit de lijst), `stroomt` (`van`, `naar`, `pijl` als relatie-id uit stromen.json of "geen pijl op de hoofdplaat", `koppeling`), `bestaat` (een eerder ontstaan object zichtbaar in dit beeld, met `herkomst`; zie Herkomst) |
 | `herkomst` | bij `bestaat`: het beeld van de laatste ontstaat- of verandert-regel van dezelfde instantie; neem de instantie letterlijk over, anders is het een bevinding |
 | `objecttype` | plaatnaam letterlijk, witruimte genormaliseerd |
@@ -77,12 +77,12 @@ Elke regel is een fragment van een plaat bij een processtap:
 | `toestand` | uit de toestandenlijst; verplicht bij `verandert`, en toegestaan bij `ontstaat` als het object al in een bepaalde rijpheid ontstaat (een aanbod dat als intentie begint). Het beeld toont haar onder de instantie |
 | `nieuwe_instantie` | een verdere instantie van een objecttype dat al eerder ontstond, omdat het scenario die nodig heeft (de keuzedeelvoorkeur bij de intake als tweede intekening); telt niet als tweede ontstaan |
 | `bron` | bestand en regelnummer (`leerroute-1-regulier.md, r1046`), payload-id, ontologie met versie, of "geen bron, keuze van het voorbeeld"; het register maakt er links van |
-| `zin` | één zin, uit het kaderscenario waar die er is; laag houden |
+| `zin` | één zin, uit het leerroute scenario waar die er is; laag houden |
 | `vraag` | alleen waar plaat en bron elkaar tegenspreken of de plaat iets mist; het document toont ze alle, in pagina's van zeven, en een geparkeerde bevinding uit het register levert er ook een |
 
 ### Uitwisselingen per fase, en het aftekenen
 
-Elke fase draagt de uitwisselingen die het kaderscenario onder *Wat licht op in de plaat* noemt, letterlijk overgenomen, met `van`, `naar`, de objecten in de woorden van het scenario en de bron. De controle toetst of elke uitwisseling in die fase een beeld heeft. Drie velden geven een antwoord waar dat niet zo is:
+Elke fase draagt de uitwisselingen die het leerroute scenario onder *Wat licht op in de plaat* noemt, letterlijk overgenomen, met `van`, `naar`, de objecten in de woorden van het scenario en de bron. De controle toetst of elke uitwisseling in die fase een beeld heeft. Drie velden geven een antwoord waar dat niet zo is:
 
 | Veld | Betekenis |
 |---|---|
@@ -154,7 +154,7 @@ flowchart LR
 
 ## Vragen via een issue per fase
 
-De regeltabel draagt tientallen vragen, en een reviewer leest dat document niet door. Bundel ze per fase in een issue op naam van de reviewer (Niels van Duin), hoogstens zeven, de belangrijkste eerst, elk met het beeld (permalink op een commit), opties en een voorkeur; verschillen met het kaderscenario onder "Naar Public". Na een sessie wordt elk antwoord in de regeltabel een besluit met de bron ("antwoord van Niels van Duin op #579, vraag 3"), en verdwijnt de vraag uit het document. Een voorlopig antwoord blijft een vraag met dat antwoord erin. Voorbeeld: #579 voor fase 6.
+De regeltabel draagt tientallen vragen, en een reviewer leest dat document niet door. Bundel ze per fase in een issue op naam van de reviewer (Niels van Duin), hoogstens zeven, de belangrijkste eerst, elk met het beeld (permalink op een commit), opties en een voorkeur; verschillen met het leerroute scenario onder "Naar Public". Na een sessie wordt elk antwoord in de regeltabel een besluit met de bron ("antwoord van Niels van Duin op #579, vraag 3"), en verdwijnt de vraag uit het document. Een voorlopig antwoord blijft een vraag met dat antwoord erin. Voorbeeld: #579 voor fase 6.
 
 ## Een stroom die de hoofdplaat nog niet kent
 
@@ -193,7 +193,7 @@ Een objecttype verschijnt in de reis meerdere keren, en wat het draagt groeit me
 
 Drie regels houden dat leesbaar:
 
-1. **Benoem de trede als toestand, met een bron.** Elke trede staat in de toestandenlijst van de kop, met de regel uit het kaderscenario waar zij vandaan komt. Zonder bron geen trede: wat de bron openlaat, blijft een vraag.
+1. **Benoem de trede als toestand, met een bron.** Elke trede staat in de toestandenlijst van de kop, met de regel uit het leerroute scenario waar zij vandaan komt. Zonder bron geen trede: wat de bron openlaat, blijft een vraag.
 2. **Voeg per trede de informatieobjecten toe die dan pas bestaan.** De specificatie wordt planbaar en krijgt op leeronderdeelniveau studiebelasting, ruimtetype en expertiseprofiel. Het aanbod begint als intentie op instellingsniveau, wordt gepland met perioden en capaciteit, en fijnmazig gepland met groepen en tijdvensters. Het voorbeeld zet die objecten in het beeld van de stap waar ze ontstaan, niet eerder.
 3. **Toon de herkomst als verwijzing in de gegevens en als lijn in het beeld.** Een aanbodobject draagt de verwijzing naar de specificatie waarvan het is gemaakt en naar het verzoek dat ertoe leidde; de inhoud zelf blijft bij de specificatie.
 
@@ -218,7 +218,7 @@ Waar de bron de tredes openlaat, zoals bij de stadia van aanbod, hoort dat als v
 - Skills: CompetentNL (ontologie 2.1.0) als verdieping van de leeruitkomst, niet als aparte bron; vaardigheden gelaagd, kennisgebieden op ISCED-F; laag 3 vraagt de viewer.
 - Het onderwijskundig kader van de instelling (leervormstrategie, leerdoel, onderwijsvorm specificatie, leeromgeving, docentprofiel, studiebelasting in BOT en OOT) staat op de conceptplaat en niet op de informatiemodelplaat: een verdieping en een vraag. Die planbare waarden gaan met het verzoek mee naar planning; planning plot er ruimtes en mensen op (lokaaltypes, medewerkers, schaarste in het aanbodmodel van het jaarplan) en leidt de examenplanning af uit de resultaatstructuur en het examenplan.
 - Het aanmeldbare aanbod gaat van de catalogus naar de kernregistratie, die het ontsluit aan de centrale aanmeldvoorziening (CAMBO, straks AII); de intake-uitkomst gaat als geheel terug: persoon, verbintenissen en plaatsingsgroep.
-- Een stroom die het kaderscenario noemt maar hoofdplaat 1.7.2 niet kent, staat als "geen pijl op de hoofdplaat" (afname naar SVS, SVS naar KRS, rooster naar LMS).
+- Een stroom die het leerroute scenario noemt maar hoofdplaat 1.7.2 niet kent, staat als "geen pijl op de hoofdplaat" (afname naar SVS, SVS naar KRS, rooster naar LMS).
 - Het studentkeuzesysteem haalt het geplande aanbod bij planning (F6-03); de catalogus levert het specificatie en studentkeuzeregels (F6-02).
 - De inschrijving op het keuzedeel: het studentkeuzesysteem stuurt de verbintenis naar de kernregistratie, de studentadministratie formaliseert daar, en de kernregistratie meldt haar terug aan het studentkeuzesysteem (F6-08 tot en met F6-11, #579 vraag 3).
 - Het cohort is een prognose van 96 in vier plaatsingsgroepen van 24, de grootte van de simulatieruimte. Deze uitwerking is de basis: de scenario-uitwerkingen volgen na de release v0.1.0 (#580).

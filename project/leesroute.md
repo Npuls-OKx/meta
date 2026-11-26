@@ -107,7 +107,7 @@ OKE begon op de examenketen. OKx acteert op de processen daaromheen.
 
 *Hoofdprocesmodel [MORA](https://mora.mbodigitaal.nl/index.php/Hoofdpagina). Goud omlijnd: de processen waarop OKx acteert. Groen omlijnd: waar OKE begon.*
 
-De integratie van die ketens over de studentreizen heen heet in het kaderscenario de **instellingsreis**. Dat is waar de koppelingen van OKx ontstaan.
+De integratie van die ketens over de studentreizen heen heet in het leerroute scenario de **instellingsreis**. Dat is waar de koppelingen van OKx ontstaan.
 
 De grens die daarbij hoort:
 
@@ -133,7 +133,7 @@ Daar komt de reikwijdte bij. De horizon loopt over sectoren heen, en mbo, hbo en
 
 Welke leerroutes eerst aan bod komen, staat in de [basisuitgangspunten](context.md#basisuitgangspunten): prioriteit bij 1, 2, 3, 4 en 7. De [negen leerroutes van Npuls](../architecture/docs/specificatie/leerroute-uitwerking/img/README.md) staan als tekening bij elkaar, met per route de keten van persona, uitwerking, scenario's en de uitwerking in het informatiemodel.
 
-### Verdieping: het kaderscenario
+### Verdieping: het leerroute scenario
 
 [`leerroute-1-regulier.md`](https://github.com/Npuls-OKx/Public/blob/dev/Referentiemateriaal/kaderscenario's/leerroute-1-regulier.md), vier secties: de opening tot en met de leeswijzer, *De procesbeleving achter 'regulier' onderwijs van een Instelling*, *Betrokken informatie bij proces*, *Procesfasen, interacties op de plaat en informatie*, en *Componenten en hun doel*.
 
@@ -203,7 +203,7 @@ Het werk loopt nu via de reis van een instelling, per leerroute, in drie lagen.
 | Laag | Wat het vastlegt | Voor leerroute 1 |
 |---|---|---|
 | Persona | De lerende, en wat zijn situatie van de instelling vraagt | [`persona_jochem.md`](../architecture/docs/specificatie/leerroute-uitwerking/doc/persona_jochem.md) |
-| Leerroutedocument | Wat de instelling doet per fase, met de componenten en objecttypen die daarbij oplichten | [kaderscenario leerroute 1](https://github.com/Npuls-OKx/Public/blob/dev/Referentiemateriaal/kaderscenario's/leerroute-1-regulier.md) |
+| Leerroutedocument | Wat de instelling doet per fase, met de componenten en objecttypen die daarbij oplichten | [leerroute scenario van leerroute 1](https://github.com/Npuls-OKx/Public/blob/dev/Referentiemateriaal/kaderscenario's/leerroute-1-regulier.md) |
 | Leerroute-uitwerking in het model | Per doorloopstap welke objecten ontstaan, veranderen en stromen, met de bron erbij | [`leerroute-uitwerking-model-lr1-jochem.md`](../architecture/model/informatiemodel/leerroute-uitwerking-model-lr1-jochem.md) |
 
 Leerroute 1 draagt die drie lagen. De leerroute-uitwerking in het model op `dev` is de vorige versie; de herziene ligt ter review in [PR 314](https://github.com/Npuls-OKx/meta/pull/314), met acht fasen, 67 platen per processtap, een bijlage per begrippenfamilie, vijftien vragen aan de kerngroep en het regelregister. Leerroute 2 en 3 staan in de milestone [Instellingsreizen per leerroute](https://github.com/Npuls-OKx/meta/milestone/24). De maat: een instelling herkent zich voor ongeveer tachtig procent in zo'n beschrijving, en de rest is lokale variant die als variant wordt vastgelegd.
@@ -251,7 +251,7 @@ Zes producten dragen het beeld van wat een instelling doet en welke taal daarbij
 | Product | Wat het vastlegt | Waar |
 |---|---|---|
 | Persona's | Wie de lerende is, en wat zijn situatie van de instelling vraagt | [negen persona's, een per leerroute](../architecture/docs/specificatie/leerroute-uitwerking/img/README.md) |
-| Leerroute-uitwerkingen | Wat de instelling doet per fase, met de componenten en objecttypen die daarbij oplichten | [leerroute-uitwerking](../architecture/docs/specificatie/leerroute-uitwerking/README.md), met het [kaderscenario van leerroute 1](https://github.com/Npuls-OKx/Public/blob/dev/Referentiemateriaal/kaderscenario's/leerroute-1-regulier.md) in Public |
+| Leerroute-uitwerkingen | Wat de instelling doet per fase, met de componenten en objecttypen die daarbij oplichten | [leerroute-uitwerking](../architecture/docs/specificatie/leerroute-uitwerking/README.md), met het [leerroute scenario van leerroute 1](https://github.com/Npuls-OKx/Public/blob/dev/Referentiemateriaal/kaderscenario's/leerroute-1-regulier.md) in Public |
 | OKx informatiemodel | Welke objecttypen de keten kent en hoe zij samenhangen, met de begrippenlijst eronder | [informatiemodel in Public](https://github.com/Npuls-OKx/Public/tree/dev/Informatie-en-gegevensmodellen) |
 | Leerroute-uitwerking in het model | Per doorloopstap welke objecten ontstaan, veranderen en stromen, met de bron erbij | [leerroute 1, Jochem](../architecture/model/informatiemodel/leerroute-uitwerking-model-lr1-jochem.md), herzien in [PR 314](https://github.com/Npuls-OKx/meta/pull/314) |
 | Bouwblokken | Welke waarde een stuk keten voor een instelling oplevert, als eenheid om op te bouwen. Nog een concept: wat een bouwblok precies afbakent ligt open | [de route in het deck van 3 november](../presentaties/src/261103_werkgroep_okx_voortgang.md) |

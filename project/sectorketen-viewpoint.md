@@ -104,7 +104,7 @@ De OKx-invulling per product:
 | Begrippenkader | [begrippenlijst](../architecture/docs/specificatie/begrippen/begrippenlijst.md) |
 | Conceptueel informatiemodel | [informatiemodel](../architecture/model/informatiemodel/informatiemodel.md), MIM-niveau 2 |
 | Uitwisselingsgegevensmodel | logisch gegevensmodel, aangekondigd in het informatiemodel |
-| Scenariobeschrijving | [kaderscenario leerroute 1](https://github.com/Npuls-OKx/Public/blob/dev/Referentiemateriaal/kaderscenario's/leerroute-1-regulier.md) |
+| Scenariobeschrijving | [leerroute scenario van leerroute 1](https://github.com/Npuls-OKx/Public/blob/dev/Referentiemateriaal/kaderscenario's/leerroute-1-regulier.md) |
 | Interactiespecificatie, berichtspecificatie, interfacespecificatie | de [koppelvlakspecificaties](https://github.com/Npuls-OKx/Public/tree/dev/Koppelvlakspecificaties) |
 | Eisen en besluiten | [requirementsboom](https://github.com/Npuls-OKx/Public/blob/dev/Referentiemateriaal/requirementsboom/README.md) en de [architectuurbesluiten](https://github.com/Npuls-OKx/Public/tree/dev/Referentiemateriaal/adr) |
 | Projectplan met doelen | [projectplan](projectdocumentatie/projectplan-okx.md) |
