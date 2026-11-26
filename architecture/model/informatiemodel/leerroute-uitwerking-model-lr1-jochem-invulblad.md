@@ -95,14 +95,21 @@ Hoort bij [de opleiding van Jochem in het informatiemodel](leerroute-uitwerking-
 | 4 | F4-01 | Leeronderdeel specificatie | | | | |
 | 4 | F4-01 | Les specificatie | | | | |
 | 4 | F4-01 | Les specificatie | | | | |
-| 4 | F4-08 | Leergelegenheid | | | | |
-| 4 | F4-08 | Lesgelegenheid | | | | |
-| 4 | F4-08 | Medewerker | | | | |
-| 4 | F4-08 | Lesgroep | | | | |
-| 4 | F4-09 | Onderwijseenheid aanbod verbintenis | | | | |
-| 4 | F4-09 | Leergelegenheid verbintenis | | | | |
-| 4 | F4-09 | Lesgelegenheid verbintenis | | | | |
-| 4 | F4-09 | Opleidingsprogramma aanbod verbintenis | | | | |
+| 4 | F4-07 | Leergelegenheid | | | | |
+| 4 | F4-07 | Leergelegenheid | | | | |
+| 4 | F4-07 | Lesgroep | | | | |
+| 4 | F4-07 | Lesgroep | | | | |
+| 4 | F4-07 | Lesgroep | | | | |
+| 4 | F4-09 | Lesgroep | | | | |
+| 4 | F4-09 | Lesgelegenheid | | | | |
+| 4 | F4-11 | Leergelegenheid | | | | |
+| 4 | F4-11 | Lesgelegenheid | | | | |
+| 4 | F4-11 | Lesgroep | | | | |
+| 4 | F4-11 | Leergelegenheid verbintenis | | | | |
+| 4 | F4-11 | Medewerker | | | | |
+| 4 | F4-11 | Lesgelegenheid verbintenis | | | | |
+| 4 | F4-12 | Onderwijseenheid aanbod verbintenis | | | | |
+| 4 | F4-12 | Opleidingsprogramma aanbod verbintenis | | | | |
 | 5 | F5-01 | Lesgelegenheid verbintenis | | | | |
 | 5 | F5-01 | Aanwezigheid | | | | |
 | 5 | F5-01 | Lesgelegenheid resultaat | | | | |
