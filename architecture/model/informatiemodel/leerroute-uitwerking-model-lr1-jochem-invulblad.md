@@ -98,6 +98,7 @@ Hoort bij [de opleiding van Jochem in het informatiemodel](leerroute-uitwerking-
 | 4 | F4-08 | Leergelegenheid | | | | |
 | 4 | F4-08 | Lesgelegenheid | | | | |
 | 4 | F4-08 | Medewerker | | | | |
+| 4 | F4-08 | Lesgroep | | | | |
 | 4 | F4-09 | Onderwijseenheid aanbod verbintenis | | | | |
 | 4 | F4-09 | Leergelegenheid verbintenis | | | | |
 | 4 | F4-09 | Lesgelegenheid verbintenis | | | | |
