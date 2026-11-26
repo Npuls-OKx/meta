@@ -350,15 +350,15 @@ De gemarkeerde lijnen zijn de stromen die deze fase raakt, met het beeld waarin 
 
 **Interactie:** Kernregistratie systeem studenten (KRS) naar Planningssysteem, zonder koppelingspecificatie. Op de [hoofdplaat](#de-hoofdplaat-als-kaart) en in de faseplaat hierboven staat deze lijn gemarkeerd met F4-06.
 
-### F4-07 - Planningssysteem stuurt de te roosteren leergelegenheden naar het roostersysteem
+### F4-07 - Planningssysteem stuurt leergelegenheden en planningsgroepen naar het roostersysteem
 
-![stroomt: Te roosteren specificaties aan het roostersysteem geven](img/regels/f4-07-planningssysteem-stuurt-de-te-roosteren-leergelegenheden-naar-het-roostersysteem.svg)
+![stroomt: Te roosteren specificaties aan het roostersysteem geven](img/regels/f4-07-planningssysteem-stuurt-leergelegenheden-en-planningsgroepen-naar-het-roostersysteem.svg)
 
 **Interactie:** Planningssysteem naar Roostersysteem, zonder koppelingspecificatie. Op de [hoofdplaat](#de-hoofdplaat-als-kaart) en in de faseplaat hierboven staat deze lijn gemarkeerd met F4-07.
 
-### F4-08 - Roosteraar roostert lesgelegenheid, lokaal en docent
+### F4-08 - Roosteraar roostert de lesgelegenheid en maakt de lesgroep
 
-![ontstaat: Leer-, les- en toetsgelegenheden roosteren](img/regels/f4-08-roosteraar-roostert-lesgelegenheid-lokaal-en-docent.svg)
+![ontstaat: Leer-, les- en toetsgelegenheden roosteren](img/regels/f4-08-roosteraar-roostert-de-lesgelegenheid-en-maakt-de-lesgroep.svg)
 
 **Herkomst:** uit [F3-05](#f3-05---slber-plaatst-jochem-in-een-plaatsingsgroep): `Plaatsingsgroep` APO26-1A: Jochem en 23 andere studenten geplaatst. uit [F2-08](#f2-08---planner-plant-opleiding-programma-eenheid-en-gelegenheid): `Planningsgroep` Baliegesprekken 101-A: APO26-1A, 24 studenten, past in de simulatieruimte.
 
@@ -366,7 +366,7 @@ De gemarkeerde lijnen zijn de stromen die deze fase raakt, met het beeld waarin 
 
 ![ontstaat: Verwachte deelnemers delen en toegang geven](img/regels/f4-09-slb-er-en-planner-verbinden-jochem-aan-de-geroosterde-gelegenheden.svg)
 
-**Herkomst:** uit [F2-08](#f2-08---planner-plant-opleiding-programma-eenheid-en-gelegenheid): `Onderwijseenheid aanbod` B1-K1, leerjaar 1, periode 1 tot 4. uit [F4-08](#f4-08---roosteraar-roostert-lesgelegenheid-lokaal-en-docent): `Leergelegenheid` Baliegesprekken 101, periode 1, docent 4711; `Lesgelegenheid` Les 1, maandag 1 september 09:00, simulatieruimte 2.14; `Lesgroep` Baliegesprekken 101-A: de 24 studenten van APO26-1A.
+**Herkomst:** uit [F2-08](#f2-08---planner-plant-opleiding-programma-eenheid-en-gelegenheid): `Onderwijseenheid aanbod` B1-K1, leerjaar 1, periode 1 tot 4. uit [F4-08](#f4-08---roosteraar-roostert-de-lesgelegenheid-en-maakt-de-lesgroep): `Leergelegenheid` Baliegesprekken 101, periode 1, docent 4711; `Lesgelegenheid` Les 1, maandag 1 september 09:00, simulatieruimte 2.14; `Lesgroep` Baliegesprekken 101-A: de 24 studenten van APO26-1A.
 
 ### F4-10 - Roostersysteem stuurt student, verbintenissen en groep naar het LMS
 
@@ -1212,7 +1212,7 @@ Elke regel onder het ID en de titel van haar beeld (fase, stap, bestand) met de 
 | stroomt | Student | Jochem, cohort 2026 | informatiemodel.json: Persoon naar Plaatsingsgroep (Worden gegroepeerd via), Student is een Persoon |
 | stroomt | Student | 23 andere studenten in dezelfde groep | informatiemodel.json: Persoon naar Plaatsingsgroep (Worden gegroepeerd via), Student is een Persoon |
 
-**F4-07 - Planningssysteem stuurt de te roosteren leergelegenheden naar het roostersysteem** (fase 4, Te roosteren specificaties aan het roostersysteem geven; [f4-07-planningssysteem-stuurt-de-te-roosteren-leergelegenheden-naar-het-roostersysteem.svg](img/regels/f4-07-planningssysteem-stuurt-de-te-roosteren-leergelegenheden-naar-het-roostersysteem.svg))
+**F4-07 - Planningssysteem stuurt leergelegenheden en planningsgroepen naar het roostersysteem** (fase 4, Te roosteren specificaties aan het roostersysteem geven; [f4-07-planningssysteem-stuurt-leergelegenheden-en-planningsgroepen-naar-het-roostersysteem.svg](img/regels/f4-07-planningssysteem-stuurt-leergelegenheden-en-planningsgroepen-naar-het-roostersysteem.svg))
 
 | Soort | Objecttype | Instantie | Bron |
 |---|---|---|---|
@@ -1224,12 +1224,12 @@ Elke regel onder het ID en de titel van haar beeld (fase, stap, bestand) met de 
 | stroomt | Toetsgelegenheid | Praktijktoets baliegesprek (OSCE), einde periode 1 | aanwijzing van de opdrachtgever, 26 november 2026: de planningsgroepen uit de jaarplanning (F2-08) gaan mee naar het rooster; hoofdplaat 1.7.2 noemt op deze lijn 'Ontsluiten van planningsgroepen' |
 | stroomt | Planningsgroep | OSCE einde periode 1: APO26-1A, 24 studenten | aanwijzing van de opdrachtgever, 26 november 2026: de planningsgroepen uit de jaarplanning (F2-08) gaan mee naar het rooster; hoofdplaat 1.7.2 noemt op deze lijn 'Ontsluiten van planningsgroepen' |
 
-**F4-08 - Roosteraar roostert lesgelegenheid, lokaal en docent** (fase 4, Leer-, les- en toetsgelegenheden roosteren; [f4-08-roosteraar-roostert-lesgelegenheid-lokaal-en-docent.svg](img/regels/f4-08-roosteraar-roostert-lesgelegenheid-lokaal-en-docent.svg))
+**F4-08 - Roosteraar roostert de lesgelegenheid en maakt de lesgroep** (fase 4, Leer-, les- en toetsgelegenheden roosteren; [f4-08-roosteraar-roostert-de-lesgelegenheid-en-maakt-de-lesgroep.svg](img/regels/f4-08-roosteraar-roostert-de-lesgelegenheid-en-maakt-de-lesgroep.svg))
 
 | Soort | Objecttype | Instantie | Bron |
 |---|---|---|---|
-| bestaat, uit F3-05 | Plaatsingsgroep | APO26-1A: Jochem en 23 andere studenten geplaatst | aanwijzing van de opdrachtgever, 26 november 2026: de planningsgroepen uit de jaarplanning (F2-08) gaan mee naar het rooster; hoofdplaat 1.7.2 noemt op deze lijn 'Ontsluiten van planningsgroepen' |
-| bestaat, uit F2-08 | Planningsgroep | Baliegesprekken 101-A: APO26-1A, 24 studenten, past in de simulatieruimte | aanwijzing van de opdrachtgever, 26 november 2026: de planningsgroepen uit de jaarplanning (F2-08) gaan mee naar het rooster; hoofdplaat 1.7.2 noemt op deze lijn 'Ontsluiten van planningsgroepen' |
+| bestaat, uit F3-05 | Plaatsingsgroep | APO26-1A: Jochem en 23 andere studenten geplaatst | aanwijzing van de opdrachtgever, 26 november 2026: de roosteraar maakt de lesgroep uit de planningsgroep uit de jaarplanning (F2-08), van de plaatsingsgroep uit de intake (F3-05) |
+| bestaat, uit F2-08 | Planningsgroep | Baliegesprekken 101-A: APO26-1A, 24 studenten, past in de simulatieruimte | aanwijzing van de opdrachtgever, 26 november 2026: de roosteraar maakt de lesgroep uit de planningsgroep uit de jaarplanning (F2-08), van de plaatsingsgroep uit de intake (F3-05) |
 | verandert | Leergelegenheid | Baliegesprekken 101, periode 1, docent 4711 | [scenario-1.1-regulier-happyflow.md](../../docs/specificatie/leerroute-uitwerking/doc/scenario-uitwerkingen/scenario-1.1-regulier-happyflow.md), [r80](../../docs/specificatie/leerroute-uitwerking/doc/scenario-uitwerkingen/scenario-1.1-regulier-happyflow.md?plain=1#L80): roosteraar roostert alleen periode 1 |
 | ontstaat | Lesgelegenheid | Les 1, maandag 1 september 09:00, simulatieruimte 2.14 | [scenario-1.1-regulier-happyflow.md](../../docs/specificatie/leerroute-uitwerking/doc/scenario-uitwerkingen/scenario-1.1-regulier-happyflow.md), [r80](../../docs/specificatie/leerroute-uitwerking/doc/scenario-uitwerkingen/scenario-1.1-regulier-happyflow.md?plain=1#L80) en [r86](../../docs/specificatie/leerroute-uitwerking/doc/scenario-uitwerkingen/scenario-1.1-regulier-happyflow.md?plain=1#L86): ma 09:00 tot [11](../../docs/specificatie/leerroute-uitwerking/doc/scenario-uitwerkingen/scenario-1.1-regulier-happyflow.md?plain=1#L11):00, lokaal 2.14 |
 | ontstaat | Medewerker | Docent, personeelsnummer 4711 | [scenario-1.1-regulier-happyflow.md](../../docs/specificatie/leerroute-uitwerking/doc/scenario-uitwerkingen/scenario-1.1-regulier-happyflow.md), [r80](../../docs/specificatie/leerroute-uitwerking/doc/scenario-uitwerkingen/scenario-1.1-regulier-happyflow.md?plain=1#L80): docent personeelsnr 4711 |

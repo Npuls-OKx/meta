@@ -5509,7 +5509,7 @@
     },
     {
       "beeld_id": "F4-07",
-      "beeld": "Planningssysteem stuurt de te roosteren leergelegenheden naar het roostersysteem",
+      "beeld": "Planningssysteem stuurt leergelegenheden en planningsgroepen naar het roostersysteem",
       "fase": 4,
       "stap": "Te roosteren specificaties aan het roostersysteem geven",
       "soort": "stroomt",
@@ -5520,19 +5520,19 @@
       "objecttype": "Leergelegenheid",
       "instantie": "Baliegesprekken 101, periode 1: lokaaltype balie-simulatie, docentexpertise farmacie met baliepraktijk, vier groepen van 24",
       "bron": "leerroute-1-regulier.md, Fase 4: Planning naar Rooster (te roosteren specificaties); scenario-1.1-regulier-happyflow.md, blok D (maatvoering uit de review van 29 september 2026)",
-      "zin": "Planning geeft de leergelegenheden van periode 1 aan het roostersysteem. Zonder de vaste kenmerken heeft roosteren niets aan die uitwisseling: het lokaaltype en de docentexpertise bepalen wat er past, en de groep bindt de studenten die hetzelfde aanbod afnemen en dus niet gelijktijdig geroosterd kunnen worden. De groep mag nog leeg zijn. De planningsgroepen uit de jaarplanning gaan mee: de plaatsingsgroep voor de balie-simulatie en de toets, en twee groepen van twaalf voor het practicum in de leerapotheek.",
+      "zin": "Planning geeft de leergelegenheden van periode 1 aan het roostersysteem. Zonder de vaste kenmerken heeft roosteren niets aan die uitwisseling: het lokaaltype en de docentexpertise bepalen wat er past, en de groep bindt de studenten die hetzelfde aanbod afnemen en dus niet gelijktijdig geroosterd kunnen worden. De groep mag nog leeg zijn. De planningsgroepen uit de jaarplanning gaan mee: een planningsgroep van heel APO26-1A voor de balie-simulatie en een voor de toets, en twee groepen van twaalf voor het practicum in de leerapotheek.",
       "relaties": [
         {
           "soort": "Aggregation",
           "van": "Onderwijseenheid aanbod",
           "naar": "Leergelegenheid",
-          "instantie": "B1-K1, leerjaar 1"
+          "instantie": "B1-K1, leerjaar 1, periode 1 tot 4"
         }
       ]
     },
     {
       "beeld_id": "F4-07",
-      "beeld": "Planningssysteem stuurt de te roosteren leergelegenheden naar het roostersysteem",
+      "beeld": "Planningssysteem stuurt leergelegenheden en planningsgroepen naar het roostersysteem",
       "fase": 4,
       "stap": "Te roosteren specificaties aan het roostersysteem geven",
       "soort": "stroomt",
@@ -5548,12 +5548,13 @@
         "van": "Planningsgroep",
         "naar": "Leergelegenheid",
         "label": "is gepland op",
-        "voorstel": true
+        "voorstel": true,
+        "instantie": "Baliegesprekken 101, periode 1"
       }
     },
     {
       "beeld_id": "F4-07",
-      "beeld": "Planningssysteem stuurt de te roosteren leergelegenheden naar het roostersysteem",
+      "beeld": "Planningssysteem stuurt leergelegenheden en planningsgroepen naar het roostersysteem",
       "fase": 4,
       "stap": "Te roosteren specificaties aan het roostersysteem geven",
       "soort": "stroomt",
@@ -5569,13 +5570,13 @@
           "soort": "Aggregation",
           "van": "Onderwijseenheid aanbod",
           "naar": "Leergelegenheid",
-          "instantie": "B1-K1, leerjaar 1"
+          "instantie": "B1-K1, leerjaar 1, periode 1 tot 4"
         }
       ]
     },
     {
       "beeld_id": "F4-07",
-      "beeld": "Planningssysteem stuurt de te roosteren leergelegenheden naar het roostersysteem",
+      "beeld": "Planningssysteem stuurt leergelegenheden en planningsgroepen naar het roostersysteem",
       "fase": 4,
       "stap": "Te roosteren specificaties aan het roostersysteem geven",
       "soort": "stroomt",
@@ -5597,7 +5598,7 @@
     },
     {
       "beeld_id": "F4-07",
-      "beeld": "Planningssysteem stuurt de te roosteren leergelegenheden naar het roostersysteem",
+      "beeld": "Planningssysteem stuurt leergelegenheden en planningsgroepen naar het roostersysteem",
       "fase": 4,
       "stap": "Te roosteren specificaties aan het roostersysteem geven",
       "soort": "stroomt",
@@ -5619,7 +5620,7 @@
     },
     {
       "beeld_id": "F4-07",
-      "beeld": "Planningssysteem stuurt de te roosteren leergelegenheden naar het roostersysteem",
+      "beeld": "Planningssysteem stuurt leergelegenheden en planningsgroepen naar het roostersysteem",
       "fase": 4,
       "stap": "Te roosteren specificaties aan het roostersysteem geven",
       "soort": "stroomt",
@@ -5633,7 +5634,7 @@
     },
     {
       "beeld_id": "F4-07",
-      "beeld": "Planningssysteem stuurt de te roosteren leergelegenheden naar het roostersysteem",
+      "beeld": "Planningssysteem stuurt leergelegenheden en planningsgroepen naar het roostersysteem",
       "fase": 4,
       "stap": "Te roosteren specificaties aan het roostersysteem geven",
       "soort": "stroomt",
@@ -5655,25 +5656,25 @@
     },
     {
       "beeld_id": "F4-08",
-      "beeld": "Roosteraar roostert lesgelegenheid, lokaal en docent",
+      "beeld": "Roosteraar roostert de lesgelegenheid en maakt de lesgroep",
       "fase": 4,
       "stap": "Leer-, les- en toetsgelegenheden roosteren",
       "soort": "bestaat",
       "objecttype": "Plaatsingsgroep",
       "instantie": "APO26-1A: Jochem en 23 andere studenten geplaatst",
       "herkomst": "F3-05",
-      "bron": "aanwijzing van de opdrachtgever, 26 november 2026: de planningsgroepen uit de jaarplanning (F2-08) gaan mee naar het rooster; hoofdplaat 1.7.2 noemt op deze lijn 'Ontsluiten van planningsgroepen'"
+      "bron": "aanwijzing van de opdrachtgever, 26 november 2026: de roosteraar maakt de lesgroep uit de planningsgroep uit de jaarplanning (F2-08), van de plaatsingsgroep uit de intake (F3-05)"
     },
     {
       "beeld_id": "F4-08",
-      "beeld": "Roosteraar roostert lesgelegenheid, lokaal en docent",
+      "beeld": "Roosteraar roostert de lesgelegenheid en maakt de lesgroep",
       "fase": 4,
       "stap": "Leer-, les- en toetsgelegenheden roosteren",
       "soort": "bestaat",
       "objecttype": "Planningsgroep",
       "instantie": "Baliegesprekken 101-A: APO26-1A, 24 studenten, past in de simulatieruimte",
       "herkomst": "F2-08",
-      "bron": "aanwijzing van de opdrachtgever, 26 november 2026: de planningsgroepen uit de jaarplanning (F2-08) gaan mee naar het rooster; hoofdplaat 1.7.2 noemt op deze lijn 'Ontsluiten van planningsgroepen'",
+      "bron": "aanwijzing van de opdrachtgever, 26 november 2026: de roosteraar maakt de lesgroep uit de planningsgroep uit de jaarplanning (F2-08), van de plaatsingsgroep uit de intake (F3-05)",
       "relatie": {
         "soort": "Composition",
         "van": "Plaatsingsgroep",
@@ -5683,7 +5684,7 @@
     },
     {
       "beeld_id": "F4-08",
-      "beeld": "Roosteraar roostert lesgelegenheid, lokaal en docent",
+      "beeld": "Roosteraar roostert de lesgelegenheid en maakt de lesgroep",
       "fase": 4,
       "stap": "Leer-, les- en toetsgelegenheden roosteren",
       "soort": "verandert",
@@ -5692,11 +5693,11 @@
       "instantie": "Baliegesprekken 101, periode 1, docent 4711",
       "toestand": "geroosterd",
       "bron": "scenario-1.1-regulier-happyflow.md, r80: roosteraar roostert alleen periode 1",
-      "zin": "De roosteraar roostert alleen periode 1. Het eindproduct is een vastgesteld tijdstip in lesuren van de instelling en een lokaaltype dat een lokaalnummer is geworden. De docent kan vooraf zijn bepaald of tijdens het roosteren worden gekozen op expertise. Latere perioden blijven planbaar. De roosteraar maakt van de planningsgroep de lesgroep: de definitieve planningsgroep met de 24 studenten van APO26-1A, die past in de simulatieruimte."
+      "zin": "De roosteraar maakt van de planningsgroep de lesgroep: de 24 studenten van APO26-1A, die passen in de simulatieruimte. Hij roostert alleen periode 1. Het eindproduct is een vastgesteld tijdstip in lesuren van de instelling en een lokaaltype dat een lokaalnummer is geworden. De docent kan vooraf zijn bepaald of tijdens het roosteren worden gekozen op expertise. Latere perioden blijven planbaar."
     },
     {
       "beeld_id": "F4-08",
-      "beeld": "Roosteraar roostert lesgelegenheid, lokaal en docent",
+      "beeld": "Roosteraar roostert de lesgelegenheid en maakt de lesgroep",
       "fase": 4,
       "stap": "Leer-, les- en toetsgelegenheden roosteren",
       "soort": "ontstaat",
@@ -5713,7 +5714,7 @@
     },
     {
       "beeld_id": "F4-08",
-      "beeld": "Roosteraar roostert lesgelegenheid, lokaal en docent",
+      "beeld": "Roosteraar roostert de lesgelegenheid en maakt de lesgroep",
       "fase": 4,
       "stap": "Leer-, les- en toetsgelegenheden roosteren",
       "soort": "ontstaat",
@@ -5729,7 +5730,7 @@
     },
     {
       "beeld_id": "F4-08",
-      "beeld": "Roosteraar roostert lesgelegenheid, lokaal en docent",
+      "beeld": "Roosteraar roostert de lesgelegenheid en maakt de lesgroep",
       "fase": 4,
       "stap": "Leer-, les- en toetsgelegenheden roosteren",
       "soort": "ontstaat",
@@ -5823,7 +5824,7 @@
         "naar": "Onderwijseenheid aanbod verbintenis",
         "instantie": "B1-K1, leerjaar 1, periode 1 tot 4"
       },
-      "zin": "De SLB'er koppelt Jochem aan het opleidingsprogramma-aanbod en aan een plaatsingsgroep, en verder niet. Die groep gaat vanuit de kernregistratie naar planning, en daar worden alle leergelegenheden onder het programma-aanbod voor de groep gepland, zonder tussenkomst van de SLB'er. De planner mag om logistieke redenen een eigen groep vormen met een tijdelijke verbintenis, omdat die lesgroep in deelnemers afwijkt van de plaatsingsgroep. Pas bij vertraging komt de SLB'er weer in beeld, om Jochem van specifieke gelegenheden af te halen."
+      "zin": "De SLB'er koppelt Jochem aan het opleidingsprogramma-aanbod en aan een plaatsingsgroep, en verder niet. Die groep gaat vanuit de kernregistratie naar planning, en daar worden alle leergelegenheden onder het programma-aanbod voor de groep gepland, zonder tussenkomst van de SLB'er. De planner vormt om logistieke redenen planningsgroepen, en de roosteraar maakt er de lesgroep van (F4-08); de verbintenis op de leergelegenheid groepeert tot die lesgroep. Pas bij vertraging komt de SLB'er weer in beeld, om Jochem van specifieke gelegenheden af te halen."
     },
     {
       "beeld_id": "F4-09",
