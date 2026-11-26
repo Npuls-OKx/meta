@@ -4157,7 +4157,7 @@
         "instantie": "Herkansing praktijktoets baliegesprek (OSCE), periode 2"
       },
       "nieuwe_instantie": true,
-      "vraag": "Op de plaat is een `Planningsgroep` een deel (compositie) van een `Plaatsingsgroep`. De herkansingsgroep en de capaciteitsgroep van K0037 halen studenten uit meer plaatsingsgroepen; Niels noemt de compositie in #579 'een kern van correctheid'. Past de relatie zo, of hoort er voor die groepen een andere?"
+      "vraag": "Op de plaat is een `Planningsgroep` een deel (compositie) van een `Plaatsingsgroep`. De herkansingsgroep en de capaciteitsgroep van K0037 halen studenten uit meer plaatsingsgroepen; In #579 (vraag 1) noemt Niels optie c, de compositie zoals de plaat haar nu tekent, 'een kern van correctheid'. Past de relatie zo, of hoort er voor die groepen een andere?"
     },
     {
       "beeld_id": "F2-08",

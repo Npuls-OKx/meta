@@ -252,7 +252,7 @@
         "van": "Onderwijseenheid aanbod",
         "naar": "Aanmelding",
         "label": "Op basis van",
-        "instantie": "D1-K1, periode 7, locatie A: 18 plaatsen"
+        "instantie": "D1-K1, periode 7, locatie A: tot 24 plaatsen"
       },
       "zin": "Jochem kiest nu een plek in de groep die na de animo is blijven staan. Zijn keuze in F6-04 gaf de animo; zijn verbintenis op de onderwijseenheid krijgt hier de groep KD-A."
     },
@@ -278,7 +278,7 @@
           "soort": "Association",
           "van": "Onderwijseenheid aanbod",
           "naar": "Onderwijseenheid aanbod verbintenis",
-          "instantie": "D1-K1, periode 7, locatie A: 18 plaatsen"
+          "instantie": "D1-K1, periode 7, locatie A: tot 24 plaatsen"
         }
       ]
     },
