@@ -113,6 +113,7 @@ Hoort bij [de opleiding van Jochem in het informatiemodel](leerroute-uitwerking-
 | 4 | F4-11 | Opleidingsprogramma aanbod verbintenis | | | | |
 | 4 | F4-11 | Lesgroep | | | | |
 | 4 | F4-11 | Leergelegenheid verbintenis | | | | |
+| 4 | F4-11 | Leergelegenheid verbintenis | | | | |
 | 5 | F5-01 | Lesgelegenheid verbintenis | | | | |
 | 5 | F5-01 | Aanwezigheid | | | | |
 | 5 | F5-01 | Lesgelegenheid resultaat | | | | |
