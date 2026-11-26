@@ -5,7 +5,9 @@ description: >-
   een regeltabel per processtap uit een kaderscenario, gecontroleerd tegen de
   informatiemodelplaat en de hoofdplaat, getekend in ArchiMate-vormtaal en
   gegenereerd tot een leesdocument met bijlage en vragen, met het invulblad als
-  eigen bestand ernaast. Gebruik bij
+  eigen bestand ernaast. Eerder ontstane objecten staan in beeld en worden
+  verbonden aan aanbod, verbintenis, groepen en prognose; de controleur meet
+  wat nog los staat. Gebruik bij
   de voorbeelduitwerking van Jochem (leerroute 1) en bij elke volgende persona
   of leerroute die op dezelfde manier naast het model wordt gelegd.
 ---
@@ -31,13 +33,17 @@ Volgorde bij elke wijziging, altijd volledig:
 ```
 python3 tools/scripts/exporteer-componenten.py --extra "Intake systeem" "Aanmeld systeem" \
     "Curriculum ontwerptool" "AII (centraal aanmelden)" "Toets- en examen afname systeem"
-python3 tools/scripts/controleer-leerroute-uitwerking-model.py            # 0 bevindingen, anders eerst herstellen
+python3 tools/scripts/controleer-leerroute-uitwerking-model.py            # bevindingen naar nul of verklaard; de metingen onderaan zijn een werklijst
 python3 tools/scripts/teken-leerroute-uitwerking-model.py                 # per beeld de maat en de banen; ruimt verweesde SVG's op
 python3 tools/scripts/teken-hoofdplaat-highlight.py            # alleen als de plaat of de stromen wijzigen
 python3 tools/scripts/genereer-leerroute-uitwerking-model-lr1.py                # waarschuwt voor vragen buiten de zeven
 python3 tools/scripts/validate-docs.py architecture/model/informatiemodel/leerroute-uitwerking-model-lr1-jochem.md
+python3 tools/scripts/maak-sjabloon-uit-document.py --sjabloon leerroute-scenario-uitwerking   # het afgeleide skelet
 python3 -W error::ResourceWarning -m unittest discover -s tools/tests
+sha256sum architecture/model/model.archimate                              # voor en na gelijk
 ```
+
+Twee valkuilen in de keten. `teken-fasenplaten.py` is niet deterministisch voor `f4.svg` (een relatie staat dubbel in `stromen.json`); zet dat bestand na een run terug als fase 4 niet veranderde. `bouw-sjablonen-docx.py` schrijft alle vijf de sjablonen opnieuw; houd alleen wat inhoudelijk veranderde, en zet de rest terug.
 
 De platen komen uit het ArchiMate-model en worden alleen gelezen: `genereer-informatiemodel-doc.py` (informatiemodelplaat), `exporteer-archimate-view.py --mapping` (pijlen van de hoofdplaat, nu 1.7.2), `exporteer-conceptplaat.py` (view "Informatiemodel Onderwijsontwerp"), `exporteer-componenten.py` (applicatiecomponenten met hun MORA-definitie en de applicatiediensten die zij realiseren). Raak nooit een `.archimate`-bestand aan.
 
@@ -54,13 +60,17 @@ Elke regel is een fragment van een plaat bij een processtap:
 | Veld | Regel |
 |---|---|
 | `beeld_id` | het ID van het beeld: `F<fase>-<volgnummer>` (F1-02 is het tweede beeld van fase 1), een ID per beeld, oplopend binnen de fase en stabiel als er later een beeld bij komt. Het staat voor de titel in het beeld en in de kop, en in de kolom Beeld van de bijlage, de vragen en het invulblad |
-| `beeld` | de titel van het beeld waarin de regel staat: een beschrijvende zin van wat het beeld toont ("De opleiding zoals ontworpen naar de catalogus"), uniek, aaneengesloten, in een fase, stap en soort; ID en titel samen vormen de kop ("F1-09 - De opleiding zoals ontworpen naar de catalogus") en de bestandsnaam (`f1-09-de-opleiding-zoals-ontworpen-naar-de-catalogus.svg`). Verwijs naar een regel met beeld-ID en objecttype |
+| `beeld` | de titel van het beeld: een label in de vorm **wie doet wat met welk object**. Bij een ontstaat-beeld de rol ("Planner deelt de keuzes in de capaciteitsgroep van K0037 in"), bij een stroom het systeem ("Studentkeuzesysteem stuurt Jochems verbintenissen op K0037 naar de kernregistratie"). Noem het object dat nieuw is in het beeld. Uniek, aaneengesloten, in een fase, stap en soort; ID en titel samen vormen de kop en de bestandsnaam (`f6-06-planner-deelt-de-keuzes-in-de-capaciteitsgroep-van-k0037-in.svg`), dus een nieuwe titel geeft een nieuw bestand. Verwijs naar een regel met beeld-ID en objecttype |
 | `stap` | letterlijk uit de stappenlijst van de fase; stappen komen uit het kaderscenario (instellingsreis en happy flow), niet uit scenario-uitwerkingen |
-| `soort` | `ontstaat` (rol, stap, objecttype met instantie), `verandert` (zelfde, met `toestand` uit de lijst), `stroomt` (`van`, `naar`, `pijl` als relatie-id uit stromen.json of "geen pijl op de hoofdplaat", `koppeling`) |
+| `soort` | `ontstaat` (rol, stap, objecttype met instantie), `verandert` (zelfde, met `toestand` uit de lijst), `stroomt` (`van`, `naar`, `pijl` als relatie-id uit stromen.json of "geen pijl op de hoofdplaat", `koppeling`), `bestaat` (een eerder ontstaan object zichtbaar in dit beeld, met `herkomst`; zie Herkomst) |
+| `herkomst` | bij `bestaat`: het beeld van de laatste ontstaat- of verandert-regel van dezelfde instantie; neem de instantie letterlijk over, anders is het een bevinding |
 | `objecttype` | plaatnaam letterlijk, witruimte genormaliseerd |
 | `instantie` | de waarde voor de persona, leesbaar; één instantie per objecttype toont het type, niet het aantal |
 | `relatie` | de relatie van de plaat waarmee dit object aan een ander object in dezelfde stap hangt: `soort`, `van`, `naar`, `label` (alleen als de plaat er een heeft, letterlijk), `nesting` (alleen aggregatie of compositie) |
-| `relaties` | verdere relaties van de plaat vanaf dit object, als verwijzing op het object; met `instantie` van het andere eind waar dat helpt (toetsonderdeel naar de leeruitkomst die het aftikt) |
+| `relaties` | verdere relaties van de plaat vanaf dit object, als verwijzing op het object; met `instantie` van het andere eind waar dat helpt (toetsonderdeel naar de leeruitkomst die het aftikt). Met een `instantie` van een object uit de kolom eerder ontstaan wordt de relatie een lijn |
+| `voorstel` | op een relatie: zij staat niet op de plaat; het beeld zet "(voorstel)" erachter en de controle geeft een signalering in plaats van een bevinding. Op een regel: het objecttype zelf staat niet in het model (zoals `Prognose`), gestippeld met "toe te voegen aan het informatiemodel" |
+| `naast` | het object staat in een kolom naast het aanbod, op de hoogte van het object waaraan zijn eerste relatie het vastmaakt: een groep naast het aanbod waarop zij gepland is. Ook een `bestaat`-regel kan naast staan (de verbintenissen onder de planningsgroep in F6-06) |
+| `eindpunt` | het object is een eindpunt van de reis (een diploma, een vastgesteld resultaat), met de reden; de meting gebruik telt het dan niet als los |
 | `verdieping` | zoomt in op een regel erboven binnen dezelfde stap; eigen blok en beeld |
 | `plaat` | `informatiemodel` (standaard) of `onderwijsontwerp`: de conceptplaat, alleen in een verdieping of in een stroomt-regel, hooguit een handvol objecten, geen attributen; paars in het beeld |
 | `aanname` | waar de bron zwijgt; gestippeld in het beeld |
@@ -94,13 +104,57 @@ Wat de controle weigert, hoort niet in het voorbeeld: een objecttype dat niet op
 
 ## Beelden
 
-De renderer tekent per beeld één SVG in ArchiMate-kleur, met het ID en de beeldtitel bovenaan: geel voor rol, processtap en object, blauw voor component, grijs voor een scope-uitzondering, gestippeld voor een aanname, paars voor een objecttype van de conceptplaat (een conceptverdieping heeft bovendien een gestippelde rand en een chip). Bovenaan staat wie en wat (rol en processtap) of de pijl van component naar component als horizontale stippellijn met koppeling-ID en stap; eronder hangen de objecten aan een stippellijn, onderling gerelateerd. Nesting is een container; een relatielijn loopt alleen naar het buurobject (ruit bij aggregatie, open pijlpunt bij specialisatie, gelabelde lijn bij associatie), elke andere relatie staat als verwijzing op het object. Leesbaarheid gaat voor breedte: een beeld is hooguit ongeveer 1000 px breed (letters 12 en 14 px), brede ketens gaan in een kolom of over meer rijen, brede kinderrijen worden een stapel en de zin loopt door over meer regels. GitHub schaalt een breder beeld terug tot onleesbaar.
+De renderer tekent per beeld één SVG in ArchiMate-kleur, met het ID en de beeldtitel bovenaan: geel voor rol, processtap en object, blauw voor component, grijs voor een scope-uitzondering, gestippeld voor een aanname, paars voor een objecttype van de conceptplaat (een conceptverdieping heeft bovendien een gestippelde rand en een chip). Bovenaan staat wie en wat (rol en processtap) of de pijl van component naar component als horizontale stippellijn met koppeling-ID en stap; eronder hangen de objecten aan een stippellijn, onderling gerelateerd. Nesting is een container; een relatielijn loopt naar het buurobject (ruit bij aggregatie, open pijlpunt bij specialisatie, gelabelde lijn bij associatie), naar een object in de kolom eerder ontstaan, en binnen de groepenkolom (zie Herkomst); elke andere relatie staat als verwijzing op het object. Leesbaarheid gaat voor breedte: een beeld is hooguit ongeveer 1000 px breed (letters 12 en 14 px), brede ketens gaan in een kolom of over meer rijen, brede kinderrijen worden een stapel en de zin loopt door over meer regels. GitHub schaalt een breder beeld terug tot onleesbaar.
 
 Een beeld is een bestand. De renderer groepeert de regels van een beeld tot een blok, ook als zij van rol wisselen: de rollen staan dan samen in de kop ("planner, SLB'er"). Een beeld mag dus meer rollen dragen waar het verhaal daarom vraagt, zoals een afname die individueel wordt beoordeeld naast een zitting met een surveillant en een beoordelaar. Leveren twee blokken toch dezelfde bestandsnaam, dan stopt de renderer met beide namen erbij, want een overschreven bestand toont minder dan de tabel zegt.
 
 De renderer noemt per beeld de breedte, de hoogte, het aantal banen en de hoogte van elke baan. Een snede ligt altijd in witruimte, dus banen vallen alleen even uit waar het beeld dat toelaat; ongelijke banen zijn daarmee een teken dat het beeld te dicht getekend staat. Een beeld dat helemaal niet te snijden is levert de reden en het y-bereik waar de witregel ontbreekt. De voorbeelduitwerking is een document, dus dat is daar geen gebrek: het snijden telt pas wanneer een beeld op een slide moet, en de melding zegt dan welk beeld eerst korter hoort. Met `--streng` eindigt het in een foutcode, voor wie een deck bouwt.
 
 Bekijk het beeld zelf voordat je het meldt: `soffice --headless --convert-to png` in de scratchpad, en zet het beeld voor de gebruiker op een branch met een GitHub-link (bestanden sturen werkt niet in de container).
+
+## Herkomst: wat eerder ontstond, in beeld
+
+Een stap gebruikt bijna altijd iets dat eerder ontstond: het aanbod wordt gepland op de specificatie, de verbintenis hangt aan het aanbod, de lesgroep komt uit de planningsgroep. Zet dat in beeld als `bestaat`-regel met een herkomstlijn naar wat eruit ontstaat. Voorbeelden: [F2-08](../../../architecture/model/informatiemodel/img/regels/f2-08-planner-plant-opleiding-programma-eenheid-en-gelegenheid.svg) en [F6-06](../../../architecture/model/informatiemodel/img/regels/f6-06-planner-deelt-de-keuzes-in-de-capaciteitsgroep-van-k0037-in.svg).
+
+| Element | Vorm |
+|---|---|
+| Twee vlakken | links "Eerder ontstaan" (grijs, met het beeld van herkomst in de tab), rechts "Ontstaat hier" (wit, oranje rand). De objecten houden hun ArchiMate-kleur en het vlak onderscheidt; een stippelrand betekent aanname |
+| Rol en processtap | in beide vlakken de rol boven de processtap met een toewijzing; de eerdere processtap triggert de huidige (doorgetrokken lijn, volle punt) |
+| Lagen uitgelijnd | elk paar uit een herkomstlijn op dezelfde hoogte: de laag van de specificatie naast de laag van het aanbod. Lukt dat niet (twee eerdere objecten wijzen naar hetzelfde nieuwe), dan staan beide kolommen onder elkaar |
+| Herkomstlijn | een relatie met `instantie` naar een object links wordt een haakse lijn in de notatie van de relatie; komen meer lijnen met hetzelfde label bij een doel uit, dan staat het label er een keer |
+| Groepenkolom | regels met `naast` in een derde kolom, op de hoogte van hun anker, met vakken van gelijke breedte; een relatie naar de groep erboven is een lijn, een relatie naar een groep verder terug loopt langs een baan rechts van de kolom (ruit aan het geheel bij een compositie) |
+| Legenda | onder elk herkomstbeeld een strook met de drie lijnen: relatie, triggert, voert uit |
+| Chip | een object uit een ander beeld dan de tab draagt "uit Fx-yy" |
+
+**Metingen als werklijst.** De controleur meet onder een eigen kop, buiten de exitcode (#546, criterium 2 en 3 van #577):
+
+- *invoer*: per beeld wat het gebruikt en waar dat ontstond (`--invoer`), met meldingen bij iets dat later of nergens ontstaat en bij een beeld zonder invoer;
+- *herkomst*: een eerder ontstaan object dat een beeld gebruikt zonder `bestaat`-regel; bij de release staat deze teller op nul;
+- *gebruik*: een ontstaan object dat later niet stroomt, terugkomt of door een relatie genoemd wordt. Alles koppelen is geen doel: verklaar een eindpunt met `eindpunt`, en werk de rest weg of laat het zien als open punt.
+
+Werk per fase in een eigen kleine pull request en meld de tellers voor en na.
+
+## Groepen: prognose, plaatsing, planning en les
+
+Uit de antwoorden van Niels van Duin op #579 en de sparsessie van 25 november 2026:
+
+```mermaid
+flowchart LR
+    P["Prognose<br/>96 instromers (voorstel)"] -- "wordt opgeknipt in" --> PL["Plaatsingsgroep<br/>4 x 24, op het programma"]
+    PL -- "met studenten ook" --> PG["Planningsgroep<br/>per capaciteit, op eenheid,<br/>gelegenheid en toets"]
+    PG -- "bij het roosteren" --> LG["Lesgroep<br/>de definitieve planningsgroep"]
+```
+
+- Een groep volgt uit capaciteit en planning.
+- Plaatsingsgroepen en de eerste planningsgroepen ontstaan in de jaarplanning op de prognose (F2-08); plannen en roosteren lopen door, en op periodeniveau ontstaan nieuwe planningsgroepen.
+- Een practicum met twaalf plekken maakt van een plaatsingsgroep van 24 twee planningsgroepen, zonder dat er een keuze aan te pas komt.
+- Een planningsgroep van een keuzedeel is een capaciteitsgroep met een maximum, zo nodig meer per keuzedeel; tijdens plannen of roosteren wordt bepaald wie erin zit (F6-06).
+- Een groep van een keuzedeel gaat met de verbintenis via het studentkeuzesysteem naar het LMS; een groep die niet aan een keuze hangt gaat rechtstreeks van het roostersysteem naar het LMS (F4-10, een voorstel voor de modelronde).
+- De relaties tussen groep en aanbod staan niet op de plaat en dragen `voorstel`; de modelronde loopt in #538.
+
+## Vragen via een issue per fase
+
+De regeltabel draagt tientallen vragen, en een reviewer leest dat document niet door. Bundel ze per fase in een issue op naam van de reviewer (Niels van Duin), hoogstens zeven, de belangrijkste eerst, elk met het beeld (permalink op een commit), opties en een voorkeur; verschillen met het kaderscenario onder "Naar Public". Na een sessie wordt elk antwoord in de regeltabel een besluit met de bron ("antwoord van Niels van Duin op #579, vraag 3"), en verdwijnt de vraag uit het document. Een voorlopig antwoord blijft een vraag met dat antwoord erin. Voorbeeld: #579 voor fase 6.
 
 ## Een stroom die de hoofdplaat nog niet kent
 
@@ -141,7 +195,7 @@ Drie regels houden dat leesbaar:
 
 1. **Benoem de trede als toestand, met een bron.** Elke trede staat in de toestandenlijst van de kop, met de regel uit het kaderscenario waar zij vandaan komt. Zonder bron geen trede: wat de bron openlaat, blijft een vraag.
 2. **Voeg per trede de informatieobjecten toe die dan pas bestaan.** De specificatie wordt planbaar en krijgt op leeronderdeelniveau studiebelasting, ruimtetype en expertiseprofiel. Het aanbod begint als intentie op instellingsniveau, wordt gepland met perioden en capaciteit, en fijnmazig gepland met groepen en tijdvensters. Het voorbeeld zet die objecten in het beeld van de stap waar ze ontstaan, niet eerder.
-3. **Toon de herkomst als verwijzing, geen kopie.** Een aanbodobject draagt de verwijzing naar de specificatie waarvan het is gemaakt en naar het verzoek dat ertoe leidde; de inhoud zelf blijft bij de specificatie.
+3. **Toon de herkomst als verwijzing in de gegevens en als lijn in het beeld.** Een aanbodobject draagt de verwijzing naar de specificatie waarvan het is gemaakt en naar het verzoek dat ertoe leidde; de inhoud zelf blijft bij de specificatie.
 
 De tredes die de uitwerking van Jochem nu kent:
 
@@ -149,7 +203,8 @@ De tredes die de uitwerking van Jochem nu kent:
 |---|---|---|
 | Onderwijsspecificatie | grofmazig, planbaar (per niveau iets anders), fijnmazig | fase 1, 2 en 4 |
 | Onderwijsaanbod | intentie (meerjarenplanning), gepland (jaarplanning), fijnmazig gepland (periodeplanning), geroosterd | fase 2 en 4; roosteren valt buiten de uitwisseling |
-| Onderwijsverbintenis | aangemeld, ingeschreven | fase 3 |
+| Onderwijsverbintenis | aangemeld, ingeschreven | fase 3, en voor het keuzedeel fase 6 |
+| Groep | prognose, plaatsingsgroep, planningsgroep, lesgroep (bevestigd na de keuzes of de intake) | fase 2, 3, 4 en 6 |
 | Onderwijsresultaat | in uitvoering, afgerond, vastgesteld | fase 5 en 8 |
 
 Waar de bron de tredes openlaat, zoals bij de stadia van aanbod, hoort dat als vraag in het document en niet als stilzwijgende keuze.
@@ -163,10 +218,13 @@ Waar de bron de tredes openlaat, zoals bij de stadia van aanbod, hoort dat als v
 - Skills: CompetentNL (ontologie 2.1.0) als verdieping van de leeruitkomst, niet als aparte bron; vaardigheden gelaagd, kennisgebieden op ISCED-F; laag 3 vraagt de viewer.
 - Het onderwijskundig kader van de instelling (leervormstrategie, leerdoel, onderwijsvorm specificatie, leeromgeving, docentprofiel, studiebelasting in BOT en OOT) staat op de conceptplaat en niet op de informatiemodelplaat: een verdieping en een vraag. Die planbare waarden gaan met het verzoek mee naar planning; planning plot er ruimtes en mensen op (lokaaltypes, medewerkers, schaarste in het aanbodmodel van het jaarplan) en leidt de examenplanning af uit de resultaatstructuur en het examenplan.
 - Het aanmeldbare aanbod gaat van de catalogus naar de kernregistratie, die het ontsluit aan de centrale aanmeldvoorziening (CAMBO, straks AII); de intake-uitkomst gaat als geheel terug: persoon, verbintenissen en plaatsingsgroep.
-- Een stroom die het kaderscenario noemt maar v1.7 niet kent, staat als "geen pijl op de hoofdplaat" (afname naar SVS, SVS naar KRS). De inschrijving op het keuzedeel loopt op v1.7 via SKS naar KRS.
+- Een stroom die het kaderscenario noemt maar hoofdplaat 1.7.2 niet kent, staat als "geen pijl op de hoofdplaat" (afname naar SVS, SVS naar KRS, rooster naar LMS).
+- Het studentkeuzesysteem haalt het geplande aanbod bij planning (F6-03); de catalogus levert het specificatie en studentkeuzeregels (F6-02).
+- De inschrijving op het keuzedeel: het studentkeuzesysteem stuurt de verbintenis naar de kernregistratie, de studentadministratie formaliseert daar, en de kernregistratie meldt haar terug aan het studentkeuzesysteem (F6-08 tot en met F6-11, #579 vraag 3).
+- Het cohort is een prognose van 96 in vier plaatsingsgroepen van 24, de grootte van de simulatieruimte. Deze uitwerking is de basis: de scenario-uitwerkingen volgen na de release v0.1.0 (#580).
 
 ## Stopmomenten
 
-De kop van de regeltabel (fasen, rollen, toestanden, scope) en de inhoud per fase gaan langs de gebruiker voordat ze definitief zijn; de reviews in verse contexten (tester, informatiearchitect, lid kerngroep techniek, schrijfstijl) komen daarna. Details en beelden per iteratie horen in agent-artifacts, de issue-comment blijft kort met een link.
+De kop van de regeltabel (fasen, rollen, toestanden, scope) en de inhoud per fase gaan langs de gebruiker voordat ze definitief zijn; de reviews in verse contexten (tester, semantiek, schrijfstijl) komen daarna, met een herbeoordeling op de blokkerende punten. Een nieuwe vorm van een beeld gaat eerst als een of twee voorbeelden langs de gebruiker, en pas daarna door alle fasen. Details en beelden per iteratie horen in agent-artifacts, de issue-comment blijft kort met een link. Een pull request volgt het sjabloon, met een `Closes` voor elk issue dat zij afrondt.
 
 Schrijfstijl: [`.cursor/rules/schrijfstijl.mdc`](../../../.cursor/rules/schrijfstijl.mdc); modelregels: [`architecture/model/README.md`](../../../architecture/model/README.md).

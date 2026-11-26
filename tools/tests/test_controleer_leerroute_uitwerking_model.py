@@ -837,5 +837,98 @@ class MainTests(unittest.TestCase):
             self.assertEqual(cv.main(["--regels", str(r), "--model", str(m), "--stromen", str(s)]), 0)
 
 
+
+class MetingHerkomstTests(unittest.TestCase):
+    """Criterium 2 van #577: een beeld dat een eerder ontstaan object gebruikt, toont het in de herkomstvorm."""
+
+    def test_given_a_relation_to_an_earlier_object_without_bestaat_when_measured_then_a_gap(self):
+        gaten = cv.meting_herkomst(regels())
+        self.assertTrue(any(g["beeld_id"] == "F3-01" and g["objecttype"] == "Opleidingaanbod" for g in gaten), gaten)
+
+    def test_given_the_earlier_object_as_bestaat_when_measured_then_no_gap(self):
+        gaten = cv.meting_herkomst(met_bestaat())
+        self.assertFalse(any(g["beeld_id"] == "F3-01" for g in gaten), gaten)
+
+    def test_given_a_relation_within_the_same_beeld_when_measured_then_no_gap(self):
+        gaten = cv.meting_herkomst(regels())
+        self.assertFalse(any(g["beeld_id"] == "F2-01" for g in gaten), gaten)
+
+
+class MetingGebruikTests(unittest.TestCase):
+    """Criterium 3 van #577: een ontstaan object wordt later gebruikt, gelinkt of gekoppeld, of is een eindpunt."""
+
+    def test_given_an_object_that_flows_later_when_measured_then_not_loose(self):
+        los = cv.meting_gebruik(regels())
+        self.assertFalse(any(x["objecttype"] == "Opleidingaanbod" for x in los), los)
+
+    def test_given_an_object_nobody_uses_later_when_measured_then_loose(self):
+        los = cv.meting_gebruik(regels())
+        self.assertTrue(any(x["objecttype"] == "Opleiding aanbod verbintenis" for x in los), los)
+
+    def test_given_an_object_marked_as_endpoint_when_measured_then_not_loose(self):
+        r = regels()
+        r["regels"][4]["eindpunt"] = "de verbintenis is hier het eindpunt van het voorbeeld"
+        los = cv.meting_gebruik(r)
+        self.assertFalse(any(x["objecttype"] == "Opleiding aanbod verbintenis" for x in los), los)
+
+    def test_given_an_endpoint_field_when_validated_then_the_schema_knows_it(self):
+        r = regels()
+        r["regels"][4]["eindpunt"] = "reden"
+        b, _, _ = bevindingen(r)
+        self.assertFalse(any("eindpunt" in x for x in b), b)
+
+
+class MetingInvoerTests(unittest.TestCase):
+    """#546: de invoer per beeld afgeleid uit de relaties, met drie soorten melding en een telling."""
+
+    def test_given_a_relation_to_an_earlier_object_when_measured_then_input_with_its_origin(self):
+        m = cv.meting_invoer(regels())
+        self.assertIn(("Opleidingaanbod", None, "F2-01"), m["invoer"]["F3-01"])
+
+    def test_given_a_relation_to_an_object_that_arises_later_when_measured_then_order_signal(self):
+        r = regels()
+        r["regels"][0]["relaties"] = [{"soort": "Association", "van": "Opleidingaanbod", "naar": "Aanmelding", "label": "Op basis van"}]
+        m = cv.meting_invoer(r)
+        self.assertTrue(any(x["beeld_id"] == "F2-01" and x["objecttype"] == "Aanmelding" and x["ontstaat_in"] == "F3-01"
+                            for x in m["later"]), m["later"])
+
+    def test_given_a_relation_to_an_object_that_never_arises_when_measured_then_signal(self):
+        r = regels()
+        r["regels"][4]["relatie"] = {"soort": "Association", "van": "OER", "naar": "Opleiding aanbod verbintenis"}
+        m = cv.meting_invoer(r)
+        self.assertTrue(any(x["objecttype"] == "OER" for x in m["nergens"]), m["nergens"])
+
+    def test_given_a_beeld_without_any_input_when_measured_then_signal(self):
+        m = cv.meting_invoer(regels())
+        self.assertIn("F2-01", m["zonder_invoer"])
+        self.assertNotIn("F3-01", m["zonder_invoer"])
+
+    def test_given_a_beeld_that_changes_an_earlier_object_when_measured_then_that_object_is_input(self):
+        # F4-01 roostert het opleidingsaanbod uit F2-01: dat aanbod is de invoer van het beeld
+        m = cv.meting_invoer(regels())
+        self.assertNotIn("F4-01", m["zonder_invoer"])
+        self.assertIn(("Opleidingaanbod", None, "F2-01"), m["invoer"]["F4-01"])
+
+    def test_given_two_relations_to_the_same_later_object_when_measured_then_one_signal(self):
+        r = regels()
+        r["regels"][0]["relaties"] = [{"soort": "Association", "van": "Opleidingaanbod", "naar": "Aanmelding", "label": "Op basis van"},
+                                      {"soort": "Association", "van": "Opleidingaanbod", "naar": "Aanmelding", "label": "Op basis van"}]
+        later = [x for x in cv.meting_invoer(r)["later"] if x["objecttype"] == "Aanmelding"]
+        self.assertEqual(len(later), 1)
+
+    def test_given_the_measurement_when_counted_then_with_and_without_add_up(self):
+        m = cv.meting_invoer(regels())
+        t = m["telling"]
+        self.assertEqual(t["met_invoer"] + t["zonder_invoer"], t["beelden"])
+        self.assertIn("deel", t)
+
+    def test_given_the_real_table_when_measured_then_the_numbers_stay_visible(self):
+        echt = json.loads((WORTEL / "architecture/model/informatiemodel/leerroute-uitwerking-model-lr1.json").read_text(encoding="utf-8"))
+        t = cv.meting_invoer(echt)["telling"]
+        print(f"\n  echte tabel: {t}")
+        self.assertGreater(t["beelden"], 30)
+        self.assertEqual(t["met_invoer"] + t["zonder_invoer"], t["beelden"])
+
+
 if __name__ == "__main__":
     unittest.main()
