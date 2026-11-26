@@ -33,13 +33,17 @@ def instanties():
 
 
 class CohortTests(unittest.TestCase):
-    def test_given_the_scenario_when_read_then_the_cohort_lies_between_twenty_and_forty(self):
-        m = re.search(r"cohortgrootte (\d+) studenten in twee groepen van (\d+)", scenario())
-        self.assertIsNotNone(m, "het scenario noemt geen cohortgrootte")
+    def test_given_the_scenario_when_read_then_the_cohort_is_cut_into_placement_groups(self):
+        """Besluit van de opdrachtgever bij #567 (25 november 2026): een populaire opleiding met een prognose
+        die in vier plaatsingsgroepen wordt opgeknipt; de band van 20 tot 40 per opleiding per locatie blijft
+        als context staan, en de 100 die populaire opleidingen aantikken is de bovengrens."""
+        tekst = scenario()
+        m = re.search(r"cohortgrootte (\d+) studenten in vier plaatsingsgroepen van (\d+)", tekst)
+        self.assertIsNotNone(m, "het scenario noemt geen cohortgrootte met plaatsingsgroepen")
         cohort, groep = int(m.group(1)), int(m.group(2))
-        self.assertGreaterEqual(cohort, 20)
-        self.assertLessEqual(cohort, 40)
-        self.assertEqual(cohort, groep * 2)
+        self.assertEqual(cohort, groep * 4)
+        self.assertLessEqual(cohort, 100)
+        self.assertIn("tussen 20 en 40 studenten", tekst)
 
     def test_given_the_scenario_when_read_then_the_distribution_over_the_leerroutes_stands_there(self):
         tekst = scenario()
@@ -47,20 +51,22 @@ class CohortTests(unittest.TestCase):
         self.assertIn("leerroute 2 en 3 elk ongeveer 15 procent", tekst)
 
     def test_given_the_rule_table_when_read_then_it_uses_the_cohort_of_the_scenario(self):
-        cohort = int(re.search(r"cohortgrootte (\d+) studenten", scenario()).group(1))
-        groep = cohort // 2
+        m = re.search(r"cohortgrootte (\d+) studenten in vier plaatsingsgroepen van (\d+)", scenario())
+        cohort, groep = int(m.group(1)), int(m.group(2))
         alles = " | ".join(instanties())
         self.assertIn(f"{cohort} plaatsen", alles)
-        self.assertIn(f"{groep} tot {cohort} studenten", alles)
-        self.assertIn(f"twee groepen van {groep}", alles)
+        self.assertIn(f"tot {cohort} studenten", alles)
+        self.assertIn(f"vier groepen van {groep}", alles)
         self.assertIn(f"prognose {cohort} instromers", alles)
 
     def test_given_the_rule_table_when_read_then_no_instance_carries_the_old_numbers(self):
-        """De oude getallen kwamen uit een inschatting die Niels te hoog noemde."""
+        """De oude getallen: 48 kwam uit een inschatting die Niels te hoog noemde (review 29 september 2026),
+        36 in twee groepen van 18 uit de correctie daarop, tot het besluit bij #567."""
         for s in instanties():
-            self.assertNotRegex(s, r"\b48 (plaatsen|studenten|instromers)\b", s)
+            self.assertNotRegex(s, r"\b(48|36) (plaatsen|studenten|instromers)\b", s)
             self.assertNotIn("24 tot 48", s)
-            self.assertNotIn("twee groepen van 24", s)
+            self.assertNotIn("18 tot 36", s)
+            self.assertNotIn("twee groepen van 18", s)
 
     def test_given_a_room_capacity_when_read_then_it_keeps_the_number_of_the_kaderscenario(self):
         """Een lokaalcapaciteit is een eigenschap van de ruimte en komt uit het kaderscenario zelf
@@ -99,7 +105,7 @@ class BronTests(unittest.TestCase):
         tabel = json.loads(REGELS.read_text(encoding="utf-8"))
         cohort = int(re.search(r"cohortgrootte (\d+) studenten", scenario()).group(1))
         geraakt = [r for r in tabel["regels"] if f"{cohort} plaatsen" in r.get("instantie", "")
-                   or f"{cohort // 2} tot {cohort}" in r.get("instantie", "")]
+                   or f"tot {cohort} studenten" in r.get("instantie", "")]
         self.assertTrue(geraakt)
         for r in geraakt:
             self.assertIn("scenario-1.1-regulier-happyflow.md", r["bron"])

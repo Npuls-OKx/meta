@@ -98,6 +98,178 @@ class TekenTests(unittest.TestCase):
         self.assertEqual([k["instantie"] for k in eenheden[1]["kinderen"]], ["D1-K2-W1"])
         self.assertNotIn("kinderen", eenheden[0])
 
+    def test_given_specialization_in_a_flow_when_nested_then_child_lands_in_the_specialization(self):
+        # F6-02: de specificatiestructuur van een keuzedeel stroomt als geheel naar het studentkeuzesysteem
+        stroom = {"beeld_id": "F6-02", "beeld": "Specificatie naar het SKS", "fase": 6, "stap": "Ontsluiten", "soort": "stroomt",
+                  "van": "Onderwijscatalogus", "naar": "Student Keuze Systeem (SKS)", "pijl": "rel-1", "koppeling": None, "bron": "b"}
+        r = {"scope_uitzonderingen": [], "regels": [
+            {**stroom, "objecttype": "Keuzedeel specificatie", "instantie": "K0037",
+             "relatie": {"soort": "Specialization", "van": "Keuzedeel specificatie", "naar": "Opleidingsprogramma specificatie"}},
+            {**stroom, "objecttype": "Onderwijseenheid specificatie", "instantie": "D1-K1",
+             "relatie": {"soort": "Aggregation", "van": "Opleidingsprogramma specificatie", "naar": "Onderwijseenheid specificatie", "nesting": True}},
+            {**stroom, "objecttype": "Leeronderdeel specificatie", "instantie": "Het medicatieoverzicht opstellen",
+             "relatie": {"soort": "Aggregation", "van": "Onderwijseenheid specificatie", "naar": "Leeronderdeel specificatie", "nesting": True}}]}
+        blok = self.blokken(r)[0]
+        self.assertEqual(len(blok["objecten"]), 1)
+        eenheid = blok["objecten"][0]["kinderen"][0]
+        self.assertEqual(eenheid["instantie"], "D1-K1")
+        self.assertEqual([k["instantie"] for k in eenheid["kinderen"]], ["Het medicatieoverzicht opstellen"])
+
+    def test_given_specialization_among_extra_relations_when_nested_then_child_lands_in_the_specialization(self):
+        # F6-04: de verbintenis hangt met 'middels' aan de aanmelding en is daarnaast een specialisatie
+        r = {"scope_uitzonderingen": [], "regels": [
+            {"beeld_id": "F6-04", "beeld": "Jochem kiest", "fase": 6, "stap": "Kiezen", "soort": "ontstaat", "wie": "student",
+             "objecttype": "Aanmelding", "instantie": "Keuze K0037", "bron": "b"},
+            {"beeld_id": "F6-04", "beeld": "Jochem kiest", "fase": 6, "stap": "Kiezen", "soort": "ontstaat", "wie": "student",
+             "objecttype": "Keuzedeel aanbod verbintenis", "instantie": "Jochem op K0037", "bron": "b",
+             "relatie": {"soort": "Association", "van": "Aanmelding", "naar": "Keuzedeel aanbod verbintenis", "label": "middels"},
+             "relaties": [{"soort": "Specialization", "van": "Keuzedeel aanbod verbintenis", "naar": "Opleidingsprogramma aanbod verbintenis"}]},
+            {"beeld_id": "F6-04", "beeld": "Jochem kiest", "fase": 6, "stap": "Kiezen", "soort": "ontstaat", "wie": "student",
+             "objecttype": "Onderwijseenheid aanbod verbintenis", "instantie": "Jochem op D1-K1", "bron": "b",
+             "relatie": {"soort": "Aggregation", "van": "Opleidingsprogramma aanbod verbintenis", "naar": "Onderwijseenheid aanbod verbintenis", "nesting": True}}]}
+        blok = self.blokken(r)[0]
+        verbintenis = next(o for o in blok["objecten"] if o.get("type") == "Keuzedeel aanbod verbintenis")
+        self.assertEqual([k["instantie"] for k in verbintenis.get("kinderen", [])], ["Jochem op D1-K1"])
+        self.assertNotIn("Jochem op D1-K1", [o.get("instantie") for o in blok["objecten"]])
+
+    def herkomstregels(self, met_herkomstbeeld=True):
+        """F6-01 in het klein: de specificatie uit F1-08 staat links, het aanbod ontstaat rechts."""
+        b = {"beeld_id": "F6-01", "beeld": "Aanbod per laag", "fase": 6, "stap": "Aanbod maken", "bron": "b"}
+        f1 = {"beeld_id": "F1-08", "beeld": "Keuzedeel ontworpen", "fase": 1, "stap": "Keuzedeel vormgeven", "bron": "b",
+              "soort": "ontstaat", "wie": "onderwijsontwerper"}
+        regels = [
+            {**b, "soort": "bestaat", "objecttype": "Keuzedeel specificatie", "instantie": "K0037", "herkomst": "F1-08",
+             "relatie": {"soort": "Specialization", "van": "Keuzedeel specificatie", "naar": "Opleidingsprogramma specificatie"}},
+            {**b, "soort": "bestaat", "objecttype": "Onderwijseenheid specificatie", "instantie": "D1-K1", "herkomst": "F1-08",
+             "relatie": {"soort": "Aggregation", "van": "Opleidingsprogramma specificatie", "naar": "Onderwijseenheid specificatie", "nesting": True}},
+            {**b, "soort": "ontstaat", "wie": "planner", "objecttype": "Keuzedeel aanbod", "instantie": "K0037, periode 7",
+             "relatie": {"soort": "Specialization", "van": "Keuzedeel aanbod", "naar": "Opleidingsprogramma aanbod"},
+             "relaties": [{"soort": "Association", "van": "Keuzedeel specificatie", "naar": "Keuzedeel aanbod", "label": "wordt aangeboden als", "instantie": "K0037"}]},
+            {**b, "soort": "ontstaat", "wie": "planner", "objecttype": "Onderwijseenheid aanbod", "instantie": "D1-K1, periode 7",
+             "relatie": {"soort": "Aggregation", "van": "Opleidingsprogramma aanbod", "naar": "Onderwijseenheid aanbod", "nesting": True},
+             "relaties": [{"soort": "Association", "van": "Onderwijseenheid specificatie", "naar": "Onderwijseenheid aanbod", "label": "wordt aangeboden als", "instantie": "D1-K1"}]}]
+        if met_herkomstbeeld:
+            regels.insert(0, {**f1, "objecttype": "Keuzedeel specificatie", "instantie": "K0037"})
+        return {"scope_uitzonderingen": [], "regels": regels}
+
+    def herkomstblok(self, met_herkomstbeeld=True):
+        return [x for x in self.blokken(self.herkomstregels(met_herkomstbeeld)) if x.get("beeld_id") == "F6-01"][0]
+
+    def test_given_bestaat_rules_when_grouped_then_own_column_with_herkomst_and_nesting(self):
+        blok = self.herkomstblok()
+        self.assertEqual([o["type"] for o in blok["bestaand"]], ["Keuzedeel specificatie"])
+        self.assertEqual(blok["bestaand"][0]["herkomst"], "F1-08")
+        self.assertEqual([k["instantie"] for k in blok["bestaand"][0]["kinderen"]], ["D1-K1"])
+        self.assertNotIn("Keuzedeel specificatie", [o.get("type") for o in blok["objecten"]])
+        self.assertEqual(blok["wie"], "planner")
+        # de processtap waarin het bestaande object ontstond, staat boven de kolom links
+        self.assertEqual(blok["herkomst_kop"], {"beeld_id": "F1-08", "stap": "Keuzedeel vormgeven", "wie": "onderwijsontwerper"})
+
+    def test_given_relation_to_a_bestaat_object_when_grouped_then_a_line_and_no_reference(self):
+        blok = self.herkomstblok()
+        lijnen = {(l["bron"], l["doel"], l["label"]) for l in blok["herkomstlijnen"]}
+        self.assertEqual(lijnen, {(("Keuzedeel specificatie", "K0037"), ("Keuzedeel aanbod", "K0037, periode 7"), "wordt aangeboden als"),
+                                  (("Onderwijseenheid specificatie", "D1-K1"), ("Onderwijseenheid aanbod", "D1-K1, periode 7"), "wordt aangeboden als")})
+        aanbod = blok["objecten"][0]
+        self.assertFalse(any("wordt aangeboden als" in v for v in aanbod.get("verwijzingen", [])))
+        self.assertFalse(any("wordt aangeboden als" in v for v in aanbod["kinderen"][0].get("verwijzingen", [])))
+
+    def test_given_bestaat_objects_when_drawn_then_two_panels_with_role_over_step_and_a_trigger(self):
+        svg = tv.regel_ontstaat(self.herkomstblok(), set())
+        t = teksten(svg)
+        self.assertIn("Eerder ontstaan · F1-08", t)
+        self.assertIn("Ontstaat hier · F6-01", t)
+        self.assertIn("Keuzedeel vormgeven", t)
+        self.assertIn("onderwijsontwerper", t)
+        self.assertIn("Aanbod maken", t)
+        paden = {p.get("class") for p in ET.fromstring(svg).iter(f"{SVG}path")}
+        # de rol voert de processtap uit (toewijzing) en de eerdere processtap triggert de huidige
+        self.assertEqual(sum(1 for p in ET.fromstring(svg).iter(f"{SVG}path") if p.get("class") == "toewijzing"), 2)
+        self.assertIn("trigger", paden)
+        vlakken = {r.get("class"): r for r in rects(svg) if r.get("class")}
+        self.assertEqual(vlakken["vlak-eerder"]["fill"], tv.VLAK_EERDER)
+        self.assertEqual(vlakken["vlak-hier"]["stroke"], tv.VLAK_HIER_L)
+
+    def test_given_bestaat_objects_when_drawn_then_a_line_per_relation_on_top_of_the_boxes(self):
+        svg = tv.regel_ontstaat(self.herkomstblok(), set())
+        self.assertEqual(teksten(svg).count("wordt aangeboden als"), 2)
+        lijnen = [p for p in ET.fromstring(svg).iter(f"{SVG}path") if p.get("class") == "herkomstlijn"]
+        self.assertEqual(len(lijnen), 2)
+        # de lijnen liggen boven de vakken, zodat de pijlpunt naar een genest object zichtbaar blijft
+        self.assertGreater(svg.rindex('class="herkomstlijn"'), svg.rindex("D1-K1, periode 7"))
+
+    def test_given_bestaat_objects_when_drawn_then_objects_keep_the_archimate_business_look(self):
+        svg = tv.regel_ontstaat(self.herkomstblok(), set())
+        objectvakken = [r for r in rects(svg) if r.get("fill") == tv.BUS and r.get("rx") == "0"]
+        self.assertEqual(len(objectvakken), 4)
+        self.assertEqual({r.get("stroke") for r in objectvakken}, {tv.BUS_L})
+
+    def test_given_herkomst_beeld_when_drawn_then_a_visual_legend_in_the_image(self):
+        t = teksten(tv.regel_ontstaat(self.herkomstblok(), set()))
+        for sleutel in tv.LEGENDA_HERKOMST:
+            self.assertIn(sleutel, t)
+
+    def test_given_paired_layers_when_drawn_then_each_pair_on_the_same_height(self):
+        # het aanbod rechts draagt een toestand en is daardoor hoger dan de specificatie links;
+        # de laag eronder moet toch op dezelfde hoogte beginnen
+        r = self.herkomstregels()
+        r["regels"][3]["toestand"] = "gepland"
+        blok = [x for x in self.blokken(r) if x.get("beeld_id") == "F6-01"][0]
+        svg = tv.regel_ontstaat(blok, set())
+        root = ET.fromstring(svg)
+        y_van = {t.text: float(t.get("y")) for t in root.iter(f"{SVG}text")}
+        x_van = {t.text: float(t.get("x")) for t in root.iter(f"{SVG}text")}
+        self.assertEqual(y_van["K0037"], y_van["K0037, periode 7"])
+        self.assertEqual(y_van["D1-K1"], y_van["D1-K1, periode 7"])
+        self.assertLess(x_van["K0037"], x_van["K0037, periode 7"])
+
+    def test_given_pairs_out_of_order_when_drawn_then_left_column_stacked_inside_its_panel(self):
+        # twee bestaande objecten waarvan de paren rechts in omgekeerde volgorde staan: geen uitlijning,
+        # maar de kolom links blijft onder elkaar en binnen haar vlak
+        r = self.herkomstregels()
+        b = {k: r["regels"][1][k] for k in ("beeld_id", "beeld", "fase", "stap", "bron")}
+        r["regels"].insert(1, {**b, "soort": "bestaat", "objecttype": "Planningsgroep", "instantie": "PG", "herkomst": "F1-08"})
+        r["regels"].insert(0, {"beeld_id": "F1-08", "beeld": "Keuzedeel ontworpen", "fase": 1, "stap": "Keuzedeel vormgeven", "bron": "b",
+                               "soort": "ontstaat", "wie": "planner", "objecttype": "Planningsgroep", "instantie": "PG"})
+        r["regels"][-1]["relaties"] = r["regels"][-1].get("relaties", []) + [
+            {"soort": "Association", "van": "Planningsgroep", "naar": "Onderwijseenheid aanbod", "label": "plant", "voorstel": True, "instantie": "PG"}]
+        blok = [x for x in self.blokken(r) if x.get("beeld_id") == "F6-01"][0]
+        svg = tv.regel_ontstaat(blok, set())
+        root = ET.fromstring(svg)
+        vlak = {x.get("class"): x for x in root.iter(f"{SVG}rect") if x.get("class")}
+        rand = float(vlak["vlak-eerder"].get("x")) + float(vlak["vlak-eerder"].get("width"))
+        links = [x for x in root.iter(f"{SVG}rect") if x.get("fill") == tv.BUS and x.get("rx") == "0"
+                 and float(x.get("x")) < float(vlak["vlak-hier"].get("x"))]
+        self.assertTrue(links)
+        for x in links:
+            self.assertLessEqual(float(x.get("x")) + float(x.get("width")), rand)
+
+    def test_given_herkomst_beeld_unknown_when_drawn_then_chip_per_object(self):
+        svg = tv.regel_ontstaat(self.herkomstblok(met_herkomstbeeld=False), set())
+        t = teksten(svg)
+        self.assertIn("uit F1-08", t)
+        self.assertIn("Eerder ontstaan", t)
+        self.assertIn("Ontstaat hier · F6-01", t)
+
+    def test_given_relation_at_the_start_of_a_next_row_when_drawn_then_reference_names_the_other_end(self):
+        items = [{"type": "Leergelegenheid", "instantie": "Medicatieoverzicht, periode 7", "verwijzingen": []},
+                 {"relatie": "", "soort": "Association", "naar_rechts": True, "ander": "Leergelegenheid",
+                  "ander_instantie": "Medicatieoverzicht, periode 7"},
+                 {"type": "Leergelegenheid verbintenis", "instantie": "Jochem op Medicatieoverzicht", "verwijzingen": []}]
+        svg, *_ = tv._objecten_rijen(0, 0, items, set(), maxbreedte=200)
+        self.assertIn("Leergelegenheid hangt aan: Medicatieoverzicht, periode 7",
+                      teksten(f'<svg xmlns="http://www.w3.org/2000/svg">{svg}</svg>'))
+
+    def test_given_relation_proposal_when_grouped_then_reference_marked_and_object_not_a_proposal(self):
+        r = {"scope_uitzonderingen": [], "regels": [
+            {"beeld_id": "F2-08", "beeld": "Plannen", "fase": 2, "stap": "Plannen", "soort": "ontstaat", "wie": "planner",
+             "objecttype": "Planningsgroep", "instantie": "K0037 periode 7", "bron": "b",
+             "relatie": {"soort": "Association", "van": "Planningsgroep", "naar": "Keuzedeel aanbod", "label": "plant", "voorstel": True}}]}
+        item = self.blokken(r)[0]["objecten"][0]
+        self.assertIn("plant Keuzedeel aanbod (voorstel)", item.get("verwijzing", ""))
+        self.assertFalse(item.get("aanname"))
+        self.assertNotIn(tv.VOORSTEL_MERK, item.get("verwijzingen", []))
+
     def test_given_state_on_a_created_object_when_drawn_then_state_is_shown(self):
         r = regels()
         r["regels"][0]["toestand"] = "intentie"
@@ -135,6 +307,31 @@ class TekenTests(unittest.TestCase):
         # een omweg is een pad met twee knikken: horizontaal, verticaal, horizontaal
         paden = [m for m in re.findall(r'd="(M[^"]+)"', svg) if "H" in m and "V" in m]
         self.assertTrue(paden, "verwacht een haaks pad voor de relatie over afstand")
+
+    def test_given_lines_from_several_existing_objects_to_one_target_when_drawn_then_the_label_once(self):
+        # F6-06: vier verbintenissen worden in dezelfde planningsgroep geplaatst; vier labels vallen over elkaar
+        tv.POSITIES.clear()
+        for i, n in enumerate("abcd"):
+            tv.POSITIES[("V", n)] = (10, 10 + 80 * i, 200)
+        tv.POSITIES[("P", "p")] = (400, 10, 200)
+        blok = {"herkomstlijnen": [{"bron": ("V", n), "doel": ("P", "p"), "soort": "Association",
+                                    "label": "wordt geplaatst in", "naar_rechts": True} for n in "abcd"]}
+        svg = tv._herkomstlijnen(blok, 210)
+        self.assertEqual(svg.count("herkomstlijn"), 4)
+        self.assertEqual(teksten(f'<svg xmlns="http://www.w3.org/2000/svg">{svg}</svg>').count("wordt geplaatst in"), 1)
+
+    def test_given_a_line_over_distance_to_a_nested_object_when_drawn_then_the_line_is_not_dropped(self):
+        # F2-08: de planningsgroep is gepland op de onderwijseenheid, die genest in het opleidingsprogramma staat
+        items = [{"type": "A", "instantie": "a", "verwijzingen": [],
+                  "kinderen": [{"type": "B", "instantie": "b", "verwijzingen": []}]},
+                 {"type": "C", "instantie": "c", "verwijzingen": []},
+                 {"relatie": "is gepland op", "soort": "Association", "naar_rechts": False, "ander": "B", "over_afstand": True},
+                 {"type": "D", "instantie": "d", "verwijzingen": []}]
+        tv.POSITIES.clear()
+        svg, _, _ = tv.objecten(10, 10, items, set())
+        self.assertIn("is gepland op", teksten(f'<svg xmlns="http://www.w3.org/2000/svg">{svg}</svg>'))
+        paden = [m for m in re.findall(r'd="(M[^"]+)"', svg) if "H" in m and "V" in m]
+        self.assertTrue(paden, "verwacht een haaks pad naar het geneste object")
 
     def test_given_a_line_over_distance_when_drawn_then_the_label_is_shown(self):
         r = regels()
@@ -533,3 +730,105 @@ class OmwegDeMoeite(unittest.TestCase):
     def test_given_the_block_already_holds_three_detours_when_weighed_then_a_reference(self):
         vol = self.objecten("A", "B") + [{"over_afstand": True} for _ in range(tv.OMWEG_MAX)]
         self.assertFalse(tv._de_moeite(vol, "A", "hangt aan"))
+
+
+def _naast_regels(met_bestaand=True):
+    """F2-08 in het klein: specificatie links, aanbod in het midden, groepen ernaast."""
+    k = {"beeld_id": "F2-08", "beeld": "Planner plant", "fase": 2, "stap": "Aanbod plannen", "bron": "b"}
+    r = []
+    if met_bestaand:
+        r.append(dict(k, soort="bestaat", objecttype="Opleidingsprogramma specificatie", instantie="s", herkomst="F1-01"))
+    r += [
+        dict(k, soort="ontstaat", wie="planner", objecttype="Opleidingsprogramma aanbod", instantie="a",
+             relaties=[{"soort": "Association", "van": "Opleidingsprogramma specificatie", "naar": "Opleidingsprogramma aanbod",
+                        "label": "wordt aangeboden als", "instantie": "s"}]),
+        dict(k, soort="ontstaat", wie="planner", objecttype="Onderwijseenheid aanbod", instantie="b",
+             relatie={"soort": "Aggregation", "van": "Opleidingsprogramma aanbod", "naar": "Onderwijseenheid aanbod", "nesting": True}),
+        dict(k, soort="ontstaat", wie="planner", objecttype="Plaatsingsgroep", instantie="g1", naast=True,
+             relatie={"soort": "Association", "van": "Plaatsingsgroep", "naar": "Opleidingsprogramma aanbod", "label": "is gepland op", "instantie": "a"}),
+        dict(k, soort="ontstaat", wie="planner", objecttype="Planningsgroep", instantie="g2", naast=True,
+             relatie={"soort": "Composition", "van": "Plaatsingsgroep", "naar": "Planningsgroep"},
+             relaties=[{"soort": "Association", "van": "Planningsgroep", "naar": "Onderwijseenheid aanbod", "label": "is gepland op"}]),
+    ]
+    return {"regels": r}
+
+
+class NaastTests(unittest.TestCase):
+    """Een groep staat in een kolom naast het aanbod waarop zij gepland is, op dezelfde hoogte (F2-08)."""
+
+    def test_given_group_marked_naast_when_grouped_then_it_is_beside_and_not_in_the_column(self):
+        blok = tv.groepeer(_naast_regels())[0]
+        self.assertEqual([g["type"] for g in blok["naast"]], ["Plaatsingsgroep", "Planningsgroep"])
+        self.assertNotIn("Plaatsingsgroep", tv._types_in_blok(blok["objecten"]))
+        self.assertEqual(blok["naast"][0]["anker"], ("Opleidingsprogramma aanbod", "a"))
+        self.assertEqual(blok["naast"][1]["anker"], ("Onderwijseenheid aanbod", "b"))
+        self.assertEqual(blok["naast"][1]["groep_rel"]["soort"], "Composition")
+
+    def test_given_groups_beside_when_drawn_then_each_at_the_height_of_its_offer(self):
+        blok = tv.groepeer(_naast_regels())[0]
+        svg = tv.regel_ontstaat(blok, set())
+        P = tv.POSITIES
+        self.assertEqual(P[("Plaatsingsgroep", "g1")][1], P[("Opleidingsprogramma aanbod", "a")][1])
+        self.assertEqual(P[("Planningsgroep", "g2")][1], P[("Onderwijseenheid aanbod", "b")][1])
+        self.assertGreater(P[("Plaatsingsgroep", "g1")][0], P[("Opleidingsprogramma aanbod", "a")][0] + P[("Opleidingsprogramma aanbod", "a")][2])
+        self.assertIn("is gepland op", teksten(svg))
+
+    def test_given_groups_beside_without_existing_objects_when_grouped_then_they_are_not_lost(self):
+        blok = tv.groepeer(_naast_regels(met_bestaand=False))[0]
+        self.assertIn("Plaatsingsgroep", tv._types_in_blok(blok["objecten"]))
+        self.assertIn("Planningsgroep", tv._types_in_blok(blok["objecten"]))
+
+
+def _naast_met_verbintenissen():
+    """F6-06 in het klein: de groep naast het aanbod, en eronder de verbintenissen die erin geplaatst worden."""
+    r = _naast_regels()
+    k = {"beeld_id": "F2-08", "beeld": "Planner plant", "fase": 2, "stap": "Aanbod plannen", "bron": "b"}
+    for n in ("v1", "v2", "v3"):
+        r["regels"].append(dict(k, soort="bestaat", objecttype="Keuzedeel aanbod verbintenis", instantie=n, herkomst="F6-04",
+                                naast=True, relatie={"soort": "Association", "van": "Keuzedeel aanbod verbintenis",
+                                                     "naar": "Planningsgroep", "label": "wordt geplaatst in", "instantie": "g2"}))
+    return r
+
+
+class NaastVerbintenisTests(unittest.TestCase):
+    """Een object dat al bestond kan in de kolom ernaast staan, met een lijn naar de groep erboven (F6-06)."""
+
+    def test_given_existing_objects_beside_when_grouped_then_in_the_column_with_their_origin(self):
+        blok = tv.groepeer(_naast_met_verbintenissen())[0]
+        typen = [g["type"] for g in blok["naast"]]
+        self.assertEqual(typen.count("Keuzedeel aanbod verbintenis"), 3)
+        v = blok["naast"][2]
+        self.assertIn("uit F6-04", v["verwijzingen"])
+        self.assertEqual(v["groep_rel"]["relatie"], "wordt geplaatst in")
+        self.assertEqual(blok["naast"][3]["groep_doel"], ("Planningsgroep", "g2"))
+
+    def test_given_several_objects_to_one_group_when_drawn_then_a_line_each_and_the_label_once(self):
+        blok = tv.groepeer(_naast_met_verbintenissen())[0]
+        svg = tv.regel_ontstaat(blok, set())
+        self.assertEqual(svg.count('class="naastlijn-groep"'), 2)
+        self.assertEqual(teksten(svg).count("wordt geplaatst in"), 1)
+
+
+    def test_given_a_composition_to_a_group_further_up_when_drawn_then_the_diamond_is_at_the_whole(self):
+        r = _naast_regels()
+        k = {"beeld_id": "F2-08", "beeld": "Planner plant", "fase": 2, "stap": "Aanbod plannen", "bron": "b"}
+        r["regels"].append(dict(k, soort="ontstaat", wie="planner", objecttype="Planningsgroep", instantie="g3", naast=True,
+                                relatie={"soort": "Association", "van": "Planningsgroep", "naar": "Onderwijseenheid aanbod", "label": "is gepland op"}))
+        r["regels"].append(dict(k, soort="ontstaat", wie="planner", objecttype="Planningsgroep", instantie="g4", naast=True,
+                                relaties=[{"soort": "Composition", "van": "Plaatsingsgroep", "naar": "Planningsgroep"}]))
+        blok = tv.groepeer(r)[0]
+        self.assertEqual(blok["naast"][3]["groep_doel"], ("Plaatsingsgroep", "g1"))
+        svg = tv.regel_ontstaat(blok, set())
+        self.assertIn('class="naastlijn-groep"', svg)
+        self.assertRegex(svg, r'<path d="M[0-9]+ [0-9]+l-7 -5l-7 5l7 5z" fill="#444"')
+
+
+class NaastBreedteTests(unittest.TestCase):
+    def test_given_groups_with_different_text_when_drawn_then_all_boxes_in_the_column_equally_wide(self):
+        # Niels van Duin, 25 november 2026: "maak die balkjes aan de rechterkant even groot"
+        r = _naast_regels()
+        r["regels"][-1]["instantie"] = "een veel langere instantie van de planningsgroep"
+        blok = tv.groepeer(r)[0]
+        tv.regel_ontstaat(blok, set())
+        breedtes = {tv.POSITIES[(g["type"], g["instantie"])][2] for g in blok["naast"]}
+        self.assertEqual(len(breedtes), 1)

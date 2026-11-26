@@ -408,7 +408,7 @@
           "| Relaties naar eerder ontstane elementen | *waaraan het hangt en wat ernaar verwijst, met het nummer van het sjabloononderdeel waar dat element ontstond* |",
           "| Voorbeeldwaarde | *de ingevulde waarde voor deze persona* |"
         ],
-        "voorbeeld_beeld": "architecture/model/informatiemodel/img/regels/f1-08-kiesbaar-onderwijsprogrammaonderdeel-keuzedelen-en-minor.svg",
+        "voorbeeld_beeld": "architecture/model/informatiemodel/img/regels/f1-08-onderwijsontwerper-geeft-keuzedelen-en-minor-een-eigen-specificatie.svg",
         "beeld_alt": "Voorbeeld van sjabloononderdeel A: het kiesbare onderwijsprogrammaonderdeel, met de relaties naar de opleidingsspecificatie en de keuzedeelruimte die eerder zijn ontstaan",
         "criteria": [
           "er staat een ArchiMate-plaat of een SVG-render daarvan, met de scope van deze processtap uitgelicht",
@@ -449,7 +449,7 @@
           "| Informatiestroom | *de koppeling op de hoofdplaat informatiestromen, bijvoorbeeld OC-P&R* |",
           "| Functionele eisen | *FE-LR..-...: Het <component> ..., met de instellingseis waaruit hij komt; een regel per eis* |"
         ],
-        "voorbeeld_beeld": "architecture/model/informatiemodel/img/regels/f2-03-verzoek-met-specificatiestructuur-en-planbare-waarden-naar-planning.svg",
+        "voorbeeld_beeld": "architecture/model/informatiemodel/img/regels/f2-03-onderwijscatalogus-stuurt-het-verzoek-met-de-specificatie-naar-het-planningssysteem.svg",
         "beeld_alt": "Voorbeeld van sjabloononderdeel B: het verzoek om onderwijsaanbod gaat met de hele specificatiestructuur en de planbare waarden van de onderwijscatalogus naar het planningssysteem",
         "criteria": [
           "er staat een ArchiMate-plaat of een SVG-render daarvan, met de scope van deze uitwisseling uitgelicht, beide applicatiecomponenten en de richting",

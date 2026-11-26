@@ -117,6 +117,27 @@ class GenereerTests(unittest.TestCase):
         self.assertIn("?plain=1#L1026)", reg)
         self.assertIn("(F2-01, `Opleidingaanbod`)", doc)
 
+    def test_given_bestaat_rule_when_generated_then_herkomst_link_under_the_image_and_soort_in_register(self):
+        r = regels()
+        r["regels"].insert(2, {"beeld_id": "F3-01", "beeld": "De aanmelding", "fase": 3, "stap": "Aanmelden", "soort": "bestaat",
+                               "objecttype": "Opleidingaanbod", "instantie": "AA 2026", "herkomst": "F2-01", "bron": "b"})
+        doc = self.bouw(r)
+        self.assertIn("**Herkomst:** uit [F2-01](#f2-01---het-aanbod-gemaakt): `Opleidingaanbod` AA 2026.", doc)
+        reg = doc[doc.index("## Regelregister"):]
+        self.assertIn("| bestaat, uit F2-01 | Opleidingaanbod | AA 2026 |", reg)
+        # een bestaand object is geen nieuw object: niet in de chips en niet in het invulblad
+        fase3 = doc[doc.index("## Fase 3"):doc.index("## Fase 4")]
+        self.assertNotIn("`Opleidingaanbod`, ", fase3.split("\n\n")[1] if "\n\n" in fase3 else fase3)
+        self.assertEqual(gv.invulblad(r).count("| Opleidingaanbod |"), 1)
+
+    def test_given_flow_without_arrow_when_generated_then_interaction_says_dashed_and_not_marked_on_the_map(self):
+        r = regels()
+        r["regels"][1]["pijl"] = "geen pijl op de hoofdplaat"
+        r["regels"][1]["koppeling"] = None
+        doc = self.bouw(r)
+        self.assertIn("geen pijl op de hoofdplaat. In de faseplaat hierboven staat deze lijn gestippeld met F2-02.", doc)
+        self.assertNotIn("staat deze lijn gemarkeerd met F2-02", doc)
+
     def test_given_source_with_fase_when_linked_then_fase_anchor_and_unknown_source_stays_text(self):
         links = {1: "https://x/#fase-1"}
         self.assertEqual(gv.bronlinks("leerroute-1-regulier.md, Fase 1: iets", links), "[leerroute-1-regulier.md](https://github.com/Npuls-OKx/Public/blob/dev/Referentiemateriaal/kaderscenario's/leerroute-1-regulier.md), [Fase 1](https://x/#fase-1): iets")
@@ -146,6 +167,16 @@ class GenereerTests(unittest.TestCase):
         self.assertIn("**Ontstaat:** `Opleidingaanbod`", sectie)
         self.assertIn("**Stroomt:** Planningssysteem naar Onderwijscatalogus", sectie)
         self.assertIn("**MORA-hoofdproces:** Plannen", sectie)
+
+    def test_given_object_that_only_changes_in_a_fase_when_generated_then_chip_verandert_and_not_ontstaat(self):
+        r = regels()
+        r["regels"].append({"beeld_id": "F3-02", "beeld": "Aanbod bijgewerkt", "fase": 3, "stap": "Aanmelden", "soort": "verandert", "wie": "planner",
+                            "objecttype": "Opleidingaanbod", "instantie": "AA 2026", "toestand": "gepland", "bron": "b"})
+        doc = self.bouw(r)
+        sectie = doc[doc.index("## Fase 3"):doc.index("## Fase 4")]
+        self.assertIn("**Ontstaat:** `Aanmelding`", sectie)
+        self.assertNotIn("`Aanmelding`, `Opleidingaanbod`", sectie)
+        self.assertIn("**Verandert:** `Opleidingaanbod`", sectie)
 
     def vragen_in(self, doc):
         """De vragen zoals het document ze nummert, met hun plek erachter."""
