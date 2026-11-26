@@ -5663,7 +5663,7 @@
       "objecttype": "Plaatsingsgroep",
       "instantie": "APO26-1A: Jochem en 23 andere studenten geplaatst",
       "herkomst": "F3-05",
-      "bron": "aanwijzing van de opdrachtgever, 26 november 2026: de roosteraar maakt de lesgroep uit de planningsgroep uit de jaarplanning (F2-08), van de plaatsingsgroep uit de intake (F3-05)"
+      "bron": "aanwijzing van de opdrachtgever, 26 november 2026: de roosteraar maakt de lesgroep uit de planningsgroep van de jaarplanning (F2-08); de plaatsingsgroep komt uit de intake (F3-05)"
     },
     {
       "beeld_id": "F4-08",
@@ -5674,7 +5674,7 @@
       "objecttype": "Planningsgroep",
       "instantie": "Baliegesprekken 101-A: APO26-1A, 24 studenten, past in de simulatieruimte",
       "herkomst": "F2-08",
-      "bron": "aanwijzing van de opdrachtgever, 26 november 2026: de roosteraar maakt de lesgroep uit de planningsgroep uit de jaarplanning (F2-08), van de plaatsingsgroep uit de intake (F3-05)",
+      "bron": "aanwijzing van de opdrachtgever, 26 november 2026: de roosteraar maakt de lesgroep uit de planningsgroep van de jaarplanning (F2-08); de plaatsingsgroep komt uit de intake (F3-05)",
       "relatie": {
         "soort": "Composition",
         "van": "Plaatsingsgroep",
