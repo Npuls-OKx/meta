@@ -3356,7 +3356,7 @@
     },
     {
       "beeld_id": "F2-05",
-      "beeld": "Planner legt de aanbodvraag naast de schaarste van ruimtes en mensen",
+      "beeld": "Planner maakt de prognose en toetst de aanbodvraag aan de schaarste",
       "fase": 2,
       "stap": "Aanbodvraag per opleiding bepalen",
       "verdieping": "ruimtes en mensen op de specificatie",
@@ -3371,7 +3371,7 @@
     },
     {
       "beeld_id": "F2-05",
-      "beeld": "Planner legt de aanbodvraag naast de schaarste van ruimtes en mensen",
+      "beeld": "Planner maakt de prognose en toetst de aanbodvraag aan de schaarste",
       "fase": 2,
       "stap": "Aanbodvraag per opleiding bepalen",
       "verdieping": "ruimtes en mensen op de specificatie",
@@ -3390,7 +3390,7 @@
     },
     {
       "beeld_id": "F2-05",
-      "beeld": "Planner legt de aanbodvraag naast de schaarste van ruimtes en mensen",
+      "beeld": "Planner maakt de prognose en toetst de aanbodvraag aan de schaarste",
       "fase": 2,
       "stap": "Aanbodvraag per opleiding bepalen",
       "verdieping": "ruimtes en mensen op de specificatie",
@@ -3409,7 +3409,7 @@
     },
     {
       "beeld_id": "F2-05",
-      "beeld": "Planner legt de aanbodvraag naast de schaarste van ruimtes en mensen",
+      "beeld": "Planner maakt de prognose en toetst de aanbodvraag aan de schaarste",
       "fase": 2,
       "stap": "Aanbodvraag per opleiding bepalen",
       "verdieping": "ruimtes en mensen op de specificatie",
@@ -3428,7 +3428,7 @@
     },
     {
       "beeld_id": "F2-05",
-      "beeld": "Planner legt de aanbodvraag naast de schaarste van ruimtes en mensen",
+      "beeld": "Planner maakt de prognose en toetst de aanbodvraag aan de schaarste",
       "fase": 2,
       "stap": "Aanbodvraag per opleiding bepalen",
       "verdieping": "ruimtes en mensen op de specificatie",
@@ -3447,7 +3447,7 @@
     },
     {
       "beeld_id": "F2-05",
-      "beeld": "Planner legt de aanbodvraag naast de schaarste van ruimtes en mensen",
+      "beeld": "Planner maakt de prognose en toetst de aanbodvraag aan de schaarste",
       "fase": 2,
       "stap": "Aanbodvraag per opleiding bepalen",
       "soort": "ontstaat",
@@ -3456,8 +3456,9 @@
       "instantie": "Apothekersassistent 2026: 96 verwachte instromers, op te knippen in vier plaatsingsgroepen van 24",
       "voorstel": true,
       "bron": "sparsessie Niels van Duin en Niek Derksen, 25 november 2026: de planner maakt een prognose van de instroom en knipt die op in plaatsingsgroepen (Niels: 'ik verwacht 80 studenten, knip ik dat op in vier plaatsingsgroepen'); het informatiemodel kent nog geen prognose; 24 volgt de simulatieruimte uit leerroute-1-regulier.md, r723 en r736",
-      "zin": "De planner legt de verwachte instroom vast in een prognose: 96 instromers voor Apothekersassistent, op te knippen in vier plaatsingsgroepen van 24. Het informatiemodel kent de prognose nog niet; zij staat hier als voorstel.",
-      "verdieping": "ruimtes en mensen op de specificatie"
+      "zin": "De planner legt de verwachte instroom vast in een prognose: 96 instromers voor Apothekersassistent, op te knippen in vier plaatsingsgroepen van 24.",
+      "verdieping": "ruimtes en mensen op de specificatie",
+      "vraag": "Komt `Prognose` als objecttype in het informatiemodel, met relaties naar het opleidingsaanbod (voorspelt de instroom van) en de plaatsingsgroep (wordt opgeknipt in)? Nu staat zij als voorstel (sparsessie 25 november 2026, #538)."
     },
     {
       "beeld_id": "F2-06",
@@ -3739,7 +3740,7 @@
       "instantie": "ROC Leren Zonder Drempels: ambitie en verwachte instroom voor cohort 2026",
       "aanname": true,
       "bron": "geen bron, keuze van het voorbeeld: het objecttype heeft geen instantie in het kaderscenario; leerroute-1-regulier.md, r657 (drie stadia van onderwijsaanbod, parallel aan meerjaren-, jaar- en periodeplanning)",
-      "zin": "Het aanbod rijpt in tredes die met de planningshorizon meelopen. In de meerjarenplanning staat de intentie: welke opleiding, met welke verwachte instroom. In de jaarplanning plant de planner het aanbod op de planbare specificatie, met perioden en capaciteit, nog zonder lokalen en docenten. Naast elk aanbod staat de groep die erop gepland is. De prognose van 96 (F2-05) wordt opgeknipt in vier plaatsingsgroepen van 24; met studenten erin is zo'n groep ook planningsgroep, voor de onderwijseenheid, de balie-simulatie en de toets. Het practicum in de leerapotheek heeft twaalf werkplekken, dus daar worden het twee planningsgroepen, zonder dat er een keuze aan te pas komt. Een groep hangt altijd aan capaciteit, niet aan alle studenten met dezelfde verbintenis. Zo draait een eerste roosteriteratie en blijkt of het aanbod haalbaar is. Een lesgroep is de definitieve planningsgroep en ontstaat pas bij het roosteren. K0037 krijgt een capaciteitsgroep tot 24 op de prognose.",
+      "zin": "De planner plant het aanbod op de planbare specificatie, met perioden en capaciteit, en zet er de groepen naast: vier plaatsingsgroepen van 24 uit de prognose van 96 (F2-05). Met studenten erin is zo'n groep ook planningsgroep, voor de onderwijseenheid, de balie-simulatie en de toets. Het practicum in de leerapotheek heeft twaalf werkplekken, dus daar worden het twee planningsgroepen. Een groep volgt uit capaciteit en planning. Een lesgroep is de definitieve planningsgroep en ontstaat bij het roosteren. K0037 krijgt een capaciteitsgroep tot 24 op de prognose. Lokalen en docenten volgen later; in de meerjarenplanning stond alleen de intentie.",
       "toestand": "intentie"
     },
     {
@@ -4155,7 +4156,8 @@
         "voorstel": true,
         "instantie": "Herkansing praktijktoets baliegesprek (OSCE), periode 2"
       },
-      "nieuwe_instantie": true
+      "nieuwe_instantie": true,
+      "vraag": "Op de plaat is een `Planningsgroep` een deel (compositie) van een `Plaatsingsgroep`. De herkansingsgroep en de capaciteitsgroep van K0037 halen studenten uit meer plaatsingsgroepen; Niels noemt de compositie in #579 'een kern van correctheid'. Past de relatie zo, of hoort er voor die groepen een andere?"
     },
     {
       "beeld_id": "F2-08",
@@ -5495,7 +5497,7 @@
       "pijl": "id-97010c562d8841f9b908e72b1d2b3f9a",
       "koppeling": null,
       "objecttype": "Student",
-      "instantie": "29 andere studenten in dezelfde groep",
+      "instantie": "23 andere studenten in dezelfde groep",
       "bron": "informatiemodel.json: Persoon naar Plaatsingsgroep (Worden gegroepeerd via), Student is een Persoon",
       "nieuwe_instantie": true,
       "aanname": true,
@@ -6238,7 +6240,7 @@
       "soort": "ontstaat",
       "wie": "planner",
       "objecttype": "Onderwijseenheid aanbod",
-      "instantie": "D1-K1, periode 7, locatie A: 18 plaatsen",
+      "instantie": "D1-K1, periode 7, locatie A: tot 24 plaatsen",
       "bron": "sessie Keuzedeelmodel en informatiemodel, 17 november 2026 (Niels van Duin, Niek Derksen); geen bron, keuze van het voorbeeld: maatvoering",
       "nieuwe_instantie": true,
       "toestand": "gepland",
@@ -6505,7 +6507,7 @@
       "pijl": "id-6268df4c8b1e4a1ca02d4bd6732b8b34",
       "koppeling": null,
       "objecttype": "Onderwijseenheid aanbod",
-      "instantie": "D1-K1, periode 7, locatie A: 18 plaatsen",
+      "instantie": "D1-K1, periode 7, locatie A: tot 24 plaatsen",
       "bron": "sessie Keuzedeelmodel en informatiemodel, 17 november 2026 (Niels van Duin, Niek Derksen); antwoord van Niels van Duin op #579, 25 november 2026, vraag 7: ja, geplande leergelegenheden zijn een stap verder in de rijping; de lijn wordt verrijkt met programma en onderwijseenheid, een voorstel voor de modelronde",
       "nieuwe_instantie": true,
       "relatie": {
@@ -6533,7 +6535,7 @@
     },
     {
       "beeld_id": "F6-04",
-      "beeld": "Jochem en 17 medestudenten kiezen keuzedeel K0037",
+      "beeld": "Jochem en medestudenten kiezen keuzedeel K0037",
       "fase": 6,
       "stap": "Keuzedeel kiezen in het studentkeuzesysteem",
       "soort": "bestaat",
@@ -6549,12 +6551,12 @@
     },
     {
       "beeld_id": "F6-04",
-      "beeld": "Jochem en 17 medestudenten kiezen keuzedeel K0037",
+      "beeld": "Jochem en medestudenten kiezen keuzedeel K0037",
       "fase": 6,
       "stap": "Keuzedeel kiezen in het studentkeuzesysteem",
       "soort": "bestaat",
       "objecttype": "Onderwijseenheid aanbod",
-      "instantie": "D1-K1, periode 7, locatie A: 18 plaatsen",
+      "instantie": "D1-K1, periode 7, locatie A: tot 24 plaatsen",
       "herkomst": "F6-01",
       "bron": "sessie Keuzedeelmodel en informatiemodel, 17 november 2026 (Niels van Duin, Niek Derksen)",
       "relatie": {
@@ -6566,7 +6568,7 @@
     },
     {
       "beeld_id": "F6-04",
-      "beeld": "Jochem en 17 medestudenten kiezen keuzedeel K0037",
+      "beeld": "Jochem en medestudenten kiezen keuzedeel K0037",
       "fase": 6,
       "stap": "Keuzedeel kiezen in het studentkeuzesysteem",
       "soort": "ontstaat",
@@ -6586,7 +6588,7 @@
     },
     {
       "beeld_id": "F6-04",
-      "beeld": "Jochem en 17 medestudenten kiezen keuzedeel K0037",
+      "beeld": "Jochem en medestudenten kiezen keuzedeel K0037",
       "fase": 6,
       "stap": "Keuzedeel kiezen in het studentkeuzesysteem",
       "soort": "ontstaat",
@@ -6617,7 +6619,7 @@
     },
     {
       "beeld_id": "F6-04",
-      "beeld": "Jochem en 17 medestudenten kiezen keuzedeel K0037",
+      "beeld": "Jochem en medestudenten kiezen keuzedeel K0037",
       "fase": 6,
       "stap": "Keuzedeel kiezen in het studentkeuzesysteem",
       "soort": "ontstaat",
@@ -6636,7 +6638,7 @@
     },
     {
       "beeld_id": "F6-04",
-      "beeld": "Jochem en 17 medestudenten kiezen keuzedeel K0037",
+      "beeld": "Jochem en medestudenten kiezen keuzedeel K0037",
       "fase": 6,
       "stap": "Keuzedeel kiezen in het studentkeuzesysteem",
       "soort": "ontstaat",
@@ -6655,7 +6657,7 @@
     },
     {
       "beeld_id": "F6-04",
-      "beeld": "Jochem en 17 medestudenten kiezen keuzedeel K0037",
+      "beeld": "Jochem en medestudenten kiezen keuzedeel K0037",
       "fase": 6,
       "stap": "Keuzedeel kiezen in het studentkeuzesysteem",
       "soort": "ontstaat",
@@ -6674,7 +6676,7 @@
     },
     {
       "beeld_id": "F6-04",
-      "beeld": "Jochem en 17 medestudenten kiezen keuzedeel K0037",
+      "beeld": "Jochem en medestudenten kiezen keuzedeel K0037",
       "fase": 6,
       "stap": "Keuzedeel kiezen in het studentkeuzesysteem",
       "soort": "ontstaat",
@@ -6695,7 +6697,7 @@
           "soort": "Association",
           "van": "Onderwijseenheid aanbod",
           "naar": "Onderwijseenheid aanbod verbintenis",
-          "instantie": "D1-K1, periode 7, locatie A: 18 plaatsen"
+          "instantie": "D1-K1, periode 7, locatie A: tot 24 plaatsen"
         }
       ]
     },
@@ -6747,13 +6749,13 @@
           "soort": "Association",
           "van": "Onderwijseenheid aanbod",
           "naar": "Onderwijseenheid aanbod verbintenis",
-          "instantie": "D1-K1, periode 7, locatie A: 18 plaatsen"
+          "instantie": "D1-K1, periode 7, locatie A: tot 24 plaatsen"
         }
       ]
     },
     {
       "beeld_id": "F6-06",
-      "beeld": "Planner verwerkt de keuzes tot groepen en capaciteit",
+      "beeld": "Planner deelt de keuzes in de capaciteitsgroep van K0037 in",
       "fase": 6,
       "stap": "Definitieve keuzes verwerken naar groepen en capaciteit",
       "soort": "bestaat",
@@ -6769,7 +6771,7 @@
     },
     {
       "beeld_id": "F6-06",
-      "beeld": "Planner verwerkt de keuzes tot groepen en capaciteit",
+      "beeld": "Planner deelt de keuzes in de capaciteitsgroep van K0037 in",
       "fase": 6,
       "stap": "Definitieve keuzes verwerken naar groepen en capaciteit",
       "soort": "bestaat",
@@ -6786,7 +6788,7 @@
     },
     {
       "beeld_id": "F6-06",
-      "beeld": "Planner verwerkt de keuzes tot groepen en capaciteit",
+      "beeld": "Planner deelt de keuzes in de capaciteitsgroep van K0037 in",
       "fase": 6,
       "stap": "Definitieve keuzes verwerken naar groepen en capaciteit",
       "soort": "bestaat",
@@ -6803,7 +6805,7 @@
     },
     {
       "beeld_id": "F6-06",
-      "beeld": "Planner verwerkt de keuzes tot groepen en capaciteit",
+      "beeld": "Planner deelt de keuzes in de capaciteitsgroep van K0037 in",
       "fase": 6,
       "stap": "Definitieve keuzes verwerken naar groepen en capaciteit",
       "soort": "bestaat",
@@ -6820,13 +6822,13 @@
     },
     {
       "beeld_id": "F6-06",
-      "beeld": "Planner verwerkt de keuzes tot groepen en capaciteit",
+      "beeld": "Planner deelt de keuzes in de capaciteitsgroep van K0037 in",
       "fase": 6,
       "stap": "Definitieve keuzes verwerken naar groepen en capaciteit",
       "soort": "verandert",
       "wie": "planner",
       "objecttype": "Keuzedeel aanbod",
-      "instantie": "K0037 Farmaceutische Patientenzorg, periode 7, locatie A: 1 groep, 18 plaatsen",
+      "instantie": "K0037 Farmaceutische Patientenzorg, periode 7, locatie A: 1 groep tot 24, 18 ingedeeld",
       "toestand": "fijnmazig gepland",
       "bron": "leerroute-1-regulier.md, Fase 6: de planner verwerkt definitieve keuzes periodiek naar groepen en capaciteit; scenario-1.1-regulier-happyflow.md, blok D (maatvoering uit de review van 29 september 2026)",
       "relaties": [
@@ -6841,13 +6843,13 @@
     },
     {
       "beeld_id": "F6-06",
-      "beeld": "Planner verwerkt de keuzes tot groepen en capaciteit",
+      "beeld": "Planner deelt de keuzes in de capaciteitsgroep van K0037 in",
       "fase": 6,
       "stap": "Definitieve keuzes verwerken naar groepen en capaciteit",
       "soort": "verandert",
       "wie": "planner",
       "objecttype": "Onderwijseenheid aanbod",
-      "instantie": "D1-K1, periode 7, locatie A: 1 groep, 18 plaatsen",
+      "instantie": "D1-K1, periode 7, locatie A: 1 groep tot 24, 18 ingedeeld",
       "toestand": "fijnmazig gepland",
       "bron": "leerroute-1-regulier.md, Fase 6: de planner verwerkt definitieve keuzes periodiek naar groepen en capaciteit; scenario-1.1-regulier-happyflow.md, blok D (maatvoering uit de review van 29 september 2026)",
       "relaties": [
@@ -6875,14 +6877,14 @@
     },
     {
       "beeld_id": "F6-06",
-      "beeld": "Planner verwerkt de keuzes tot groepen en capaciteit",
+      "beeld": "Planner deelt de keuzes in de capaciteitsgroep van K0037 in",
       "fase": 6,
       "stap": "Definitieve keuzes verwerken naar groepen en capaciteit",
       "soort": "verandert",
       "wie": "planner",
       "objecttype": "Leergelegenheid",
       "toestand": "fijnmazig gepland",
-      "instantie": "Het medicatieoverzicht opstellen, periode 7: 1 groep van 18",
+      "instantie": "Het medicatieoverzicht opstellen, periode 7: 1 groep tot 24, 18 ingedeeld",
       "bron": "aanwijzing van de opdrachtgever, 24 november 2026; leerroute-1-regulier.md, r726 (gedetailleerd planbaar: leergelegenheden met expertise- en faciliteitkoppelingen)",
       "relatie": {
         "soort": "Aggregation",
@@ -6909,14 +6911,14 @@
     },
     {
       "beeld_id": "F6-06",
-      "beeld": "Planner verwerkt de keuzes tot groepen en capaciteit",
+      "beeld": "Planner deelt de keuzes in de capaciteitsgroep van K0037 in",
       "fase": 6,
       "stap": "Definitieve keuzes verwerken naar groepen en capaciteit",
       "soort": "verandert",
       "wie": "planner",
       "objecttype": "Leergelegenheid",
       "toestand": "fijnmazig gepland",
-      "instantie": "Zorg aan specifieke doelgroepen, periode 7: 1 groep van 18",
+      "instantie": "Zorg aan specifieke doelgroepen, periode 7: 1 groep tot 24, 18 ingedeeld",
       "bron": "aanwijzing van de opdrachtgever, 24 november 2026; leerroute-1-regulier.md, r726 (gedetailleerd planbaar: leergelegenheden met expertise- en faciliteitkoppelingen)",
       "relatie": {
         "soort": "Aggregation",
@@ -6943,7 +6945,7 @@
     },
     {
       "beeld_id": "F6-06",
-      "beeld": "Planner verwerkt de keuzes tot groepen en capaciteit",
+      "beeld": "Planner deelt de keuzes in de capaciteitsgroep van K0037 in",
       "fase": 6,
       "stap": "Definitieve keuzes verwerken naar groepen en capaciteit",
       "soort": "verandert",
@@ -6958,14 +6960,14 @@
         "naar": "Keuzedeel aanbod",
         "label": "is gepland op",
         "voorstel": true,
-        "instantie": "K0037 Farmaceutische Patientenzorg, periode 7, locatie A: 1 groep, 18 plaatsen"
+        "instantie": "K0037 Farmaceutische Patientenzorg, periode 7, locatie A: 1 groep tot 24, 18 ingedeeld"
       },
       "zin": "De planner legt de verbintenissen van de 18 studenten die K0037 kozen naast de capaciteitsgroep uit de jaarplanning (F2-08). Die groep heeft een maximum van 24, dus de 18 passen: Jochem, Sanne, Mohammed, Lotte en veertien anderen worden erin ingedeeld. Bij meer dan 24 keuzes komt er een tweede capaciteitsgroep met een eigen leergelegenheid. Als planningsgroep gaat K0037 naar het rooster (F6-12), waar de roosteraar er de lesgroep van maakt. Fijnmazig plannen voegt het gebouw toe; het lokaaltype en de docentexpertise lagen al vast.",
       "naast": true
     },
     {
       "beeld_id": "F6-06",
-      "beeld": "Planner verwerkt de keuzes tot groepen en capaciteit",
+      "beeld": "Planner deelt de keuzes in de capaciteitsgroep van K0037 in",
       "fase": 6,
       "stap": "Definitieve keuzes verwerken naar groepen en capaciteit",
       "soort": "bestaat",
@@ -6985,7 +6987,7 @@
     },
     {
       "beeld_id": "F6-06",
-      "beeld": "Planner verwerkt de keuzes tot groepen en capaciteit",
+      "beeld": "Planner deelt de keuzes in de capaciteitsgroep van K0037 in",
       "fase": 6,
       "stap": "Definitieve keuzes verwerken naar groepen en capaciteit",
       "soort": "bestaat",
@@ -7005,7 +7007,7 @@
     },
     {
       "beeld_id": "F6-06",
-      "beeld": "Planner verwerkt de keuzes tot groepen en capaciteit",
+      "beeld": "Planner deelt de keuzes in de capaciteitsgroep van K0037 in",
       "fase": 6,
       "stap": "Definitieve keuzes verwerken naar groepen en capaciteit",
       "soort": "bestaat",
@@ -7025,7 +7027,7 @@
     },
     {
       "beeld_id": "F6-06",
-      "beeld": "Planner verwerkt de keuzes tot groepen en capaciteit",
+      "beeld": "Planner deelt de keuzes in de capaciteitsgroep van K0037 in",
       "fase": 6,
       "stap": "Definitieve keuzes verwerken naar groepen en capaciteit",
       "soort": "bestaat",
@@ -7054,7 +7056,7 @@
       "pijl": "id-020f091db6ea4763aad7527a98afaf99",
       "koppeling": "OC-P&R",
       "objecttype": "Keuzedeel aanbod",
-      "instantie": "K0037 Farmaceutische Patientenzorg, periode 7, locatie A: 1 groep, 18 plaatsen",
+      "instantie": "K0037 Farmaceutische Patientenzorg, periode 7, locatie A: 1 groep tot 24, 18 ingedeeld",
       "bron": "leerroute-1-regulier.md, Fase 6: actualiseert het planbare aanbod in OC en het rooster volgt; Planning naar OC (geactualiseerd planbaar aanbod); betekenis aangescherpt in de sparsessie PR 314, deel 2, 4 november 2026",
       "relaties": [
         {
@@ -7066,7 +7068,7 @@
         }
       ],
       "zin": "Het geactualiseerde planbare aanbod gaat terug naar de catalogus. Jochems keuzemoment hangt aan de jaaruitzetting van zijn plaatsingsgroep, en kan per groep verschillen omdat dat capaciteitstechnisch beter uitkomt.",
-      "vraag": "Voor de proof of concept: welk systeem start het keuzemoment? Voorlopig het studentkeuzesysteem, waar alles samenkomt (Niels van Duin, #579 vraag 6); ook het studentvolgsysteem kan de start tegenhouden bij te weinig voortgang."
+      "vraag": "Voor de proefopzet (proof of concept): welk systeem start het keuzemoment? Voorlopig het studentkeuzesysteem, waar alles samenkomt (Niels van Duin, #579 vraag 6); ook het studentvolgsysteem kan de start tegenhouden bij te weinig voortgang."
     },
     {
       "beeld_id": "F6-07",
@@ -7079,7 +7081,7 @@
       "pijl": "id-020f091db6ea4763aad7527a98afaf99",
       "koppeling": "OC-P&R",
       "objecttype": "Onderwijseenheid aanbod",
-      "instantie": "D1-K1, periode 7, locatie A: 1 groep, 18 plaatsen",
+      "instantie": "D1-K1, periode 7, locatie A: 1 groep tot 24, 18 ingedeeld",
       "bron": "leerroute-1-regulier.md, Fase 6: actualiseert het planbare aanbod in OC en het rooster volgt; Planning naar OC (geactualiseerd planbaar aanbod); betekenis aangescherpt in de sparsessie PR 314, deel 2, 4 november 2026",
       "nieuwe_instantie": true,
       "relatie": {
@@ -7107,7 +7109,7 @@
     },
     {
       "beeld_id": "F6-08",
-      "beeld": "Studentkeuzesysteem stuurt Jochems verbintenis op K0037 naar de kernregistratie",
+      "beeld": "Studentkeuzesysteem stuurt Jochems verbintenissen op K0037 naar de kernregistratie",
       "fase": 6,
       "stap": "Keuzedeel formeel inschrijven",
       "soort": "stroomt",
@@ -7131,7 +7133,36 @@
           "naar": "Opleidingsprogramma aanbod verbintenis"
         }
       ],
-      "zin": "Het studentkeuzesysteem geeft de verbintenis op het keuzedeel door aan de kernregistratie, die de inschrijving daarna formaliseert (F6-09)."
+      "zin": "Het studentkeuzesysteem geeft de verbintenissen op het keuzedeel en op de onderwijseenheid door aan de kernregistratie, die de inschrijving daarna formaliseert (F6-09)."
+    },
+    {
+      "beeld_id": "F6-08",
+      "beeld": "Studentkeuzesysteem stuurt Jochems verbintenissen op K0037 naar de kernregistratie",
+      "fase": 6,
+      "stap": "Keuzedeel formeel inschrijven",
+      "soort": "stroomt",
+      "van": "Student Keuze Systeem (SKS)",
+      "naar": "Kernregistratie systeem studenten (KRS)",
+      "pijl": "id-642ea2bf4fcd4d58968ba4f952a7e990",
+      "koppeling": null,
+      "objecttype": "Onderwijseenheid aanbod verbintenis",
+      "instantie": "Jochem op D1-K1, periode 7, aangemeld",
+      "bron": "leerroute-1-regulier.md, Fase 6: Planning naar KRS (formele inschrijving keuzedeel); hoofdplaat kent alleen SKS naar KRS; sessie Keuzedeelmodel en informatiemodel, 17 november 2026 (Niels van Duin, Niek Derksen); antwoord van Niels van Duin op #579, 25 november 2026, vraag 3: de kernregistratie formaliseert de inschrijving, nadat het studentkeuzesysteem de verbintenis heeft doorgegeven",
+      "nieuwe_instantie": true,
+      "relatie": {
+        "soort": "Aggregation",
+        "van": "Opleidingsprogramma aanbod verbintenis",
+        "naar": "Onderwijseenheid aanbod verbintenis",
+        "nesting": true
+      },
+      "relaties": [
+        {
+          "soort": "Association",
+          "van": "Onderwijseenheid aanbod",
+          "naar": "Onderwijseenheid aanbod verbintenis",
+          "instantie": "D1-K1, periode 7, locatie A: tot 24 plaatsen"
+        }
+      ]
     },
     {
       "beeld_id": "F6-09",
@@ -7188,7 +7219,7 @@
           "soort": "Association",
           "van": "Onderwijseenheid aanbod",
           "naar": "Onderwijseenheid aanbod verbintenis",
-          "instantie": "D1-K1, periode 7, locatie A: 18 plaatsen"
+          "instantie": "D1-K1, periode 7, locatie A: tot 24 plaatsen"
         }
       ]
     },
@@ -7213,7 +7244,7 @@
           "instantie": "K0037 Farmaceutische Patientenzorg, periode 7, locatie A"
         }
       ],
-      "zin": "De kernregistratie meldt het studentvolgsysteem Jochems verbintenissen op K0037. Wat het studentvolgsysteem daarop aan resultaat en voortgang verwacht, volgt uit de summatieve resultaatstructuur die het in fase 4 kreeg (F4-04)."
+      "zin": "De kernregistratie meldt het studentvolgsysteem Jochems verbintenissen op K0037. Wat het studentvolgsysteem daarop aan resultaat en voortgang verwacht, volgt uit de summatieve resultaatstructuur die het in fase 4 kreeg (F4-04). De hoofdplaat kent deze lijn niet; zij is een voorstel voor de modelronde (#579, vraag 5)."
     },
     {
       "beeld_id": "F6-10",
@@ -7240,7 +7271,7 @@
           "soort": "Association",
           "van": "Onderwijseenheid aanbod",
           "naar": "Onderwijseenheid aanbod verbintenis",
-          "instantie": "D1-K1, periode 7, locatie A: 18 plaatsen"
+          "instantie": "D1-K1, periode 7, locatie A: tot 24 plaatsen"
         }
       ]
     },
@@ -7265,8 +7296,9 @@
           "instantie": "K0037 Farmaceutische Patientenzorg, periode 7, locatie A"
         }
       ],
-      "zin": "Na de formalisatie meldt de kernregistratie het studentkeuzesysteem dat Jochem is ingeschreven, met de verbintenis op het keuzedeel en op de onderwijseenheid. Die terugmelding loopt langs een lijn die de hoofdplaat kent; dat juist deze lijn haar draagt, is een keuze van het voorbeeld.",
-      "aanname": true
+      "zin": "Na de formalisatie meldt de kernregistratie het studentkeuzesysteem dat Jochem is ingeschreven, met de verbintenis op het keuzedeel en op de onderwijseenheid. De hoofdplaat kent deze lijn; het voorbeeld kiest haar voor de terugmelding.",
+      "aanname": true,
+      "vraag": "Draagt juist de lijn 'Student, opleidingsprogramma verbintenis, relevante groepen' de terugmelding van de inschrijving, of een andere lijn (#579)?"
     },
     {
       "beeld_id": "F6-11",
@@ -7293,7 +7325,7 @@
           "soort": "Association",
           "van": "Onderwijseenheid aanbod",
           "naar": "Onderwijseenheid aanbod verbintenis",
-          "instantie": "D1-K1, periode 7, locatie A: 18 plaatsen"
+          "instantie": "D1-K1, periode 7, locatie A: tot 24 plaatsen"
         }
       ],
       "aanname": true
@@ -7309,7 +7341,7 @@
       "pijl": "id-08467fe302794db6b935ff685e83efe0",
       "koppeling": null,
       "objecttype": "Leergelegenheid",
-      "instantie": "Het medicatieoverzicht opstellen, periode 7: 1 groep van 18",
+      "instantie": "Het medicatieoverzicht opstellen, periode 7: 1 groep tot 24, 18 ingedeeld",
       "bron": "sessie Keuzedeelmodel en informatiemodel, 17 november 2026 (Niels van Duin, Niek Derksen): richting rooster stuurt planning het aanbod op de lager gelegen eenheden door, en daar komt de verbintenis op",
       "relaties": [
         {
@@ -7323,7 +7355,7 @@
           "soort": "Aggregation",
           "van": "Onderwijseenheid aanbod",
           "naar": "Leergelegenheid",
-          "instantie": "D1-K1, periode 7, locatie A: 1 groep, 18 plaatsen"
+          "instantie": "D1-K1, periode 7, locatie A: 1 groep tot 24, 18 ingedeeld"
         },
         {
           "soort": "Association",
@@ -7346,7 +7378,7 @@
       "pijl": "id-08467fe302794db6b935ff685e83efe0",
       "koppeling": null,
       "objecttype": "Leergelegenheid",
-      "instantie": "Zorg aan specifieke doelgroepen, periode 7: 1 groep van 18",
+      "instantie": "Zorg aan specifieke doelgroepen, periode 7: 1 groep tot 24, 18 ingedeeld",
       "bron": "sessie Keuzedeelmodel en informatiemodel, 17 november 2026 (Niels van Duin, Niek Derksen): richting rooster stuurt planning het aanbod op de lager gelegen eenheden door, en daar komt de verbintenis op",
       "nieuwe_instantie": true,
       "relaties": [
@@ -7361,7 +7393,7 @@
           "soort": "Aggregation",
           "van": "Onderwijseenheid aanbod",
           "naar": "Leergelegenheid",
-          "instantie": "D1-K1, periode 7, locatie A: 1 groep, 18 plaatsen"
+          "instantie": "D1-K1, periode 7, locatie A: 1 groep tot 24, 18 ingedeeld"
         },
         {
           "soort": "Association",
@@ -7556,7 +7588,7 @@
           "soort": "Aggregation",
           "van": "Onderwijseenheid aanbod",
           "naar": "Leergelegenheid",
-          "instantie": "D1-K1, periode 7, locatie A: 18 plaatsen"
+          "instantie": "D1-K1, periode 7, locatie A: tot 24 plaatsen"
         }
       ],
       "zin": "Het roostersysteem geeft het studentkeuzesysteem terug wat de leergelegenheid wordt: dag, lokaal en docent."
@@ -7579,7 +7611,7 @@
           "soort": "Association",
           "van": "Onderwijseenheid aanbod",
           "naar": "Onderwijseenheid aanbod verbintenis",
-          "instantie": "D1-K1, periode 7, locatie A: 18 plaatsen"
+          "instantie": "D1-K1, periode 7, locatie A: tot 24 plaatsen"
         }
       ],
       "zin": "Het roostersysteem meldt het studentkeuzesysteem dat Jochem is ingeroosterd: zijn verbintenis op de onderwijseenheid, die op de leergelegenheid, en de lesgroep waarin hij zit."
@@ -7672,7 +7704,7 @@
           "soort": "Association",
           "van": "Onderwijseenheid aanbod",
           "naar": "Onderwijseenheid aanbod verbintenis",
-          "instantie": "D1-K1, periode 7, locatie A: 18 plaatsen"
+          "instantie": "D1-K1, periode 7, locatie A: tot 24 plaatsen"
         }
       ]
     },
@@ -8056,7 +8088,7 @@
           "instantie": "Resultaatstructuur Apothekersassistent"
         }
       ],
-      "zin": "De vastgestelde resultaten gaan naar de kernregistratie. Welk applicatiecomponent de vaststelling doet is niet voorgeschreven: het kan in het afnamesysteem, de examenlogistiek, het volgsysteem of de kernregistratie gebeuren. Een resultaat reist daarom met een status, zodat de ontvanger weet of het is vastgesteld. Dit voorbeeld stelt vast in het volgsysteem en laat de kernregistratie alleen vastgestelde resultaten verwerken. Deze stap, de verantwoording en uitwisseling naar de kernregistratie, behandelt OKE niet; daarin gaat OKx verder. Hoofdplaat 1.7.2 heeft deze pijl nog niet; zij is een voorstel voor de modelronde."
+      "zin": "De vastgestelde resultaten gaan naar de kernregistratie. Welke applicatiecomponent de vaststelling doet is niet voorgeschreven: het kan in het afnamesysteem, de examenlogistiek, het volgsysteem of de kernregistratie gebeuren. Een resultaat reist daarom met een status, zodat de ontvanger weet of het is vastgesteld. Dit voorbeeld stelt vast in het volgsysteem en laat de kernregistratie alleen vastgestelde resultaten verwerken. Deze stap, de verantwoording en uitwisseling naar de kernregistratie, behandelt OKE niet; daarin gaat OKx verder. Hoofdplaat 1.7.2 kent deze pijl niet; zij is een voorstel voor de modelronde."
     },
     {
       "beeld_id": "F8-06",
@@ -8071,7 +8103,7 @@
       "objecttype": "Opleidingsprogramma resultaat",
       "instantie": "Regulier BOL 2026: alle kerntaken en keuzedelen voldoende",
       "bron": "leerroute-1-regulier.md, Fase 8: SVS en KRS (kwalificering en diplomering)",
-      "zin": "De vastgestelde resultaten gaan naar de kernregistratie. Welk applicatiecomponent de vaststelling doet is niet voorgeschreven: het kan in het afnamesysteem, de examenlogistiek, het volgsysteem of de kernregistratie gebeuren. Een resultaat reist daarom met een status, zodat de ontvanger weet of het is vastgesteld. Dit voorbeeld stelt vast in het volgsysteem en laat de kernregistratie alleen vastgestelde resultaten verwerken. Deze stap, de verantwoording en uitwisseling naar de kernregistratie, behandelt OKE niet; daarin gaat OKx verder. Hoofdplaat 1.7.2 heeft deze pijl nog niet; zij is een voorstel voor de modelronde.",
+      "zin": "De vastgestelde resultaten gaan naar de kernregistratie. Welke applicatiecomponent de vaststelling doet is niet voorgeschreven: het kan in het afnamesysteem, de examenlogistiek, het volgsysteem of de kernregistratie gebeuren. Een resultaat reist daarom met een status, zodat de ontvanger weet of het is vastgesteld. Dit voorbeeld stelt vast in het volgsysteem en laat de kernregistratie alleen vastgestelde resultaten verwerken. Deze stap, de verantwoording en uitwisseling naar de kernregistratie, behandelt OKE niet; daarin gaat OKx verder. Hoofdplaat 1.7.2 kent deze pijl niet; zij is een voorstel voor de modelronde.",
       "relaties": [
         {
           "soort": "Association",
@@ -8099,7 +8131,7 @@
         "van": "Keuzedeel resultaat",
         "naar": "Opleidingsprogramma resultaat"
       },
-      "zin": "De vastgestelde resultaten gaan naar de kernregistratie. Welk applicatiecomponent de vaststelling doet is niet voorgeschreven: het kan in het afnamesysteem, de examenlogistiek, het volgsysteem of de kernregistratie gebeuren. Een resultaat reist daarom met een status, zodat de ontvanger weet of het is vastgesteld. Dit voorbeeld stelt vast in het volgsysteem en laat de kernregistratie alleen vastgestelde resultaten verwerken. Deze stap, de verantwoording en uitwisseling naar de kernregistratie, behandelt OKE niet; daarin gaat OKx verder. Hoofdplaat 1.7.2 heeft deze pijl nog niet; zij is een voorstel voor de modelronde."
+      "zin": "De vastgestelde resultaten gaan naar de kernregistratie. Welke applicatiecomponent de vaststelling doet is niet voorgeschreven: het kan in het afnamesysteem, de examenlogistiek, het volgsysteem of de kernregistratie gebeuren. Een resultaat reist daarom met een status, zodat de ontvanger weet of het is vastgesteld. Dit voorbeeld stelt vast in het volgsysteem en laat de kernregistratie alleen vastgestelde resultaten verwerken. Deze stap, de verantwoording en uitwisseling naar de kernregistratie, behandelt OKE niet; daarin gaat OKx verder. Hoofdplaat 1.7.2 kent deze pijl niet; zij is een voorstel voor de modelronde."
     },
     {
       "beeld_id": "F8-07",

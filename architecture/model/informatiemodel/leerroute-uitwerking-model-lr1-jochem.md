@@ -214,9 +214,9 @@ De gemarkeerde lijnen zijn de stromen die deze fase raakt, met het beeld waarin 
 
 **Interactie:** Planningssysteem naar Onderwijscatalogus, OC-P&R. Op de [hoofdplaat](#de-hoofdplaat-als-kaart) en in de faseplaat hierboven staat deze lijn gemarkeerd met F2-04.
 
-### F2-05 - Planner legt de aanbodvraag naast de schaarste van ruimtes en mensen
+### F2-05 - Planner maakt de prognose en toetst de aanbodvraag aan de schaarste
 
-![ontstaat: Aanbodvraag per opleiding bepalen, verdieping: ruimtes en mensen op de specificatie](img/regels/f2-05-planner-legt-de-aanbodvraag-naast-de-schaarste-van-ruimtes-en-mensen.svg)
+![ontstaat: Aanbodvraag per opleiding bepalen, verdieping: ruimtes en mensen op de specificatie](img/regels/f2-05-planner-maakt-de-prognose-en-toetst-de-aanbodvraag-aan-de-schaarste.svg)
 
 ### F2-06 - Planner stelt de jaarplanning op instellingsniveau vast
 
@@ -450,11 +450,11 @@ De gemarkeerde lijnen zijn de stromen die deze fase raakt, met het beeld waarin 
 
 **Interactie:** Planningssysteem naar Student Keuze Systeem (SKS), zonder koppelingspecificatie. Op de [hoofdplaat](#de-hoofdplaat-als-kaart) en in de faseplaat hierboven staat deze lijn gemarkeerd met F6-03.
 
-### F6-04 - Jochem en 17 medestudenten kiezen keuzedeel K0037
+### F6-04 - Jochem en medestudenten kiezen keuzedeel K0037
 
-![ontstaat: Keuzedeel kiezen in het studentkeuzesysteem](img/regels/f6-04-jochem-en-17-medestudenten-kiezen-keuzedeel-k0037.svg)
+![ontstaat: Keuzedeel kiezen in het studentkeuzesysteem](img/regels/f6-04-jochem-en-medestudenten-kiezen-keuzedeel-k0037.svg)
 
-**Herkomst:** uit [F6-01](#f6-01---planner-maakt-het-keuzedeelaanbod-per-laag): `Keuzedeel aanbod` K0037 Farmaceutische Patientenzorg, periode 7, locatie A: per laag uitgewerkt, 1 onderwijseenheid en 2 leergelegenheden; `Onderwijseenheid aanbod` D1-K1, periode 7, locatie A: 18 plaatsen.
+**Herkomst:** uit [F6-01](#f6-01---planner-maakt-het-keuzedeelaanbod-per-laag): `Keuzedeel aanbod` K0037 Farmaceutische Patientenzorg, periode 7, locatie A: per laag uitgewerkt, 1 onderwijseenheid en 2 leergelegenheden; `Onderwijseenheid aanbod` D1-K1, periode 7, locatie A: tot 24 plaatsen.
 
 ### F6-05 - Studentkeuzesysteem stuurt Jochems verbintenissen op K0037 naar het planningssysteem
 
@@ -462,9 +462,9 @@ De gemarkeerde lijnen zijn de stromen die deze fase raakt, met het beeld waarin 
 
 **Interactie:** Student Keuze Systeem (SKS) naar Planningssysteem, zonder koppelingspecificatie. Op de [hoofdplaat](#de-hoofdplaat-als-kaart) en in de faseplaat hierboven staat deze lijn gemarkeerd met F6-05.
 
-### F6-06 - Planner verwerkt de keuzes tot groepen en capaciteit
+### F6-06 - Planner deelt de keuzes in de capaciteitsgroep van K0037 in
 
-![ontstaat: Definitieve keuzes verwerken naar groepen en capaciteit](img/regels/f6-06-planner-verwerkt-de-keuzes-tot-groepen-en-capaciteit.svg)
+![ontstaat: Definitieve keuzes verwerken naar groepen en capaciteit](img/regels/f6-06-planner-deelt-de-keuzes-in-de-capaciteitsgroep-van-k0037-in.svg)
 
 **Herkomst:** uit [F1-08](#f1-08---onderwijsontwerper-geeft-keuzedelen-en-minor-een-eigen-specificatie): `Keuzedeel specificatie` K0037 Farmaceutische Patientenzorg (480 SBU, aard verdiepend), beroepsspecifiek keuzedeel; `Onderwijseenheid specificatie` D1-K1 Voert farmaceutische patientenzorg uit; `Leeronderdeel specificatie` Het medicatieoverzicht opstellen; `Leeronderdeel specificatie` Zorg aan specifieke doelgroepen.
 
@@ -474,9 +474,9 @@ De gemarkeerde lijnen zijn de stromen die deze fase raakt, met het beeld waarin 
 
 **Interactie:** Planningssysteem naar Onderwijscatalogus, OC-P&R. Op de [hoofdplaat](#de-hoofdplaat-als-kaart) en in de faseplaat hierboven staat deze lijn gemarkeerd met F6-07.
 
-### F6-08 - Studentkeuzesysteem stuurt Jochems verbintenis op K0037 naar de kernregistratie
+### F6-08 - Studentkeuzesysteem stuurt Jochems verbintenissen op K0037 naar de kernregistratie
 
-![stroomt: Keuzedeel formeel inschrijven](img/regels/f6-08-studentkeuzesysteem-stuurt-jochems-verbintenis-op-k0037-naar-de-kernregistratie.svg)
+![stroomt: Keuzedeel formeel inschrijven](img/regels/f6-08-studentkeuzesysteem-stuurt-jochems-verbintenissen-op-k0037-naar-de-kernregistratie.svg)
 
 **Interactie:** Student Keuze Systeem (SKS) naar Kernregistratie systeem studenten (KRS), zonder koppelingspecificatie. Op de [hoofdplaat](#de-hoofdplaat-als-kaart) en in de faseplaat hierboven staat deze lijn gemarkeerd met F6-08.
 
@@ -506,7 +506,7 @@ De gemarkeerde lijnen zijn de stromen die deze fase raakt, met het beeld waarin 
 
 ![ontstaat: Gekozen keuzedeel roosteren en deelnemers delen](img/regels/f6-13-roosteraar-roostert-k0037-voor-jochem.svg)
 
-**Herkomst:** uit [F6-06](#f6-06---planner-verwerkt-de-keuzes-tot-groepen-en-capaciteit): `Planningsgroep` K0037-P7-1: capaciteitsgroep tot 24, 18 studenten ingedeeld. uit [F6-09](#f6-09---studentadministratie-schrijft-jochem-in-op-het-keuzedeel): `Onderwijseenheid aanbod verbintenis` Jochem op D1-K1, periode 7.
+**Herkomst:** uit [F6-06](#f6-06---planner-deelt-de-keuzes-in-de-capaciteitsgroep-van-k0037-in): `Planningsgroep` K0037-P7-1: capaciteitsgroep tot 24, 18 studenten ingedeeld. uit [F6-09](#f6-09---studentadministratie-schrijft-jochem-in-op-het-keuzedeel): `Onderwijseenheid aanbod verbintenis` Jochem op D1-K1, periode 7.
 
 ### F6-14 - Roostersysteem ontsluit de geroosterde leergelegenheid naar het studentkeuzesysteem
 
@@ -530,9 +530,9 @@ De gemarkeerde lijnen zijn de stromen die deze fase raakt, met het beeld waarin 
 
 In deze vorm is de capaciteit vooraf gepland op de meerjarencapaciteitsplanning (F2-C01). De keuze in F6-04 geldt hier als animo, en de animocheck (F6-C01) toetst die capaciteitsplanning. De keuze valt op de onderwijseenheid, net als in de basis. F6-07 neemt de uitkomst van de animocheck mee, en F6-08 geldt ook hier.
 
-Hieraan gaan vooraf: [F6-01](#f6-01---planner-maakt-het-keuzedeelaanbod-per-laag), [F6-02](#f6-02---onderwijscatalogus-ontsluit-specificatie-en-keuzeregels-naar-het-studentkeuzesysteem), [F6-03](#f6-03---planningssysteem-ontsluit-het-geplande-aanbod-naar-het-studentkeuzesysteem), [F6-04](#f6-04---jochem-en-17-medestudenten-kiezen-keuzedeel-k0037), [F6-05](#f6-05---studentkeuzesysteem-stuurt-jochems-verbintenissen-op-k0037-naar-het-planningssysteem).
+Hieraan gaan vooraf: [F6-01](#f6-01---planner-maakt-het-keuzedeelaanbod-per-laag), [F6-02](#f6-02---onderwijscatalogus-ontsluit-specificatie-en-keuzeregels-naar-het-studentkeuzesysteem), [F6-03](#f6-03---planningssysteem-ontsluit-het-geplande-aanbod-naar-het-studentkeuzesysteem), [F6-04](#f6-04---jochem-en-medestudenten-kiezen-keuzedeel-k0037), [F6-05](#f6-05---studentkeuzesysteem-stuurt-jochems-verbintenissen-op-k0037-naar-het-planningssysteem).
 
-Vervalt in deze vorm of schuift hierheen: [F6-06](#f6-06---planner-verwerkt-de-keuzes-tot-groepen-en-capaciteit), [F6-09](#f6-09---studentadministratie-schrijft-jochem-in-op-het-keuzedeel).
+Vervalt in deze vorm of schuift hierheen: [F6-06](#f6-06---planner-deelt-de-keuzes-in-de-capaciteitsgroep-van-k0037-in), [F6-09](#f6-09---studentadministratie-schrijft-jochem-in-op-het-keuzedeel).
 
 #### F6-C01 - Planner toetst de capaciteitsplanning aan de animo
 
@@ -776,21 +776,24 @@ De vragen die de regels zelf oproepen, met de regel waar de vraag zichtbaar word
 
 ### Vragen, vervolg (2 van 3)
 
-8. Komt het signaal dat de jaarplanning niet rond komt uit het planningssysteem, uit de onderwijscatalogus, of uit beide? Zie issue 436. (F2-06, `Jaarplanningsbeperkingen`)
-9. De conceptplaat noemt hier Examenmoment, Examen instrument en Examen. Het OKx-framework kent examenspecificatie, examengelegenheid en examenresultaat, en het exameninstrument hoort bij de specificatie. Het grootste deel hiervan valt buiten de scope van OKx. Komt de conceptplaat op deze termen, en wat daarvan komt binnen de scope? Zie issue 438. (F2-07, `Jaarplanning`)
-10. Het intakesysteem voert de intake uit (F3-05) maar is niet de afzender van de inschrijving: de plaat laat die lijn van de voorziening naar de kernregistratie lopen. Wat gaat er dan terug van het intakesysteem naar de voorziening, en langs welke lijn? De plaat kent geen stroom van het intakesysteem naar de voorziening. (F3-07, `Inschrijving`)
-11. Een vrijstelling en een behaald resultaat lopen in de praktijk door elkaar. Een vrijstelling stelt de examencommissie vooraf vast en betekent dat er op dat onderdeel geen resultaat hoeft te komen; zij landt als vrijgesteld onderdeel in de resultaatstructuur. Wat eerder is behaald zijn resultaten, en die worden in die structuur ingepast. Hoe legt OKx dat verschil vast? (F3-08, `Leeruitkomst`)
-12. Het kaderscenario zet groepen in twee richtingen tussen planning en de kernregistratie, en hoofdplaat v1.7 kent alleen de lijn van de kernregistratie naar planning. Een planninggroep die de planner om logistieke redenen vormt, hoort die terug naar de kernregistratie als nieuwe plaatsingsgroep, en mist de plaat dan een stroom? (F4-06, `Plaatsingsgroep`)
-13. Aanwezigheidsregistratie zelf valt buiten OKx. Wat de scope wel raakt is het afgeleide deelnameresultaat: bij een onderwijseenheid die niet wordt getoetst kan het aandeel bijgewoonde lesgelegenheden een studievoortgangsresultaat zijn dat in het keuzesysteem keuzes vrijgeeft of beperkt. Hoort dat afgeleide resultaat in de uitwisseling, en blijft de registratie erbuiten? (F5-01, `Aanwezigheid`)
-14. Voor de proof of concept: welk systeem start het keuzemoment? Voorlopig het studentkeuzesysteem, waar alles samenkomt (Niels van Duin, #579 vraag 6); ook het studentvolgsysteem kan de start tegenhouden bij te weinig voortgang. (F6-07, `Keuzedeel aanbod`)
+8. Komt `Prognose` als objecttype in het informatiemodel, met relaties naar het opleidingsaanbod (voorspelt de instroom van) en de plaatsingsgroep (wordt opgeknipt in)? Nu staat zij als voorstel (sparsessie 25 november 2026, #538). (F2-05, `Prognose`)
+9. Komt het signaal dat de jaarplanning niet rond komt uit het planningssysteem, uit de onderwijscatalogus, of uit beide? Zie issue 436. (F2-06, `Jaarplanningsbeperkingen`)
+10. De conceptplaat noemt hier Examenmoment, Examen instrument en Examen. Het OKx-framework kent examenspecificatie, examengelegenheid en examenresultaat, en het exameninstrument hoort bij de specificatie. Het grootste deel hiervan valt buiten de scope van OKx. Komt de conceptplaat op deze termen, en wat daarvan komt binnen de scope? Zie issue 438. (F2-07, `Jaarplanning`)
+11. Op de plaat is een `Planningsgroep` een deel (compositie) van een `Plaatsingsgroep`. De herkansingsgroep en de capaciteitsgroep van K0037 halen studenten uit meer plaatsingsgroepen; Niels noemt de compositie in #579 'een kern van correctheid'. Past de relatie zo, of hoort er voor die groepen een andere? (F2-08, `Planningsgroep`)
+12. Het intakesysteem voert de intake uit (F3-05) maar is niet de afzender van de inschrijving: de plaat laat die lijn van de voorziening naar de kernregistratie lopen. Wat gaat er dan terug van het intakesysteem naar de voorziening, en langs welke lijn? De plaat kent geen stroom van het intakesysteem naar de voorziening. (F3-07, `Inschrijving`)
+13. Een vrijstelling en een behaald resultaat lopen in de praktijk door elkaar. Een vrijstelling stelt de examencommissie vooraf vast en betekent dat er op dat onderdeel geen resultaat hoeft te komen; zij landt als vrijgesteld onderdeel in de resultaatstructuur. Wat eerder is behaald zijn resultaten, en die worden in die structuur ingepast. Hoe legt OKx dat verschil vast? (F3-08, `Leeruitkomst`)
+14. Het kaderscenario zet groepen in twee richtingen tussen planning en de kernregistratie, en hoofdplaat v1.7 kent alleen de lijn van de kernregistratie naar planning. Een planninggroep die de planner om logistieke redenen vormt, hoort die terug naar de kernregistratie als nieuwe plaatsingsgroep, en mist de plaat dan een stroom? (F4-06, `Plaatsingsgroep`)
 
 ### Vragen, vervolg (3 van 3)
 
-15. Hoort er een relatie van `Medewerker` naar `Lesgelegenheid`, of loopt dat via de verbintenis? De relatie van `Planningsgroep` naar `Lesgroep` (vormt) staat voor de rijping die Niels van Duin in #579 beschrijft, en is een voorstel. (F6-13, `Lesgroep`)
-16. Gaat maatwerkaanbod voor een specifieke groep achterblijvers terug naar de catalogus? Het voorbeeld publiceert het bijgestuurde aanbod, zodat de catalogus de bron blijft, en bij een maatwerkprogramma voor een handvol studenten is de waarde daarvan de vraag. (F7-05, `Onderwijseenheid aanbod`)
-17. Examinering kent objecten en rollen die de informatiemodelplaat niet draagt: zitting, zittingsrapport en examendossier, en de rollen surveillant, beoordelaar en examenbureaumedewerker. Dit voorbeeld toont ze gestippeld, want OKx heeft ze nodig voor de verantwoording en uitwisseling naar de kernregistratie, en juist die stap behandelt OKE niet. Horen zij als uitbreiding op de plaat? (F8-05, `Examendossier`)
+15. Aanwezigheidsregistratie zelf valt buiten OKx. Wat de scope wel raakt is het afgeleide deelnameresultaat: bij een onderwijseenheid die niet wordt getoetst kan het aandeel bijgewoonde lesgelegenheden een studievoortgangsresultaat zijn dat in het keuzesysteem keuzes vrijgeeft of beperkt. Hoort dat afgeleide resultaat in de uitwisseling, en blijft de registratie erbuiten? (F5-01, `Aanwezigheid`)
+16. Voor de proefopzet (proof of concept): welk systeem start het keuzemoment? Voorlopig het studentkeuzesysteem, waar alles samenkomt (Niels van Duin, #579 vraag 6); ook het studentvolgsysteem kan de start tegenhouden bij te weinig voortgang. (F6-07, `Keuzedeel aanbod`)
+17. Draagt juist de lijn 'Student, opleidingsprogramma verbintenis, relevante groepen' de terugmelding van de inschrijving, of een andere lijn (#579)? (F6-11, `Keuzedeel aanbod verbintenis`)
+18. Hoort er een relatie van `Medewerker` naar `Lesgelegenheid`, of loopt dat via de verbintenis? De relatie van `Planningsgroep` naar `Lesgroep` (vormt) staat voor de rijping die Niels van Duin in #579 beschrijft, en is een voorstel. (F6-13, `Lesgroep`)
+19. Gaat maatwerkaanbod voor een specifieke groep achterblijvers terug naar de catalogus? Het voorbeeld publiceert het bijgestuurde aanbod, zodat de catalogus de bron blijft, en bij een maatwerkprogramma voor een handvol studenten is de waarde daarvan de vraag. (F7-05, `Onderwijseenheid aanbod`)
+20. Examinering kent objecten en rollen die de informatiemodelplaat niet draagt: zitting, zittingsrapport en examendossier, en de rollen surveillant, beoordelaar en examenbureaumedewerker. Dit voorbeeld toont ze gestippeld, want OKx heeft ze nodig voor de verantwoording en uitwisseling naar de kernregistratie, en juist die stap behandelt OKE niet. Horen zij als uitbreiding op de plaat? (F8-05, `Examendossier`)
 
-De eerste 7 vragen gaan als ronde mee naar de kerngroep; dat is wat een sessie kan wegen. De overige 10 staan hierboven en wachten op een volgende ronde.
+De eerste 7 vragen gaan als ronde mee naar de kerngroep; dat is wat een sessie kan wegen. De overige 13 staan hierboven en wachten op een volgende ronde.
 
 Vragen over patronen, schema's, de toetslijst en endpoints horen bij de koppelvlakspecificatie en staan hier niet.
 
@@ -1013,7 +1016,7 @@ Elke regel onder het ID en de titel van haar beeld (fase, stap, bestand) met de 
 | stroomt | Verzoek tot Aanbod / Intekening op specificatie | Planopgave Apothekersassistent, cohort 2026: niet haalbaar op docentexpertise | sparsessie met Niels van Duin en Garik Hakopian, 28 oktober 2026: planning toetst eerst of de specificatie uberhaupt te realiseren is. Een gevraagde docentexpertise die er niet is en binnen een jaar niet komt, gaat direct terug naar de ontwerper |
 | stroomt | Onderwijseenheid specificatie | Blok B1-K1: de gevraagde docentexpertise is binnen een jaar niet te verwerven | sparsessie met Niels van Duin en Garik Hakopian, 28 oktober 2026: planning toetst eerst of de specificatie uberhaupt te realiseren is. Een gevraagde docentexpertise die er niet is en binnen een jaar niet komt, gaat direct terug naar de ontwerper |
 
-**F2-05 - Planner legt de aanbodvraag naast de schaarste van ruimtes en mensen** (fase 2, Aanbodvraag per opleiding bepalen; [f2-05-planner-legt-de-aanbodvraag-naast-de-schaarste-van-ruimtes-en-mensen.svg](img/regels/f2-05-planner-legt-de-aanbodvraag-naast-de-schaarste-van-ruimtes-en-mensen.svg))
+**F2-05 - Planner maakt de prognose en toetst de aanbodvraag aan de schaarste** (fase 2, Aanbodvraag per opleiding bepalen; [f2-05-planner-maakt-de-prognose-en-toetst-de-aanbodvraag-aan-de-schaarste.svg](img/regels/f2-05-planner-maakt-de-prognose-en-toetst-de-aanbodvraag-aan-de-schaarste.svg))
 
 | Soort | Objecttype | Instantie | Bron |
 |---|---|---|---|
@@ -1203,7 +1206,7 @@ Elke regel onder het ID en de titel van haar beeld (fase, stap, bestand) met de 
 |---|---|---|---|
 | stroomt | Plaatsingsgroep | APO26-1A | [leerroute-1-regulier.md](https://github.com/Npuls-OKx/Public/blob/dev/Referentiemateriaal/kaderscenario's/leerroute-1-regulier.md), [Fase 4](https://github.com/Npuls-OKx/Public/blob/dev/Referentiemateriaal/kaderscenario's/leerroute-1-regulier.md#fase-4--detailleren-roosteren-en-inschrijven): Planning en KRS (groepen en persoon) |
 | stroomt | Student | Jochem, cohort 2026 | informatiemodel.json: Persoon naar Plaatsingsgroep (Worden gegroepeerd via), Student is een Persoon |
-| stroomt | Student | 29 andere studenten in dezelfde groep | informatiemodel.json: Persoon naar Plaatsingsgroep (Worden gegroepeerd via), Student is een Persoon |
+| stroomt | Student | 23 andere studenten in dezelfde groep | informatiemodel.json: Persoon naar Plaatsingsgroep (Worden gegroepeerd via), Student is een Persoon |
 
 **F4-07 - Planningssysteem stuurt de te roosteren leergelegenheden naar het roostersysteem** (fase 4, Te roosteren specificaties aan het roostersysteem geven; [f4-07-planningssysteem-stuurt-de-te-roosteren-leergelegenheden-naar-het-roostersysteem.svg](img/regels/f4-07-planningssysteem-stuurt-de-te-roosteren-leergelegenheden-naar-het-roostersysteem.svg))
 
@@ -1298,7 +1301,7 @@ Elke regel onder het ID en de titel van haar beeld (fase, stap, bestand) met de 
 | bestaat, uit F1-08 | Leeronderdeel specificatie | Het medicatieoverzicht opstellen | K0037-farmaceutische-patientenzorg.md (keuzedeel mbo K0037, 480 SBU, aard verdiepend, gevalideerd 26-11-2015) |
 | bestaat, uit F1-08 | Leeronderdeel specificatie | Zorg aan specifieke doelgroepen | K0037-farmaceutische-patientenzorg.md (keuzedeel mbo K0037, 480 SBU, aard verdiepend, gevalideerd 26-11-2015) |
 | verandert | Keuzedeel aanbod | K0037 Farmaceutische Patientenzorg, periode 7, locatie A: per laag uitgewerkt, 1 onderwijseenheid en 2 leergelegenheden | sessie OKx-werkverdeling en leerrouteontwerp, 10 november 2026 (Niels van Duin, Niek Derksen, Garik Hakopian); besluit van de opdrachtgever, 24 november 2026: het keuzedeelaanbod ontstaat in de jaarplanning (F2-08), en wordt in fase 6 per laag uitgewerkt |
-| ontstaat | Onderwijseenheid aanbod | D1-K1, periode 7, locatie A: 18 plaatsen | sessie Keuzedeelmodel en informatiemodel, 17 november 2026 (Niels van Duin, Niek Derksen); geen bron, keuze van het voorbeeld: maatvoering |
+| ontstaat | Onderwijseenheid aanbod | D1-K1, periode 7, locatie A: tot 24 plaatsen | sessie Keuzedeelmodel en informatiemodel, 17 november 2026 (Niels van Duin, Niek Derksen); geen bron, keuze van het voorbeeld: maatvoering |
 | ontstaat | Leergelegenheid | Het medicatieoverzicht opstellen, periode 7: lokaaltype leerapotheek, docentexpertise farmacie met baliepraktijk | sessie Keuzedeelmodel en informatiemodel, 17 november 2026 (Niels van Duin, Niek Derksen); geen bron, keuze van het voorbeeld |
 | ontstaat | Leergelegenheid | Zorg aan specifieke doelgroepen, periode 7: lokaaltype leerapotheek, docentexpertise farmacie met baliepraktijk | sessie Keuzedeelmodel en informatiemodel, 17 november 2026 (Niels van Duin, Niek Derksen); geen bron, keuze van het voorbeeld |
 
@@ -1318,14 +1321,14 @@ Elke regel onder het ID en de titel van haar beeld (fase, stap, bestand) met de 
 | Soort | Objecttype | Instantie | Bron |
 |---|---|---|---|
 | stroomt | Keuzedeel aanbod | K0037 Farmaceutische Patientenzorg, periode 7, locatie A | sessie Keuzedeelmodel en informatiemodel, 17 november 2026 (Niels van Duin, Niek Derksen): het studentkeuzesysteem haalt op basis van de specificatie het geplande aanbod en de beschikbare capaciteit op bij planning; antwoord van Niels van Duin op #579, 25 november 2026, vraag 7: ja, geplande leergelegenheden zijn een stap verder in de rijping; de lijn wordt verrijkt met programma en onderwijseenheid, een voorstel voor de modelronde |
-| stroomt | Onderwijseenheid aanbod | D1-K1, periode 7, locatie A: 18 plaatsen | sessie Keuzedeelmodel en informatiemodel, 17 november 2026 (Niels van Duin, Niek Derksen); antwoord van Niels van Duin op #579, 25 november 2026, vraag 7: ja, geplande leergelegenheden zijn een stap verder in de rijping; de lijn wordt verrijkt met programma en onderwijseenheid, een voorstel voor de modelronde |
+| stroomt | Onderwijseenheid aanbod | D1-K1, periode 7, locatie A: tot 24 plaatsen | sessie Keuzedeelmodel en informatiemodel, 17 november 2026 (Niels van Duin, Niek Derksen); antwoord van Niels van Duin op #579, 25 november 2026, vraag 7: ja, geplande leergelegenheden zijn een stap verder in de rijping; de lijn wordt verrijkt met programma en onderwijseenheid, een voorstel voor de modelronde |
 
-**F6-04 - Jochem en 17 medestudenten kiezen keuzedeel K0037** (fase 6, Keuzedeel kiezen in het studentkeuzesysteem; [f6-04-jochem-en-17-medestudenten-kiezen-keuzedeel-k0037.svg](img/regels/f6-04-jochem-en-17-medestudenten-kiezen-keuzedeel-k0037.svg))
+**F6-04 - Jochem en medestudenten kiezen keuzedeel K0037** (fase 6, Keuzedeel kiezen in het studentkeuzesysteem; [f6-04-jochem-en-medestudenten-kiezen-keuzedeel-k0037.svg](img/regels/f6-04-jochem-en-medestudenten-kiezen-keuzedeel-k0037.svg))
 
 | Soort | Objecttype | Instantie | Bron |
 |---|---|---|---|
 | bestaat, uit F6-01 | Keuzedeel aanbod | K0037 Farmaceutische Patientenzorg, periode 7, locatie A: per laag uitgewerkt, 1 onderwijseenheid en 2 leergelegenheden | sessie Keuzedeelmodel en informatiemodel, 17 november 2026 (Niels van Duin, Niek Derksen) |
-| bestaat, uit F6-01 | Onderwijseenheid aanbod | D1-K1, periode 7, locatie A: 18 plaatsen | sessie Keuzedeelmodel en informatiemodel, 17 november 2026 (Niels van Duin, Niek Derksen) |
+| bestaat, uit F6-01 | Onderwijseenheid aanbod | D1-K1, periode 7, locatie A: tot 24 plaatsen | sessie Keuzedeelmodel en informatiemodel, 17 november 2026 (Niels van Duin, Niek Derksen) |
 | ontstaat | Aanmelding | Keuze: K0037 Farmaceutische Patientenzorg, periode 7, locatie A | sessie Keuzedeelmodel en informatiemodel, 17 november 2026 (Niels van Duin, Niek Derksen): direct kiezen op het keuzemoment is de regel, de voorkeurslijst de uitzondering; leerroute-1-regulier.md, r850 (het studentkeuzesysteem is bron voor de aanmelding keuzedeel) |
 | ontstaat | Keuzedeel aanbod verbintenis | Jochem op K0037 Farmaceutische Patientenzorg, periode 7 | sessie Keuzedeelmodel en informatiemodel, 17 november 2026 (Niels van Duin, Niek Derksen) |
 | ontstaat | Keuzedeel aanbod verbintenis | Sanne op K0037 Farmaceutische Patientenzorg, periode 7 | geen bron, keuze van het voorbeeld: aanwijzing van de opdrachtgever, 25 november 2026 (meer studenten kiezen hetzelfde keuzedeel) |
@@ -1340,7 +1343,7 @@ Elke regel onder het ID en de titel van haar beeld (fase, stap, bestand) met de 
 | stroomt | Keuzedeel aanbod verbintenis | Jochem op K0037 Farmaceutische Patientenzorg, periode 7 | [leerroute-1-regulier.md](https://github.com/Npuls-OKx/Public/blob/dev/Referentiemateriaal/kaderscenario's/leerroute-1-regulier.md), [Fase 6](https://github.com/Npuls-OKx/Public/blob/dev/Referentiemateriaal/kaderscenario's/leerroute-1-regulier.md#fase-6--organiseren-van-keuzemomenten): SKS naar Planning (opleidingsprogramma-verbintenis op gekozen aanbod) |
 | stroomt | Onderwijseenheid aanbod verbintenis | Jochem op D1-K1, periode 7 | sessie Keuzedeelmodel en informatiemodel, 17 november 2026 (Niels van Duin, Niek Derksen) |
 
-**F6-06 - Planner verwerkt de keuzes tot groepen en capaciteit** (fase 6, Definitieve keuzes verwerken naar groepen en capaciteit; [f6-06-planner-verwerkt-de-keuzes-tot-groepen-en-capaciteit.svg](img/regels/f6-06-planner-verwerkt-de-keuzes-tot-groepen-en-capaciteit.svg))
+**F6-06 - Planner deelt de keuzes in de capaciteitsgroep van K0037 in** (fase 6, Definitieve keuzes verwerken naar groepen en capaciteit; [f6-06-planner-deelt-de-keuzes-in-de-capaciteitsgroep-van-k0037-in.svg](img/regels/f6-06-planner-deelt-de-keuzes-in-de-capaciteitsgroep-van-k0037-in.svg))
 
 | Soort | Objecttype | Instantie | Bron |
 |---|---|---|---|
@@ -1348,10 +1351,10 @@ Elke regel onder het ID en de titel van haar beeld (fase, stap, bestand) met de 
 | bestaat, uit F1-08 | Onderwijseenheid specificatie | D1-K1 Voert farmaceutische patientenzorg uit | aanwijzing van de opdrachtgever, 25 november 2026: links alleen de specificatie van het keuzedeel waarop het aanbod gepland is |
 | bestaat, uit F1-08 | Leeronderdeel specificatie | Het medicatieoverzicht opstellen | aanwijzing van de opdrachtgever, 25 november 2026: links alleen de specificatie van het keuzedeel waarop het aanbod gepland is |
 | bestaat, uit F1-08 | Leeronderdeel specificatie | Zorg aan specifieke doelgroepen | aanwijzing van de opdrachtgever, 25 november 2026: links alleen de specificatie van het keuzedeel waarop het aanbod gepland is |
-| verandert | Keuzedeel aanbod | K0037 Farmaceutische Patientenzorg, periode 7, locatie A: 1 groep, 18 plaatsen | [leerroute-1-regulier.md](https://github.com/Npuls-OKx/Public/blob/dev/Referentiemateriaal/kaderscenario's/leerroute-1-regulier.md), [Fase 6](https://github.com/Npuls-OKx/Public/blob/dev/Referentiemateriaal/kaderscenario's/leerroute-1-regulier.md#fase-6--organiseren-van-keuzemomenten): de planner verwerkt definitieve keuzes periodiek naar groepen en capaciteit; scenario-1.1-regulier-happyflow.md, blok D (maatvoering uit de review van 29 september 2026) |
-| verandert | Onderwijseenheid aanbod | D1-K1, periode 7, locatie A: 1 groep, 18 plaatsen | [leerroute-1-regulier.md](https://github.com/Npuls-OKx/Public/blob/dev/Referentiemateriaal/kaderscenario's/leerroute-1-regulier.md), [Fase 6](https://github.com/Npuls-OKx/Public/blob/dev/Referentiemateriaal/kaderscenario's/leerroute-1-regulier.md#fase-6--organiseren-van-keuzemomenten): de planner verwerkt definitieve keuzes periodiek naar groepen en capaciteit; scenario-1.1-regulier-happyflow.md, blok D (maatvoering uit de review van 29 september 2026) |
-| verandert | Leergelegenheid | Het medicatieoverzicht opstellen, periode 7: 1 groep van 18 | aanwijzing van de opdrachtgever, 24 november 2026; leerroute-1-regulier.md, r726 (gedetailleerd planbaar: leergelegenheden met expertise- en faciliteitkoppelingen) |
-| verandert | Leergelegenheid | Zorg aan specifieke doelgroepen, periode 7: 1 groep van 18 | aanwijzing van de opdrachtgever, 24 november 2026; leerroute-1-regulier.md, r726 (gedetailleerd planbaar: leergelegenheden met expertise- en faciliteitkoppelingen) |
+| verandert | Keuzedeel aanbod | K0037 Farmaceutische Patientenzorg, periode 7, locatie A: 1 groep tot 24, 18 ingedeeld | [leerroute-1-regulier.md](https://github.com/Npuls-OKx/Public/blob/dev/Referentiemateriaal/kaderscenario's/leerroute-1-regulier.md), [Fase 6](https://github.com/Npuls-OKx/Public/blob/dev/Referentiemateriaal/kaderscenario's/leerroute-1-regulier.md#fase-6--organiseren-van-keuzemomenten): de planner verwerkt definitieve keuzes periodiek naar groepen en capaciteit; scenario-1.1-regulier-happyflow.md, blok D (maatvoering uit de review van 29 september 2026) |
+| verandert | Onderwijseenheid aanbod | D1-K1, periode 7, locatie A: 1 groep tot 24, 18 ingedeeld | [leerroute-1-regulier.md](https://github.com/Npuls-OKx/Public/blob/dev/Referentiemateriaal/kaderscenario's/leerroute-1-regulier.md), [Fase 6](https://github.com/Npuls-OKx/Public/blob/dev/Referentiemateriaal/kaderscenario's/leerroute-1-regulier.md#fase-6--organiseren-van-keuzemomenten): de planner verwerkt definitieve keuzes periodiek naar groepen en capaciteit; scenario-1.1-regulier-happyflow.md, blok D (maatvoering uit de review van 29 september 2026) |
+| verandert | Leergelegenheid | Het medicatieoverzicht opstellen, periode 7: 1 groep tot 24, 18 ingedeeld | aanwijzing van de opdrachtgever, 24 november 2026; leerroute-1-regulier.md, r726 (gedetailleerd planbaar: leergelegenheden met expertise- en faciliteitkoppelingen) |
+| verandert | Leergelegenheid | Zorg aan specifieke doelgroepen, periode 7: 1 groep tot 24, 18 ingedeeld | aanwijzing van de opdrachtgever, 24 november 2026; leerroute-1-regulier.md, r726 (gedetailleerd planbaar: leergelegenheden met expertise- en faciliteitkoppelingen) |
 | verandert | Planningsgroep | K0037-P7-1: capaciteitsgroep tot 24, 18 studenten ingedeeld | aanwijzing van de opdrachtgever, 24 en 25 november 2026: na de keuzes heroverweegt de planner de groep uit de jaarplanning, en de verbintenissen van de studenten die kozen komen erin; antwoord van Niels van Duin op #579, 25 november 2026, vraag 1: de planningsgroep van een keuzedeel is een capaciteitsgroep; er komt geen groep voor alle studenten met dezelfde verbintenis, maar groepen met een maximum, zo nodig meer per keuzedeel, en tijdens plannen of roosteren wordt bepaald wie erin zit; capaciteit uit leerroute-1-regulier.md, r723 en r736 (simulatieruimte apotheekbalie, max. 24 studenten) |
 | bestaat, uit F6-04 | Keuzedeel aanbod verbintenis | Jochem op K0037 Farmaceutische Patientenzorg, periode 7 | aanwijzing van de opdrachtgever, 25 november 2026 |
 | bestaat, uit F6-04 | Keuzedeel aanbod verbintenis | Sanne op K0037 Farmaceutische Patientenzorg, periode 7 | aanwijzing van de opdrachtgever, 25 november 2026 |
@@ -1362,14 +1365,15 @@ Elke regel onder het ID en de titel van haar beeld (fase, stap, bestand) met de 
 
 | Soort | Objecttype | Instantie | Bron |
 |---|---|---|---|
-| stroomt | Keuzedeel aanbod | K0037 Farmaceutische Patientenzorg, periode 7, locatie A: 1 groep, 18 plaatsen | [leerroute-1-regulier.md](https://github.com/Npuls-OKx/Public/blob/dev/Referentiemateriaal/kaderscenario's/leerroute-1-regulier.md), [Fase 6](https://github.com/Npuls-OKx/Public/blob/dev/Referentiemateriaal/kaderscenario's/leerroute-1-regulier.md#fase-6--organiseren-van-keuzemomenten): actualiseert het planbare aanbod in OC en het rooster volgt; Planning naar OC (geactualiseerd planbaar aanbod); betekenis aangescherpt in de sparsessie PR 314, deel 2, 4 november 2026 |
-| stroomt | Onderwijseenheid aanbod | D1-K1, periode 7, locatie A: 1 groep, 18 plaatsen | [leerroute-1-regulier.md](https://github.com/Npuls-OKx/Public/blob/dev/Referentiemateriaal/kaderscenario's/leerroute-1-regulier.md), [Fase 6](https://github.com/Npuls-OKx/Public/blob/dev/Referentiemateriaal/kaderscenario's/leerroute-1-regulier.md#fase-6--organiseren-van-keuzemomenten): actualiseert het planbare aanbod in OC en het rooster volgt; Planning naar OC (geactualiseerd planbaar aanbod); betekenis aangescherpt in de sparsessie PR 314, deel 2, 4 november 2026 |
+| stroomt | Keuzedeel aanbod | K0037 Farmaceutische Patientenzorg, periode 7, locatie A: 1 groep tot 24, 18 ingedeeld | [leerroute-1-regulier.md](https://github.com/Npuls-OKx/Public/blob/dev/Referentiemateriaal/kaderscenario's/leerroute-1-regulier.md), [Fase 6](https://github.com/Npuls-OKx/Public/blob/dev/Referentiemateriaal/kaderscenario's/leerroute-1-regulier.md#fase-6--organiseren-van-keuzemomenten): actualiseert het planbare aanbod in OC en het rooster volgt; Planning naar OC (geactualiseerd planbaar aanbod); betekenis aangescherpt in de sparsessie PR 314, deel 2, 4 november 2026 |
+| stroomt | Onderwijseenheid aanbod | D1-K1, periode 7, locatie A: 1 groep tot 24, 18 ingedeeld | [leerroute-1-regulier.md](https://github.com/Npuls-OKx/Public/blob/dev/Referentiemateriaal/kaderscenario's/leerroute-1-regulier.md), [Fase 6](https://github.com/Npuls-OKx/Public/blob/dev/Referentiemateriaal/kaderscenario's/leerroute-1-regulier.md#fase-6--organiseren-van-keuzemomenten): actualiseert het planbare aanbod in OC en het rooster volgt; Planning naar OC (geactualiseerd planbaar aanbod); betekenis aangescherpt in de sparsessie PR 314, deel 2, 4 november 2026 |
 
-**F6-08 - Studentkeuzesysteem stuurt Jochems verbintenis op K0037 naar de kernregistratie** (fase 6, Keuzedeel formeel inschrijven; [f6-08-studentkeuzesysteem-stuurt-jochems-verbintenis-op-k0037-naar-de-kernregistratie.svg](img/regels/f6-08-studentkeuzesysteem-stuurt-jochems-verbintenis-op-k0037-naar-de-kernregistratie.svg))
+**F6-08 - Studentkeuzesysteem stuurt Jochems verbintenissen op K0037 naar de kernregistratie** (fase 6, Keuzedeel formeel inschrijven; [f6-08-studentkeuzesysteem-stuurt-jochems-verbintenissen-op-k0037-naar-de-kernregistratie.svg](img/regels/f6-08-studentkeuzesysteem-stuurt-jochems-verbintenissen-op-k0037-naar-de-kernregistratie.svg))
 
 | Soort | Objecttype | Instantie | Bron |
 |---|---|---|---|
 | stroomt | Keuzedeel aanbod verbintenis | Jochem op K0037 Farmaceutische Patientenzorg, periode 7, aangemeld | [leerroute-1-regulier.md](https://github.com/Npuls-OKx/Public/blob/dev/Referentiemateriaal/kaderscenario's/leerroute-1-regulier.md), [Fase 6](https://github.com/Npuls-OKx/Public/blob/dev/Referentiemateriaal/kaderscenario's/leerroute-1-regulier.md#fase-6--organiseren-van-keuzemomenten): Planning naar KRS (formele inschrijving keuzedeel); hoofdplaat kent alleen SKS naar KRS; sessie Keuzedeelmodel en informatiemodel, 17 november 2026 (Niels van Duin, Niek Derksen); antwoord van Niels van Duin op #579, 25 november 2026, vraag 3: de kernregistratie formaliseert de inschrijving, nadat het studentkeuzesysteem de verbintenis heeft doorgegeven |
+| stroomt | Onderwijseenheid aanbod verbintenis | Jochem op D1-K1, periode 7, aangemeld | [leerroute-1-regulier.md](https://github.com/Npuls-OKx/Public/blob/dev/Referentiemateriaal/kaderscenario's/leerroute-1-regulier.md), [Fase 6](https://github.com/Npuls-OKx/Public/blob/dev/Referentiemateriaal/kaderscenario's/leerroute-1-regulier.md#fase-6--organiseren-van-keuzemomenten): Planning naar KRS (formele inschrijving keuzedeel); hoofdplaat kent alleen SKS naar KRS; sessie Keuzedeelmodel en informatiemodel, 17 november 2026 (Niels van Duin, Niek Derksen); antwoord van Niels van Duin op #579, 25 november 2026, vraag 3: de kernregistratie formaliseert de inschrijving, nadat het studentkeuzesysteem de verbintenis heeft doorgegeven |
 
 **F6-09 - Studentadministratie schrijft Jochem in op het keuzedeel** (fase 6, Keuzedeel formeel inschrijven; [f6-09-studentadministratie-schrijft-jochem-in-op-het-keuzedeel.svg](img/regels/f6-09-studentadministratie-schrijft-jochem-in-op-het-keuzedeel.svg))
 
@@ -1397,8 +1401,8 @@ Elke regel onder het ID en de titel van haar beeld (fase, stap, bestand) met de 
 
 | Soort | Objecttype | Instantie | Bron |
 |---|---|---|---|
-| stroomt | Leergelegenheid | Het medicatieoverzicht opstellen, periode 7: 1 groep van 18 | sessie Keuzedeelmodel en informatiemodel, 17 november 2026 (Niels van Duin, Niek Derksen): richting rooster stuurt planning het aanbod op de lager gelegen eenheden door, en daar komt de verbintenis op |
-| stroomt | Leergelegenheid | Zorg aan specifieke doelgroepen, periode 7: 1 groep van 18 | sessie Keuzedeelmodel en informatiemodel, 17 november 2026 (Niels van Duin, Niek Derksen): richting rooster stuurt planning het aanbod op de lager gelegen eenheden door, en daar komt de verbintenis op |
+| stroomt | Leergelegenheid | Het medicatieoverzicht opstellen, periode 7: 1 groep tot 24, 18 ingedeeld | sessie Keuzedeelmodel en informatiemodel, 17 november 2026 (Niels van Duin, Niek Derksen): richting rooster stuurt planning het aanbod op de lager gelegen eenheden door, en daar komt de verbintenis op |
+| stroomt | Leergelegenheid | Zorg aan specifieke doelgroepen, periode 7: 1 groep tot 24, 18 ingedeeld | sessie Keuzedeelmodel en informatiemodel, 17 november 2026 (Niels van Duin, Niek Derksen): richting rooster stuurt planning het aanbod op de lager gelegen eenheden door, en daar komt de verbintenis op |
 | stroomt | Planningsgroep | K0037-P7-1: capaciteitsgroep tot 24, 18 studenten ingedeeld | sessie Keuzedeelmodel en informatiemodel, 17 november 2026 (Niels van Duin, Niek Derksen): richting rooster stuurt planning het aanbod op de lager gelegen eenheden door, en daar komt de verbintenis op; antwoord van Niels van Duin op #579, 25 november 2026, vraag 1: de planningsgroep gaat naar het rooster, en de lesgroep is de definitieve planningsgroep die terugkomt |
 
 **F6-13 - Roosteraar roostert K0037 voor Jochem** (fase 6, Gekozen keuzedeel roosteren en deelnemers delen; [f6-13-roosteraar-roostert-k0037-voor-jochem.svg](img/regels/f6-13-roosteraar-roostert-k0037-voor-jochem.svg))
