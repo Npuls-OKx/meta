@@ -226,6 +226,8 @@ def beeldblok(b, kop="###"):
             per_beeld.setdefault(bid, []).append(f"`{naam}` {inst}")
         delen = [f"uit [{bid}](#{b.get('ankers', {}).get(bid, '')}): " + "; ".join(objs) if b.get("ankers", {}).get(bid)
                  else f"uit {bid}: " + "; ".join(objs) for bid, objs in per_beeld.items()]
+        # een volgend beeld van herkomst begint een nieuwe zin, dus met een hoofdletter
+        delen = [d if i == 0 else d[0].upper() + d[1:] for i, d in enumerate(delen)]
         uit += "**Herkomst:** " + ". ".join(delen) + ".\n\n"
     if b["soort"] == "stroomt" and b.get("van"):
         pijl = b.get("koppeling") or ("geen pijl op de hoofdplaat" if b.get("pijl") == GEEN_PIJL else "zonder koppelingspecificatie")

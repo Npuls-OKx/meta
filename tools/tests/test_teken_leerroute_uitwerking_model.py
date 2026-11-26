@@ -832,7 +832,7 @@ class NaastBreedteTests(unittest.TestCase):
 
 
 class HerkomstValTerugTests(unittest.TestCase):
-    """F4-09: twee eerdere objecten wijzen naar dezelfde verbintenis, dus uitlijnen lukt niet. Dan staat de
+    """Twee eerdere objecten wijzen naar dezelfde verbintenis (zoals in fase 4), dus uitlijnen lukt niet. Dan staat de
     kolom rechts onder elkaar, zodat geen herkomstlijn door een ander vak loopt."""
 
     def test_given_alignment_fails_when_drawn_then_the_new_objects_stand_below_each_other(self):
@@ -849,6 +849,26 @@ class HerkomstValTerugTests(unittest.TestCase):
         px, py = tv.POSITIES[("X", "x")][:2], tv.POSITIES[("Y", "y")][:2]
         self.assertEqual(px[0], py[0], "X en Y horen in dezelfde kolom te staan")
         self.assertNotEqual(px[1], py[1])
+
+
+
+class UitlijnenTweeBronnenTests(unittest.TestCase):
+    """F4-07: twee eerdere objecten wijzen naar dezelfde verbintenis. Het uitlijnen lukt dan nog steeds, zodat
+    de groepen ernaast hun lijn houden."""
+
+    def test_given_two_existing_objects_to_one_new_object_when_drawn_then_aligned_and_groups_keep_their_line(self):
+        k = {"beeld_id": "F4-07", "beeld": "Plannen", "fase": 4, "stap": "Plannen", "bron": "b"}
+        r = {"regels": [
+            dict(k, soort="bestaat", objecttype="A", instantie="a", herkomst="F2-01"),
+            dict(k, soort="bestaat", objecttype="B", instantie="b", herkomst="F2-01"),
+            dict(k, soort="ontstaat", wie="planner", objecttype="X", instantie="x",
+                 relatie={"soort": "Association", "van": "A", "naar": "X", "instantie": "a"},
+                 relaties=[{"soort": "Association", "van": "B", "naar": "X", "instantie": "b"}]),
+            dict(k, soort="ontstaat", wie="planner", objecttype="G", instantie="g", naast=True,
+                 relatie={"soort": "Association", "van": "G", "naar": "X", "label": "is gepland op"})]}
+        blok = tv.groepeer(r)[0]
+        svg = tv.regel_ontstaat(blok, set())
+        self.assertIn('class="naastlijn"', svg)
 
 
 if __name__ == "__main__":

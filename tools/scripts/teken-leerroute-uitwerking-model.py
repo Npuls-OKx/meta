@@ -630,6 +630,7 @@ def _uitgelijnd(lx, rx, y, links, rechts, lijnen, uitzonderingen, naast=()):
     for g in naast:
         anker.setdefault(g.get("anker"), []).append(g)
     kg, geplaatst = _Kant(y), []
+    rechts_geplaatst = set()
 
     def groepen_bij(r_it, yy):
         gs = anker.pop(sleutel(r_it), [])
@@ -654,14 +655,17 @@ def _uitgelijnd(lx, rx, y, links, rechts, lijnen, uitzonderingen, naast=()):
             extra = 16 if r[2] is not None and r[1] == 0 else 0
             yy, gs = groepen_bij(r[0], max(kl.cursor, kr.cursor + extra))
             kl.plaats(l[0], l[1], yy); kr.plaats(r[0], r[1], yy)
+            rechts_geplaatst.add(sleutel(r[0]))
             plaats_groepen(gs, yy)
             i += 1; j += 1
-        elif l and paar.get(sleutel(l[0])) is None:
+        elif l and (paar.get(sleutel(l[0])) is None or paar[sleutel(l[0])] in rechts_geplaatst):
+            # geen paar, of het doel staat al naast een eerder object (twee bronnen naar een doel): links verder
             kl.sluit_tot(l[1]); kl.plaats(l[0], l[1], kl.cursor); i += 1
         elif r and sleutel(r[0]) not in doelen or (r and l is None):
             kr.sluit_tot(r[1])
             yy, gs = groepen_bij(r[0], kr.cursor + (16 if r[2] is not None and r[1] == 0 else 0))
             kr.plaats(r[0], r[1], yy); j += 1
+            rechts_geplaatst.add(sleutel(r[0]))
             plaats_groepen(gs, yy)
         else:
             return None
@@ -873,7 +877,7 @@ def _regel_herkomst(blok, uitzonderingen):
         # de kolom links staat altijd onder elkaar: zo blijft zij binnen de breedte die het vlak al kreeg
         lsvg, bw, bh = _objecten_kolom(lx, oy, blok["bestaand"], uitzonderingen, alles_onder=True)
         # ook rechts onder elkaar: een herkomstlijn komt van links en hoort bij haar eigen vak aan te
-        # komen, niet door het vak ernaast heen te lopen (F4-09)
+        # komen, niet door het vak ernaast heen te lopen
         rsvg, rw, rh = (_objecten_kolom(rx, oy, blok["objecten"], uitzonderingen, alles_onder=True)
                         if lijnen and [it for it in blok["objecten"] if "type" in it]
                         else objecten(rx, oy, blok["objecten"], uitzonderingen))
