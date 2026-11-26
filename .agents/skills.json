@@ -69,7 +69,7 @@
     {
       "naam": "okx-leerroute-uitwerking-model",
       "type": "okx-specifiek",
-      "doel": "Een persona stap voor stap in het informatiemodel uitdrukken (MIM 1 en 2): regeltabel per processtap, controle tegen de platen, beelden in ArchiMate-vormtaal en het gegenereerde leesdocument met bijlage en vragen, met het invulblad als eigen bestand."
+      "doel": "Een persona stap voor stap in het informatiemodel uitdrukken (MIM 1 en 2): regeltabel per processtap, controle tegen de platen, beelden in ArchiMate-vormtaal met de herkomst in beeld (eerder ontstaan, ontstaat hier, groepen ernaast), metingen van invoer, herkomst en gebruik, en het gegenereerde leesdocument met bijlage en vragen, met het invulblad als eigen bestand."
     },
     {
       "naam": "okx-oeapi-scenario-uitwerking",
