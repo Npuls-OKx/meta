@@ -659,9 +659,6 @@ class AfbrekenTests(unittest.TestCase):
                                          f"{pad.name}: {el.text[:60]}")
 
 
-if __name__ == "__main__":
-    unittest.main()
-
 
 class VoorbeeldOmweg(unittest.TestCase):
     """Het voorbeeld in tests/voorbeelden draagt drie relaties over afstand in een beeld.
@@ -832,3 +829,27 @@ class NaastBreedteTests(unittest.TestCase):
         tv.regel_ontstaat(blok, set())
         breedtes = {tv.POSITIES[(g["type"], g["instantie"])][2] for g in blok["naast"]}
         self.assertEqual(len(breedtes), 1)
+
+
+class HerkomstValTerugTests(unittest.TestCase):
+    """F4-09: twee eerdere objecten wijzen naar dezelfde verbintenis, dus uitlijnen lukt niet. Dan staat de
+    kolom rechts onder elkaar, zodat geen herkomstlijn door een ander vak loopt."""
+
+    def test_given_alignment_fails_when_drawn_then_the_new_objects_stand_below_each_other(self):
+        k = {"beeld_id": "F4-09", "beeld": "Verbinden", "fase": 4, "stap": "Verbinden", "bron": "b"}
+        r = {"regels": [
+            dict(k, soort="bestaat", objecttype="A", instantie="a", herkomst="F2-01"),
+            dict(k, soort="bestaat", objecttype="B", instantie="b", herkomst="F2-01"),
+            dict(k, soort="ontstaat", wie="planner", objecttype="X", instantie="x",
+                 relatie={"soort": "Association", "van": "B", "naar": "X", "instantie": "b"}),
+            dict(k, soort="ontstaat", wie="planner", objecttype="Y", instantie="y",
+                 relatie={"soort": "Association", "van": "A", "naar": "Y", "instantie": "a"})]}
+        blok = tv.groepeer(r)[0]
+        tv.regel_ontstaat(blok, set())
+        px, py = tv.POSITIES[("X", "x")][:2], tv.POSITIES[("Y", "y")][:2]
+        self.assertEqual(px[0], py[0], "X en Y horen in dezelfde kolom te staan")
+        self.assertNotEqual(px[1], py[1])
+
+
+if __name__ == "__main__":
+    unittest.main()

@@ -872,7 +872,11 @@ def _regel_herkomst(blok, uitzonderingen):
         POSITIES.clear()
         # de kolom links staat altijd onder elkaar: zo blijft zij binnen de breedte die het vlak al kreeg
         lsvg, bw, bh = _objecten_kolom(lx, oy, blok["bestaand"], uitzonderingen, alles_onder=True)
-        rsvg, rw, rh = objecten(rx, oy, blok["objecten"], uitzonderingen)
+        # ook rechts onder elkaar: een herkomstlijn komt van links en hoort bij haar eigen vak aan te
+        # komen, niet door het vak ernaast heen te lopen (F4-09)
+        rsvg, rw, rh = (_objecten_kolom(rx, oy, blok["objecten"], uitzonderingen, alles_onder=True)
+                        if lijnen and [it for it in blok["objecten"] if "type" in it]
+                        else objecten(rx, oy, blok["objecten"], uitzonderingen))
         oh = max(bh, rh)
         if naast:
             # niet uit te lijnen: de groepen als kolom ernaast, met hun relaties als verwijzing
