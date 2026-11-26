@@ -32,7 +32,7 @@ Een viewnaam wordt een bestandsnaam: bij de export van een plaat uit Archi en bi
 | Wel | Niet |
 |---|---|
 | `OKx de hoofdplaat (zonder context applicaties)` | `OKx de hoofdplaat<concept>` |
-| `Koppelvlak SIS (KRS-SVS) (obv 1.7a)` | `Koppelvlak: SIS (KRS+SVS) (obv 1.7a)` |
+| `Koppelvlak SIS (KRS-SVS)` | `Koppelvlak: SIS (KRS+SVS)` |
 
 De status van een plaat (concept of vastgesteld) hoort in de documentatie van de view en niet in de naam, zodat een statusovergang geen hernoeming vraagt. `tools/tests/test_hoofdplaat_viewnamen.py` toetst elke viewnaam in het model tegen de conventie, met een oude MOKA-view als enige uitzondering.
 
