@@ -65,6 +65,7 @@ Hoort bij [de opleiding van Jochem in het informatiemodel](leerroute-uitwerking-
 | 2 | F2-01 | Leeronderdeel specificatie | | | | |
 | 2 | F2-01 | Leeronderdeel specificatie | | | | |
 | 2 | F2-02 | Verzoek tot Aanbod / Intekening op specificatie | | | | |
+| 2 | F2-05 | Medewerker | | | | |
 | 2 | F2-05 | Prognose | | | | |
 | 2 | F2-08 | Opleidingsaanbod van Instelling | | | | |
 | 2 | F2-08 | Opleiding aanbod | | | | |
@@ -76,7 +77,6 @@ Hoort bij [de opleiding van Jochem in het informatiemodel](leerroute-uitwerking-
 | 2 | F2-08 | Toetsgelegenheid | | | | |
 | 2 | F2-08 | Keuzedeel aanbod | | | | |
 | 2 | F2-08 | Plaatsingsgroep | | | | |
-| 2 | F2-08 | Planningsgroep | | | | |
 | 2 | F2-08 | Planningsgroep | | | | |
 | 2 | F2-08 | Planningsgroep | | | | |
 | 2 | F2-08 | Planningsgroep | | | | |
@@ -95,13 +95,27 @@ Hoort bij [de opleiding van Jochem in het informatiemodel](leerroute-uitwerking-
 | 4 | F4-01 | Leeronderdeel specificatie | | | | |
 | 4 | F4-01 | Les specificatie | | | | |
 | 4 | F4-01 | Les specificatie | | | | |
-| 4 | F4-08 | Leergelegenheid | | | | |
-| 4 | F4-08 | Lesgelegenheid | | | | |
-| 4 | F4-08 | Medewerker | | | | |
-| 4 | F4-09 | Onderwijseenheid aanbod verbintenis | | | | |
-| 4 | F4-09 | Leergelegenheid verbintenis | | | | |
-| 4 | F4-09 | Lesgelegenheid verbintenis | | | | |
-| 4 | F4-09 | Opleidingsprogramma aanbod verbintenis | | | | |
+| 4 | F4-07 | Onderwijseenheid aanbod verbintenis | | | | |
+| 4 | F4-07 | Leergelegenheid | | | | |
+| 4 | F4-07 | Onderwijslocatie type | | | | |
+| 4 | F4-07 | Leergelegenheid | | | | |
+| 4 | F4-07 | Onderwijslocatie type | | | | |
+| 4 | F4-07 | Expertise of functieprofiel | | | | |
+| 4 | F4-07 | Lesgroep | | | | |
+| 4 | F4-07 | Lesgroep | | | | |
+| 4 | F4-07 | Lesgroep | | | | |
+| 4 | F4-07 | Lesgroep | | | | |
+| 4 | F4-07 | Lesgroep | | | | |
+| 4 | F4-09 | Lesgroep | | | | |
+| 4 | F4-09 | Lesgelegenheid | | | | |
+| 4 | F4-11 | Leergelegenheid | | | | |
+| 4 | F4-11 | Lesgelegenheid | | | | |
+| 4 | F4-11 | Onderwijslocatie | | | | |
+| 4 | F4-11 | Lesgroep | | | | |
+| 4 | F4-11 | Leergelegenheid verbintenis | | | | |
+| 4 | F4-11 | Lesgelegenheid verbintenis | | | | |
+| 4 | F4-11 | Leergelegenheid verbintenis | | | | |
+| 4 | F4-11 | Lesgelegenheid verbintenis | | | | |
 | 5 | F5-01 | Lesgelegenheid verbintenis | | | | |
 | 5 | F5-01 | Aanwezigheid | | | | |
 | 5 | F5-01 | Lesgelegenheid resultaat | | | | |

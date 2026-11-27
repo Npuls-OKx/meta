@@ -82,9 +82,11 @@ Alle stromen die dit voorbeeld gebruikt, met de beelden waarin ze voorkomen:
 | Onderwijscatalogus | Leer management systeem (LMS) | OC-LMS | F4-02, F4-03 |
 | Onderwijscatalogus | Student volg systeem (SVS) | OC-SVS | F4-04 |
 | Kernregistratie systeem studenten (KRS) | Planningssysteem | zonder koppelingspecificatie | F4-06, F7-03 |
-| Planningssysteem | Roostersysteem | zonder koppelingspecificatie | F4-07, F6-12, F7-06 |
-| Roostersysteem | Leer management systeem (LMS) | geen pijl op de hoofdplaat | F4-10 |
-| Kernregistratie systeem studenten (KRS) | Student volg systeem (SVS) | geen pijl op de hoofdplaat | F4-11, F6-10 |
+| Planningssysteem | Roostersysteem | zonder koppelingspecificatie | F4-08, F6-12, F7-06 |
+| Roostersysteem | Planningssysteem | geen pijl op de hoofdplaat | F4-10 |
+| Roostersysteem | Kernregistratie systeem studenten (KRS) | zonder koppelingspecificatie | F4-12 |
+| Roostersysteem | Leer management systeem (LMS) | geen pijl op de hoofdplaat | F4-13 |
+| Kernregistratie systeem studenten (KRS) | Student volg systeem (SVS) | geen pijl op de hoofdplaat | F4-14, F6-10 |
 | Leer management systeem (LMS) | Student volg systeem (SVS) | zonder koppelingspecificatie | F5-04 |
 | Onderwijscatalogus | Student Keuze Systeem (SKS) | zonder koppelingspecificatie | F6-02 |
 | Planningssysteem | Student Keuze Systeem (SKS) | zonder koppelingspecificatie | F6-03 |
@@ -188,7 +190,7 @@ De gemarkeerde lijnen zijn de stromen die deze fase raakt, met het beeld waarin 
 
 De fase in detail: [kaderscenario leerroute 1, fase 2](https://github.com/Npuls-OKx/Public/blob/dev/Referentiemateriaal/kaderscenario's/leerroute-1-regulier.md#fase-2--publiceren-en-planbaar-maken).
 
-**Ontstaat:** `Verzoek tot Aanbod / Intekening op specificatie`, `Prognose`, `Opleidingsaanbod van Instelling`, `Opleiding aanbod`, `Opleidingsprogramma aanbod`, `Onderwijseenheid aanbod`, `Leergelegenheid`, `Toetsgelegenheid`, `Keuzedeel aanbod`, `Plaatsingsgroep`, `Planningsgroep`. **Verandert:** `Opleidingsprogramma specificatie`, `Onderwijseenheid specificatie`, `Leeronderdeel specificatie`. **Stroomt:** Onderwijscatalogus naar Planningssysteem; Planningssysteem naar Onderwijscatalogus. **MORA-hoofdproces:** Plannen en roosteren.
+**Ontstaat:** `Verzoek tot Aanbod / Intekening op specificatie`, `Medewerker`, `Prognose`, `Opleidingsaanbod van Instelling`, `Opleiding aanbod`, `Opleidingsprogramma aanbod`, `Onderwijseenheid aanbod`, `Leergelegenheid`, `Toetsgelegenheid`, `Keuzedeel aanbod`, `Plaatsingsgroep`, `Planningsgroep`. **Verandert:** `Opleidingsprogramma specificatie`, `Onderwijseenheid specificatie`, `Leeronderdeel specificatie`. **Stroomt:** Onderwijscatalogus naar Planningssysteem; Planningssysteem naar Onderwijscatalogus. **MORA-hoofdproces:** Plannen en roosteren.
 
 ![De hoofdplaat met de stromen van fase 2 gemarkeerd](img/hoofdplaat/f2.svg)
 
@@ -230,7 +232,7 @@ De gemarkeerde lijnen zijn de stromen die deze fase raakt, met het beeld waarin 
 
 ![ontstaat: Aanbod plannen](img/regels/f2-08-planner-plant-opleiding-programma-eenheid-en-gelegenheid.svg)
 
-**Herkomst:** uit [F1-07](#f1-07---onderwijsontwerper-beschrijft-de-opleiding-met-programma-eenheden-en-keuzedeelruimte): `Opleiding specificatie` Apothekersassistent, versie 2026.1. uit [F2-01](#f2-01---onderwijsontwerper-maakt-de-specificatie-planbaar): `Opleidingsprogramma specificatie` BOL voltijd, planbaar: tijdvensters en capaciteit; `Onderwijseenheid specificatie` Blok B1-K1, leerjaar 1: plek in de opleidingsduur en groepsgrootte; `Leeronderdeel specificatie` Baliegesprekken 101: BOT 50 uur, praktijkruimte, docent farmacie; `Leeronderdeel specificatie` Medicatiebewaking in de leerapotheek: BOT 30 uur, praktijkruimte, docent farmacie. uit [F1-09](#f1-09---onderwijsontwerper-leidt-toetsonderdelen-en-wegingen-af-uit-het-examenplan): `Toetsonderdeel specificatie` Praktijktoets baliegesprek (OSCE), summatief: schaal 1,0 tot 10,0 met een decimaal, afname in de simulatieapotheek, 30 minuten, geen hulpmiddelen, twee pogingen. uit [F1-08](#f1-08---onderwijsontwerper-geeft-keuzedelen-en-minor-een-eigen-specificatie): `Keuzedeel specificatie` K0037 Farmaceutische Patientenzorg (480 SBU, aard verdiepend), beroepsspecifiek keuzedeel.
+**Herkomst:** uit [F1-07](#f1-07---onderwijsontwerper-beschrijft-de-opleiding-met-programma-eenheden-en-keuzedeelruimte): `Opleiding specificatie` Apothekersassistent, versie 2026.1. Uit [F2-01](#f2-01---onderwijsontwerper-maakt-de-specificatie-planbaar): `Opleidingsprogramma specificatie` BOL voltijd, planbaar: tijdvensters en capaciteit; `Onderwijseenheid specificatie` Blok B1-K1, leerjaar 1: plek in de opleidingsduur en groepsgrootte; `Leeronderdeel specificatie` Baliegesprekken 101: BOT 50 uur, praktijkruimte, docent farmacie; `Leeronderdeel specificatie` Medicatiebewaking in de leerapotheek: BOT 30 uur, praktijkruimte, docent farmacie. Uit [F1-09](#f1-09---onderwijsontwerper-leidt-toetsonderdelen-en-wegingen-af-uit-het-examenplan): `Toetsonderdeel specificatie` Praktijktoets baliegesprek (OSCE), summatief: schaal 1,0 tot 10,0 met een decimaal, afname in de simulatieapotheek, 30 minuten, geen hulpmiddelen, twee pogingen. Uit [F1-08](#f1-08---onderwijsontwerper-geeft-keuzedelen-en-minor-een-eigen-specificatie): `Keuzedeel specificatie` K0037 Farmaceutische Patientenzorg (480 SBU, aard verdiepend), beroepsspecifiek keuzedeel.
 
 ### F2-09 - Planningssysteem stuurt het geplande aanbod naar de onderwijscatalogus
 
@@ -310,7 +312,7 @@ De gemarkeerde lijnen zijn de stromen die deze fase raakt, met het beeld waarin 
 
 De fase in detail: [kaderscenario leerroute 1, fase 4](https://github.com/Npuls-OKx/Public/blob/dev/Referentiemateriaal/kaderscenario's/leerroute-1-regulier.md#fase-4--detailleren-roosteren-en-inschrijven).
 
-**Ontstaat:** `Les specificatie`, `Lesgelegenheid`, `Medewerker`, `Onderwijseenheid aanbod verbintenis`, `Leergelegenheid verbintenis`, `Lesgelegenheid verbintenis`. **Verandert:** `Leeronderdeel specificatie`, `Leergelegenheid`, `Opleidingsprogramma aanbod verbintenis`. **Stroomt:** Onderwijscatalogus naar Leer management systeem (LMS); Onderwijscatalogus naar Student volg systeem (SVS); Onderwijscatalogus naar Kernregistratie systeem studenten (KRS); Kernregistratie systeem studenten (KRS) naar Planningssysteem; Planningssysteem naar Roostersysteem; Roostersysteem naar Leer management systeem (LMS); Kernregistratie systeem studenten (KRS) naar Student volg systeem (SVS). **MORA-hoofdproces:** Plannen en roosteren.
+**Ontstaat:** `Les specificatie`, `Onderwijseenheid aanbod verbintenis`, `Onderwijslocatie type`, `Expertise of functieprofiel`, `Lesgroep`, `Lesgelegenheid`, `Onderwijslocatie`, `Leergelegenheid verbintenis`, `Lesgelegenheid verbintenis`. **Verandert:** `Leeronderdeel specificatie`, `Leergelegenheid`. **Stroomt:** Onderwijscatalogus naar Leer management systeem (LMS); Onderwijscatalogus naar Student volg systeem (SVS); Onderwijscatalogus naar Kernregistratie systeem studenten (KRS); Kernregistratie systeem studenten (KRS) naar Planningssysteem; Planningssysteem naar Roostersysteem; Roostersysteem naar Planningssysteem; Roostersysteem naar Kernregistratie systeem studenten (KRS); Roostersysteem naar Leer management systeem (LMS); Kernregistratie systeem studenten (KRS) naar Student volg systeem (SVS). **MORA-hoofdproces:** Plannen en roosteren.
 
 ![De hoofdplaat met de stromen van fase 4 gemarkeerd](img/hoofdplaat/f4.svg)
 
@@ -346,35 +348,57 @@ De gemarkeerde lijnen zijn de stromen die deze fase raakt, met het beeld waarin 
 
 ### F4-06 - Kernregistratie stuurt de plaatsingsgroepen naar het planningssysteem
 
-![stroomt: Plaatsings- en planninggroepen definieren en aan personen koppelen](img/regels/f4-06-kernregistratie-stuurt-de-plaatsingsgroepen-naar-het-planningssysteem.svg)
+![stroomt: Plaatsings- en planningsgroepen definieren en aan personen koppelen](img/regels/f4-06-kernregistratie-stuurt-de-plaatsingsgroepen-naar-het-planningssysteem.svg)
 
 **Interactie:** Kernregistratie systeem studenten (KRS) naar Planningssysteem, zonder koppelingspecificatie. Op de [hoofdplaat](#de-hoofdplaat-als-kaart) en in de faseplaat hierboven staat deze lijn gemarkeerd met F4-06.
 
-### F4-07 - Planningssysteem stuurt de te roosteren leergelegenheden naar het roostersysteem
+### F4-07 - Planner plant de lesgroepen fijnmazig over alle opleidingen
 
-![stroomt: Te roosteren specificaties aan het roostersysteem geven](img/regels/f4-07-planningssysteem-stuurt-de-te-roosteren-leergelegenheden-naar-het-roostersysteem.svg)
+![ontstaat: Plaatsings- en planningsgroepen definieren en aan personen koppelen](img/regels/f4-07-planner-plant-de-lesgroepen-fijnmazig-over-alle-opleidingen.svg)
 
-**Interactie:** Planningssysteem naar Roostersysteem, zonder koppelingspecificatie. Op de [hoofdplaat](#de-hoofdplaat-als-kaart) en in de faseplaat hierboven staat deze lijn gemarkeerd met F4-07.
+**Herkomst:** uit [F2-08](#f2-08---planner-plant-opleiding-programma-eenheid-en-gelegenheid): `Onderwijseenheid aanbod` B1-K1, leerjaar 1, periode 1 tot 4; `Planningsgroep` Baliegesprekken 101-A: APO26-1A, 24 studenten, past in de simulatieruimte; `Leergelegenheid` Baliegesprekken 101, periode 1, vier groepen van 24; `Planningsgroep` Medicatiebewaking 1A: APO26-1A, 24 studenten, vraagt twee keer twaalf werkplekken; `Leergelegenheid` Medicatiebewaking in de leerapotheek, periode 1: twaalf werkplekken. Uit [F3-05](#f3-05---slber-plaatst-jochem-in-een-plaatsingsgroep): `Plaatsingsgroep` APO26-1A: Jochem en 23 andere studenten geplaatst. Uit [F2-01](#f2-01---onderwijsontwerper-maakt-de-specificatie-planbaar): `Leeronderdeel specificatie` Baliegesprekken 101: BOT 50 uur, praktijkruimte, docent farmacie; `Leeronderdeel specificatie` Medicatiebewaking in de leerapotheek: BOT 30 uur, praktijkruimte, docent farmacie.
 
-### F4-08 - Roosteraar roostert lesgelegenheid, lokaal en docent
+### F4-08 - Planningssysteem stuurt leergelegenheden en geplande lesgroepen naar het roostersysteem
 
-![ontstaat: Leer-, les- en toetsgelegenheden roosteren](img/regels/f4-08-roosteraar-roostert-lesgelegenheid-lokaal-en-docent.svg)
+![stroomt: Te roosteren specificaties aan het roostersysteem geven](img/regels/f4-08-planningssysteem-stuurt-leergelegenheden-en-geplande-lesgroepen-naar-het-roostersysteem.svg)
 
-### F4-09 - SLB'er en planner verbinden Jochem aan de geroosterde gelegenheden
+**Interactie:** Planningssysteem naar Roostersysteem, zonder koppelingspecificatie. Op de [hoofdplaat](#de-hoofdplaat-als-kaart) en in de faseplaat hierboven staat deze lijn gemarkeerd met F4-08.
 
-![ontstaat: Verwachte deelnemers delen en toegang geven](img/regels/f4-09-slb-er-en-planner-verbinden-jochem-aan-de-geroosterde-gelegenheden.svg)
+### F4-09 - Roosteraar toetst de planning in een conceptrooster
 
-### F4-10 - Roostersysteem stuurt student, verbintenissen en groep naar het LMS
+![ontstaat: Leer-, les- en toetsgelegenheden roosteren](img/regels/f4-09-roosteraar-toetst-de-planning-in-een-conceptrooster.svg)
 
-![stroomt: Verwachte deelnemers delen en toegang geven](img/regels/f4-10-roostersysteem-stuurt-student-verbintenissen-en-groep-naar-het-lms.svg)
+**Herkomst:** uit [F4-07](#f4-07---planner-plant-de-lesgroepen-fijnmazig-over-alle-opleidingen): `Lesgroep` Baliegesprekken 101-A: de 24 studenten van APO26-1A, nog zonder namen; `Leergelegenheid` Baliegesprekken 101, periode 1: simulatieruimte, docenten farmacie.
 
-**Interactie:** Roostersysteem naar Leer management systeem (LMS), geen pijl op de hoofdplaat. In de faseplaat hierboven staat deze lijn gestippeld met F4-10.
+### F4-10 - Roostersysteem meldt planning of het conceptrooster past
 
-### F4-11 - Kernregistratie stuurt de verbintenissen naar het studentvolgsysteem
+![stroomt: Leer-, les- en toetsgelegenheden roosteren](img/regels/f4-10-roostersysteem-meldt-planning-of-het-conceptrooster-past.svg)
 
-![stroomt: Verwachte deelnemers delen en toegang geven](img/regels/f4-11-kernregistratie-stuurt-de-verbintenissen-naar-het-studentvolgsysteem.svg)
+**Interactie:** Roostersysteem naar Planningssysteem, geen pijl op de hoofdplaat. In de faseplaat hierboven staat deze lijn gestippeld met F4-10.
 
-**Interactie:** Kernregistratie systeem studenten (KRS) naar Student volg systeem (SVS), geen pijl op de hoofdplaat. In de faseplaat hierboven staat deze lijn gestippeld met F4-11.
+### F4-11 - Roosteraar roostert de lesgroep met studenten, lokaal en docent
+
+![ontstaat: Leer-, les- en toetsgelegenheden roosteren](img/regels/f4-11-roosteraar-roostert-de-lesgroep-met-studenten-lokaal-en-docent.svg)
+
+**Herkomst:** uit [F2-08](#f2-08---planner-plant-opleiding-programma-eenheid-en-gelegenheid): `Planningsgroep` Baliegesprekken 101-A: APO26-1A, 24 studenten, past in de simulatieruimte. Uit [F4-09](#f4-09---roosteraar-toetst-de-planning-in-een-conceptrooster): `Lesgroep` Baliegesprekken 101-A: past in het conceptrooster, zonder overlap van studenten of docenten. Uit [F4-07](#f4-07---planner-plant-de-lesgroepen-fijnmazig-over-alle-opleidingen): `Onderwijslocatie type` Simulatieruimte apotheekbalie, 24 plaatsen; `Onderwijseenheid aanbod verbintenis` Jochem op B1-K1, leerjaar 1.
+
+### F4-12 - Roostersysteem stuurt de lesgroep met studenten naar de kernregistratie
+
+![stroomt: Leer-, les- en toetsgelegenheden roosteren](img/regels/f4-12-roostersysteem-stuurt-de-lesgroep-met-studenten-naar-de-kernregistratie.svg)
+
+**Interactie:** Roostersysteem naar Kernregistratie systeem studenten (KRS), zonder koppelingspecificatie. Op de [hoofdplaat](#de-hoofdplaat-als-kaart) en in de faseplaat hierboven staat deze lijn gemarkeerd met F4-12.
+
+### F4-13 - Roostersysteem stuurt student, verbintenissen en groep naar het LMS
+
+![stroomt: Verwachte deelnemers delen en toegang geven](img/regels/f4-13-roostersysteem-stuurt-student-verbintenissen-en-groep-naar-het-lms.svg)
+
+**Interactie:** Roostersysteem naar Leer management systeem (LMS), geen pijl op de hoofdplaat. In de faseplaat hierboven staat deze lijn gestippeld met F4-13.
+
+### F4-14 - Kernregistratie stuurt de verbintenissen naar het studentvolgsysteem
+
+![stroomt: Verwachte deelnemers delen en toegang geven](img/regels/f4-14-kernregistratie-stuurt-de-verbintenissen-naar-het-studentvolgsysteem.svg)
+
+**Interactie:** Kernregistratie systeem studenten (KRS) naar Student volg systeem (SVS), geen pijl op de hoofdplaat. In de faseplaat hierboven staat deze lijn gestippeld met F4-14.
 
 ### Variant capaciteitsgestuurd
 
@@ -506,7 +530,7 @@ De gemarkeerde lijnen zijn de stromen die deze fase raakt, met het beeld waarin 
 
 ![ontstaat: Gekozen keuzedeel roosteren en deelnemers delen](img/regels/f6-13-roosteraar-roostert-k0037-voor-jochem.svg)
 
-**Herkomst:** uit [F6-06](#f6-06---planner-deelt-de-keuzes-in-de-capaciteitsgroep-van-k0037-in): `Planningsgroep` K0037-P7-1: capaciteitsgroep tot 24, 18 studenten ingedeeld. uit [F6-09](#f6-09---studentadministratie-schrijft-jochem-in-op-het-keuzedeel): `Onderwijseenheid aanbod verbintenis` Jochem op D1-K1, periode 7.
+**Herkomst:** uit [F6-06](#f6-06---planner-deelt-de-keuzes-in-de-capaciteitsgroep-van-k0037-in): `Planningsgroep` K0037-P7-1: capaciteitsgroep tot 24, 18 studenten ingedeeld. Uit [F6-09](#f6-09---studentadministratie-schrijft-jochem-in-op-het-keuzedeel): `Onderwijseenheid aanbod verbintenis` Jochem op D1-K1, periode 7.
 
 ### F6-14 - Roostersysteem ontsluit de geroosterde leergelegenheid naar het studentkeuzesysteem
 
@@ -558,7 +582,7 @@ De gemarkeerde lijnen zijn de stromen die deze fase raakt, met het beeld waarin 
 
 ### F7-01 - Planner verzamelt afwijkingen in een plaatsingsgroep
 
-![ontstaat: Afwijkingen verzamelen in een planninggroep](img/regels/f7-01-planner-verzamelt-afwijkingen-in-een-plaatsingsgroep.svg)
+![ontstaat: Afwijkingen verzamelen in een planningsgroep](img/regels/f7-01-planner-verzamelt-afwijkingen-in-een-plaatsingsgroep.svg)
 
 ### F7-02 - Planner annuleert de verbintenis op de onderwijseenheid
 
@@ -675,7 +699,7 @@ Per objecttype het beeld waarin hij verschijnt (het ID uit de kop), de instantie
 | Minor specificatie | F1-08 | Farmacotherapie en patiëntveiligheid, 30 EC (hbo-bachelor NLQF 6) | 1 | ja | nog te definieren | Programme | | |
 | Nominale Leerroute |  | regels volgen na 30 september | 1 |  | ja | Programme | | |
 | Onderwijseenheid specificatie | F1-05 | Blok B1-K1 Biedt farmaceutische patiëntenzorg | 1 |  | ja | Course | | |
-| Onderwijslocatie type |  | regels volgen na 30 september |  |  | nog te definieren | roomType | | |
+| Onderwijslocatie type | F4-07 | Simulatieruimte apotheekbalie, 24 plaatsen | 4 |  | nog te definieren | roomType | | |
 | Onderwijsvorm |  | regels volgen na 30 september |  |  | nog te definieren | geen equivalent | | |
 | Opleiding specificatie | F1-07 | Apothekersassistent, versie 2026.1 | 1 |  | nog te definieren | Programme | | |
 | Opleidingsprogramma specificatie | F1-07 | BOL voltijd, diplomaprogramma | 1 |  | ja | Programme | | |
@@ -689,10 +713,10 @@ Per objecttype het beeld waarin hij verschijnt (het ID uit de kop), de instantie
 | Examengelegenheid | F8-01 | Proeve van bekwaamheid B1-K1, periode 12 | 8 | ja | ja | TestComponentOffering | | |
 | Keuzedeel aanbod | F2-08 | K0037 Farmaceutische Patientenzorg, periode 7, locatie A | 2 |  | nog te definieren | ProgrammeOffering | | |
 | Leergelegenheid | F2-08 | Baliegesprekken 101, periode 1, vier groepen van 24 | 2 |  | nog te definieren | LearningComponentOffering | | |
-| Lesgelegenheid | F4-08 | Les 1, maandag 1 september 09:00, simulatieruimte 2.14 | 4 |  | nog te definieren | LearningComponentOffering | | |
+| Lesgelegenheid | F4-09 | Les 1, week 1, een simulatieruimte, een docent farmacie (concept) | 4 |  | nog te definieren | LearningComponentOffering | | |
 | Minor aanbod |  | regels volgen na 30 september |  |  | nog te definieren | ProgrammeOffering | | |
 | Onderwijseenheid aanbod | F2-08 | B1-K1, leerjaar 1, periode 1 tot 4 | 2 |  | nog te definieren | CourseOffering | | |
-| Onderwijslocatie |  | regels volgen na 30 september |  |  | nog te definieren | Building, Room | | |
+| Onderwijslocatie | F4-11 | Lokaal 2.14, simulatieruimte, gebouw C, Campus Zuid (locatie A) | 4 |  | nog te definieren | Building, Room | | |
 | Opleiding aanbod | F2-08 | Apothekersassistent 2026: vier perioden, 96 plaatsen | 2 |  | ja | ProgrammeOffering | | |
 | Opleidingsaanbod van Instelling | F2-08 | ROC Leren Zonder Drempels: ambitie en verwachte instroom voor cohort 2026 | 2 | ja | ja | geen equivalent | | |
 | Opleidingsprogramma aanbod | F2-08 | Regulier BOL 2026: tot 96 studenten | 2 |  | nog te definieren | ProgrammeOffering | | |
@@ -705,11 +729,11 @@ Per objecttype het beeld waarin hij verschijnt (het ID uit de kop), de instantie
 | Examengelegenheid verbintenis | F8-02 | Jochem op de proeve, periode 12 | 8 |  | ja | TestComponentOfferingAssociation | | |
 | Inschrijving | F3-06 | Juni 2026 | 3 |  | ja | geen equivalent | | |
 | Keuzedeel aanbod verbintenis | F6-04 | Jochem op K0037 Farmaceutische Patientenzorg, periode 7 | 6 |  | nog te definieren | ProgrammeOfferingAssociation | | |
-| Leergelegenheid verbintenis | F4-09 | Jochem op Baliegesprekken 101, periode 1 | 4 |  | nog te definieren | LearningComponentOfferingAssociation | | |
-| Lesgelegenheid verbintenis | F4-09 | Jochem op les 1, 1 september 09:00 | 4 |  | nog te definieren | LearningComponentOfferingAssociation | | |
-| Lesgroep | F6-13 | K0037-P7-A: 18 studenten uit drie plaatsingsgroepen | 6 |  | ja | Group | | |
+| Leergelegenheid verbintenis | F4-11 | Jochem op Baliegesprekken 101, periode 1 | 4 |  | nog te definieren | LearningComponentOfferingAssociation | | |
+| Lesgelegenheid verbintenis | F4-11 | Jochem op les 1, 1 september 09:00 | 4 |  | nog te definieren | LearningComponentOfferingAssociation | | |
+| Lesgroep | F4-07 | Baliegesprekken 101-A: de 24 studenten van APO26-1A, nog zonder namen | 4 |  | ja | Group | | |
 | Minor aanbod verbintenis |  | regels volgen na 30 september |  |  | nog te definieren | ProgrammeOfferingAssociation | | |
-| Onderwijseenheid aanbod verbintenis | F4-09 | Jochem op B1-K1, leerjaar 1 | 4 |  | nog te definieren | CourseOfferingAssociation | | |
+| Onderwijseenheid aanbod verbintenis | F4-07 | Jochem op B1-K1, leerjaar 1 | 4 |  | nog te definieren | CourseOfferingAssociation | | |
 | Opleiding aanbod verbintenis | F3-03 | Jochem op Apothekersassistent 2026, aangemeld | 3 |  | nog te definieren | ProgrammeOfferingAssociation | | |
 | Opleidingsprogramma aanbod verbintenis | F3-03 | Jochem op Regulier BOL 2026, aangemeld | 3 |  | nog te definieren | ProgrammeOfferingAssociation | | |
 | Plaatsingsgroep | F2-08 | APO26-1A: prognose 24 studenten, de eerste van vier plaatsingsgroepen | 2 |  | nog te definieren | Group | | |
@@ -753,8 +777,8 @@ Per objecttype het beeld waarin hij verschijnt (het ID uit de kop), de instantie
 | Aanmelding | F3-03 | April 2026, Apothekersassistent BOL | 3 |  | ja | geen equivalent | | |
 | Cohort | F1-02 | Cohort 2026 | 1 |  | ja | geen equivalent | | |
 | Examenplan | F1-02 | Examenplan Apothekersassistent, cohort 2026 | 1 | ja | ja | geen equivalent | | |
-| Expertise of functieprofiel |  | regels volgen na 30 september |  |  | nog te definieren | geen equivalent | | |
-| Medewerker | F4-08 | Docent, personeelsnummer 4711 | 4 |  | ja | geen equivalent | | |
+| Expertise of functieprofiel | F4-07 | Docent farmacie met baliepraktijk, drie beschikbaar in periode 1 | 4 |  | nog te definieren | geen equivalent | | |
+| Medewerker | F2-05 | Docent 4711, apothekersassistent-docent | 2 | ja | ja | geen equivalent | | |
 | Onderwijslocatie vlekkenplan |  | regels volgen na 30 september |  |  | nog te definieren | geen equivalent | | |
 | Organisatie-eenheid |  | regels volgen na 30 september |  |  | nog te definieren | geen equivalent | | |
 | Persoon | F3-03 | Jochem, 17, na het vmbo | 3 |  | nog te definieren | Person | | |
@@ -782,18 +806,19 @@ De vragen die de regels zelf oproepen, met de regel waar de vraag zichtbaar word
 11. Op de plaat is een `Planningsgroep` een deel (compositie) van een `Plaatsingsgroep`. De herkansingsgroep en de capaciteitsgroep van K0037 halen studenten uit meer plaatsingsgroepen; In #579 (vraag 1) noemt Niels optie c, de compositie zoals de plaat haar nu tekent, 'een kern van correctheid'. Past de relatie zo, of hoort er voor die groepen een andere? (F2-08, `Planningsgroep`)
 12. Het intakesysteem voert de intake uit (F3-05) maar is niet de afzender van de inschrijving: de plaat laat die lijn van de voorziening naar de kernregistratie lopen. Wat gaat er dan terug van het intakesysteem naar de voorziening, en langs welke lijn? De plaat kent geen stroom van het intakesysteem naar de voorziening. (F3-07, `Inschrijving`)
 13. Een vrijstelling en een behaald resultaat lopen in de praktijk door elkaar. Een vrijstelling stelt de examencommissie vooraf vast en betekent dat er op dat onderdeel geen resultaat hoeft te komen; zij landt als vrijgesteld onderdeel in de resultaatstructuur. Wat eerder is behaald zijn resultaten, en die worden in die structuur ingepast. Hoe legt OKx dat verschil vast? (F3-08, `Leeruitkomst`)
-14. Het kaderscenario zet groepen in twee richtingen tussen planning en de kernregistratie, en hoofdplaat v1.7 kent alleen de lijn van de kernregistratie naar planning. Een planninggroep die de planner om logistieke redenen vormt, hoort die terug naar de kernregistratie als nieuwe plaatsingsgroep, en mist de plaat dan een stroom? (F4-06, `Plaatsingsgroep`)
+14. Het kaderscenario zet groepen in twee richtingen tussen planning en de kernregistratie, en hoofdplaat v1.7 kent alleen de lijn van de kernregistratie naar planning. Een planningsgroep die de planner om logistieke redenen vormt, hoort die terug naar de kernregistratie als nieuwe plaatsingsgroep, en mist de plaat dan een stroom? (F4-06, `Plaatsingsgroep`)
 
 ### Vragen, vervolg (3 van 3)
 
-15. Aanwezigheidsregistratie zelf valt buiten OKx. Wat de scope wel raakt is het afgeleide deelnameresultaat: bij een onderwijseenheid die niet wordt getoetst kan het aandeel bijgewoonde lesgelegenheden een studievoortgangsresultaat zijn dat in het keuzesysteem keuzes vrijgeeft of beperkt. Hoort dat afgeleide resultaat in de uitwisseling, en blijft de registratie erbuiten? (F5-01, `Aanwezigheid`)
-16. Voor de proefopzet (proof of concept): welk systeem start het keuzemoment? Voorlopig het studentkeuzesysteem, waar alles samenkomt (Niels van Duin, #579 vraag 6); ook het studentvolgsysteem kan de start tegenhouden bij te weinig voortgang. (F6-07, `Keuzedeel aanbod`)
-17. Draagt juist de lijn 'Student, opleidingsprogramma verbintenis, relevante groepen' de terugmelding van de inschrijving, of een andere lijn (#579)? (F6-11, `Keuzedeel aanbod verbintenis`)
-18. Hoort er een relatie van `Medewerker` naar `Lesgelegenheid`, of loopt dat via de verbintenis? De relatie van `Planningsgroep` naar `Lesgroep` (vormt) staat voor de rijping die Niels van Duin in #579 beschrijft, en is een voorstel. (F6-13, `Lesgroep`)
-19. Gaat maatwerkaanbod voor een specifieke groep achterblijvers terug naar de catalogus? Het voorbeeld publiceert het bijgestuurde aanbod, zodat de catalogus de bron blijft, en bij een maatwerkprogramma voor een handvol studenten is de waarde daarvan de vraag. (F7-05, `Onderwijseenheid aanbod`)
-20. Examinering kent objecten en rollen die de informatiemodelplaat niet draagt: zitting, zittingsrapport en examendossier, en de rollen surveillant, beoordelaar en examenbureaumedewerker. Dit voorbeeld toont ze gestippeld, want OKx heeft ze nodig voor de verantwoording en uitwisseling naar de kernregistratie, en juist die stap behandelt OKE niet. Horen zij als uitbreiding op de plaat? (F8-05, `Examendossier`)
+15. Hoort er een lijn van het roostersysteem naar planning voor de uitkomst van het conceptrooster (past het, en waar knelt het)? Nu een voorstel, onderbouwd in #538. (F4-10, `Lesgroep`)
+16. Aanwezigheidsregistratie zelf valt buiten OKx. Wat de scope wel raakt is het afgeleide deelnameresultaat: bij een onderwijseenheid die niet wordt getoetst kan het aandeel bijgewoonde lesgelegenheden een studievoortgangsresultaat zijn dat in het keuzesysteem keuzes vrijgeeft of beperkt. Hoort dat afgeleide resultaat in de uitwisseling, en blijft de registratie erbuiten? (F5-01, `Aanwezigheid`)
+17. Voor de proefopzet (proof of concept): welk systeem start het keuzemoment? Voorlopig het studentkeuzesysteem, waar alles samenkomt (Niels van Duin, #579 vraag 6); ook het studentvolgsysteem kan de start tegenhouden bij te weinig voortgang. (F6-07, `Keuzedeel aanbod`)
+18. Draagt juist de lijn 'Student, opleidingsprogramma verbintenis, relevante groepen' de terugmelding van de inschrijving, of een andere lijn (#579)? (F6-11, `Keuzedeel aanbod verbintenis`)
+19. Hoort er een relatie van `Medewerker` naar `Lesgelegenheid`, of loopt dat via de verbintenis? De relatie van `Planningsgroep` naar `Lesgroep` (vormt) staat voor de rijping die Niels van Duin in #579 beschrijft, en is een voorstel. (F6-13, `Lesgroep`)
+20. Gaat maatwerkaanbod voor een specifieke groep achterblijvers terug naar de catalogus? Het voorbeeld publiceert het bijgestuurde aanbod, zodat de catalogus de bron blijft, en bij een maatwerkprogramma voor een handvol studenten is de waarde daarvan de vraag. (F7-05, `Onderwijseenheid aanbod`)
+21. Examinering kent objecten en rollen die de informatiemodelplaat niet draagt: zitting, zittingsrapport en examendossier, en de rollen surveillant, beoordelaar en examenbureaumedewerker. Dit voorbeeld toont ze gestippeld, want OKx heeft ze nodig voor de verantwoording en uitwisseling naar de kernregistratie, en juist die stap behandelt OKE niet. Horen zij als uitbreiding op de plaat? (F8-05, `Examendossier`)
 
-De eerste 7 vragen gaan als ronde mee naar de kerngroep; dat is wat een sessie kan wegen. De overige 13 staan hierboven en wachten op een volgende ronde.
+De eerste 7 vragen gaan als ronde mee naar de kerngroep; dat is wat een sessie kan wegen. De overige 14 staan hierboven en wachten op een volgende ronde.
 
 Vragen over patronen, schema's, de toetslijst en endpoints horen bij de koppelvlakspecificatie en staan hier niet.
 
@@ -1024,7 +1049,7 @@ Elke regel onder het ID en de titel van haar beeld (fase, stap, bestand) met de 
 | ontstaat (conceptplaat) | Schaarste van middelen | Twee simulatieruimtes: bij tien weken en tien lesuren per dag samen 1000 lokaaluren per periode | model.archimate, view Informatiemodel Onderwijsontwerp (conceptplaat): Schaarste van middelen naar Onderwijsaanbod Model |
 | ontstaat (conceptplaat) | Onderwijsaanbod Model | Jaarplan 2026-2027: prognose 96 instromers, vier groepen van 24, vier perioden van tien weken | model.archimate, view Informatiemodel Onderwijsontwerp (conceptplaat): Planning bevat Onderwijsaanbod Model; leerroute-1-regulier.md, Fase 2: strategische jaarplanning; scenario-1.1-regulier-happyflow.md, blok D (maatvoering uit de review van 29 september 2026) |
 | ontstaat (conceptplaat) | Schaartste van mensen | Drie docenten met baliepraktijk: bij 80 procent inzet op uitvoering samen 1200 uur docentexpertise per periode | model.archimate, view Informatiemodel Onderwijsontwerp (conceptplaat): Schaartste van mensen naar Onderwijsaanbod Model (naam letterlijk van de conceptplaat) |
-| ontstaat (conceptplaat) | Medewerker | Docent 4711, apothekersassistent-docent | model.archimate, view Informatiemodel Onderwijsontwerp (conceptplaat): Medewerker naar Schaartste van mensen |
+| ontstaat | Medewerker | Docent 4711, apothekersassistent-docent | model.archimate, view Informatiemodel Onderwijsontwerp (conceptplaat): Medewerker naar Schaartste van mensen; aanwijzing van de opdrachtgever, 26 november 2026: de medewerker ontstaat hier als object van het informatiemodel, het rooster wijst hem later toe (F4-11); de relatie naar de schaarste staat alleen op de conceptplaat |
 | ontstaat | Prognose | Apothekersassistent 2026: 96 verwachte instromers, op te knippen in vier plaatsingsgroepen van 24 | sparsessie Niels van Duin en Niek Derksen, 25 november 2026: de planner maakt een prognose van de instroom en knipt die op in plaatsingsgroepen (Niels: 'ik verwacht 80 studenten, knip ik dat op in vier plaatsingsgroepen'); het informatiemodel kent nog geen prognose; 24 volgt de simulatieruimte uit leerroute-1-regulier.md, r723 en r736 |
 
 **F2-06 - Planner stelt de jaarplanning op instellingsniveau vast** (fase 2, Jaarplanning op instellingsniveau vaststellen; [f2-06-planner-stelt-de-jaarplanning-op-instellingsniveau-vast.svg](img/regels/f2-06-planner-stelt-de-jaarplanning-op-instellingsniveau-vast.svg))
@@ -1069,8 +1094,7 @@ Elke regel onder het ID en de titel van haar beeld (fase, stap, bestand) met de 
 | ontstaat | Plaatsingsgroep | APO26-1A: prognose 24 studenten, de eerste van vier plaatsingsgroepen | aanwijzing van de opdrachtgever, 25 november 2026: in de jaarplanning vult de planner het aanbod met groepen op de prognose, zodat een eerste roosteriteratie de haalbaarheid toetst; sparsessie Niels van Duin en Niek Derksen, 25 november 2026: een groep hangt altijd aan capaciteit en planning, niet aan alle studenten met dezelfde verbintenis; antwoord van Niels van Duin op #579, 25 november 2026, vraag 8: plaatsingsgroepen en de eerste planningsgroepen ontstaan in de jaarplanning op de prognose |
 | ontstaat | Planningsgroep | B1-K1 periode 1: APO26-1A, 24 studenten | aanwijzing van de opdrachtgever, 25 november 2026: in de jaarplanning vult de planner het aanbod met groepen op de prognose, zodat een eerste roosteriteratie de haalbaarheid toetst; sparsessie Niels van Duin en Niek Derksen, 25 november 2026: een groep hangt altijd aan capaciteit en planning, niet aan alle studenten met dezelfde verbintenis; antwoord van Niels van Duin op #579, 25 november 2026, vraag 8: plaatsingsgroepen en de eerste planningsgroepen ontstaan in de jaarplanning op de prognose; sparsessie Niels van Duin en Niek Derksen, 25 november 2026: zodra een plaatsingsgroep met studenten naar planning gaat, is zij per definitie ook een planningsgroep, met een ander doel |
 | ontstaat | Planningsgroep | Baliegesprekken 101-A: APO26-1A, 24 studenten, past in de simulatieruimte | aanwijzing van de opdrachtgever, 25 november 2026: in de jaarplanning vult de planner het aanbod met groepen op de prognose, zodat een eerste roosteriteratie de haalbaarheid toetst; sparsessie Niels van Duin en Niek Derksen, 25 november 2026: een groep hangt altijd aan capaciteit en planning, niet aan alle studenten met dezelfde verbintenis; antwoord van Niels van Duin op #579, 25 november 2026, vraag 8: plaatsingsgroepen en de eerste planningsgroepen ontstaan in de jaarplanning op de prognose; capaciteit uit leerroute-1-regulier.md, r723 en r736 (simulatieruimte apotheekbalie, max. 24 studenten) |
-| ontstaat | Planningsgroep | Medicatiebewaking 1A-1: 12 van APO26-1A | aanwijzing van de opdrachtgever, 25 november 2026: in de jaarplanning vult de planner het aanbod met groepen op de prognose, zodat een eerste roosteriteratie de haalbaarheid toetst; sparsessie Niels van Duin en Niek Derksen, 25 november 2026: een groep hangt altijd aan capaciteit en planning, niet aan alle studenten met dezelfde verbintenis; antwoord van Niels van Duin op #579, 25 november 2026, vraag 8: plaatsingsgroepen en de eerste planningsgroepen ontstaan in de jaarplanning op de prognose; sparsessie Niels van Duin en Niek Derksen, 25 november 2026: een plaatsingsgroep van 24 en een practicum met plek voor twaalf geeft twee planningsgroepen, zonder dat er een keuze aan te pas komt |
-| ontstaat | Planningsgroep | Medicatiebewaking 1A-2: 12 van APO26-1A | aanwijzing van de opdrachtgever, 25 november 2026: in de jaarplanning vult de planner het aanbod met groepen op de prognose, zodat een eerste roosteriteratie de haalbaarheid toetst; sparsessie Niels van Duin en Niek Derksen, 25 november 2026: een groep hangt altijd aan capaciteit en planning, niet aan alle studenten met dezelfde verbintenis; antwoord van Niels van Duin op #579, 25 november 2026, vraag 8: plaatsingsgroepen en de eerste planningsgroepen ontstaan in de jaarplanning op de prognose; sparsessie Niels van Duin en Niek Derksen, 25 november 2026: een plaatsingsgroep van 24 en een practicum met plek voor twaalf geeft twee planningsgroepen, zonder dat er een keuze aan te pas komt |
+| ontstaat | Planningsgroep | Medicatiebewaking 1A: APO26-1A, 24 studenten, vraagt twee keer twaalf werkplekken | aanwijzing van de opdrachtgever, 25 november 2026: in de jaarplanning vult de planner het aanbod met groepen op de prognose, zodat een eerste roosteriteratie de haalbaarheid toetst; sparsessie Niels van Duin en Niek Derksen, 25 november 2026: een groep hangt altijd aan capaciteit en planning, niet aan alle studenten met dezelfde verbintenis; antwoord van Niels van Duin op #579, 25 november 2026, vraag 8: plaatsingsgroepen en de eerste planningsgroepen ontstaan in de jaarplanning op de prognose; sparsessie Niels van Duin en Niek Derksen, 25 november 2026: bij het grofmazig plannen blijkt dat de plaatsingsgroep in de leerapotheek twee keer twaalf werkplekken vraagt; de split in lesgroepen volgt bij het fijnmazig plannen (F4-07) |
 | ontstaat | Planningsgroep | OSCE einde periode 1: APO26-1A, 24 studenten | aanwijzing van de opdrachtgever, 25 november 2026: in de jaarplanning vult de planner het aanbod met groepen op de prognose, zodat een eerste roosteriteratie de haalbaarheid toetst; sparsessie Niels van Duin en Niek Derksen, 25 november 2026: een groep hangt altijd aan capaciteit en planning, niet aan alle studenten met dezelfde verbintenis; antwoord van Niels van Duin op #579, 25 november 2026, vraag 8: plaatsingsgroepen en de eerste planningsgroepen ontstaan in de jaarplanning op de prognose; sparsessie Niels van Duin en Niek Derksen, 25 november 2026: de plaatsingsgroep die naar planning gaat is ook planningsgroep |
 | ontstaat | Planningsgroep | Herkansing OSCE periode 2: prognose 10 studenten | aanwijzing van de opdrachtgever, 25 november 2026: in de jaarplanning vult de planner het aanbod met groepen op de prognose, zodat een eerste roosteriteratie de haalbaarheid toetst; sparsessie Niels van Duin en Niek Derksen, 25 november 2026: een groep hangt altijd aan capaciteit en planning, niet aan alle studenten met dezelfde verbintenis; antwoord van Niels van Duin op #579, 25 november 2026, vraag 8: plaatsingsgroepen en de eerste planningsgroepen ontstaan in de jaarplanning op de prognose; de herkansers komen uit meer plaatsingsgroepen, dus de groep hangt aan geen enkele |
 | ontstaat | Planningsgroep | K0037-P7-1: capaciteitsgroep tot 24, prognose 18 studenten | besluit van de opdrachtgever, 24 november 2026: de planningsgroep ontstaat al bij ontwerp en capaciteitsgestuurd plannen, en wordt na de keuzes heroverwogen; antwoord van Niels van Duin op #579, 25 november 2026, vraag 8: zowel plaatsingsgroepen als de eerste planningsgroepen ontstaan in de jaarplanning op de prognose; plannen en roosteren lopen door, en op periodeniveau ontstaan nieuwe planningsgroepen; vraag 1: de planningsgroep van een keuzedeel is een capaciteitsgroep met een maximum, er zijn zo nodig meer instanties per keuzedeel, en tijdens plannen of roosteren wordt bepaald welke studenten erin zitten; capaciteit uit leerroute-1-regulier.md, r723 en r736 (simulatieruimte apotheekbalie, max. 24 studenten) |
@@ -1200,7 +1224,7 @@ Elke regel onder het ID en de titel van haar beeld (fase, stap, bestand) met de 
 | stroomt | Examenonderdeel weging | Proeve van bekwaamheid B1-K1: weging 2 | informatiemodel.json: Summatieve resultaat structuur aggregeert Toetsonderdeel specificatie, Examenonderdeelspecificatie is een Toetsonderdeel specificatie, Examenonderdeel weging naar Examenonderdeelspecificatie |
 | stroomt | Summatief Afrondingscriterium | Alle kerntaken voldoende, de keuzedeelruimte gevuld en afgerond, en het basisdeel behaald: Nederlands en rekenen op 2F of 3F met een eigen regeling, Engels en loopbaan en burgerschap voldaan | keuze van de sectorarchitect |
 
-**F4-06 - Kernregistratie stuurt de plaatsingsgroepen naar het planningssysteem** (fase 4, Plaatsings- en planninggroepen definieren en aan personen koppelen; [f4-06-kernregistratie-stuurt-de-plaatsingsgroepen-naar-het-planningssysteem.svg](img/regels/f4-06-kernregistratie-stuurt-de-plaatsingsgroepen-naar-het-planningssysteem.svg))
+**F4-06 - Kernregistratie stuurt de plaatsingsgroepen naar het planningssysteem** (fase 4, Plaatsings- en planningsgroepen definieren en aan personen koppelen; [f4-06-kernregistratie-stuurt-de-plaatsingsgroepen-naar-het-planningssysteem.svg](img/regels/f4-06-kernregistratie-stuurt-de-plaatsingsgroepen-naar-het-planningssysteem.svg))
 
 | Soort | Objecttype | Instantie | Bron |
 |---|---|---|---|
@@ -1208,30 +1232,90 @@ Elke regel onder het ID en de titel van haar beeld (fase, stap, bestand) met de 
 | stroomt | Student | Jochem, cohort 2026 | informatiemodel.json: Persoon naar Plaatsingsgroep (Worden gegroepeerd via), Student is een Persoon |
 | stroomt | Student | 23 andere studenten in dezelfde groep | informatiemodel.json: Persoon naar Plaatsingsgroep (Worden gegroepeerd via), Student is een Persoon |
 
-**F4-07 - Planningssysteem stuurt de te roosteren leergelegenheden naar het roostersysteem** (fase 4, Te roosteren specificaties aan het roostersysteem geven; [f4-07-planningssysteem-stuurt-de-te-roosteren-leergelegenheden-naar-het-roostersysteem.svg](img/regels/f4-07-planningssysteem-stuurt-de-te-roosteren-leergelegenheden-naar-het-roostersysteem.svg))
+**F4-07 - Planner plant de lesgroepen fijnmazig over alle opleidingen** (fase 4, Plaatsings- en planningsgroepen definieren en aan personen koppelen; [f4-07-planner-plant-de-lesgroepen-fijnmazig-over-alle-opleidingen.svg](img/regels/f4-07-planner-plant-de-lesgroepen-fijnmazig-over-alle-opleidingen.svg))
 
 | Soort | Objecttype | Instantie | Bron |
 |---|---|---|---|
-| stroomt | Leergelegenheid | Baliegesprekken 101, periode 1: lokaaltype balie-simulatie, docentexpertise farmacie met baliepraktijk, vier groepen van 24 | [leerroute-1-regulier.md](https://github.com/Npuls-OKx/Public/blob/dev/Referentiemateriaal/kaderscenario's/leerroute-1-regulier.md), [Fase 4](https://github.com/Npuls-OKx/Public/blob/dev/Referentiemateriaal/kaderscenario's/leerroute-1-regulier.md#fase-4--detailleren-roosteren-en-inschrijven): Planning naar Rooster (te roosteren specificaties); scenario-1.1-regulier-happyflow.md, blok D (maatvoering uit de review van 29 september 2026) |
+| bestaat, uit F2-08 | Onderwijseenheid aanbod | B1-K1, leerjaar 1, periode 1 tot 4 | aanwijzing van de opdrachtgever, 26 november 2026 |
+| bestaat, uit F3-05 | Plaatsingsgroep | APO26-1A: Jochem en 23 andere studenten geplaatst | aanwijzing van de opdrachtgever, 26 november 2026 |
+| bestaat, uit F2-08 | Planningsgroep | Baliegesprekken 101-A: APO26-1A, 24 studenten, past in de simulatieruimte | aanwijzing van de opdrachtgever, 26 november 2026 |
+| bestaat, uit F2-08 | Leergelegenheid | Baliegesprekken 101, periode 1, vier groepen van 24 | aanwijzing van de opdrachtgever, 26 november 2026 |
+| bestaat, uit F2-01 | Leeronderdeel specificatie | Baliegesprekken 101: BOT 50 uur, praktijkruimte, docent farmacie | aanwijzing van de opdrachtgever, 27 november 2026: de specificatie vraagt om een lokaaltype, dat bij het roosteren een onderwijslocatie wordt |
+| bestaat, uit F2-08 | Planningsgroep | Medicatiebewaking 1A: APO26-1A, 24 studenten, vraagt twee keer twaalf werkplekken | aanwijzing van de opdrachtgever, 26 november 2026 |
+| bestaat, uit F2-08 | Leergelegenheid | Medicatiebewaking in de leerapotheek, periode 1: twaalf werkplekken | aanwijzing van de opdrachtgever, 26 november 2026 |
+| bestaat, uit F2-01 | Leeronderdeel specificatie | Medicatiebewaking in de leerapotheek: BOT 30 uur, praktijkruimte, docent farmacie | aanwijzing van de opdrachtgever, 27 november 2026 |
+| ontstaat | Onderwijseenheid aanbod verbintenis | Jochem op B1-K1, leerjaar 1 | aanwijzing van de opdrachtgever, 26 november 2026: de planner zet de studenten van de plaatsingsgroep op de onderwijseenheid, voordat het rooster de verbintenissen op leergelegenheid en les legt |
+| verandert | Leergelegenheid | Baliegesprekken 101, periode 1: simulatieruimte, docenten farmacie | aanwijzing van de opdrachtgever, 26 november 2026: fijnmazig plannen legt over alle opleidingen de lesgroepen vast op de capaciteit van het lokaaltype en het aantal docenten per expertise, met de aantallen uit de plaatsingsgroepen en nog zonder namen; roosteren maakt ze daarna concreet; leerroute-1-regulier.md, r726 (gedetailleerd planbaar) |
+| ontstaat | Onderwijslocatie type | Simulatieruimte apotheekbalie, 24 plaatsen | aanwijzing van de opdrachtgever, 26 november 2026: fijnmazig plannen legt over alle opleidingen de lesgroepen vast op de capaciteit van het lokaaltype en het aantal docenten per expertise, met de aantallen uit de plaatsingsgroepen en nog zonder namen; roosteren maakt ze daarna concreet; leerroute-1-regulier.md, r726 (gedetailleerd planbaar); capaciteit uit leerroute-1-regulier.md, r723 en r736 |
+| verandert | Leergelegenheid | Medicatiebewaking, periode 1: leerapotheek, docent farmacie | aanwijzing van de opdrachtgever, 26 november 2026: fijnmazig plannen legt over alle opleidingen de lesgroepen vast op de capaciteit van het lokaaltype en het aantal docenten per expertise, met de aantallen uit de plaatsingsgroepen en nog zonder namen; roosteren maakt ze daarna concreet; leerroute-1-regulier.md, r726 (gedetailleerd planbaar) |
+| ontstaat | Onderwijslocatie type | Leerapotheek, twaalf werkplekken | aanwijzing van de opdrachtgever, 26 november 2026: fijnmazig plannen legt over alle opleidingen de lesgroepen vast op de capaciteit van het lokaaltype en het aantal docenten per expertise, met de aantallen uit de plaatsingsgroepen en nog zonder namen; roosteren maakt ze daarna concreet; leerroute-1-regulier.md, r726 (gedetailleerd planbaar) |
+| ontstaat | Expertise of functieprofiel | Docent farmacie met baliepraktijk, drie beschikbaar in periode 1 | aanwijzing van de opdrachtgever, 26 november 2026: fijnmazig plannen legt over alle opleidingen de lesgroepen vast op de capaciteit van het lokaaltype en het aantal docenten per expertise, met de aantallen uit de plaatsingsgroepen en nog zonder namen; roosteren maakt ze daarna concreet; leerroute-1-regulier.md, r726 (gedetailleerd planbaar); drie docenten met baliepraktijk uit F2-05 |
+| ontstaat | Lesgroep | Baliegesprekken 101-A: de 24 studenten van APO26-1A, nog zonder namen | aanwijzing van de opdrachtgever, 26 november 2026: fijnmazig plannen legt over alle opleidingen de lesgroepen vast op de capaciteit van het lokaaltype en het aantal docenten per expertise, met de aantallen uit de plaatsingsgroepen en nog zonder namen; roosteren maakt ze daarna concreet; leerroute-1-regulier.md, r726 (gedetailleerd planbaar); voor nu ontstaat de lesgroep al bij het plannen en rijpt zij bij het roosteren (keuze b van de opdrachtgever) |
+| ontstaat | Lesgroep | Baliegesprekken 101-B tot en met D: drie lesgroepen van 24, uit de planningsgroepen van APO26-1B tot en met 1D | aanwijzing van de opdrachtgever, 26 november 2026: fijnmazig plannen legt over alle opleidingen de lesgroepen vast op de capaciteit van het lokaaltype en het aantal docenten per expertise, met de aantallen uit de plaatsingsgroepen en nog zonder namen; roosteren maakt ze daarna concreet; leerroute-1-regulier.md, r726 (gedetailleerd planbaar); voor nu ontstaat de lesgroep al bij het plannen en rijpt zij bij het roosteren (keuze b van de opdrachtgever) |
+| ontstaat | Lesgroep | Medicatiebewaking 1A-1: 12 studenten van APO26-1A, nog zonder namen | aanwijzing van de opdrachtgever, 26 november 2026: fijnmazig plannen legt over alle opleidingen de lesgroepen vast op de capaciteit van het lokaaltype en het aantal docenten per expertise, met de aantallen uit de plaatsingsgroepen en nog zonder namen; roosteren maakt ze daarna concreet; leerroute-1-regulier.md, r726 (gedetailleerd planbaar) |
+| ontstaat | Lesgroep | Medicatiebewaking 1A-2: 12 studenten van APO26-1A, nog zonder namen | aanwijzing van de opdrachtgever, 26 november 2026: fijnmazig plannen legt over alle opleidingen de lesgroepen vast op de capaciteit van het lokaaltype en het aantal docenten per expertise, met de aantallen uit de plaatsingsgroepen en nog zonder namen; roosteren maakt ze daarna concreet; leerroute-1-regulier.md, r726 (gedetailleerd planbaar) |
+| ontstaat | Lesgroep | Medicatiebewaking 1B-1 tot en met 1D-2: zes lesgroepen van 12, uit de planningsgroepen van APO26-1B tot en met 1D | aanwijzing van de opdrachtgever, 26 november 2026: fijnmazig plannen legt over alle opleidingen de lesgroepen vast op de capaciteit van het lokaaltype en het aantal docenten per expertise, met de aantallen uit de plaatsingsgroepen en nog zonder namen; roosteren maakt ze daarna concreet; leerroute-1-regulier.md, r726 (gedetailleerd planbaar); voor nu ontstaat de lesgroep al bij het plannen en rijpt zij bij het roosteren (keuze b van de opdrachtgever) |
 
-**F4-08 - Roosteraar roostert lesgelegenheid, lokaal en docent** (fase 4, Leer-, les- en toetsgelegenheden roosteren; [f4-08-roosteraar-roostert-lesgelegenheid-lokaal-en-docent.svg](img/regels/f4-08-roosteraar-roostert-lesgelegenheid-lokaal-en-docent.svg))
+**F4-08 - Planningssysteem stuurt leergelegenheden en geplande lesgroepen naar het roostersysteem** (fase 4, Te roosteren specificaties aan het roostersysteem geven; [f4-08-planningssysteem-stuurt-leergelegenheden-en-geplande-lesgroepen-naar-het-roostersysteem.svg](img/regels/f4-08-planningssysteem-stuurt-leergelegenheden-en-geplande-lesgroepen-naar-het-roostersysteem.svg))
 
 | Soort | Objecttype | Instantie | Bron |
 |---|---|---|---|
-| verandert | Leergelegenheid | Baliegesprekken 101, periode 1, docent 4711 | [scenario-1.1-regulier-happyflow.md](../../docs/specificatie/leerroute-uitwerking/doc/scenario-uitwerkingen/scenario-1.1-regulier-happyflow.md), [r80](../../docs/specificatie/leerroute-uitwerking/doc/scenario-uitwerkingen/scenario-1.1-regulier-happyflow.md?plain=1#L80): roosteraar roostert alleen periode 1 |
-| ontstaat | Lesgelegenheid | Les 1, maandag 1 september 09:00, simulatieruimte 2.14 | [scenario-1.1-regulier-happyflow.md](../../docs/specificatie/leerroute-uitwerking/doc/scenario-uitwerkingen/scenario-1.1-regulier-happyflow.md), [r80](../../docs/specificatie/leerroute-uitwerking/doc/scenario-uitwerkingen/scenario-1.1-regulier-happyflow.md?plain=1#L80) en [r86](../../docs/specificatie/leerroute-uitwerking/doc/scenario-uitwerkingen/scenario-1.1-regulier-happyflow.md?plain=1#L86): ma 09:00 tot [11](../../docs/specificatie/leerroute-uitwerking/doc/scenario-uitwerkingen/scenario-1.1-regulier-happyflow.md?plain=1#L11):00, lokaal 2.14 |
-| ontstaat | Medewerker | Docent, personeelsnummer 4711 | [scenario-1.1-regulier-happyflow.md](../../docs/specificatie/leerroute-uitwerking/doc/scenario-uitwerkingen/scenario-1.1-regulier-happyflow.md), [r80](../../docs/specificatie/leerroute-uitwerking/doc/scenario-uitwerkingen/scenario-1.1-regulier-happyflow.md?plain=1#L80): docent personeelsnr 4711 |
+| stroomt | Leergelegenheid | Baliegesprekken 101, periode 1: simulatieruimte, docenten farmacie | aanwijzing van de opdrachtgever, 26 november 2026: planning geeft het rooster de leergelegenheden met lokaaltype en docentexpertise, de geplande lesgroepen en de plaatsingsgroep met haar studenten; hoofdplaat 1.7.2 noemt op deze lijn 'Ontsluiten van planningsgroepen' |
+| stroomt | Onderwijslocatie type | Simulatieruimte apotheekbalie, 24 plaatsen | aanwijzing van de opdrachtgever, 26 november 2026: planning geeft het rooster de leergelegenheden met lokaaltype en docentexpertise, de geplande lesgroepen en de plaatsingsgroep met haar studenten; hoofdplaat 1.7.2 noemt op deze lijn 'Ontsluiten van planningsgroepen' |
+| stroomt | Expertise of functieprofiel | Docent farmacie met baliepraktijk, drie beschikbaar in periode 1 | aanwijzing van de opdrachtgever, 26 november 2026: planning geeft het rooster de leergelegenheden met lokaaltype en docentexpertise, de geplande lesgroepen en de plaatsingsgroep met haar studenten; hoofdplaat 1.7.2 noemt op deze lijn 'Ontsluiten van planningsgroepen' |
+| stroomt | Lesgroep | Baliegesprekken 101-A: de 24 studenten van APO26-1A, nog zonder namen | aanwijzing van de opdrachtgever, 26 november 2026: planning geeft het rooster de leergelegenheden met lokaaltype en docentexpertise, de geplande lesgroepen en de plaatsingsgroep met haar studenten; hoofdplaat 1.7.2 noemt op deze lijn 'Ontsluiten van planningsgroepen' |
+| stroomt | Leergelegenheid | Medicatiebewaking, periode 1: leerapotheek, docent farmacie | aanwijzing van de opdrachtgever, 26 november 2026: planning geeft het rooster de leergelegenheden met lokaaltype en docentexpertise, de geplande lesgroepen en de plaatsingsgroep met haar studenten; hoofdplaat 1.7.2 noemt op deze lijn 'Ontsluiten van planningsgroepen' |
+| stroomt | Lesgroep | Medicatiebewaking 1A-1: 12 studenten van APO26-1A, nog zonder namen | aanwijzing van de opdrachtgever, 26 november 2026: planning geeft het rooster de leergelegenheden met lokaaltype en docentexpertise, de geplande lesgroepen en de plaatsingsgroep met haar studenten; hoofdplaat 1.7.2 noemt op deze lijn 'Ontsluiten van planningsgroepen' |
+| stroomt | Lesgroep | Medicatiebewaking 1A-2: 12 studenten van APO26-1A, nog zonder namen | aanwijzing van de opdrachtgever, 26 november 2026: planning geeft het rooster de leergelegenheden met lokaaltype en docentexpertise, de geplande lesgroepen en de plaatsingsgroep met haar studenten; hoofdplaat 1.7.2 noemt op deze lijn 'Ontsluiten van planningsgroepen' |
+| stroomt | Plaatsingsgroep | APO26-1A: Jochem en 23 andere studenten geplaatst | aanwijzing van de opdrachtgever, 26 november 2026: planning geeft het rooster de leergelegenheden met lokaaltype en docentexpertise, de geplande lesgroepen en de plaatsingsgroep met haar studenten; hoofdplaat 1.7.2 noemt op deze lijn 'Ontsluiten van planningsgroepen' |
+| stroomt | Onderwijseenheid aanbod verbintenis | Jochem op B1-K1, leerjaar 1 | aanwijzing van de opdrachtgever, 26 november 2026: planning geeft het rooster de leergelegenheden met lokaaltype en docentexpertise, de geplande lesgroepen en de plaatsingsgroep met haar studenten; hoofdplaat 1.7.2 noemt op deze lijn 'Ontsluiten van planningsgroepen' |
+| stroomt | Toetsgelegenheid | Praktijktoets baliegesprek (OSCE), einde periode 1 | aanwijzing van de opdrachtgever, 26 november 2026: planning geeft het rooster de leergelegenheden met lokaaltype en docentexpertise, de geplande lesgroepen en de plaatsingsgroep met haar studenten; hoofdplaat 1.7.2 noemt op deze lijn 'Ontsluiten van planningsgroepen' |
+| stroomt | Planningsgroep | OSCE einde periode 1: APO26-1A, 24 studenten | aanwijzing van de opdrachtgever, 26 november 2026: planning geeft het rooster de leergelegenheden met lokaaltype en docentexpertise, de geplande lesgroepen en de plaatsingsgroep met haar studenten; hoofdplaat 1.7.2 noemt op deze lijn 'Ontsluiten van planningsgroepen' |
 
-**F4-09 - SLB'er en planner verbinden Jochem aan de geroosterde gelegenheden** (fase 4, Verwachte deelnemers delen en toegang geven; [f4-09-slb-er-en-planner-verbinden-jochem-aan-de-geroosterde-gelegenheden.svg](img/regels/f4-09-slb-er-en-planner-verbinden-jochem-aan-de-geroosterde-gelegenheden.svg))
+**F4-09 - Roosteraar toetst de planning in een conceptrooster** (fase 4, Leer-, les- en toetsgelegenheden roosteren; [f4-09-roosteraar-toetst-de-planning-in-een-conceptrooster.svg](img/regels/f4-09-roosteraar-toetst-de-planning-in-een-conceptrooster.svg))
 
 | Soort | Objecttype | Instantie | Bron |
 |---|---|---|---|
-| ontstaat | Onderwijseenheid aanbod verbintenis | Jochem op B1-K1, leerjaar 1 | [scenario-1.1-regulier-happyflow.md](../../docs/specificatie/leerroute-uitwerking/doc/scenario-uitwerkingen/scenario-1.1-regulier-happyflow.md), [r96](../../docs/specificatie/leerroute-uitwerking/doc/scenario-uitwerkingen/scenario-1.1-regulier-happyflow.md?plain=1#L96): enrolled op P1-eenheden |
-| ontstaat | Leergelegenheid verbintenis | Jochem op Baliegesprekken 101, periode 1 | [scenario-1.1-regulier-happyflow.md](../../docs/specificatie/leerroute-uitwerking/doc/scenario-uitwerkingen/scenario-1.1-regulier-happyflow.md), [r97](../../docs/specificatie/leerroute-uitwerking/doc/scenario-uitwerkingen/scenario-1.1-regulier-happyflow.md?plain=1#L97): Association.state enrolled op P1-leergelegenheden |
-| ontstaat | Lesgelegenheid verbintenis | Jochem op les 1, 1 september 09:00 | [scenario-1.1-regulier-happyflow.md](../../docs/specificatie/leerroute-uitwerking/doc/scenario-uitwerkingen/scenario-1.1-regulier-happyflow.md), [r98](../../docs/specificatie/leerroute-uitwerking/doc/scenario-uitwerkingen/scenario-1.1-regulier-happyflow.md?plain=1#L98): lesgelegenheden eerste week geroosterd |
-| verandert | Opleidingsprogramma aanbod verbintenis | Jochem op Regulier BOL 2026 | [scenario-1.1-regulier-happyflow.md](../../docs/specificatie/leerroute-uitwerking/doc/scenario-uitwerkingen/scenario-1.1-regulier-happyflow.md), [r95](../../docs/specificatie/leerroute-uitwerking/doc/scenario-uitwerkingen/scenario-1.1-regulier-happyflow.md?plain=1#L95): enrolled op nominaal traject |
+| bestaat, uit F4-07 | Lesgroep | Baliegesprekken 101-A: de 24 studenten van APO26-1A, nog zonder namen | aanwijzing van de opdrachtgever, 26 november 2026 |
+| bestaat, uit F4-07 | Leergelegenheid | Baliegesprekken 101, periode 1: simulatieruimte, docenten farmacie | aanwijzing van de opdrachtgever, 26 november 2026 |
+| verandert | Lesgroep | Baliegesprekken 101-A: past in het conceptrooster, zonder overlap van studenten of docenten | aanwijzing van de opdrachtgever, 26 november 2026: tussen fijnmazig plannen en roosteren draait de roosterautomaat een conceptrooster over alle opleidingen, met geprognosticeerde studenten en docenten, om te zien of de planning in de tijd rond te krijgen is; het conceptrooster blijft in het roostersysteem (ontwerpkeuze) |
+| ontstaat | Lesgelegenheid | Les 1, week 1, een simulatieruimte, een docent farmacie (concept) | aanwijzing van de opdrachtgever, 26 november 2026: tussen fijnmazig plannen en roosteren draait de roosterautomaat een conceptrooster over alle opleidingen, met geprognosticeerde studenten en docenten, om te zien of de planning in de tijd rond te krijgen is; het conceptrooster blijft in het roostersysteem (ontwerpkeuze) |
 
-**F4-10 - Roostersysteem stuurt student, verbintenissen en groep naar het LMS** (fase 4, Verwachte deelnemers delen en toegang geven; [f4-10-roostersysteem-stuurt-student-verbintenissen-en-groep-naar-het-lms.svg](img/regels/f4-10-roostersysteem-stuurt-student-verbintenissen-en-groep-naar-het-lms.svg))
+**F4-10 - Roostersysteem meldt planning of het conceptrooster past** (fase 4, Leer-, les- en toetsgelegenheden roosteren; [f4-10-roostersysteem-meldt-planning-of-het-conceptrooster-past.svg](img/regels/f4-10-roostersysteem-meldt-planning-of-het-conceptrooster-past.svg))
+
+| Soort | Objecttype | Instantie | Bron |
+|---|---|---|---|
+| stroomt | Lesgroep | Baliegesprekken 101-A: past in het conceptrooster, zonder overlap van studenten of docenten | aanwijzing van de opdrachtgever, 26 november 2026: het conceptrooster geeft terug of de planning rond te krijgen is; hoofdplaat 1.7.2 kent geen lijn van het roostersysteem naar planning, een voorstel voor de modelronde (#538) |
+
+**F4-11 - Roosteraar roostert de lesgroep met studenten, lokaal en docent** (fase 4, Leer-, les- en toetsgelegenheden roosteren; [f4-11-roosteraar-roostert-de-lesgroep-met-studenten-lokaal-en-docent.svg](img/regels/f4-11-roosteraar-roostert-de-lesgroep-met-studenten-lokaal-en-docent.svg))
+
+| Soort | Objecttype | Instantie | Bron |
+|---|---|---|---|
+| bestaat, uit F2-08 | Planningsgroep | Baliegesprekken 101-A: APO26-1A, 24 studenten, past in de simulatieruimte | aanwijzing van de opdrachtgever, 27 november 2026: de lesgroep hangt direct aan de planningsgroep |
+| bestaat, uit F4-09 | Lesgroep | Baliegesprekken 101-A: past in het conceptrooster, zonder overlap van studenten of docenten | aanwijzing van de opdrachtgever, 26 november 2026 |
+| bestaat, uit F4-07 | Onderwijslocatie type | Simulatieruimte apotheekbalie, 24 plaatsen | aanwijzing van de opdrachtgever, 26 november 2026 |
+| bestaat, uit F4-07 | Onderwijseenheid aanbod verbintenis | Jochem op B1-K1, leerjaar 1 | aanwijzing van de opdrachtgever, 26 november 2026 |
+| verandert | Leergelegenheid | Baliegesprekken 101, periode 1: geroosterd in vier lesgroepen | [scenario-1.1-regulier-happyflow.md](../../docs/specificatie/leerroute-uitwerking/doc/scenario-uitwerkingen/scenario-1.1-regulier-happyflow.md), [r80](../../docs/specificatie/leerroute-uitwerking/doc/scenario-uitwerkingen/scenario-1.1-regulier-happyflow.md?plain=1#L80): roosteraar roostert alleen periode 1 |
+| verandert | Lesgelegenheid | Les 1, maandag 1 september 09:00, simulatieruimte 2.14 | [scenario-1.1-regulier-happyflow.md](../../docs/specificatie/leerroute-uitwerking/doc/scenario-uitwerkingen/scenario-1.1-regulier-happyflow.md), [r80](../../docs/specificatie/leerroute-uitwerking/doc/scenario-uitwerkingen/scenario-1.1-regulier-happyflow.md?plain=1#L80) en [r86](../../docs/specificatie/leerroute-uitwerking/doc/scenario-uitwerkingen/scenario-1.1-regulier-happyflow.md?plain=1#L86): ma 09:00 tot [11](../../docs/specificatie/leerroute-uitwerking/doc/scenario-uitwerkingen/scenario-1.1-regulier-happyflow.md?plain=1#L11):00, lokaal 2.14 |
+| ontstaat | Onderwijslocatie | Lokaal 2.14, simulatieruimte, gebouw C, Campus Zuid (locatie A) | aanwijzing van de opdrachtgever, 26 november 2026: roosteren maakt de geplande lesgroep concreet: het lokaaltype wordt een lokaal, de expertise een docent, het aantal de studenten; tijdens het roosteren ontstaan de verbintenissen tussen personen en aanbod; de locatie volgt het voorstel in OEAPI #635 (campus, gebouw, lokaal) |
+| verandert | Lesgroep | Baliegesprekken 101-A: Jochem en 23 andere studenten van APO26-1A, docent 4711 | aanwijzing van de opdrachtgever, 26 november 2026: roosteren maakt de geplande lesgroep concreet: het lokaaltype wordt een lokaal, de expertise een docent, het aantal de studenten; tijdens het roosteren ontstaan de verbintenissen tussen personen en aanbod; antwoord van Niels van Duin op #579, 25 november 2026, vraag 1 |
+| bestaat, uit F3-05 | Student | Jochem, cohort 2026 | aanwijzing van de opdrachtgever, 27 november 2026: de personen hangen aan de lesgroep, zoals aan de plaatsingsgroep (Worden gegroepeerd via); de relatie Groepeert tot vanuit de verbintenis vervalt |
+| ontstaat | Leergelegenheid verbintenis | Jochem op Baliegesprekken 101, periode 1 | aanwijzing van de opdrachtgever, 26 november 2026: roosteren maakt de geplande lesgroep concreet: het lokaaltype wordt een lokaal, de expertise een docent, het aantal de studenten; tijdens het roosteren ontstaan de verbintenissen tussen personen en aanbod; aanwijzing van de opdrachtgever, 26 november 2026: een aparte verbintenis op de leergelegenheid voor Jochem en voor de docent, elk via de lesgroep aan de leergelegenheid |
+| ontstaat | Lesgelegenheid verbintenis | Jochem op les 1, 1 september 09:00 | aanwijzing van de opdrachtgever, 26 november 2026: roosteren maakt de geplande lesgroep concreet: het lokaaltype wordt een lokaal, de expertise een docent, het aantal de studenten; tijdens het roosteren ontstaan de verbintenissen tussen personen en aanbod |
+| bestaat, uit F2-05 | Medewerker | Docent 4711, apothekersassistent-docent | aanwijzing van de opdrachtgever, 27 november 2026: de roosteraar wijst een docent toe met de gevraagde expertise; de docent hangt aan de lesgroep en krijgt een eigen verbintenis |
+| ontstaat | Leergelegenheid verbintenis | Docent 4711 op Baliegesprekken 101, periode 1, als docent van lesgroep 101-A | aanwijzing van de opdrachtgever, 26 november 2026: een aparte verbintenis op de leergelegenheid voor Jochem en voor de docent, elk via de lesgroep aan de leergelegenheid |
+| ontstaat | Lesgelegenheid verbintenis | Docent 4711 op les 1, 1 september 09:00 | aanwijzing van de opdrachtgever, 27 november 2026: ook de docent krijgt een verbintenis op de les, onder zijn verbintenis op de leergelegenheid |
+
+**F4-12 - Roostersysteem stuurt de lesgroep met studenten naar de kernregistratie** (fase 4, Leer-, les- en toetsgelegenheden roosteren; [f4-12-roostersysteem-stuurt-de-lesgroep-met-studenten-naar-de-kernregistratie.svg](img/regels/f4-12-roostersysteem-stuurt-de-lesgroep-met-studenten-naar-de-kernregistratie.svg))
+
+| Soort | Objecttype | Instantie | Bron |
+|---|---|---|---|
+| stroomt | Lesgroep | Baliegesprekken 101-A: Jochem en 23 andere studenten van APO26-1A, docent 4711 | aanwijzing van de opdrachtgever, 26 november 2026: de lesgroep met haar studenten en hun verbintenissen gaan van het rooster naar de kernregistratie, langs 'Ontsluiten planningsgroepen met studenten' op hoofdplaat 1.7.2 |
+| stroomt | Leergelegenheid verbintenis | Jochem op Baliegesprekken 101, periode 1 | aanwijzing van de opdrachtgever, 26 november 2026: de lesgroep met haar studenten en hun verbintenissen gaan van het rooster naar de kernregistratie, langs 'Ontsluiten planningsgroepen met studenten' op hoofdplaat 1.7.2 |
+| stroomt | Lesgelegenheid verbintenis | Jochem op les 1, 1 september 09:00 | aanwijzing van de opdrachtgever, 26 november 2026: de lesgroep met haar studenten en hun verbintenissen gaan van het rooster naar de kernregistratie, langs 'Ontsluiten planningsgroepen met studenten' op hoofdplaat 1.7.2 |
+| stroomt | Onderwijseenheid aanbod verbintenis | Jochem op B1-K1, leerjaar 1 | aanwijzing van de opdrachtgever, 26 november 2026: de lesgroep met haar studenten en hun verbintenissen gaan van het rooster naar de kernregistratie, langs 'Ontsluiten planningsgroepen met studenten' op hoofdplaat 1.7.2 |
+
+**F4-13 - Roostersysteem stuurt student, verbintenissen en groep naar het LMS** (fase 4, Verwachte deelnemers delen en toegang geven; [f4-13-roostersysteem-stuurt-student-verbintenissen-en-groep-naar-het-lms.svg](img/regels/f4-13-roostersysteem-stuurt-student-verbintenissen-en-groep-naar-het-lms.svg))
 
 | Soort | Objecttype | Instantie | Bron |
 |---|---|---|---|
@@ -1240,8 +1324,10 @@ Elke regel onder het ID en de titel van haar beeld (fase, stap, bestand) met de 
 | stroomt | Plaatsingsgroep | APO26-1A | [leerroute-1-regulier.md](https://github.com/Npuls-OKx/Public/blob/dev/Referentiemateriaal/kaderscenario's/leerroute-1-regulier.md), [Fase 4](https://github.com/Npuls-OKx/Public/blob/dev/Referentiemateriaal/kaderscenario's/leerroute-1-regulier.md#fase-4--detailleren-roosteren-en-inschrijven): relevante groepen; bron gecorrigeerd in de sparsessie PR 314, deel 2, 4 november 2026 |
 | stroomt | Onderwijseenheid aanbod verbintenis | Jochem op B1-K1, leerjaar 1 | [leerroute-1-regulier.md](https://github.com/Npuls-OKx/Public/blob/dev/Referentiemateriaal/kaderscenario's/leerroute-1-regulier.md), [Fase 4](https://github.com/Npuls-OKx/Public/blob/dev/Referentiemateriaal/kaderscenario's/leerroute-1-regulier.md#fase-4--detailleren-roosteren-en-inschrijven): verwachte deelnemers; bron gecorrigeerd in de sparsessie PR 314, deel 2, 4 november 2026 |
 | stroomt | Leergelegenheid verbintenis | Jochem op Baliegesprekken 101, periode 1 | [leerroute-1-regulier.md](https://github.com/Npuls-OKx/Public/blob/dev/Referentiemateriaal/kaderscenario's/leerroute-1-regulier.md), [Fase 4](https://github.com/Npuls-OKx/Public/blob/dev/Referentiemateriaal/kaderscenario's/leerroute-1-regulier.md#fase-4--detailleren-roosteren-en-inschrijven): verwachte deelnemers; bron gecorrigeerd in de sparsessie PR 314, deel 2, 4 november 2026 |
+| stroomt | Leergelegenheid verbintenis | Docent 4711 op Baliegesprekken 101, periode 1, als docent van lesgroep 101-A | aanwijzing van de opdrachtgever, 26 november 2026: een aparte verbintenis op de leergelegenheid voor Jochem en voor de docent, elk via de lesgroep aan de leergelegenheid; het LMS geeft ook de docent toegang tot de lesgroep |
+| stroomt | Lesgroep | Baliegesprekken 101-A: Jochem en 23 andere studenten van APO26-1A, docent 4711 | antwoord van Niels van Duin op #579, 25 november 2026, vraag 2: het roostersysteem levert groepen die niet aan een keuze hangen rechtstreeks aan het LMS; een voorstel voor de modelronde |
 
-**F4-11 - Kernregistratie stuurt de verbintenissen naar het studentvolgsysteem** (fase 4, Verwachte deelnemers delen en toegang geven; [f4-11-kernregistratie-stuurt-de-verbintenissen-naar-het-studentvolgsysteem.svg](img/regels/f4-11-kernregistratie-stuurt-de-verbintenissen-naar-het-studentvolgsysteem.svg))
+**F4-14 - Kernregistratie stuurt de verbintenissen naar het studentvolgsysteem** (fase 4, Verwachte deelnemers delen en toegang geven; [f4-14-kernregistratie-stuurt-de-verbintenissen-naar-het-studentvolgsysteem.svg](img/regels/f4-14-kernregistratie-stuurt-de-verbintenissen-naar-het-studentvolgsysteem.svg))
 
 | Soort | Objecttype | Instantie | Bron |
 |---|---|---|---|
@@ -1434,12 +1520,12 @@ Elke regel onder het ID en de titel van haar beeld (fase, stap, bestand) met de 
 
 | Soort | Objecttype | Instantie | Bron |
 |---|---|---|---|
-| stroomt | Student | Jochem, cohort 2026 | aanwijzing van de opdrachtgever, 24 november 2026: het roostersysteem meldt het studentkeuzesysteem met wie en in welke groep de student is ingeroosterd, en het studentkeuzesysteem geeft dat door aan het LMS; antwoord van Niels van Duin op #579, 25 november 2026, vraag 2: voor een keuzedeel heeft het LMS de planningsgroep met de verbintenis als geheel nodig, en dat komt zuiverder uit het studentkeuzesysteem; groepen die niet aan een keuze hangen gaan rechtstreeks van het roostersysteem naar het LMS (F4-10) |
+| stroomt | Student | Jochem, cohort 2026 | aanwijzing van de opdrachtgever, 24 november 2026: het roostersysteem meldt het studentkeuzesysteem met wie en in welke groep de student is ingeroosterd, en het studentkeuzesysteem geeft dat door aan het LMS; antwoord van Niels van Duin op #579, 25 november 2026, vraag 2: voor een keuzedeel heeft het LMS de planningsgroep met de verbintenis als geheel nodig, en dat komt zuiverder uit het studentkeuzesysteem; groepen die niet aan een keuze hangen gaan rechtstreeks van het roostersysteem naar het LMS (F4-13) |
 | stroomt | Onderwijseenheid aanbod verbintenis | Jochem op D1-K1, periode 7, ingeschreven | aanwijzing van de opdrachtgever, 24 november 2026: het roostersysteem meldt het studentkeuzesysteem met wie en in welke groep de student is ingeroosterd, en het studentkeuzesysteem geeft dat door aan het LMS |
 | stroomt | Leergelegenheid verbintenis | Jochem op Het medicatieoverzicht opstellen, periode 7 | aanwijzing van de opdrachtgever, 24 november 2026: het roostersysteem meldt het studentkeuzesysteem met wie en in welke groep de student is ingeroosterd, en het studentkeuzesysteem geeft dat door aan het LMS |
 | stroomt | Lesgroep | K0037-P7-A: 18 studenten uit drie plaatsingsgroepen | aanwijzing van de opdrachtgever, 24 november 2026: het roostersysteem meldt het studentkeuzesysteem met wie en in welke groep de student is ingeroosterd, en het studentkeuzesysteem geeft dat door aan het LMS |
 
-**F7-01 - Planner verzamelt afwijkingen in een plaatsingsgroep** (fase 7, Afwijkingen verzamelen in een planninggroep; [f7-01-planner-verzamelt-afwijkingen-in-een-plaatsingsgroep.svg](img/regels/f7-01-planner-verzamelt-afwijkingen-in-een-plaatsingsgroep.svg))
+**F7-01 - Planner verzamelt afwijkingen in een plaatsingsgroep** (fase 7, Afwijkingen verzamelen in een planningsgroep; [f7-01-planner-verzamelt-afwijkingen-in-een-plaatsingsgroep.svg](img/regels/f7-01-planner-verzamelt-afwijkingen-in-een-plaatsingsgroep.svg))
 
 | Soort | Objecttype | Instantie | Bron |
 |---|---|---|---|
@@ -1473,7 +1559,7 @@ Elke regel onder het ID en de titel van haar beeld (fase, stap, bestand) met de 
 
 | Soort | Objecttype | Instantie | Bron |
 |---|---|---|---|
-| stroomt | Leergelegenheid | Receptverwerking in de praktijk, periode 5: lokaaltype leerapotheek, docentexpertise farmacie met baliepraktijk, een groep van 18 | [leerroute-1-regulier.md](https://github.com/Npuls-OKx/Public/blob/dev/Referentiemateriaal/kaderscenario's/leerroute-1-regulier.md), [Fase 7](https://github.com/Npuls-OKx/Public/blob/dev/Referentiemateriaal/kaderscenario's/leerroute-1-regulier.md#fase-7--bijsturen-planning-en-aanbod): Planning naar Rooster (nieuw rooster); de vaste kenmerken naar analogie van F4-07, want roosteren heeft ze hier net zo nodig (review 29 september 2026) |
+| stroomt | Leergelegenheid | Receptverwerking in de praktijk, periode 5: lokaaltype leerapotheek, docentexpertise farmacie met baliepraktijk, een groep van 18 | [leerroute-1-regulier.md](https://github.com/Npuls-OKx/Public/blob/dev/Referentiemateriaal/kaderscenario's/leerroute-1-regulier.md), [Fase 7](https://github.com/Npuls-OKx/Public/blob/dev/Referentiemateriaal/kaderscenario's/leerroute-1-regulier.md#fase-7--bijsturen-planning-en-aanbod): Planning naar Rooster (nieuw rooster); de vaste kenmerken naar analogie van F4-08, want roosteren heeft ze hier net zo nodig (review 29 september 2026) |
 
 **F8-01 - Examinator maakt examengelegenheden uit de examenspecificatie** (fase 8, Examenspecificaties omzetten in examengelegenheden; [f8-01-examinator-maakt-examengelegenheden-uit-de-examenspecificatie.svg](img/regels/f8-01-examinator-maakt-examengelegenheden-uit-de-examenspecificatie.svg))
 
