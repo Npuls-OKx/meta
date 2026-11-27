@@ -5503,6 +5503,17 @@
       "fase": 4,
       "stap": "Plaatsings- en planninggroepen definieren en aan personen koppelen",
       "soort": "bestaat",
+      "objecttype": "Plaatsingsgroep",
+      "instantie": "APO26-1A: Jochem en 23 andere studenten geplaatst",
+      "herkomst": "F3-05",
+      "bron": "aanwijzing van de opdrachtgever, 26 november 2026"
+    },
+    {
+      "beeld_id": "F4-07",
+      "beeld": "Planner plant de lesgroepen fijnmazig over alle opleidingen",
+      "fase": 4,
+      "stap": "Plaatsings- en planninggroepen definieren en aan personen koppelen",
+      "soort": "bestaat",
       "objecttype": "Planningsgroep",
       "instantie": "Baliegesprekken 101-A: APO26-1A, 24 studenten, past in de simulatieruimte",
       "herkomst": "F2-08",
@@ -5525,10 +5536,10 @@
       "fase": 4,
       "stap": "Plaatsings- en planninggroepen definieren en aan personen koppelen",
       "soort": "bestaat",
-      "objecttype": "Leergelegenheid",
-      "instantie": "Medicatiebewaking in de leerapotheek, periode 1: twaalf werkplekken",
-      "herkomst": "F2-08",
-      "bron": "aanwijzing van de opdrachtgever, 26 november 2026"
+      "objecttype": "Leeronderdeel specificatie",
+      "instantie": "Baliegesprekken 101: BOT 50 uur, praktijkruimte, docent farmacie",
+      "herkomst": "F2-01",
+      "bron": "aanwijzing van de opdrachtgever, 27 november 2026: de specificatie vraagt om een lokaaltype, dat bij het roosteren een onderwijslocatie wordt"
     },
     {
       "beeld_id": "F4-07",
@@ -5547,10 +5558,21 @@
       "fase": 4,
       "stap": "Plaatsings- en planninggroepen definieren en aan personen koppelen",
       "soort": "bestaat",
-      "objecttype": "Plaatsingsgroep",
-      "instantie": "APO26-1A: Jochem en 23 andere studenten geplaatst",
-      "herkomst": "F3-05",
+      "objecttype": "Leergelegenheid",
+      "instantie": "Medicatiebewaking in de leerapotheek, periode 1: twaalf werkplekken",
+      "herkomst": "F2-08",
       "bron": "aanwijzing van de opdrachtgever, 26 november 2026"
+    },
+    {
+      "beeld_id": "F4-07",
+      "beeld": "Planner plant de lesgroepen fijnmazig over alle opleidingen",
+      "fase": 4,
+      "stap": "Plaatsings- en planninggroepen definieren en aan personen koppelen",
+      "soort": "bestaat",
+      "objecttype": "Leeronderdeel specificatie",
+      "instantie": "Medicatiebewaking in de leerapotheek: BOT 30 uur, praktijkruimte, docent farmacie",
+      "herkomst": "F2-01",
+      "bron": "aanwijzing van de opdrachtgever, 27 november 2026"
     },
     {
       "beeld_id": "F4-07",
@@ -5612,11 +5634,11 @@
       "bron": "aanwijzing van de opdrachtgever, 26 november 2026: fijnmazig plannen legt over alle opleidingen de lesgroepen vast op de capaciteit van het lokaaltype en het aantal docenten per expertise, met de aantallen uit de plaatsingsgroepen en nog zonder namen; roosteren maakt ze daarna concreet; leerroute-1-regulier.md, r726 (gedetailleerd planbaar); capaciteit uit leerroute-1-regulier.md, r723 en r736",
       "relatie": {
         "soort": "Association",
-        "van": "Leergelegenheid",
+        "van": "Leeronderdeel specificatie",
         "naar": "Onderwijslocatie type",
         "label": "vraagt om",
         "voorstel": true,
-        "instantie": "Baliegesprekken 101, periode 1: simulatieruimte, docenten farmacie"
+        "instantie": "Baliegesprekken 101: BOT 50 uur, praktijkruimte, docent farmacie"
       }
     },
     {
@@ -5654,11 +5676,11 @@
       "bron": "aanwijzing van de opdrachtgever, 26 november 2026: fijnmazig plannen legt over alle opleidingen de lesgroepen vast op de capaciteit van het lokaaltype en het aantal docenten per expertise, met de aantallen uit de plaatsingsgroepen en nog zonder namen; roosteren maakt ze daarna concreet; leerroute-1-regulier.md, r726 (gedetailleerd planbaar)",
       "relatie": {
         "soort": "Association",
-        "van": "Leergelegenheid",
+        "van": "Leeronderdeel specificatie",
         "naar": "Onderwijslocatie type",
         "label": "vraagt om",
         "voorstel": true,
-        "instantie": "Medicatiebewaking, periode 1: leerapotheek, docent farmacie"
+        "instantie": "Medicatiebewaking in de leerapotheek: BOT 30 uur, praktijkruimte, docent farmacie"
       }
     },
     {
@@ -6079,7 +6101,16 @@
       "instantie": "Baliegesprekken 101, periode 1: geroosterd in vier lesgroepen",
       "toestand": "geroosterd",
       "bron": "scenario-1.1-regulier-happyflow.md, r80: roosteraar roostert alleen periode 1",
-      "zin": "De roosteraar maakt het rooster concreet: de geplande lesgroep krijgt Jochem en de 23 andere studenten van APO26-1A, het lokaaltype wordt lokaal 2.14, de expertise wordt docent 4711, en het tijdvenster wordt maandag 1 september 09:00. Tijdens het roosteren ontstaan de verbintenissen op leergelegenheid en les: een voor Jochem, die hier voor alle 24 staat, en een voor de docent. Beide groeperen tot de lesgroep, en de lesgroep is geroosterd op de leergelegenheid. De SLB'er ziet daarna het programma van Jochem geroosterd."
+      "zin": "De roosteraar maakt het rooster concreet: de geplande lesgroep krijgt Jochem en de 23 andere studenten van APO26-1A, het lokaaltype wordt lokaal 2.14, de expertise wordt docent 4711, en het tijdvenster wordt maandag 1 september 09:00. Tijdens het roosteren ontstaan de verbintenissen op leergelegenheid en les: een voor Jochem, die hier voor alle 24 staat, en een voor de docent. Beide groeperen tot de lesgroep, en de lesgroep is geroosterd op de leergelegenheid. Of het programma van Jochem geroosterd is, volgt uit de verbintenissen eronder; de verbintenis op het programma krijgt daarvoor geen eigen stand. Dat is een ontwerpkeuze: zo hoeft de hele boom niet mee te veranderen, en loopt hij niet uit de pas.",
+      "relaties": [
+        {
+          "soort": "Association",
+          "van": "Leergelegenheid",
+          "naar": "Onderwijslocatie",
+          "label": "wordt gegeven op",
+          "instantie": "Lokaal 2.14, simulatieruimte, gebouw C, Campus Zuid (locatie A)"
+        }
+      ]
     },
     {
       "beeld_id": "F4-11",
@@ -6102,9 +6133,14 @@
         {
           "soort": "Association",
           "van": "Lesgelegenheid",
-          "naar": "Onderwijslocatie",
-          "label": "wordt gegeven op",
-          "instantie": "Lokaal 2.14, simulatieruimte, gebouw C, Campus Zuid (locatie A)"
+          "naar": "Lesgelegenheid verbintenis",
+          "instantie": "Jochem op les 1, 1 september 09:00"
+        },
+        {
+          "soort": "Association",
+          "van": "Lesgelegenheid",
+          "naar": "Lesgelegenheid verbintenis",
+          "instantie": "Docent 4711 op les 1, 1 september 09:00"
         }
       ]
     },
@@ -6120,40 +6156,18 @@
       "bron": "aanwijzing van de opdrachtgever, 26 november 2026: roosteren maakt de geplande lesgroep concreet: het lokaaltype wordt een lokaal, de expertise een docent, het aantal de studenten; tijdens het roosteren ontstaan de verbintenissen tussen personen en aanbod; de locatie volgt het voorstel in OEAPI #635 (campus, gebouw, lokaal)",
       "relatie": {
         "soort": "Association",
-        "van": "Onderwijslocatie type",
-        "naar": "Onderwijslocatie",
-        "instantie": "Simulatieruimte apotheekbalie, 24 plaatsen"
-      }
-    },
-    {
-      "beeld_id": "F4-11",
-      "beeld": "Roosteraar roostert de lesgroep met studenten, lokaal en docent",
-      "fase": 4,
-      "stap": "Leer-, les- en toetsgelegenheden roosteren",
-      "soort": "ontstaat",
-      "wie": "roosteraar",
-      "objecttype": "Lesgelegenheid verbintenis",
-      "instantie": "Jochem op les 1, 1 september 09:00",
-      "bron": "aanwijzing van de opdrachtgever, 26 november 2026: roosteren maakt de geplande lesgroep concreet: het lokaaltype wordt een lokaal, de expertise een docent, het aantal de studenten; tijdens het roosteren ontstaan de verbintenissen tussen personen en aanbod",
-      "relatie": {
-        "soort": "Association",
         "van": "Lesgelegenheid",
-        "naar": "Lesgelegenheid verbintenis",
-        "instantie": "Les 1, maandag 1 september 09:00, simulatieruimte 2.14"
-      }
-    },
-    {
-      "beeld_id": "F4-11",
-      "beeld": "Roosteraar roostert de lesgroep met studenten, lokaal en docent",
-      "fase": 4,
-      "stap": "Leer-, les- en toetsgelegenheden roosteren",
-      "soort": "verandert",
-      "wie": "SLB'er",
-      "objecttype": "Opleidingsprogramma aanbod verbintenis",
-      "instantie": "Jochem op Regulier BOL 2026",
-      "toestand": "geroosterd",
-      "bron": "scenario-1.1-regulier-happyflow.md, r95: enrolled op nominaal traject",
-      "aanname": true
+        "naar": "Onderwijslocatie",
+        "label": "wordt gegeven op"
+      },
+      "relaties": [
+        {
+          "soort": "Association",
+          "van": "Onderwijslocatie type",
+          "naar": "Onderwijslocatie",
+          "instantie": "Simulatieruimte apotheekbalie, 24 plaatsen"
+        }
+      ]
     },
     {
       "beeld_id": "F4-11",
@@ -6208,6 +6222,24 @@
       "beeld": "Roosteraar roostert de lesgroep met studenten, lokaal en docent",
       "fase": 4,
       "stap": "Leer-, les- en toetsgelegenheden roosteren",
+      "soort": "ontstaat",
+      "wie": "roosteraar",
+      "objecttype": "Lesgelegenheid verbintenis",
+      "instantie": "Jochem op les 1, 1 september 09:00",
+      "bron": "aanwijzing van de opdrachtgever, 26 november 2026: roosteren maakt de geplande lesgroep concreet: het lokaaltype wordt een lokaal, de expertise een docent, het aantal de studenten; tijdens het roosteren ontstaan de verbintenissen tussen personen en aanbod",
+      "relatie": {
+        "soort": "Aggregation",
+        "van": "Leergelegenheid verbintenis",
+        "naar": "Lesgelegenheid verbintenis",
+        "instantie": "Jochem op Baliegesprekken 101, periode 1"
+      },
+      "naast": true
+    },
+    {
+      "beeld_id": "F4-11",
+      "beeld": "Roosteraar roostert de lesgroep met studenten, lokaal en docent",
+      "fase": 4,
+      "stap": "Leer-, les- en toetsgelegenheden roosteren",
       "soort": "bestaat",
       "objecttype": "Student",
       "instantie": "Jochem, cohort 2026",
@@ -6216,9 +6248,9 @@
       "bron": "aanwijzing van de opdrachtgever, 26 november 2026: een aparte verbintenis op de leergelegenheid voor Jochem en voor de docent, elk via de lesgroep aan de leergelegenheid",
       "relatie": {
         "soort": "Association",
-        "van": "Student",
-        "naar": "Leergelegenheid verbintenis",
-        "label": "heeft",
+        "van": "Leergelegenheid verbintenis",
+        "naar": "Student",
+        "label": "wordt aangemaakt voor",
         "voorstel": true,
         "instantie": "Jochem op Baliegesprekken 101, periode 1"
       }
@@ -6248,6 +6280,25 @@
       "beeld": "Roosteraar roostert de lesgroep met studenten, lokaal en docent",
       "fase": 4,
       "stap": "Leer-, les- en toetsgelegenheden roosteren",
+      "soort": "ontstaat",
+      "wie": "roosteraar",
+      "objecttype": "Lesgelegenheid verbintenis",
+      "instantie": "Docent 4711 op les 1, 1 september 09:00",
+      "bron": "aanwijzing van de opdrachtgever, 27 november 2026: ook de docent krijgt een verbintenis op de les, onder zijn verbintenis op de leergelegenheid",
+      "relatie": {
+        "soort": "Aggregation",
+        "van": "Leergelegenheid verbintenis",
+        "naar": "Lesgelegenheid verbintenis",
+        "instantie": "Docent 4711 op Baliegesprekken 101, periode 1, als docent van lesgroep 101-A"
+      },
+      "naast": true,
+      "nieuwe_instantie": true
+    },
+    {
+      "beeld_id": "F4-11",
+      "beeld": "Roosteraar roostert de lesgroep met studenten, lokaal en docent",
+      "fase": 4,
+      "stap": "Leer-, les- en toetsgelegenheden roosteren",
       "soort": "bestaat",
       "objecttype": "Medewerker",
       "instantie": "Docent 4711, apothekersassistent-docent",
@@ -6256,9 +6307,9 @@
       "bron": "aanwijzing van de opdrachtgever, 26 november 2026: de roosteraar wijst een docent toe met de gevraagde expertise; de docent ontstaat hier niet, maar krijgt een eigen verbintenis op de leergelegenheid via de lesgroep",
       "relatie": {
         "soort": "Association",
-        "van": "Medewerker",
-        "naar": "Leergelegenheid verbintenis",
-        "label": "heeft",
+        "van": "Leergelegenheid verbintenis",
+        "naar": "Medewerker",
+        "label": "wordt aangemaakt voor",
         "voorstel": true,
         "instantie": "Docent 4711 op Baliegesprekken 101, periode 1, als docent van lesgroep 101-A"
       }
