@@ -104,6 +104,8 @@ Hoort bij [de opleiding van Jochem in het informatiemodel](leerroute-uitwerking-
 | 4 | F4-07 | Lesgroep | | | | |
 | 4 | F4-07 | Lesgroep | | | | |
 | 4 | F4-07 | Lesgroep | | | | |
+| 4 | F4-07 | Lesgroep | | | | |
+| 4 | F4-07 | Lesgroep | | | | |
 | 4 | F4-09 | Lesgroep | | | | |
 | 4 | F4-09 | Lesgelegenheid | | | | |
 | 4 | F4-11 | Leergelegenheid | | | | |
